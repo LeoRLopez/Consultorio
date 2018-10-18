@@ -234,9 +234,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClinicaEntidades.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Departamento.cs">
       <DependentUpon>ClinicaEntidades.tt</DependentUpon>
     </Compile>

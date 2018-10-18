@@ -18,6 +18,7 @@ namespace Consultorio.Modelo
         public FormaDePago()
         {
             this.Factura = new HashSet<Factura>();
+            this.Paciente = new HashSet<Paciente>();
             this.Turno = new HashSet<Turno>();
         }
     
@@ -26,6 +27,8 @@ namespace Consultorio.Modelo
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Factura { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Paciente> Paciente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Turno> Turno { get; set; }
     }

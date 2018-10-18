@@ -1,4 +1,6 @@
 ﻿using Consultorio.Modelo;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,45 +31,45 @@ namespace Consultorio
             }
         }
 
+        private static int CalculateAge(DateTime dateOfBirth)
+        {
+            int age = 0;
+            age = DateTime.Now.Year - dateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                age = age - 1;
+
+            return age;
+        }
+
         private void btnGuardaar_Click(object sender, EventArgs e)
         {
-            ErrPersonal.Clear();
+            errorProvider.Clear();
 
             if (!ValidarCamposObligatoriosPersonalInterno())
                 return;
 
-            //Validar formato del Email, si es que se ingreso algun valor
-            if (!string.IsNullOrEmpty(txtBoxEmail.Text))
-            {
-                try
-                {
-                    MailAddress email = new MailAddress(txtBoxEmail.Text);
-                }
-                catch (FormatException)
-                {
-                    ErrPersonal.SetError(txtBoxEmail, "Email inválido.");
-                    return;
-                }
-            }
+            int? idCiudadSeleccionada = dropDownCiudad.SelectedValue == null ? null : (int?)dropDownCiudad.SelectedValue;
+            int? idDepartamentoSeleccionado = dropDownDepartamento.SelectedValue == null ? null : (int?)dropDownDepartamento.SelectedValue;
+            int? idProvinciaSeleccionada = dropDownProvincia.SelectedValue == null ? null : (int?)dropDownProvincia.SelectedValue;
+            int? idPaisSeleccionado = dropDownPais.SelectedValue == null ? null : (int?)dropDownPais.SelectedValue;
 
             var personalInterno = new PersonalInterno
             {
                 Activo = true,
                 Apellido = txtBoxApellido.Text,
                 Nombre = txtBoxNombre.Text,
-                FechaNacimiento = dateTimePickerNacimiento.Value
+                FechaNacimiento = dateTimePickerNacimiento.Value,
+                NumeroDocumento = Int64.Parse(txtBoxDocumento.Text),
+                Email = txtBoxEmail.Text,
+                Direccion = txtBoxDireccion.Text,
+                TelCel = txtBoxTelefono.Text,
+                Sexo = radioButtonMasculino.IsChecked ? "Masculino" : "Femenino",
+                EstadoCivil = txtBoxEstadoCivil.Text,
+                Edad = CalculateAge(dateTimePickerNacimiento.Value),
+                IdCiudad = idCiudadSeleccionada != -1 ? idCiudadSeleccionada : null,
+                IdProvincia = idProvinciaSeleccionada != -1 ? idProvinciaSeleccionada : null,
+                IdPais = idPaisSeleccionado != -1 ? idPaisSeleccionado : null
             };
-
-            int documento;
-            bool res = Int32.TryParse(txtBoxDocumento.Text, out documento);
-            if (res)
-            {
-                personalInterno.NumeroDocumento = documento;
-            }
-            else
-            {
-                ErrPersonal.SetError(txtBoxDocumento, "Debe ingresar solo Números");
-            }
 
             if (!ValidarCamposObligatoriosUsuarioDelSistema())
                 return;
@@ -114,10 +116,38 @@ namespace Consultorio
             {
                 using (var entidades = new ClinicaEntities())
                 {
-                    entidades.PersonalInterno.Add(personalInterno);
-                    entidades.SaveChanges();
-                    MessageBox.Show("Personal Agregado con Exito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    // Insertar un nuevo Usuario en la tabla AspNetUsers
+                    var userStore = new UserStore<IdentityUser>(new IdentityDbContext("IdentityDBConnection"));
+                    var manager = new UserManager<IdentityUser>(userStore);
+                    var user = new IdentityUser() { UserName = personalInterno.Email, Email = personalInterno.Email, EmailConfirmed = true };
+                    IdentityResult result = manager.Create(user, txtBoxDocumento.Text);
+                    if (result.Succeeded)
+                    {
+                        // Asignar el usuario al Rol correspondiente
+                        var currentUser = manager.FindByName(user.UserName);
+                        if (this.__esMedico)
+                        {
+                            manager.AddToRole(currentUser.Id, "Medico");
+                        }
+                        else if (usuario.EsAdministrador)
+                        {
+                            manager.AddToRole(currentUser.Id, "Admin");
+                        }
+                        else
+                        {
+                            manager.AddToRole(currentUser.Id, "Usuario");
+                        }
+
+                        entidades.PersonalInterno.Add(personalInterno);
+                        entidades.SaveChanges();
+
+                        MessageBox.Show("Personal Agregado con Exito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hubo un error Agregado el Personal: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)
@@ -129,25 +159,40 @@ namespace Consultorio
         private bool ValidarCamposObligatoriosPersonalInterno()
         {
             if (string.IsNullOrEmpty(txtBoxNombre.Text) || string.IsNullOrEmpty(txtBoxApellido.Text) || string.IsNullOrEmpty(txtBoxDocumento.Text)
-                || string.IsNullOrEmpty(txtBoxDireccion.Text) || string.IsNullOrEmpty(txtBoxTelefono.Text))
+                || string.IsNullOrEmpty(txtBoxEmail.Text))
             {
                 if (string.IsNullOrEmpty(txtBoxNombre.Text))
-                    ErrPersonal.SetError(txtBoxNombre, "Requerido");
+                    errorProvider.SetError(txtBoxNombre, "Requerido");
 
                 if (string.IsNullOrEmpty(txtBoxApellido.Text))
-                    ErrPersonal.SetError(txtBoxApellido, "Requerido");
+                    errorProvider.SetError(txtBoxApellido, "Requerido");
 
                 if (string.IsNullOrEmpty(txtBoxDocumento.Text))
-                    ErrPersonal.SetError(txtBoxDocumento, "Requerido");
+                    errorProvider.SetError(txtBoxDocumento, "Requerido");
 
-                if (string.IsNullOrEmpty(txtBoxDireccion.Text))
-                    ErrPersonal.SetError(txtBoxDireccion, "Requerido");
-
-                if (string.IsNullOrEmpty(txtBoxTelefono.Text))
-                    ErrPersonal.SetError(txtBoxTelefono, "Requerido");
+                if (string.IsNullOrEmpty(txtBoxEmail.Text))
+                    errorProvider.SetError(txtBoxEmail, "Requerido");
 
                 return false;
             }
+
+            //Validar formato del Email
+            try
+            {
+                MailAddress email = new MailAddress(txtBoxEmail.Text);
+            }
+            catch (FormatException)
+            {
+                errorProvider.SetError(txtBoxEmail, "Email inválido.");
+                return false;
+            }
+
+            if (!Int64.TryParse(txtBoxDocumento.Text, out long documento))
+            {
+                errorProvider.SetError(txtBoxDocumento, "Debe ingresar solo Números");
+                return false;
+            }
+
             return true;
         }
 
@@ -156,13 +201,20 @@ namespace Consultorio
             if (string.IsNullOrEmpty(txtBoxUsuario.Text) || string.IsNullOrEmpty(txtBoxContraseña.Text))
             {
                 if (string.IsNullOrEmpty(txtBoxUsuario.Text))
-                    ErrPersonal.SetError(txtBoxUsuario, "Requerido");
+                    errorProvider.SetError(txtBoxUsuario, "Requerido");
 
                 if (string.IsNullOrEmpty(txtBoxContraseña.Text))
-                    ErrPersonal.SetError(txtBoxContraseña, "Requerido");
+                    errorProvider.SetError(txtBoxContraseña, "Requerido");
 
                 return false;
             }
+
+            if (txtBoxContraseña.Text.Length < 6)
+            {
+                errorProvider.SetError(txtBoxContraseña, "Debe poseer al menos 6 caracteres");
+                return false;
+            }
+
             return true;
         }
 
@@ -171,10 +223,10 @@ namespace Consultorio
             if (string.IsNullOrEmpty(txtBoxMatricula.Text) || listViewEspecialidades.CheckedItems.Count == 0)
             {
                 if (string.IsNullOrEmpty(txtBoxMatricula.Text))
-                    ErrPersonal.SetError(txtBoxMatricula, "Requerido");
+                    errorProvider.SetError(txtBoxMatricula, "Requerido");
 
                 if (listViewEspecialidades.CheckedItems.Count == 0)
-                    ErrPersonal.SetError(listViewEspecialidades, "Al menos 1 Especialidad es Requerida");
+                    errorProvider.SetError(listViewEspecialidades, "Al menos 1 Especialidad es Requerida");
 
                 return false;
             }
@@ -343,10 +395,20 @@ namespace Consultorio
 
         private void txtBoxDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtBoxEmail_TextChanged(object sender, EventArgs e)
+        {
+            txtBoxUsuario.Text = txtBoxEmail.Text;
+        }
+
+        private void txtBoxDocumento_TextChanged(object sender, EventArgs e)
+        {
+            txtBoxContraseña.Text = txtBoxDocumento.Text;
         }
     }
 }

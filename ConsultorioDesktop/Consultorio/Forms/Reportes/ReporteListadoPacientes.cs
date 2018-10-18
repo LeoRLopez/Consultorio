@@ -55,7 +55,7 @@ namespace Consultorio.Reportes
                 // y seleccionar los pacientes asociados a los mismos.
                 if ((int)dropDownMedicos.SelectedValue != -1)
                 {
-                    foreach (var turno in entidades.Turno.Where(x => x.IdMedico == (int)dropDownMedicos.SelectedValue))
+                    foreach (var turno in entidades.Turno.Where(x => x.IdMedico == (int)dropDownMedicos.SelectedValue).ToList())
                     {
                         pacientes.Add(turno.Paciente);
                     }

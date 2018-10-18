@@ -1,10 +1,13 @@
 ﻿using Consultorio.Modelo;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,111 +26,109 @@ namespace Consultorio
         //Si se vuelve a apretar cancelar, la ventana se cerraria;
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Los registros sin guardar se perderán. ¿Salir?", "TurnARG", 
+            if (MessageBox.Show("Los registros sin guardar se perderán. ¿Salir?", "TurnARG",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 this.Close();
             }
         }
-       
+
+        private static int CalculateAge(DateTime dateOfBirth)
+        {
+            int age = 0;
+            age = DateTime.Now.Year - dateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                age = age - 1;
+
+            return age;
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            errProvider.Clear();
+            errorProvider.Clear();
 
-            if (!validarDatosNuevoPaciente())
+            if (!ValidarCamposObligatoriosPaciente())
                 return;
 
             var nuevoPaciente = new Paciente
             {
                 Nombres = txtBoxNombre.Text.ToUpper(),
                 Apellidos = txtBoxApellido.Text.ToUpper(),
+                Email = txtBoxEmail.Text,
+                NumeroDocumento = Int64.Parse(txtBoxDocumento.Text),
                 FechaNacimiento = dateTimePickerNacimiento.Value,
+                Edad = CalculateAge(dateTimePickerNacimiento.Value),
+                Sexo = radioBtnMasculino.IsChecked ? "Masculino" : "Femenino",
                 PrimeraAtencion = true,
                 TelCelular = txtBoxTelefono.Text.Trim(),
+                Direccion = txtBoxDireccion.Text,
+                CodigoPostal = txtBoxCodigoPostal.Text,
+                IdCiudad = (int)dropDownCiudad.SelectedValue,
+                IdProvincia = (int)dropDownProvincia.SelectedValue,
+                IdPais = (int)dropDownPais.SelectedValue
             };
 
-            int documento;
-            bool res = Int32.TryParse(txtBoxDocumento.Text, out documento);
-            if (res)
-            {
-                nuevoPaciente.NumeroDocumento = documento;
-            }
-            else
-            {
-                errProvider.SetError(txtBoxDocumento, "Debe ingresar solo Números");
-            }
+            if (!ValidarCamposObligatoriosHistoriaClinica())
+                return;
 
-            DateTime today = DateTime.Today;
-            int age = today.Year - dateTimePickerNacimiento.Value.Year;
-            if (dateTimePickerNacimiento.Value > today.AddYears(-age)) age--;
-
-            if (radioBtnFemenino.IsChecked)
+            nuevoPaciente.HistoriaClinica = new HistoriaClinica
             {
-                nuevoPaciente.Sexo = radioBtnFemenino.Text;
-            }
-            else
-            {
-                nuevoPaciente.Sexo = radioBtnMasculino.Text;
-            }
-
-            var nuevaHistoriaClinica = new HistoriaClinica
-            {
+                FechaInicio = DateTime.Now,
+                UltimaActualizacion = DateTime.Now,
                 AntecedentesMedicos = txtBoxAntecedentesMedicos.Text.Trim(),
-                FechaInicio = DateTime.Today,
-                UltimaActualizacion = DateTime.Today,
+                Donante = checkBoxDonante.Checked,
+                Transplantado = checkBoxTrasplantado.Checked,
+                GrupoSanguineo = dropDownGrupoSanguineo.Text
             };
-
-            if(dropDownGrupoSanguineo.SelectedValue != null)
-            {
-                nuevaHistoriaClinica.GrupoSanguineo = dropDownGrupoSanguineo.Text;
-            }
-
-            if (checkBoxDonante.Checked)
-            {
-                nuevaHistoriaClinica.Donante = true;
-            }else
-            {
-                nuevaHistoriaClinica.Donante = false;
-            }
-
-            if (checkBoxTrasplantado.Checked)
-            {
-                nuevaHistoriaClinica.Transplantado = true;
-            }
-            else
-            {
-                nuevaHistoriaClinica.Transplantado = false;
-            }
-
-            nuevoPaciente.HistoriaClinica = nuevaHistoriaClinica;
-
-            Pais pais = new Pais { Nombre = dropDownPais.SelectedItem.Text };
-            Provincia provincia = new Provincia { Nombre = dropDownProvincia.SelectedItem.Text };
-            Departamento departamento = new Departamento { Nombre = dropDownDepartamento.SelectedItem.Text };
-            Ciudad ciudad = new Ciudad { Nombre = dropDownCiudad.SelectedItem.Text };
-
-            nuevoPaciente.Direccion = txtBoxDireccion.Text.Trim();
-            nuevoPaciente.Pais = pais;
-            nuevoPaciente.Provincia = provincia;
-            nuevoPaciente.Ciudad = ciudad;
-            nuevoPaciente.CodigoPostal = txtBoxCodigoPostal.Text;
-
-
 
             try
             {
                 using (var entidades = new ClinicaEntities())
                 {
-                    entidades.Paciente.Add(nuevoPaciente);
-                    entidades.SaveChanges();
-                    MessageBox.Show("Paciente Agregado con Exito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    // Insertar un nuevo Usuario en la tabla AspNetUsers
+                    var userStore = new UserStore<IdentityUser>(new IdentityDbContext("IdentityDBConnection"));
+                    var manager = new UserManager<IdentityUser>(userStore);
+                    var user = new IdentityUser() { UserName = nuevoPaciente.Email, Email = nuevoPaciente.Email, EmailConfirmed = true };
+                    IdentityResult result = manager.Create(user, txtBoxDocumento.Text);
+                    if (result.Succeeded)
+                    {
+                        // Asignar el usuario al Rol Paciente
+                        var currentUser = manager.FindByName(user.UserName);
+                        manager.AddToRole(currentUser.Id, "Paciente");
+
+                        entidades.Paciente.Add(nuevoPaciente);
+                        entidades.SaveChanges();
+
+                        MessageBox.Show("Paciente Agregado con Exito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hubo un error Agregado el Paciente: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool ValidarCamposObligatoriosHistoriaClinica()
+        {
+
+            if (string.IsNullOrEmpty(txtBoxAntecedentesMedicos.Text) || string.IsNullOrEmpty(dropDownGrupoSanguineo.SelectedItem.Text))
+            {
+                if (string.IsNullOrEmpty(txtBoxAntecedentesMedicos.Text))
+                    errorProvider.SetError(txtBoxAntecedentesMedicos, "Requerido");
+
+                if (string.IsNullOrEmpty(dropDownGrupoSanguineo.SelectedItem.Text))
+                    errorProvider.SetError(dropDownGrupoSanguineo, "Requerido");
+
+                return false;
+            }
+
+            return true;
         }
 
         private void dropDownPais_SelectedValueChanged(object sender, EventArgs e)
@@ -235,43 +236,79 @@ namespace Consultorio
             }
         }
 
-        private bool validarDatosNuevoPaciente()
+        private bool ValidarCamposObligatoriosPaciente()
         {
+            var idPaisSeleccionado = dropDownPais.SelectedValue != null ? (int)dropDownPais.SelectedValue : -1;
+            var idProvinciaSeleccionado = dropDownProvincia.SelectedValue != null ? (int)dropDownProvincia.SelectedValue : -1;
+            var idDepartamentoSeleccionado = dropDownDepartamento.SelectedValue != null ? (int)dropDownDepartamento.SelectedValue : -1;
+            var idCiudadSeleccionada = dropDownCiudad.SelectedValue != null ? (int)dropDownCiudad.SelectedValue : -1;
+
             if (string.IsNullOrEmpty(txtBoxNombre.Text) || string.IsNullOrEmpty(txtBoxApellido.Text)
-                || string.IsNullOrEmpty(dropDownProvincia.Text) || string.IsNullOrEmpty(dropDownProvincia.Text)
-                || string.IsNullOrEmpty(dropDownDepartamento.Text) || string.IsNullOrEmpty(dropDownProvincia.Text)
-                || string.IsNullOrEmpty(txtBoxDocumento.Text) || string.IsNullOrEmpty(txtBoxTelefono.Text))
+                || string.IsNullOrEmpty(txtBoxDocumento.Text) || string.IsNullOrEmpty(txtBoxEmail.Text)
+                || string.IsNullOrEmpty(txtBoxDireccion.Text) || string.IsNullOrEmpty(txtBoxCodigoPostal.Text)
+                || idPaisSeleccionado == -1 || idProvinciaSeleccionado == -1 || idDepartamentoSeleccionado == -1 || idCiudadSeleccionada == -1)
             {
                 if (string.IsNullOrEmpty(txtBoxNombre.Text))
-                    errProvider.SetError(txtBoxNombre, "Requerido");
+                    errorProvider.SetError(txtBoxNombre, "Requerido");
 
                 if (string.IsNullOrEmpty(txtBoxApellido.Text))
-                    errProvider.SetError(txtBoxApellido, "Requerido");
-
-                if (string.IsNullOrEmpty(dropDownProvincia.Text))
-                    errProvider.SetError(dropDownProvincia, "Requerido");
-
-                if (string.IsNullOrEmpty(dropDownDepartamento.Text))
-                    errProvider.SetError(dropDownDepartamento, "Requerido");
-
-                if (string.IsNullOrEmpty(dropDownProvincia.Text))
-                    errProvider.SetError(dropDownProvincia, "Requerido");
+                    errorProvider.SetError(txtBoxApellido, "Requerido");
 
                 if (string.IsNullOrEmpty(txtBoxDocumento.Text))
-                    errProvider.SetError(txtBoxDocumento, "Requerido");
+                    errorProvider.SetError(txtBoxDocumento, "Requerido");
 
-                if (string.IsNullOrEmpty(txtBoxTelefono.Text))
-                    errProvider.SetError(txtBoxTelefono, "Requerido");
+                if (string.IsNullOrEmpty(txtBoxEmail.Text))
+                    errorProvider.SetError(txtBoxEmail, "Requerido");
+
+                if (string.IsNullOrEmpty(txtBoxDireccion.Text))
+                    errorProvider.SetError(txtBoxDireccion, "Requerido");
+
+                if (string.IsNullOrEmpty(txtBoxCodigoPostal.Text))
+                    errorProvider.SetError(txtBoxCodigoPostal, "Requerido");
+
+                if (idPaisSeleccionado == -1)
+                    errorProvider.SetError(dropDownPais, "Debe seleccionar un Pais");
+
+                if (idProvinciaSeleccionado == -1)
+                    errorProvider.SetError(dropDownProvincia, "Debe seleccionar una Provincia");
+
+                if (idDepartamentoSeleccionado == -1)
+                    errorProvider.SetError(dropDownDepartamento, "Debe seleccionar un Departamento");
+
+                if (idCiudadSeleccionada == -1)
+                    errorProvider.SetError(dropDownCiudad, "Debe seleccionar una Ciudad");
 
                 return false;
             }
-            return true;
+            //Validar formato del Email
+            try
+            {
+                MailAddress email = new MailAddress(txtBoxEmail.Text);
+            }
+            catch (FormatException)
+            {
+                errorProvider.SetError(txtBoxEmail, "Email inválido.");
+                return false;
+            }
 
+            if (!Int64.TryParse(txtBoxDocumento.Text, out long documento))
+            {
+                errorProvider.SetError(txtBoxDocumento, "Debe ingresar solo Números");
+                return false;
+            }
+
+            if (txtBoxDocumento.Text.Length < 6)
+            {
+                errorProvider.SetError(txtBoxDocumento, "Debe poseer al menos 6 digitos");
+                return false;
+            }
+
+            return true;
         }
 
         private void txtBoxDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

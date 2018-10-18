@@ -64,7 +64,7 @@ namespace Consultorio.Reportes
                 // Si selecciona un medico tenemos que ir a buscar todos los turnos de ese medico
                 if ((int)dropDownMedicos.SelectedValue != -1)
                 {
-                    foreach (var turno in entidades.Turno.Where(x => x.IdMedico == (int)dropDownMedicos.SelectedValue))
+                    foreach (var turno in entidades.Turno.Where(x => x.IdMedico == (int)dropDownMedicos.SelectedValue).ToList())
                     {
                         turnos.Add(turno);
                     }

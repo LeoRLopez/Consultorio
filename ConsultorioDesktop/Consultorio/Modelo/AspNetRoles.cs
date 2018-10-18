@@ -7,29 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConsultorioWeb.Models
+namespace Consultorio.Modelo
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class FormaDePago
+    public partial class AspNetRoles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FormaDePago()
+        public AspNetRoles()
         {
-            this.Factura = new HashSet<Factura>();
-            this.Paciente = new HashSet<Paciente>();
-            this.Turno = new HashSet<Turno>();
+            this.AspNetUsers = new HashSet<AspNetUsers>();
         }
     
-        public int IdFormaDePago { get; set; }
-        public string Nombre { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura> Factura { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Paciente> Paciente { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Turno> Turno { get; set; }
+        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
     }
 }

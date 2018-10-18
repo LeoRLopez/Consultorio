@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\leoro\Desktop\Consultorio 11-10-18\Consultorio\Consultorio\Modelo\ClinicaModelo.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\leoro\Desktop\consultorio\ConsultorioDesktop\Consultorio\Modelo\ClinicaModelo.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

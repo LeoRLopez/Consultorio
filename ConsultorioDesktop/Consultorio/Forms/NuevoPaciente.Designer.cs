@@ -51,7 +51,7 @@
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.lblNombre = new Telerik.WinControls.UI.RadLabel();
-            this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblDocumento = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxDocumento = new Telerik.WinControls.UI.RadTextBox();
             this.lblDepartamento = new System.Windows.Forms.Label();
@@ -69,6 +69,8 @@
             this.lblGrupoSanguineo = new Telerik.WinControls.UI.RadLabel();
             this.lblCodigoPostal = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxCodigoPostal = new Telerik.WinControls.UI.RadTextBox();
+            this.txtBoxEmail = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.lblEmail = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxTelefono)).BeginInit();
@@ -85,7 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblNombre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDocumento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxDocumento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownPais)).BeginInit();
@@ -102,33 +104,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblGrupoSanguineo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblCodigoPostal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxCodigoPostal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBoxEmail)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.btnCancelar.Location = new System.Drawing.Point(95, 315);
+            this.btnCancelar.Location = new System.Drawing.Point(295, 297);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(70, 21);
-            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Size = new System.Drawing.Size(164, 40);
+            this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.ThemeName = "MedicalAppTheme";
             // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.btnGuardar.Location = new System.Drawing.Point(15, 315);
+            this.btnGuardar.Location = new System.Drawing.Point(81, 300);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(70, 21);
-            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.Size = new System.Drawing.Size(164, 37);
+            this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.ThemeName = "MedicalAppTheme";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtBoxTelefono
             // 
-            this.txtBoxTelefono.Location = new System.Drawing.Point(15, 164);
+            this.txtBoxTelefono.Location = new System.Drawing.Point(15, 165);
             this.txtBoxTelefono.Mask = "(999) 000-0000";
             this.txtBoxTelefono.Name = "txtBoxTelefono";
             this.txtBoxTelefono.Size = new System.Drawing.Size(156, 20);
@@ -141,10 +144,10 @@
             // 
             this.dateTimePickerNacimiento.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(15, 262);
+            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(15, 263);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
             this.dateTimePickerNacimiento.Size = new System.Drawing.Size(156, 20);
-            this.dateTimePickerNacimiento.TabIndex = 6;
+            this.dateTimePickerNacimiento.TabIndex = 7;
             this.dateTimePickerNacimiento.TabStop = false;
             this.dateTimePickerNacimiento.ThemeName = "MedicalAppTheme";
             this.dateTimePickerNacimiento.Value = new System.DateTime(((long)(0)));
@@ -152,10 +155,10 @@
             // radioBtnFemenino
             // 
             this.radioBtnFemenino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnFemenino.Location = new System.Drawing.Point(95, 214);
+            this.radioBtnFemenino.Location = new System.Drawing.Point(95, 216);
             this.radioBtnFemenino.Name = "radioBtnFemenino";
             this.radioBtnFemenino.Size = new System.Drawing.Size(76, 17);
-            this.radioBtnFemenino.TabIndex = 5;
+            this.radioBtnFemenino.TabIndex = 6;
             this.radioBtnFemenino.Text = "Femenino";
             this.radioBtnFemenino.ThemeName = "MedicalAppTheme";
             // 
@@ -163,7 +166,7 @@
             // 
             this.radioBtnMasculino.CheckState = System.Windows.Forms.CheckState.Checked;
             this.radioBtnMasculino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBtnMasculino.Location = new System.Drawing.Point(15, 214);
+            this.radioBtnMasculino.Location = new System.Drawing.Point(15, 216);
             this.radioBtnMasculino.Name = "radioBtnMasculino";
             this.radioBtnMasculino.Size = new System.Drawing.Size(76, 17);
             this.radioBtnMasculino.TabIndex = 5;
@@ -210,7 +213,7 @@
             // radLabel7
             // 
             this.radLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel7.Location = new System.Drawing.Point(199, 96);
+            this.radLabel7.Location = new System.Drawing.Point(199, 143);
             this.radLabel7.Name = "radLabel7";
             this.radLabel7.Size = new System.Drawing.Size(57, 17);
             this.radLabel7.TabIndex = 0;
@@ -220,7 +223,7 @@
             // labelCiudad
             // 
             this.labelCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCiudad.Location = new System.Drawing.Point(199, 190);
+            this.labelCiudad.Location = new System.Drawing.Point(199, 241);
             this.labelCiudad.Name = "labelCiudad";
             this.labelCiudad.Size = new System.Drawing.Size(46, 17);
             this.labelCiudad.TabIndex = 0;
@@ -230,7 +233,7 @@
             // radLabel4
             // 
             this.radLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel4.Location = new System.Drawing.Point(15, 239);
+            this.radLabel4.Location = new System.Drawing.Point(15, 241);
             this.radLabel4.Name = "radLabel4";
             this.radLabel4.Size = new System.Drawing.Size(68, 17);
             this.radLabel4.TabIndex = 0;
@@ -250,7 +253,7 @@
             // radLabel2
             // 
             this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(199, 49);
+            this.radLabel2.Location = new System.Drawing.Point(199, 96);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(31, 17);
             this.radLabel2.TabIndex = 0;
@@ -267,9 +270,9 @@
             this.lblNombre.Text = "Nombre";
             this.lblNombre.ThemeName = "MedicalAppTheme";
             // 
-            // errProvider
+            // errorProvider
             // 
-            this.errProvider.ContainerControl = this;
+            this.errorProvider.ContainerControl = this;
             // 
             // lblDocumento
             // 
@@ -293,7 +296,7 @@
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(199, 143);
+            this.lblDepartamento.Location = new System.Drawing.Point(199, 191);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(86, 15);
             this.lblDepartamento.TabIndex = 15;
@@ -302,10 +305,10 @@
             // dropDownPais
             // 
             this.dropDownPais.Enabled = false;
-            this.dropDownPais.Location = new System.Drawing.Point(199, 70);
+            this.dropDownPais.Location = new System.Drawing.Point(199, 117);
             this.dropDownPais.Name = "dropDownPais";
             this.dropDownPais.Size = new System.Drawing.Size(156, 20);
-            this.dropDownPais.TabIndex = 17;
+            this.dropDownPais.TabIndex = 10;
             this.dropDownPais.SelectedValueChanged += new System.EventHandler(this.dropDownPais_SelectedValueChanged);
             // 
             // txtBoxDireccion
@@ -313,30 +316,30 @@
             this.txtBoxDireccion.Location = new System.Drawing.Point(199, 23);
             this.txtBoxDireccion.Name = "txtBoxDireccion";
             this.txtBoxDireccion.Size = new System.Drawing.Size(156, 20);
-            this.txtBoxDireccion.TabIndex = 18;
+            this.txtBoxDireccion.TabIndex = 8;
             // 
             // dropDownProvincia
             // 
-            this.dropDownProvincia.Location = new System.Drawing.Point(199, 117);
+            this.dropDownProvincia.Location = new System.Drawing.Point(199, 165);
             this.dropDownProvincia.Name = "dropDownProvincia";
             this.dropDownProvincia.Size = new System.Drawing.Size(156, 20);
-            this.dropDownProvincia.TabIndex = 19;
+            this.dropDownProvincia.TabIndex = 11;
             this.dropDownProvincia.SelectedValueChanged += new System.EventHandler(this.dropDownProvincia_SelectedValueChanged);
             // 
             // dropDownDepartamento
             // 
-            this.dropDownDepartamento.Location = new System.Drawing.Point(199, 164);
+            this.dropDownDepartamento.Location = new System.Drawing.Point(199, 214);
             this.dropDownDepartamento.Name = "dropDownDepartamento";
             this.dropDownDepartamento.Size = new System.Drawing.Size(156, 20);
-            this.dropDownDepartamento.TabIndex = 20;
+            this.dropDownDepartamento.TabIndex = 12;
             this.dropDownDepartamento.SelectedValueChanged += new System.EventHandler(this.dropDownDepartamento_SelectedValueChanged);
             // 
             // dropDownCiudad
             // 
-            this.dropDownCiudad.Location = new System.Drawing.Point(199, 213);
+            this.dropDownCiudad.Location = new System.Drawing.Point(199, 263);
             this.dropDownCiudad.Name = "dropDownCiudad";
             this.dropDownCiudad.Size = new System.Drawing.Size(156, 20);
-            this.dropDownCiudad.TabIndex = 21;
+            this.dropDownCiudad.TabIndex = 13;
             this.dropDownCiudad.SelectedValueChanged += new System.EventHandler(this.dropDownCiudad_SelectedValueChanged);
             // 
             // lblSexo
@@ -365,26 +368,27 @@
             this.txtBoxAntecedentesMedicos.Multiline = true;
             this.txtBoxAntecedentesMedicos.Name = "txtBoxAntecedentesMedicos";
             this.txtBoxAntecedentesMedicos.Size = new System.Drawing.Size(180, 112);
-            this.txtBoxAntecedentesMedicos.TabIndex = 23;
+            this.txtBoxAntecedentesMedicos.TabIndex = 14;
             // 
             // checkBoxTrasplantado
             // 
-            this.checkBoxTrasplantado.Location = new System.Drawing.Point(383, 261);
+            this.checkBoxTrasplantado.Location = new System.Drawing.Point(383, 215);
             this.checkBoxTrasplantado.Name = "checkBoxTrasplantado";
             this.checkBoxTrasplantado.Size = new System.Drawing.Size(85, 18);
-            this.checkBoxTrasplantado.TabIndex = 24;
+            this.checkBoxTrasplantado.TabIndex = 17;
             this.checkBoxTrasplantado.Text = "Trasplantado";
             // 
             // checkBoxDonante
             // 
-            this.checkBoxDonante.Location = new System.Drawing.Point(383, 235);
+            this.checkBoxDonante.Location = new System.Drawing.Point(383, 191);
             this.checkBoxDonante.Name = "checkBoxDonante";
             this.checkBoxDonante.Size = new System.Drawing.Size(63, 18);
-            this.checkBoxDonante.TabIndex = 25;
+            this.checkBoxDonante.TabIndex = 16;
             this.checkBoxDonante.Text = "Donante";
             // 
             // dropDownGrupoSanguineo
             // 
+            this.dropDownGrupoSanguineo.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
             radListDataItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             radListDataItem1.Text = "A +";
             radListDataItem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -403,15 +407,16 @@
             this.dropDownGrupoSanguineo.Items.Add(radListDataItem4);
             this.dropDownGrupoSanguineo.Items.Add(radListDataItem5);
             this.dropDownGrupoSanguineo.Items.Add(radListDataItem6);
-            this.dropDownGrupoSanguineo.Location = new System.Drawing.Point(383, 189);
+            this.dropDownGrupoSanguineo.Location = new System.Drawing.Point(383, 165);
             this.dropDownGrupoSanguineo.Name = "dropDownGrupoSanguineo";
             this.dropDownGrupoSanguineo.Size = new System.Drawing.Size(94, 20);
-            this.dropDownGrupoSanguineo.TabIndex = 26;
+            this.dropDownGrupoSanguineo.TabIndex = 15;
+            this.dropDownGrupoSanguineo.Text = "-";
             this.dropDownGrupoSanguineo.ThemeName = "ControlDefault";
             // 
             // lblGrupoSanguineo
             // 
-            this.lblGrupoSanguineo.Location = new System.Drawing.Point(383, 165);
+            this.lblGrupoSanguineo.Location = new System.Drawing.Point(383, 143);
             this.lblGrupoSanguineo.Name = "lblGrupoSanguineo";
             this.lblGrupoSanguineo.Size = new System.Drawing.Size(94, 18);
             this.lblGrupoSanguineo.TabIndex = 27;
@@ -419,7 +424,7 @@
             // 
             // lblCodigoPostal
             // 
-            this.lblCodigoPostal.Location = new System.Drawing.Point(202, 240);
+            this.lblCodigoPostal.Location = new System.Drawing.Point(383, 240);
             this.lblCodigoPostal.Name = "lblCodigoPostal";
             this.lblCodigoPostal.Size = new System.Drawing.Size(76, 18);
             this.lblCodigoPostal.TabIndex = 28;
@@ -427,11 +432,27 @@
             // 
             // txtBoxCodigoPostal
             // 
-            this.txtBoxCodigoPostal.Location = new System.Drawing.Point(199, 261);
+            this.txtBoxCodigoPostal.Location = new System.Drawing.Point(380, 263);
             this.txtBoxCodigoPostal.Name = "txtBoxCodigoPostal";
             this.txtBoxCodigoPostal.ReadOnly = true;
             this.txtBoxCodigoPostal.Size = new System.Drawing.Size(153, 20);
-            this.txtBoxCodigoPostal.TabIndex = 29;
+            this.txtBoxCodigoPostal.TabIndex = 18;
+            // 
+            // txtBoxEmail
+            // 
+            this.txtBoxEmail.Location = new System.Drawing.Point(202, 70);
+            this.txtBoxEmail.Name = "txtBoxEmail";
+            this.txtBoxEmail.Size = new System.Drawing.Size(153, 20);
+            this.txtBoxEmail.TabIndex = 9;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(202, 51);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.TabIndex = 31;
+            this.lblEmail.Text = "Email";
             // 
             // NuevoPaciente
             // 
@@ -439,7 +460,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(570, 349);
+            this.ClientSize = new System.Drawing.Size(584, 349);
+            this.Controls.Add(this.txtBoxEmail);
+            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txtBoxCodigoPostal);
             this.Controls.Add(this.lblCodigoPostal);
             this.Controls.Add(this.lblGrupoSanguineo);
@@ -494,7 +517,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblNombre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDocumento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxDocumento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownPais)).EndInit();
@@ -511,6 +534,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblGrupoSanguineo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblCodigoPostal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxCodigoPostal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBoxEmail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,7 +557,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel3;
         private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadLabel lblNombre;
-        private System.Windows.Forms.ErrorProvider errProvider;
+        private System.Windows.Forms.ErrorProvider errorProvider;
         private Telerik.WinControls.UI.RadTextBox txtBoxDocumento;
         private Telerik.WinControls.UI.RadLabel lblDocumento;
         private System.Windows.Forms.Label lblDepartamento;
@@ -551,5 +575,7 @@
         private Telerik.WinControls.UI.RadLabel blbAntecedentesMedicos;
         private Telerik.WinControls.UI.RadTextBox txtBoxCodigoPostal;
         private Telerik.WinControls.UI.RadLabel lblCodigoPostal;
+        private Telerik.WinControls.UI.RadTextBoxControl txtBoxEmail;
+        private System.Windows.Forms.Label lblEmail;
     }
 }

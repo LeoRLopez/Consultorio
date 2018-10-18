@@ -92,7 +92,7 @@
             this.tbCodigoPostal = new Telerik.WinControls.UI.RadTextBoxControl();
             this.label3 = new System.Windows.Forms.Label();
             this.lblAccede = new System.Windows.Forms.Label();
-            this.ErrPersonal = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxNombre)).BeginInit();
@@ -132,7 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dropDownCiudad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownDepartamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbCodigoPostal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrPersonal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -234,6 +234,7 @@
             this.txtBoxDocumento.Name = "txtBoxDocumento";
             this.txtBoxDocumento.Size = new System.Drawing.Size(164, 20);
             this.txtBoxDocumento.TabIndex = 4;
+            this.txtBoxDocumento.TextChanged += new System.EventHandler(this.txtBoxDocumento_TextChanged);
             this.txtBoxDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxDocumento_KeyPress);
             // 
             // radioButtonMasculino
@@ -285,6 +286,7 @@
             this.txtBoxEmail.Name = "txtBoxEmail";
             this.txtBoxEmail.Size = new System.Drawing.Size(164, 20);
             this.txtBoxEmail.TabIndex = 7;
+            this.txtBoxEmail.TextChanged += new System.EventHandler(this.txtBoxEmail_TextChanged);
             // 
             // txtBoxTelefono
             // 
@@ -714,9 +716,9 @@
             this.lblAccede.TabIndex = 27;
             this.lblAccede.Text = "Datos de Acceso al sistema";
             // 
-            // ErrPersonal
+            // errorProvider
             // 
-            this.ErrPersonal.ContainerControl = this;
+            this.errorProvider.ContainerControl = this;
             // 
             // panel1
             // 
@@ -825,7 +827,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dropDownCiudad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownDepartamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbCodigoPostal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrPersonal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -897,7 +899,7 @@
         private Telerik.WinControls.UI.RadDropDownList ddlHorariosMiercoles;
         private Telerik.WinControls.UI.RadDropDownList ddlHorariosMartes;
         private System.Windows.Forms.Label lblAccede;
-        private System.Windows.Forms.ErrorProvider ErrPersonal;
+        private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chbEsAdmin;
         private System.Windows.Forms.Panel panel2;

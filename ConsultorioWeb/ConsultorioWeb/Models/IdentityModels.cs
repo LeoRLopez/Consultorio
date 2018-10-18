@@ -21,7 +21,7 @@ namespace ConsultorioWeb.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("ClinicaConnection", throwIfV1Schema: false)
+            : base("IdentityDBConnection", throwIfV1Schema: false)
         {
         }
 

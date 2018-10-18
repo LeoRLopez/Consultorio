@@ -25,6 +25,7 @@ namespace ConsultorioWeb.Models
         public int IdPaciente { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
+        public string Email { get; set; }
         public long NumeroDocumento { get; set; }
         public System.DateTime FechaNacimiento { get; set; }
         public int Edad { get; set; }
@@ -43,6 +44,7 @@ namespace ConsultorioWeb.Models
         public virtual Ciudad Ciudad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Factura { get; set; }
+        public virtual FormaDePago FormaDePago { get; set; }
         public virtual HistoriaClinica HistoriaClinica { get; set; }
         public virtual Pais Pais { get; set; }
         public virtual Provincia Provincia { get; set; }
