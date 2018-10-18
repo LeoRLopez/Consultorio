@@ -77,6 +77,11 @@ namespace Consultorio
                 Contrasenia = txtBoxContraseña.Text,
                 NombreUsuario = txtBoxUsuario.Text
             };
+            
+            if (chbEsAdmin.Checked)
+            {
+                usuario.EsAdministrador = true;
+            }
 
             personalInterno.Usuario = usuario;
 

@@ -219,7 +219,8 @@
             this.dateTimePickerNacimiento.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerNacimiento.Location = new System.Drawing.Point(16, 155);
-            this.dateTimePickerNacimiento.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerNacimiento.MaxDate = new System.DateTime(2018, 10, 17, 0, 0, 0, 0);
+            this.dateTimePickerNacimiento.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
             this.dateTimePickerNacimiento.Size = new System.Drawing.Size(164, 20);
             this.dateTimePickerNacimiento.TabIndex = 3;
