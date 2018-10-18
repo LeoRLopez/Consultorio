@@ -76,7 +76,7 @@ namespace Consultorio
             {
                 Contrasenia = txtBoxContraseña.Text,
                 NombreUsuario = txtBoxUsuario.Text,
-                EsAdministrador = chbEsAdmin.Checked,
+                EsAdministrador = chbEsAdmin.Checked
             };
 
             personalInterno.Usuario = usuario;
@@ -89,7 +89,7 @@ namespace Consultorio
                 List<MedicoEspecialidad> especialidadesSeleccionadas = new List<MedicoEspecialidad>();
                 foreach (var item in listViewEspecialidades.CheckedItems)
                 {
-                    string nombreEspecialidad = (item as ListViewItem).Text.Split('-')[0];
+                    string nombreEspecialidad = (item as ListViewItem).Text.Split('$')[0].Trim();
                     int especialidadId = this.__especialidadesMedico.First(x => x.Nombre == nombreEspecialidad).EspecialidadId;
                     especialidadesSeleccionadas.Add(new MedicoEspecialidad { EspecialidadId = especialidadId });
                 }
