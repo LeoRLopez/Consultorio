@@ -151,6 +151,10 @@ namespace ConsultorioWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                using (var entidades = new ClinicaEntities())
+                {
+                    // Validar Email Address contra la tabla Usuarios-Medico-Pacientes,etc para determinar que tipo de Rol posee
+                }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
