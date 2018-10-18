@@ -1,0 +1,8 @@
+ConsultorioDesktop/Consultorio/obj/
+ConsultorioDesktop/Consultorio/bin/
+ConsultorioDesktop/.vs/
+ConsultorioWeb/ConsultorioWeb/obj/
+ConsultorioWeb/ConsultorioWeb/bin/
+ConsultorioWeb/.vs/
+*.suo
+*.user
