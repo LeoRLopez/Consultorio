@@ -79,6 +79,8 @@ namespace ConsultorioWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    var user = UserManager.Find(model.Email, model.Password);
+                    System.Web.HttpContext.Current.Session["CurrentUserRoles"] = string.Join("-", UserManager.GetRoles(user.Id));
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -86,7 +88,7 @@ namespace ConsultorioWeb.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
                     return View(model);
             }
         }

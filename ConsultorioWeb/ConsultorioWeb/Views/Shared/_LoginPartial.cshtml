@@ -1,16 +1,17 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
+    string currentUserRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Administrar" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "! (" + currentUserRoles + ")", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Administrar" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a></li>
+        </ul>
     }
 }
 else
