@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ConsultorioWeb.Models.Turno>
+
+@{
+    ViewBag.Title = "Listado de Turnos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string userRoles = "";
+    var CurrentUserRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"];
+    if (CurrentUserRoles != null)
+    {
+        userRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
+    }
+}
+
+<h2>Listado de Turnos</h2>
+
+@if (userRoles == "Admin" || userRoles == "Usuario" || userRoles == "Paciente")
+{
+    <p>
+        @Html.ActionLink("Crear Nuevo Turno", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            Fecha y Hora
+        </th>
+        <th>
+            Paciente
+        </th>
+        <th>
+            Médico
+        </th>
+        <th>
+            Escpecialidad
+        </th>
+        <th>
+            Forma de Pago
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Seguro Médico
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.FechaYHora.ToString("dd/MM/yyyy HH:mm")
+            </td>
+            <td>
+                @item.Paciente.Apellidos, @item.Paciente.Nombres
+            </td>
+            <td>
+                @item.Medico.PersonalInterno.First().Apellido, @item.Medico.PersonalInterno.First().Nombre
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidad.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaDePago.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioTurno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SegurosMedico.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles | ", "Details", new { id = item.IdTurno })
+
+                @if (userRoles == "Admin" || userRoles == "Usuario")
+                {
+                    @Html.ActionLink("Editar | ", "Edit", new { id = item.IdTurno });
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdTurno });
+                }
+            </td>
+        </tr>
+    }
+</table>

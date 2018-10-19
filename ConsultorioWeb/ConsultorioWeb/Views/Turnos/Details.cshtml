@@ -1,0 +1,106 @@
+﻿@model ConsultorioWeb.Models.Turno
+
+@{
+    ViewBag.Title = "Detalles del Turno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles del Turno</h2>
+
+<div>
+    <h4>Turno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaYHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaYHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnostico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnostico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Asistio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asistio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Atendido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atendido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioTurno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioTurno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Especialidad.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Especialidad.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaDePago.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaDePago.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medico.MatriculaMedico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medico.MatriculaMedico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SegurosMedico.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SegurosMedico.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Volver al Listado", "Index")
+</p>
