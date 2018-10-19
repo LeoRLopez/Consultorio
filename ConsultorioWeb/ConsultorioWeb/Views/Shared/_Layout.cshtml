@@ -12,12 +12,13 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+                <img src="~/Content/Sagrada.ico" width="60" height="60" alt="sagrada-familia" title="sagrada-familia">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Consultorios Médicos  - Sagrada Familia", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Consultorios Médicos Sagrada Familia", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -33,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Consultorios Medicos - Sagrada Familia</p>
+            <p>&copy; @DateTime.Now.Year - Consultorios Médicos Sagrada Familia</p>
         </footer>
     </div>
 
