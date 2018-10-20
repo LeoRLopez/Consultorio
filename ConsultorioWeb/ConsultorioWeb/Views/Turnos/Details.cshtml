@@ -12,71 +12,31 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FechaYHora)
+            Fecha Y hora
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FechaYHora)
+            @Model.FechaYHora.ToString("dd/MM/yyyy HH:mm")
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Diagnostico)
+            Paciente
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Diagnostico)
+            @Model.Paciente.Apellidos , @Model.Paciente.Nombres
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
+            Médico
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Descripcion)
+            @Model.Medico.PersonalInterno.First().Apellido , @Model.Medico.PersonalInterno.First().Nombre
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Asistio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Asistio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Atendido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Atendido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioTurno)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PrecioTurno)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Especialidad.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Especialidad.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FormaDePago.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FormaDePago.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Medico.MatriculaMedico)
+            Matricula
         </dt>
 
         <dd>
@@ -84,21 +44,68 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Paciente.Nombres)
+            Especialidad
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Paciente.Nombres)
+            @Html.DisplayFor(model => model.Especialidad.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SegurosMedico.Nombre)
+            Forma de Pago
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaDePago.Nombre)
+        </dd>
+
+        <dt>
+            Precio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioTurno)
+        </dd>
+
+        <dt>
+            Seguro Médico
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.SegurosMedico.Nombre)
         </dd>
 
+        <dt>
+            Diagnóstico
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnostico)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            Asistió?
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asistio)
+        </dd>
+
+        <dt>
+            Atendido?
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atendido)
+        </dd>
     </dl>
 </div>
 <p>

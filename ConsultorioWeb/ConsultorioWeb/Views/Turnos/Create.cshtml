@@ -11,7 +11,6 @@
 
 <h2>Crear Nuevo Turno</h2>
 
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -21,7 +20,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.IdMedico, "IdMedico", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Matrícula Médico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdMedico", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdMedico, "", new { @class = "text-danger" })
@@ -29,7 +28,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdPaciente, "IdPaciente", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Paciente", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdPaciente", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdPaciente, "", new { @class = "text-danger" })
@@ -37,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdFormaDePago, "IdFormaDePago", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Forma de Pago", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdFormaDePago", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdFormaDePago, "", new { @class = "text-danger" })
@@ -45,7 +44,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FechaYHora, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Fecha y Hora", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FechaYHora, new { htmlAttributes = new { @class = "form-control date-picker" } })
                 @Html.ValidationMessageFor(model => model.FechaYHora, "", new { @class = "text-danger" })
@@ -53,7 +52,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdSeguroMedico, "IdSeguroMedico", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Seguro Médico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdSeguroMedico", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdSeguroMedico, "", new { @class = "text-danger" })
@@ -105,7 +104,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdEspecialidadMedico, "IdEspecialidadMedico", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Especialidad Médico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdEspecialidadMedico", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdEspecialidadMedico, "", new { @class = "text-danger" })
@@ -130,7 +129,6 @@
 
 <script type="text/javascript">
     $(function () {
-        // This will make every element with the class "date-picker" into a DatePicker element
         $('.date-picker').datepicker();
     })
 </script>

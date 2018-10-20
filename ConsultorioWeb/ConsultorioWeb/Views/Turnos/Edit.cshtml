@@ -5,13 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Editar Turno</h2>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 
+<h2>Editar Turno</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Turno</h4>
         <hr />
@@ -19,7 +22,7 @@
         @Html.HiddenFor(model => model.IdTurno)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdMedico, "IdMedico", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Matrícula Médico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdMedico", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdMedico, "", new { @class = "text-danger" })
@@ -27,7 +30,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdPaciente, "IdPaciente", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Paciente", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdPaciente", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdPaciente, "", new { @class = "text-danger" })
@@ -35,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdFormaDePago, "IdFormaDePago", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Forma de Pago", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdFormaDePago", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdFormaDePago, "", new { @class = "text-danger" })
@@ -43,15 +46,15 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FechaYHora, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Fecha y Hora", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaYHora, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FechaYHora, new { htmlAttributes = new { @class = "form-control  date-picker" } })
                 @Html.ValidationMessageFor(model => model.FechaYHora, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdSeguroMedico, "IdSeguroMedico", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Seguro Médico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdSeguroMedico", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdSeguroMedico, "", new { @class = "text-danger" })
@@ -103,7 +106,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdEspecialidadMedico, "IdEspecialidadMedico", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Especialidad Médico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdEspecialidadMedico", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdEspecialidadMedico, "", new { @class = "text-danger" })
@@ -125,3 +128,9 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+    })
+</script>
