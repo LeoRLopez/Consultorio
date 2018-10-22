@@ -33,6 +33,14 @@
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.Label("Especialidad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdEspecialidadMedico", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdEspecialidadMedico, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         @if (userRoles != "Paciente")
         {
             <div class="form-group">
@@ -80,13 +88,20 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.Label("Diagnóstico", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Diagnostico, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Diagnostico, "", new { @class = "text-danger" })
+        @if (userRoles != "Paciente")
+        {
+            <div class="form-group">
+                @Html.Label("Diagnóstico", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Diagnostico, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Diagnostico, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.Diagnostico)
+        }
 
         <div class="form-group">
             @Html.Label("Descripción", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -98,13 +113,7 @@
 
         @Html.HiddenFor(model => model.PrecioTurno)
 
-        <div class="form-group">
-            @Html.Label("Especialidad Médico", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdEspecialidadMedico", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdEspecialidadMedico, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
 
         @if (userRoles != "Paciente")
         {
