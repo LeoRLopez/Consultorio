@@ -3,7 +3,7 @@
 @if (Request.IsAuthenticated)
 {
     string userRoles = "";
-    string currentUserRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
+    var currentUserRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"];
     if (currentUserRoles != null)
     {
         userRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
