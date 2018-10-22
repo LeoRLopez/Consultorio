@@ -3,6 +3,13 @@
 @{
     ViewBag.Title = "Editar Turno";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string userRoles = "";
+    string currentUserRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
+    if (currentUserRoles != null)
+    {
+        userRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
+    }
 }
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" rel="stylesheet" />
@@ -20,22 +27,30 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IdTurno)
+        @Html.HiddenFor(model => model.PrecioTurno)
 
         <div class="form-group">
-            @Html.Label("Matrícula Médico", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Médico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("IdMedico", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdMedico, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.Label("Paciente", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdPaciente", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdPaciente, "", new { @class = "text-danger" })
+        @if (userRoles != "Paciente")
+        {
+            <div class="form-group">
+                @Html.Label("Paciente", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdPaciente", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdPaciente, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.IdPaciente)
+        }
 
         <div class="form-group">
             @Html.Label("Forma de Pago", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -46,10 +61,18 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Fecha y Hora", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Fecha", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaYHora, new { htmlAttributes = new { @class = "form-control  date-picker" } })
-                @Html.ValidationMessageFor(model => model.FechaYHora, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.FechaYHora, new { @Value = Model.FechaYHora.ToString("MM/dd/yyyy"), @class = "form-control date-picker" })
+                @Html.ValidationMessage("FechaYHora", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Hora", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("HorarioTurno", (SelectList)ViewBag.HorarioTurno, new { @class = "form-control" })
+                @Html.ValidationMessage("HorarioTurno", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -62,7 +85,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Diagnostico, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Diagnóstico", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Diagnostico, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Diagnostico, "", new { @class = "text-danger" })
@@ -70,38 +93,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Descripción", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Asistio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Asistio)
-                    @Html.ValidationMessageFor(model => model.Asistio, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Atendido, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Atendido)
-                    @Html.ValidationMessageFor(model => model.Atendido, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PrecioTurno, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrecioTurno, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PrecioTurno, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -112,6 +107,34 @@
                 @Html.ValidationMessageFor(model => model.IdEspecialidadMedico, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        @if (userRoles != "Paciente")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Asistio, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Asistio)
+                        @Html.ValidationMessageFor(model => model.Asistio, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Atendido, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Atendido)
+                        @Html.ValidationMessageFor(model => model.Atendido, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.Asistio)
+            @Html.HiddenFor(model => model.Atendido)
+        }
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -131,6 +154,7 @@
 
 <script type="text/javascript">
     $(function () {
-        $('.date-picker').datepicker();
+        $('.date-picker').datepicker({ dateFormat: 'mm/dd/yy' });
     })
+    $('.date-picker').removeAttr("data-val-date");
 </script>

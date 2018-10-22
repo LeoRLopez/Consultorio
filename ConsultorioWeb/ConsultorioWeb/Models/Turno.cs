@@ -11,7 +11,8 @@ namespace ConsultorioWeb.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Turno
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,7 +25,11 @@ namespace ConsultorioWeb.Models
         public int IdMedico { get; set; }
         public int IdPaciente { get; set; }
         public int IdFormaDePago { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaYHora { get; set; }
+
         public Nullable<int> IdSeguroMedico { get; set; }
         public string Diagnostico { get; set; }
         public string Descripcion { get; set; }

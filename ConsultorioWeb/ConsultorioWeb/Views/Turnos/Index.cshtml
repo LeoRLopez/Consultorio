@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     string userRoles = "";
-    var CurrentUserRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"];
-    if (CurrentUserRoles != null)
+    string currentUserRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
+    if (currentUserRoles != null)
     {
         userRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
     }
@@ -50,7 +50,7 @@
     {
         <tr>
             <td>
-                @item.FechaYHora.ToString("dd/MM/yyyy HH:mm")
+                @item.FechaYHora.ToString("MM/dd/yyyy HH:mm")
             </td>
             <td>
                 @item.Paciente.Apellidos, @item.Paciente.Nombres
