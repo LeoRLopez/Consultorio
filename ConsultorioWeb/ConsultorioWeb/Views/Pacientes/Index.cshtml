@@ -1,0 +1,130 @@
+﻿@model IEnumerable<ConsultorioWeb.Models.Paciente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroDocumento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimeraAtencion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelCelular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSeguroMedico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoPostal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FormaDePago.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HistoriaClinica.AntecedentesMedicos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provincia.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroDocumento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimeraAtencion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelCelular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSeguroMedico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoPostal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudad.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FormaDePago.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HistoriaClinica.AntecedentesMedicos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Provincia.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdPaciente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdPaciente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdPaciente })
+        </td>
+    </tr>
+}
+
+</table>

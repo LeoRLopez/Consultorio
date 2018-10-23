@@ -1,0 +1,35 @@
+﻿@model ConsultorioWeb.Models.Especialidad
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Especialidad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioPorDefecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioPorDefecto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EspecialidadId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

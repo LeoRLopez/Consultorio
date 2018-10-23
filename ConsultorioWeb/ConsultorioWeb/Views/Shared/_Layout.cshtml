@@ -27,7 +27,20 @@
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
+                        string userRoles = "";
+                        var currentUserRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"];
+                        if (currentUserRoles != null)
+                        {
+                            userRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
+                        }
+
                         <li>@Html.ActionLink("Turnos", "Index", "Turnos")</li>
+                        if (userRoles == "Admin" || userRoles == "Usuario")
+                        {
+                            <li> @Html.ActionLink("Pacientes", "Index", "Pacientes")</li>
+                            <li> @Html.ActionLink("Personales Internos", "Index", "PersonalesInternos")</li>
+                            <li> @Html.ActionLink("Especialidades Médico", "Index", "Especialidades")</li>
+                        }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

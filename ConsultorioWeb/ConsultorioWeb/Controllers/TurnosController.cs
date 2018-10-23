@@ -1,13 +1,13 @@
-﻿using System;
+﻿using ConsultorioWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Net;
-using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
-using ConsultorioWeb.Models;
 
 namespace ConsultorioWeb.Controllers
 {
@@ -16,6 +16,33 @@ namespace ConsultorioWeb.Controllers
     {
         private ClinicaEntities db = new ClinicaEntities();
         private List<string> __horariosTurno = new List<string> { "08:00", "08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45", "16:00", "16:15", "16:30", "16:45", "17:00", "17:15", "17:30", "17:45", "18:00", "18:15", "18:30", "18:45", "19:00", "19:15", "19:30", "19:45", "20:00", "20:15" };
+        private string _bodyTemplate =
+        @"<h2>Detalles del Turno</h2>
+            <div>
+                <hr />
+                <dl class='dl-horizontal'>
+                    <dt>Fecha y Hora</dt>
+                    <dd><strong>{0}</strong></dd>
+                    <dt>Paciente</dt>
+                    <dd><strong>{1}</strong></dd>
+                    <dt>Médico</dt>
+                    <dd><strong>{2}</strong></dd>
+                    <dt>Especialidad</dt>
+                    <dd><strong>{3}</strong></dd>
+                    <dt>Matricula</dt>
+                    <dd><strong>{4}</strong></dd>
+                    <dt>Forma de Pago</dt>
+                    <dd><strong>{5}</strong></dd>
+                    <dt>Precio</dt>
+                    <dd><strong>{6}</strong></dd>
+                    <dt>Seguro Médico</dt>
+                    <dd><strong>{7}</strong></dd>
+                    <dt>Descripción</dt>
+                    <dd><strong>{8}</strong></dd>
+                    <dt>Diagnóstico</dt>
+                    <dd><strong>{9}</strong></dd>
+                </dl>
+            </div><hr />";
 
         // GET: Turnos
         public ActionResult Index()
@@ -123,6 +150,7 @@ namespace ConsultorioWeb.Controllers
                 turno.PrecioTurno = db.Especialidad.First(x => x.EspecialidadId == turno.IdEspecialidadMedico).PrecioPorDefecto;
                 db.Turno.Add(turno);
                 db.SaveChanges();
+                EnviarNotificacionAlPaciente(turno.IdTurno);
                 return RedirectToAction("Index");
             }
 
@@ -134,6 +162,57 @@ namespace ConsultorioWeb.Controllers
             ViewBag.HorarioTurno = new SelectList(this.__horariosTurno, horarioTurno);
 
             return View(turno);
+        }
+
+        private void EnviarNotificacionAlPaciente(int idTurno)
+        {
+            var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
+            var pacienteEmail = turnoDB.Paciente.Email;
+            var emailSubject = string.Format("Nuevo Turno para el {0} a las {1}", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
+            var emailBody = string.Format(_bodyTemplate,
+                turnoDB.FechaYHora.ToString("dd/MM/yyyy HH:mm"),
+                turnoDB.Paciente.Apellidos + ", " + turnoDB.Paciente.Nombres,
+                turnoDB.Medico.PersonalInterno.Single().Apellido + ", " + turnoDB.Medico.PersonalInterno.Single().Nombre,
+                turnoDB.Especialidad.Nombre,
+                turnoDB.Medico.MatriculaMedico,
+                turnoDB.FormaDePago.Nombre,
+                turnoDB.PrecioTurno,
+                turnoDB.SegurosMedico.Nombre,
+                turnoDB.Descripcion,
+                turnoDB.Diagnostico);
+            var emailModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
+            EnviarEmail(emailModel);
+        }
+
+        private Boolean EnviarEmail(EmailModel email)
+        {
+            try
+            {
+                //Configuring webMail class to send emails  
+                //gmail smtp server  
+                WebMail.SmtpServer = "smtp.gmail.com";
+                //gmail port to send emails  
+                WebMail.SmtpPort = 587;
+                WebMail.SmtpUseDefaultCredentials = true;
+                //sending emails with secure protocol  
+                WebMail.EnableSsl = true;
+                //EmailId used to send emails from application  
+                WebMail.UserName = "sagrada.familia.notificaciones@gmail.com";
+                WebMail.Password = "S4gr4d4123.";
+
+                //Sender email address.  
+                WebMail.From = "sagrada.familia.notificaciones@gmail.com";
+
+                //Send email  
+                WebMail.Send(to: email.ToEmail, subject: email.EmailSubject, body: email.EMailBody, cc: email.EmailCC, bcc: email.EmailBCC, isBodyHtml: true);
+                ViewBag.Status = "Correo electrónico enviado con Éxito.";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Status = "Problema al enviar el correo electrónico. Por favor verifique los detalles: " + Environment.NewLine + ex.Message;
+                return false;
+            }
+            return true;
         }
 
         // GET: Turnos/Edit/5
