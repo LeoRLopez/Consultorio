@@ -8,21 +8,21 @@
     {
         userRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
     }
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", @Style = "color: black" }))
     {
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "! (" + userRoles + ")", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Administrar" })
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "! (" + userRoles + ")", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Administrar", @Style = "color: black" })
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a></li>
+            <li><a style="color: black" href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a></li>
         </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Iniciar Sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Iniciar Sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @Style = "color: black" })</li>
     </ul>
 }
