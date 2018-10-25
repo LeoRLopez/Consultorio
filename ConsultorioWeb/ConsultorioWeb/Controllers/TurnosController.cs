@@ -164,7 +164,7 @@ namespace ConsultorioWeb.Controllers
             return View(turno);
         }
 
-        private void EnviarNotificacionAlPaciente(int idTurno)
+        private bool EnviarNotificacionAlPaciente(int idTurno)
         {
             var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
             var pacienteEmail = turnoDB.Paciente.Email;
@@ -181,7 +181,7 @@ namespace ConsultorioWeb.Controllers
                 turnoDB.Descripcion,
                 turnoDB.Diagnostico);
             var emailModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
-            EnviarEmail(emailModel);
+            return EnviarEmail(emailModel);
         }
 
         private Boolean EnviarEmail(EmailModel email)
