@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
+using System.Web.Helpers;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 
@@ -15,6 +16,33 @@ namespace Consultorio
         private int horaTurno;
         private int minutosTurno;
         private bool __turnoAgregado = false;
+        private string _bodyTemplate =
+        @"<h2>Detalles del Turno</h2>
+            <div>
+                <hr />
+                <dl class='dl-horizontal'>
+                    <dt>Fecha y Hora</dt>
+                    <dd><strong>{0}</strong></dd>
+                    <dt>Paciente</dt>
+                    <dd><strong>{1}</strong></dd>
+                    <dt>Médico</dt>
+                    <dd><strong>{2}</strong></dd>
+                    <dt>Especialidad</dt>
+                    <dd><strong>{3}</strong></dd>
+                    <dt>Matricula</dt>
+                    <dd><strong>{4}</strong></dd>
+                    <dt>Forma de Pago</dt>
+                    <dd><strong>{5}</strong></dd>
+                    <dt>Precio</dt>
+                    <dd><strong>{6}</strong></dd>
+                    <dt>Seguro Médico</dt>
+                    <dd><strong>{7}</strong></dd>
+                    <dt>Descripción</dt>
+                    <dd><strong>{8}</strong></dd>
+                    <dt>Diagnóstico</dt>
+                    <dd><strong>{9}</strong></dd>
+                </dl>
+            </div><hr />";
 
         public NuevoTurno()
         {
@@ -53,7 +81,8 @@ namespace Consultorio
             {
                 entidades.Turno.Add(nuevoTurno);
                 entidades.SaveChanges();
-                MessageBox.Show("Turno creado correctamente!", "Correcto", MessageBoxButtons.OK);
+                EnviarNotificacionAlPaciente(entidades, nuevoTurno.IdTurno);
+                MessageBox.Show("Turno creado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK);
                 if (MessageBox.Show("Desea agregar otro Turno?", "TurnARG", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     __turnoAgregado = true;
@@ -64,6 +93,55 @@ namespace Consultorio
                     LimpiarRegistros();
                 }
             }
+        }
+
+        private Tuple<bool, string> EnviarNotificacionAlPaciente(ClinicaEntities db, int idTurno)
+        {
+            var turnoDB = db.Turno.First(x => x.IdTurno == idTurno);
+            var pacienteEmail = turnoDB.Paciente.Email;
+            var emailSubject = string.Format("Nuevo Turno para el {0} a las {1}", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
+            var emailBody = string.Format(_bodyTemplate,
+                turnoDB.FechaYHora.ToString("dd/MM/yyyy HH:mm"),
+                turnoDB.Paciente.Apellidos + ", " + turnoDB.Paciente.Nombres,
+                turnoDB.Medico.PersonalInterno.Single().Apellido + ", " + turnoDB.Medico.PersonalInterno.Single().Nombre,
+                turnoDB.Especialidad.Nombre,
+                turnoDB.Medico.MatriculaMedico,
+                turnoDB.FormaDePago.Nombre,
+                turnoDB.PrecioTurno,
+                turnoDB.SegurosMedico.Nombre,
+                turnoDB.Descripcion,
+                turnoDB.Diagnostico);
+            var emailModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
+            return EnviarEmail(emailModel);
+        }
+
+        private Tuple<bool, string> EnviarEmail(EmailModel email)
+        {
+            try
+            {
+                //Configuring webMail class to send emails  
+                //gmail smtp server  
+                WebMail.SmtpServer = "smtp.gmail.com";
+                //gmail port to send emails  
+                WebMail.SmtpPort = 587;
+                WebMail.SmtpUseDefaultCredentials = true;
+                //sending emails with secure protocol  
+                WebMail.EnableSsl = true;
+                //EmailId used to send emails from application  
+                WebMail.UserName = "sagrada.familia.notificaciones@gmail.com";
+                WebMail.Password = "S4gr4d4123.";
+
+                //Sender email address.  
+                WebMail.From = "sagrada.familia.notificaciones@gmail.com";
+
+                //Send email  
+                WebMail.Send(to: email.ToEmail, subject: email.EmailSubject, body: email.EMailBody, cc: email.EmailCC, bcc: email.EmailBCC, isBodyHtml: true);
+            }
+            catch (Exception ex)
+            {
+                return new Tuple<bool, string>(false, "Problema al enviar el correo electrónico. Por favor verifique los detalles: " + Environment.NewLine + ex.Message);
+            }
+            return new Tuple<bool, string>(true, "Correo electrónico enviado con Éxito.");
         }
 
         private void LimpiarRegistros()
