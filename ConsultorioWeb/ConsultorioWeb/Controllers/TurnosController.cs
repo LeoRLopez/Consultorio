@@ -168,7 +168,7 @@ namespace ConsultorioWeb.Controllers
         {
             var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
             var pacienteEmail = turnoDB.Paciente.Email;
-            var emailSubject = string.Format("Nuevo Turno para el {0} a las {1}", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
+            var emailSubject = string.Format("Nuevo Turno para el {0} a las {1} hs.", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
             var emailBody = string.Format(_bodyTemplate,
                 turnoDB.FechaYHora.ToString("dd/MM/yyyy HH:mm"),
                 turnoDB.Paciente.Apellidos + ", " + turnoDB.Paciente.Nombres,

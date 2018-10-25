@@ -4,6 +4,7 @@ using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Helpers;
 using System.Windows.Forms;
@@ -62,44 +63,51 @@ namespace Consultorio
             if (!ValidarCamposObligatorios())
                 return;
 
-            var nuevoTurno = new Turno
+            try
             {
-                Atendido = false,
-                FechaYHora = new DateTime(dateTimePickerTurno.Value.Year, dateTimePickerTurno.Value.Month, dateTimePickerTurno.Value.Day, horaTurno, minutosTurno, 0),
-                Asistio = false,
-                IdPaciente = (int)dropDownListaPacientes.SelectedValue,
-                IdMedico = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem).MedicoId,
-                IdEspecialidadMedico = (int)dropDownEspecialidades.SelectedValue,
-                PrecioTurno = decimal.Parse(tbPrecioTurno.Text),
-                Diagnostico = textboxDiagnostico.Text,
-                Descripcion = txtBoxDescripcion.Text,
-                IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Obra Social*/,
-                IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null,
-            };
+                var nuevoTurno = new Turno
+                {
+                    Atendido = false,
+                    FechaYHora = new DateTime(dateTimePickerTurno.Value.Year, dateTimePickerTurno.Value.Month, dateTimePickerTurno.Value.Day, horaTurno, minutosTurno, 0),
+                    Asistio = false,
+                    IdPaciente = (int)dropDownListaPacientes.SelectedValue,
+                    IdMedico = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem).MedicoId,
+                    IdEspecialidadMedico = (int)dropDownEspecialidades.SelectedValue,
+                    PrecioTurno = decimal.Parse(tbPrecioTurno.Text),
+                    Diagnostico = textboxDiagnostico.Text,
+                    Descripcion = txtBoxDescripcion.Text,
+                    IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Obra Social*/,
+                    IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null,
+                };
 
-            using (var entidades = new ClinicaEntities())
+                using (var entidades = new ClinicaEntities())
+                {
+                    entidades.Turno.Add(nuevoTurno);
+                    entidades.SaveChanges();
+                    EnviarNotificacionAlPaciente(entidades, nuevoTurno.IdTurno);
+                    MessageBox.Show("Turno creado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (MessageBox.Show("Desea agregar otro Turno?", "TurnARG", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        __turnoAgregado = true;
+                        this.Close();
+                    }
+                    else
+                    {
+                        LimpiarRegistros();
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                entidades.Turno.Add(nuevoTurno);
-                entidades.SaveChanges();
-                EnviarNotificacionAlPaciente(entidades, nuevoTurno.IdTurno);
-                MessageBox.Show("Turno creado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK);
-                if (MessageBox.Show("Desea agregar otro Turno?", "TurnARG", MessageBoxButtons.YesNo) == DialogResult.No)
-                {
-                    __turnoAgregado = true;
-                    this.Close();
-                }
-                else
-                {
-                    LimpiarRegistros();
-                }
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private Tuple<bool, string> EnviarNotificacionAlPaciente(ClinicaEntities db, int idTurno)
         {
-            var turnoDB = db.Turno.First(x => x.IdTurno == idTurno);
+            var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
             var pacienteEmail = turnoDB.Paciente.Email;
-            var emailSubject = string.Format("Nuevo Turno para el {0} a las {1}", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
+            var emailSubject = string.Format("Nuevo Turno para el {0} a las {1} hs.", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
             var emailBody = string.Format(_bodyTemplate,
                 turnoDB.FechaYHora.ToString("dd/MM/yyyy HH:mm"),
                 turnoDB.Paciente.Apellidos + ", " + turnoDB.Paciente.Nombres,
