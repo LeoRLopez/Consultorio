@@ -37,11 +37,6 @@ namespace Consultorio
                     <dt>Precio</dt>
                     <dd><strong>{6}</strong></dd>
                     <dt>Seguro Médico</dt>
-                    <dd><strong>{7}</strong></dd>
-                    <dt>Descripción</dt>
-                    <dd><strong>{8}</strong></dd>
-                    <dt>Diagnóstico</dt>
-                    <dd><strong>{9}</strong></dd>
                 </dl>
             </div><hr />";
 
@@ -116,9 +111,7 @@ namespace Consultorio
                 turnoDB.Medico.MatriculaMedico,
                 turnoDB.FormaDePago.Nombre,
                 turnoDB.PrecioTurno,
-                turnoDB.SegurosMedico.Nombre,
-                turnoDB.Descripcion,
-                turnoDB.Diagnostico);
+                turnoDB.SegurosMedico.Nombre);
             var emailModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
             return EnviarEmail(emailModel);
         }

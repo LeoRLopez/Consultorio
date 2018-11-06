@@ -50,19 +50,45 @@ namespace Consultorio
         {
             if (dgvPacientes.CurrentRow != null)
             {
-                lblnombreApellido.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).NombreCompleto;
+                lblNombreApellido.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).NombreCompleto;
                 lblEdadSexo.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Edad;
                 lblTelefono.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Telefono;
                 lblDireccion.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Direccion;
                 txtDiagnostico.Enabled = true;
                 txtHistoriaClinica.Enabled = true;
                 txtHistoriaClinica.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).AntecedentesMedicos;
+                lblGrupoSanguineo.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).GrupoSanguineo;
+
+                if (((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Trasplantado)
+                {
+                    lblTrasplantado.Text = "Es trasplantado";
+                }
+                else
+                {
+                    lblTrasplantado.Text = "No es trasplantado";
+                }
+
+                if (((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Donante)
+                {
+                    lblDonante.Text = "Es donante";
+                }
+                else
+                {
+                    lblDonante.Text = "No es donante";
+                }
+
             }
         }
 
-        private void btnCompletarConsulta_Click(object sender, EventArgs e)
+
+            
+    
+
+        private void BtnCompletarConsulta_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }
