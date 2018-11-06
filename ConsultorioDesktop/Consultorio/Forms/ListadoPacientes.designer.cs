@@ -351,7 +351,6 @@
             this.btnCompletarConsulta.TabIndex = 2;
             this.btnCompletarConsulta.Text = "Completar Consulta";
             this.btnCompletarConsulta.ThemeName = "ControlDefault";
-            this.btnCompletarConsulta.Click += new System.EventHandler(this.btnCompletarConsulta_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnCompletarConsulta.GetChildAt(0))).UseSmallImageList = true;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnCompletarConsulta.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnCompletarConsulta.GetChildAt(0))).Text = "Completar Consulta";
