@@ -11,11 +11,22 @@ using Telerik.WinControls.UI;
 
 namespace Consultorio
 {
-    public partial class NuevoPaciente : Form
+    public partial class EditarPaciente : Form
     {
-        public NuevoPaciente()
+        private int __idPaciente;
+
+        public EditarPaciente(int idPaciente)
         {
             InitializeComponent();
+            this.__idPaciente = idPaciente;
+            CargarDatosEnPantalla();
+        }
+
+        private void CargarDatosEnPantalla()
+        {
+            using (var entidades = new ClinicaEntities())
+            {
+            }
         }
 
         //Le agregue la funcionalidad de que, cuando un registro sea distinto de "" que lo limpie;

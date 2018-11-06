@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
-            this.txtBoxNombreSeguroMedico = new Telerik.WinControls.UI.RadTextBox();
-            this.lblAgregarSeguroMedico = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
@@ -41,22 +39,24 @@
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.segurosMedicoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnEditar = new Telerik.WinControls.UI.RadButton();
+            this.btnEliminar = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBoxNombreSeguroMedico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblAgregarSeguroMedico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegurosMedicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segurosMedicoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.Location = new System.Drawing.Point(427, 165);
+            this.btnAgregar.Location = new System.Drawing.Point(427, 111);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(157, 25);
             this.btnAgregar.TabIndex = 2;
@@ -72,23 +72,6 @@
             this.btnVolver.TabIndex = 3;
             this.btnVolver.Text = "Volver";
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // txtBoxNombreSeguroMedico
-            // 
-            this.txtBoxNombreSeguroMedico.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBoxNombreSeguroMedico.Location = new System.Drawing.Point(427, 138);
-            this.txtBoxNombreSeguroMedico.Name = "txtBoxNombreSeguroMedico";
-            this.txtBoxNombreSeguroMedico.Size = new System.Drawing.Size(157, 21);
-            this.txtBoxNombreSeguroMedico.TabIndex = 1;
-            // 
-            // lblAgregarSeguroMedico
-            // 
-            this.lblAgregarSeguroMedico.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblAgregarSeguroMedico.Location = new System.Drawing.Point(460, 113);
-            this.lblAgregarSeguroMedico.Name = "lblAgregarSeguroMedico";
-            this.lblAgregarSeguroMedico.Size = new System.Drawing.Size(92, 19);
-            this.lblAgregarSeguroMedico.TabIndex = 0;
-            this.lblAgregarSeguroMedico.Text = "Seguro Medico:";
             // 
             // txtBoxBuscar
             // 
@@ -159,36 +142,56 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEditar.Location = new System.Drawing.Point(427, 142);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(157, 25);
+            this.btnEditar.TabIndex = 8;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEliminar.Location = new System.Drawing.Point(427, 173);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(157, 25);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Forma_Pago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(598, 332);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvSegurosMedicos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.txtBoxBuscar);
-            this.Controls.Add(this.lblAgregarSeguroMedico);
-            this.Controls.Add(this.txtBoxNombreSeguroMedico);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Forma_Pago";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Formas de Pago";
+            this.Text = "Obras Sociales";
             this.Load += new System.EventHandler(this.Forma_Pago_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBoxNombreSeguroMedico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblAgregarSeguroMedico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegurosMedicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.segurosMedicoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,8 +201,6 @@
         #endregion
         private Telerik.WinControls.UI.RadButton btnAgregar;
         private Telerik.WinControls.UI.RadButton btnVolver;
-        private Telerik.WinControls.UI.RadTextBox txtBoxNombreSeguroMedico;
-        private Telerik.WinControls.UI.RadLabel lblAgregarSeguroMedico;
         private Telerik.WinControls.UI.RadTextBox txtBoxBuscar;
         private Telerik.WinControls.UI.RadLabel lblBuscar;
         private Telerik.WinControls.UI.RadButton btnBuscar;
@@ -208,5 +209,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource segurosMedicoBindingSource;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private Telerik.WinControls.UI.RadButton btnEditar;
+        private Telerik.WinControls.UI.RadButton btnEliminar;
     }
 }

@@ -121,11 +121,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\HorarioAtencionMedico.cs" />
+    <Compile Include="Forms\Admin\EditarPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\EditarPersonal.Designer.cs">
+      <DependentUpon>EditarPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Especialidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Especialidades.Designer.cs">
+      <DependentUpon>Especialidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ListadoPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ListadoPacientes.designer.cs">
       <DependentUpon>ListadoPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditarPaciente.Designer.cs">
+      <DependentUpon>EditarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormasDePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormasDePago.Designer.cs">
+      <DependentUpon>FormasDePago.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reportes\ReporteListadoTurnos.cs">
       <SubType>Form</SubType>
@@ -162,11 +186,11 @@
       <DependentUpon>NuevoPersonal.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\IniciarSesionEventArgs.cs" />
-    <Compile Include="Forms\Forma Pago.cs">
+    <Compile Include="Forms\ObrasSociales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Forma Pago.Designer.cs">
-      <DependentUpon>Forma Pago.cs</DependentUpon>
+    <Compile Include="Forms\ObrasSociales.Designer.cs">
+      <DependentUpon>ObrasSociales.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\InicioSesion.cs">
       <SubType>Form</SubType>
@@ -288,11 +312,20 @@
     <Compile Include="ViewModels\PacienteDropDownVM.cs" />
     <Compile Include="ViewModels\MedicoVM.cs" />
     <Compile Include="ViewModels\TurnoVM.cs" />
+    <EmbeddedResource Include="Forms\Admin\EditarPersonal.resx">
+      <DependentUpon>EditarPersonal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\NuevoPersonal.resx">
       <DependentUpon>NuevoPersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Forma Pago.resx">
-      <DependentUpon>Forma Pago.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Especialidades.resx">
+      <DependentUpon>Especialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormasDePago.resx">
+      <DependentUpon>FormasDePago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ObrasSociales.resx">
+      <DependentUpon>ObrasSociales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
@@ -302,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListadoPacientes.resx">
       <DependentUpon>ListadoPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditarPaciente.resx">
+      <DependentUpon>EditarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportes\ReporteListadoTurnos.resx">
       <DependentUpon>ReporteListadoTurnos.cs</DependentUpon>
@@ -343,12 +379,15 @@
       <DependentUpon>ClinicaModelo.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Consultorio.Modelo.Especialidad.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Modelo.FormaDePago.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Medico.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.SegurosMedico.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.MedicoVM.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.PacienteTurnoVM.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.PacienteVM.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.TurnosVM.datasource" />
+    <None Include="Properties\DataSources\Escpecialidades.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

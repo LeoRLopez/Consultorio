@@ -133,7 +133,7 @@ namespace Consultorio
                 else if (this.__iniciarSesionEventArgs.IdMedico != null)
                 {
                     this.__idMedico = (int)this.__iniciarSesionEventArgs.IdMedico;
-                    btnFormasDePago.Visible = false;
+                    btnObrasSociales.Visible = false;
                     btnNuevoPersonal.Visible = false;
                     btnMedicos.Visible = false;
                     btnHome.Visible = false;
@@ -180,9 +180,16 @@ namespace Consultorio
             ventanaReporteTurnos.ShowDialog();
         }
 
-        private void btnMenu_Click(object sender, EventArgs e)
+        private void radButton1_Click(object sender, EventArgs e)
         {
-            
+            var formFormasDePago = new FormasDePago();
+            var formFormasDePagoResult = formFormasDePago.ShowDialog();
+        }
+
+        private void btnEspecialidades_Click(object sender, EventArgs e)
+        {
+            var formEspecialidades = new Escpecialidades();
+            var formEspecialidadesResult = formEspecialidades.ShowDialog();
         }
     }
 }

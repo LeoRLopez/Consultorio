@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuInicio));
             this.menuVertical = new System.Windows.Forms.Panel();
+            this.btnEspecialidades = new Telerik.WinControls.UI.RadButton();
+            this.btnFormasDePago = new Telerik.WinControls.UI.RadButton();
             this.btnPacientes = new Telerik.WinControls.UI.RadButton();
             this.btnReportesDeTurnos = new Telerik.WinControls.UI.RadButton();
             this.btnNuevoPersonal = new Telerik.WinControls.UI.RadButton();
-            this.btnFormasDePago = new Telerik.WinControls.UI.RadButton();
+            this.btnObrasSociales = new Telerik.WinControls.UI.RadButton();
             this.btnMedicos = new Telerik.WinControls.UI.RadButton();
             this.btnReportes = new Telerik.WinControls.UI.RadButton();
             this.btnHome = new Telerik.WinControls.UI.RadButton();
@@ -47,10 +49,12 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.radOffice2007ScreenTipElement1 = new Telerik.WinControls.UI.RadOffice2007ScreenTipElement();
             this.menuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEspecialidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFormasDePago)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPacientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReportesDeTurnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoPersonal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFormasDePago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnObrasSociales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMedicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReportes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -66,10 +70,12 @@
             // menuVertical
             // 
             this.menuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.menuVertical.Controls.Add(this.btnEspecialidades);
+            this.menuVertical.Controls.Add(this.btnFormasDePago);
             this.menuVertical.Controls.Add(this.btnPacientes);
             this.menuVertical.Controls.Add(this.btnReportesDeTurnos);
             this.menuVertical.Controls.Add(this.btnNuevoPersonal);
-            this.menuVertical.Controls.Add(this.btnFormasDePago);
+            this.menuVertical.Controls.Add(this.btnObrasSociales);
             this.menuVertical.Controls.Add(this.btnMedicos);
             this.menuVertical.Controls.Add(this.btnReportes);
             this.menuVertical.Controls.Add(this.btnHome);
@@ -79,6 +85,74 @@
             this.menuVertical.Name = "menuVertical";
             this.menuVertical.Size = new System.Drawing.Size(180, 550);
             this.menuVertical.TabIndex = 0;
+            // 
+            // btnEspecialidades
+            // 
+            this.btnEspecialidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEspecialidades.Image = ((System.Drawing.Image)(resources.GetObject("btnEspecialidades.Image")));
+            this.btnEspecialidades.Location = new System.Drawing.Point(6, 331);
+            this.btnEspecialidades.Name = "btnEspecialidades";
+            this.btnEspecialidades.Size = new System.Drawing.Size(171, 44);
+            this.btnEspecialidades.TabIndex = 5;
+            this.btnEspecialidades.Text = "Especialidades";
+            this.btnEspecialidades.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEspecialidades.TextWrap = true;
+            this.btnEspecialidades.ThemeName = "ControlDefault";
+            this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEspecialidades.GetChildAt(0))).UseSmallImageList = true;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEspecialidades.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEspecialidades.GetChildAt(0))).TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEspecialidades.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEspecialidades.GetChildAt(0))).Text = "Especialidades";
+            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(5F, 0F);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(1))).TextWrap = true;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 2F;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEspecialidades.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnFormasDePago
+            // 
+            this.btnFormasDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormasDePago.Image = ((System.Drawing.Image)(resources.GetObject("btnFormasDePago.Image")));
+            this.btnFormasDePago.Location = new System.Drawing.Point(6, 281);
+            this.btnFormasDePago.Name = "btnFormasDePago";
+            this.btnFormasDePago.Size = new System.Drawing.Size(171, 44);
+            this.btnFormasDePago.TabIndex = 8;
+            this.btnFormasDePago.Text = "Formas de Pago";
+            this.btnFormasDePago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFormasDePago.TextWrap = true;
+            this.btnFormasDePago.ThemeName = "ControlDefault";
+            this.btnFormasDePago.Click += new System.EventHandler(this.radButton1_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).UseSmallImageList = true;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).Text = "Formas de Pago";
+            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(5F, 0F);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(1))).TextWrap = true;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 2F;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnPacientes
             // 
@@ -92,7 +166,7 @@
             this.btnPacientes.ThemeName = "ControlDefault";
             this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnPacientes.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnPacientes.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnPacientes.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnPacientes.GetChildAt(0))).Text = "  Pacientes";
             ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnPacientes.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnPacientes.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
@@ -112,7 +186,7 @@
             // btnReportesDeTurnos
             // 
             this.btnReportesDeTurnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportesDeTurnos.Location = new System.Drawing.Point(3, 281);
+            this.btnReportesDeTurnos.Location = new System.Drawing.Point(3, 401);
             this.btnReportesDeTurnos.Name = "btnReportesDeTurnos";
             this.btnReportesDeTurnos.Size = new System.Drawing.Size(171, 44);
             this.btnReportesDeTurnos.TabIndex = 7;
@@ -141,7 +215,7 @@
             // 
             this.btnNuevoPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoPersonal.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoPersonal.Image")));
-            this.btnNuevoPersonal.Location = new System.Drawing.Point(3, 444);
+            this.btnNuevoPersonal.Location = new System.Drawing.Point(3, 498);
             this.btnNuevoPersonal.Name = "btnNuevoPersonal";
             this.btnNuevoPersonal.Size = new System.Drawing.Size(171, 44);
             this.btnNuevoPersonal.TabIndex = 6;
@@ -149,7 +223,7 @@
             this.btnNuevoPersonal.ThemeName = "ControlDefault";
             this.btnNuevoPersonal.Click += new System.EventHandler(this.btnNuevoPersonal_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPersonal.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPersonal.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPersonal.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPersonal.GetChildAt(0))).Text = "  Personal";
             ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnNuevoPersonal.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPersonal.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
@@ -166,39 +240,39 @@
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnNuevoPersonal.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnNuevoPersonal.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnFormasDePago
+            // btnObrasSociales
             // 
-            this.btnFormasDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormasDePago.Image = ((System.Drawing.Image)(resources.GetObject("btnFormasDePago.Image")));
-            this.btnFormasDePago.Location = new System.Drawing.Point(3, 231);
-            this.btnFormasDePago.Name = "btnFormasDePago";
-            this.btnFormasDePago.Size = new System.Drawing.Size(171, 44);
-            this.btnFormasDePago.TabIndex = 4;
-            this.btnFormasDePago.Text = "Formas de Pago";
-            this.btnFormasDePago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFormasDePago.TextWrap = true;
-            this.btnFormasDePago.ThemeName = "ControlDefault";
-            this.btnFormasDePago.Click += new System.EventHandler(this.btnFormasDePago_Click);
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFormasDePago.GetChildAt(0))).Text = "Formas de Pago";
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(5F, 0F);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(1))).TextWrap = true;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 2F;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnFormasDePago.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnObrasSociales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrasSociales.Image = ((System.Drawing.Image)(resources.GetObject("btnObrasSociales.Image")));
+            this.btnObrasSociales.Location = new System.Drawing.Point(3, 231);
+            this.btnObrasSociales.Name = "btnObrasSociales";
+            this.btnObrasSociales.Size = new System.Drawing.Size(171, 44);
+            this.btnObrasSociales.TabIndex = 4;
+            this.btnObrasSociales.Text = "Obras Sociales";
+            this.btnObrasSociales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnObrasSociales.TextWrap = true;
+            this.btnObrasSociales.ThemeName = "ControlDefault";
+            this.btnObrasSociales.Click += new System.EventHandler(this.btnFormasDePago_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnObrasSociales.GetChildAt(0))).UseSmallImageList = true;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnObrasSociales.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnObrasSociales.GetChildAt(0))).TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnObrasSociales.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnObrasSociales.GetChildAt(0))).Text = "Obras Sociales";
+            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(5F, 0F);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(1))).TextWrap = true;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 2F;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnObrasSociales.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnMedicos
             // 
@@ -212,7 +286,7 @@
             this.btnMedicos.ThemeName = "ControlDefault";
             this.btnMedicos.Click += new System.EventHandler(this.btnMedicos_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnMedicos.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnMedicos.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnMedicos.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnMedicos.GetChildAt(0))).Text = "Médicos";
             ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnMedicos.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnMedicos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
@@ -232,7 +306,7 @@
             // btnReportes
             // 
             this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.Location = new System.Drawing.Point(3, 331);
+            this.btnReportes.Location = new System.Drawing.Point(3, 451);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(171, 44);
             this.btnReportes.TabIndex = 5;
@@ -269,7 +343,7 @@
             this.btnHome.ThemeName = "ControlDefault";
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnHome.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnHome.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnHome.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnHome.GetChildAt(0))).Text = "Inicio";
             ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnHome.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnHome.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
@@ -375,7 +449,6 @@
             this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMenu.TabIndex = 0;
             this.btnMenu.TabStop = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // panelContenedor
             // 
@@ -410,10 +483,12 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuInicio_FormClosing);
             this.Load += new System.EventHandler(this.MenuInicio_Load);
             this.menuVertical.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnEspecialidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFormasDePago)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPacientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReportesDeTurnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoPersonal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFormasDePago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnObrasSociales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMedicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReportes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
@@ -441,12 +516,14 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private Telerik.WinControls.UI.RadButton btnHome;
         private Telerik.WinControls.UI.RadOffice2007ScreenTipElement radOffice2007ScreenTipElement1;
-        private Telerik.WinControls.UI.RadButton btnFormasDePago;
+        private Telerik.WinControls.UI.RadButton btnObrasSociales;
         private Telerik.WinControls.UI.RadButton btnMedicos;
         private Telerik.WinControls.UI.RadButton btnReportes;
         private Telerik.WinControls.UI.RadButton btnPacientes;
         private Telerik.WinControls.UI.RadButton btnNuevoPersonal;
         private Telerik.WinControls.UI.RadButton btnReportesDeTurnos;
+        private Telerik.WinControls.UI.RadButton btnEspecialidades;
+        private Telerik.WinControls.UI.RadButton btnFormasDePago;
     }
 }
 
