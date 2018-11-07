@@ -1,7 +1,6 @@
 ﻿using Consultorio.Modelo;
 using Consultorio.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
@@ -10,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Consultorio
 {
-    public partial class VentanaInicio : Form
+    public partial class MenuPrincipalVentana : Form
     {
-        public VentanaInicio()
+        public MenuPrincipalVentana()
         {
             InitializeComponent();
         }

@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace Consultorio
 {
-    public partial class Medico : Form
+    public partial class ListadoMedicos : Form
     {
-        public Medico()
+        public ListadoMedicos()
         {
             InitializeComponent();
         }

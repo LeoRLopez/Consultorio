@@ -1,6 +1,6 @@
 ﻿namespace Consultorio
 {
-    partial class VentanaInicio
+    partial class MenuPrincipalVentana
     {
         /// <summary>
         /// Required designer variable.

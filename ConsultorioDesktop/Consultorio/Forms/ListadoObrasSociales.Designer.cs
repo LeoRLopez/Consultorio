@@ -1,6 +1,6 @@
 ﻿namespace Consultorio
 {
-    partial class Forma_Pago
+    partial class ListadoObrasSociales
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
-            this.dgvSegurosMedicos = new System.Windows.Forms.DataGridView();
+            this.dgvObrasSociales = new System.Windows.Forms.DataGridView();
             this.idSeguroMedicoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.segurosMedicoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,7 +46,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSegurosMedicos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObrasSociales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segurosMedicoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
@@ -100,23 +100,23 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // dgvSegurosMedicos
+            // dgvObrasSociales
             // 
-            this.dgvSegurosMedicos.AllowUserToAddRows = false;
-            this.dgvSegurosMedicos.AllowUserToDeleteRows = false;
-            this.dgvSegurosMedicos.AutoGenerateColumns = false;
-            this.dgvSegurosMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSegurosMedicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvObrasSociales.AllowUserToAddRows = false;
+            this.dgvObrasSociales.AllowUserToDeleteRows = false;
+            this.dgvObrasSociales.AutoGenerateColumns = false;
+            this.dgvObrasSociales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObrasSociales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idSeguroMedicoDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn});
-            this.dgvSegurosMedicos.DataSource = this.segurosMedicoBindingSource;
-            this.dgvSegurosMedicos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
-            this.dgvSegurosMedicos.Location = new System.Drawing.Point(12, 12);
-            this.dgvSegurosMedicos.Name = "dgvSegurosMedicos";
-            this.dgvSegurosMedicos.ReadOnly = true;
-            this.dgvSegurosMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSegurosMedicos.Size = new System.Drawing.Size(409, 308);
-            this.dgvSegurosMedicos.TabIndex = 7;
+            this.dgvObrasSociales.DataSource = this.segurosMedicoBindingSource;
+            this.dgvObrasSociales.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
+            this.dgvObrasSociales.Location = new System.Drawing.Point(12, 12);
+            this.dgvObrasSociales.Name = "dgvObrasSociales";
+            this.dgvObrasSociales.ReadOnly = true;
+            this.dgvObrasSociales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvObrasSociales.Size = new System.Drawing.Size(409, 308);
+            this.dgvObrasSociales.TabIndex = 7;
             // 
             // idSeguroMedicoDataGridViewTextBoxColumn
             // 
@@ -170,7 +170,7 @@
             this.ClientSize = new System.Drawing.Size(598, 332);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.dgvSegurosMedicos);
+            this.Controls.Add(this.dgvObrasSociales);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.txtBoxBuscar);
@@ -187,7 +187,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSegurosMedicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObrasSociales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.segurosMedicoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
@@ -204,7 +204,7 @@
         private Telerik.WinControls.UI.RadTextBox txtBoxBuscar;
         private Telerik.WinControls.UI.RadLabel lblBuscar;
         private Telerik.WinControls.UI.RadButton btnBuscar;
-        private System.Windows.Forms.DataGridView dgvSegurosMedicos;
+        private System.Windows.Forms.DataGridView dgvObrasSociales;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSeguroMedicoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource segurosMedicoBindingSource;

@@ -133,23 +133,23 @@
     <Compile Include="Forms\AgregarEditarEspecialidad.Designer.cs">
       <DependentUpon>AgregarEditarEspecialidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TarjetasDeDebito.cs">
+    <Compile Include="Forms\ListadoTarjetasDeDebito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TarjetasDeDebito.Designer.cs">
-      <DependentUpon>TarjetasDeDebito.cs</DependentUpon>
+    <Compile Include="Forms\ListadoTarjetasDeDebito.Designer.cs">
+      <DependentUpon>ListadoTarjetasDeDebito.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Bancos.cs">
+    <Compile Include="Forms\ListadoBancos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Bancos.Designer.cs">
-      <DependentUpon>Bancos.cs</DependentUpon>
+    <Compile Include="Forms\ListadoBancos.Designer.cs">
+      <DependentUpon>ListadoBancos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Especialidades.cs">
+    <Compile Include="Forms\ListadoEspecialidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Especialidades.Designer.cs">
-      <DependentUpon>Especialidades.cs</DependentUpon>
+    <Compile Include="Forms\ListadoEspecialidades.Designer.cs">
+      <DependentUpon>ListadoEspecialidades.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ListadoPacientes.cs">
       <SubType>Form</SubType>
@@ -163,11 +163,11 @@
     <Compile Include="Forms\EditarPaciente.Designer.cs">
       <DependentUpon>EditarPaciente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormasDePago.cs">
+    <Compile Include="Forms\ListadoFormasDePago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormasDePago.Designer.cs">
-      <DependentUpon>FormasDePago.cs</DependentUpon>
+    <Compile Include="Forms\ListadoFormasDePago.Designer.cs">
+      <DependentUpon>ListadoFormasDePago.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reportes\ReporteListadoTurnos.cs">
       <SubType>Form</SubType>
@@ -210,11 +210,11 @@
       <DependentUpon>NuevoPersonal.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\IniciarSesionEventArgs.cs" />
-    <Compile Include="Forms\ObrasSociales.cs">
+    <Compile Include="Forms\ListadoObrasSociales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ObrasSociales.Designer.cs">
-      <DependentUpon>ObrasSociales.cs</DependentUpon>
+    <Compile Include="Forms\ListadoObrasSociales.Designer.cs">
+      <DependentUpon>ListadoObrasSociales.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\InicioSesion.cs">
       <SubType>Form</SubType>
@@ -351,20 +351,23 @@
     <EmbeddedResource Include="Forms\Admin\NuevoPersonal.resx">
       <DependentUpon>NuevoPersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TarjetasDeDebito.resx">
-      <DependentUpon>TarjetasDeDebito.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AgregarEditarEspecialidad.resx">
+      <DependentUpon>AgregarEditarEspecialidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Bancos.resx">
-      <DependentUpon>Bancos.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ListadoTarjetasDeDebito.resx">
+      <DependentUpon>ListadoTarjetasDeDebito.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Especialidades.resx">
-      <DependentUpon>Especialidades.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ListadoBancos.resx">
+      <DependentUpon>ListadoBancos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormasDePago.resx">
-      <DependentUpon>FormasDePago.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ListadoEspecialidades.resx">
+      <DependentUpon>ListadoEspecialidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ObrasSociales.resx">
-      <DependentUpon>ObrasSociales.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ListadoFormasDePago.resx">
+      <DependentUpon>ListadoFormasDePago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListadoObrasSociales.resx">
+      <DependentUpon>ListadoObrasSociales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>

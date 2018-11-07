@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace Consultorio
 {
-    public partial class MenuInicio : Form
+    public partial class MenuPrincipal : Form
     {
         private bool __sesionIniciada = false;
         private bool __esAdministrador = false;
         private int __idMedico = -1;
         private IniciarSesionEventArgs __iniciarSesionEventArgs = null;
 
-        public MenuInicio()
+        public MenuPrincipal()
         {
             InitializeComponent();
         }
@@ -85,7 +85,7 @@ namespace Consultorio
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            AbrirVentanaEnPanel(new VentanaInicio());
+            AbrirVentanaEnPanel(new MenuPrincipalVentana());
         }
 
         private void btnPacientes_Click(object sender, EventArgs e)
@@ -95,12 +95,12 @@ namespace Consultorio
 
         private void btnMedicos_Click(object sender, EventArgs e)
         {
-            AbrirVentanaEnPanel(new Medico());
+            AbrirVentanaEnPanel(new ListadoMedicos());
         }
 
         private void btnFormasDePago_Click(object sender, EventArgs e)
         {
-            Forma_Pago frmp = new Forma_Pago();
+            ListadoObrasSociales frmp = new ListadoObrasSociales();
             frmp.ShowDialog();
         }
 
@@ -129,7 +129,7 @@ namespace Consultorio
                 if (this.__iniciarSesionEventArgs.EsAdministrador)
                 {
                     this.__esAdministrador = true;
-                    AbrirVentanaEnPanel(new VentanaInicio());
+                    AbrirVentanaEnPanel(new MenuPrincipalVentana());
                 }
                 else if (this.__iniciarSesionEventArgs.IdMedico != null)
                 {
@@ -141,7 +141,7 @@ namespace Consultorio
                 }
                 else
                 {
-                    AbrirVentanaEnPanel(new VentanaInicio());
+                    AbrirVentanaEnPanel(new MenuPrincipalVentana());
                     btnNuevoPersonal.Visible = false;
                     btnPacientes.Visible = false;
                 }
@@ -183,19 +183,19 @@ namespace Consultorio
 
         private void radButton1_Click(object sender, EventArgs e)
         {
-            var formFormasDePago = new FormasDePago();
+            var formFormasDePago = new ListadoFormasDePago();
             var formFormasDePagoResult = formFormasDePago.ShowDialog();
         }
 
         private void btnEspecialidades_Click(object sender, EventArgs e)
         {
-            var formEspecialidades = new Escpecialidades();
+            var formEspecialidades = new ListadoEspecialidades();
             var formEspecialidadesResult = formEspecialidades.ShowDialog();
         }
 
         private void btnTarjetasDeDebito_Click(object sender, EventArgs e)
         {
-            var formTarjetasDeDebito = new TarjetasDeDebito();
+            var formTarjetasDeDebito = new ListadoTarjetasDeDebito();
             var formTarjetasDeDebitoResult =formTarjetasDeDebito.ShowDialog();
         }
     }

@@ -1,10 +1,9 @@
-﻿using Consultorio.Enums;
-using Consultorio.Modelo;
+﻿using Consultorio.Modelo;
 using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web.Helpers;
 using System.Windows.Forms;

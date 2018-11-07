@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Consultorio.Forms
 {
-    public partial class TarjetasDeDebito : Form
+    public partial class ListadoTarjetasDeDebito : Form
     {
-        public TarjetasDeDebito()
+        public ListadoTarjetasDeDebito()
         {
             InitializeComponent();
         }

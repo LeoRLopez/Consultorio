@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Consultorio
 {
-    public partial class Escpecialidades : Form
+    public partial class ListadoFormasDePago : Form
     {
-        public Escpecialidades()
+        public ListadoFormasDePago()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace Consultorio
         {
             using (var entidades = new ClinicaEntities())
             {
-                especialidadBindingSource.DataSource = entidades.Especialidad.ToList();
+                formaDePagoBindingSource.DataSource = entidades.FormaDePago.ToList();
             }
         }
 
@@ -35,7 +35,7 @@ namespace Consultorio
             }
             using (var entidades = new ClinicaEntities())
             {
-                especialidadBindingSource.DataSource = entidades.Especialidad.Where(x => x.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower())).ToList();
+                formaDePagoBindingSource.DataSource = entidades.FormaDePago.Where(x => x.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower())).ToList();
             }
         }
 

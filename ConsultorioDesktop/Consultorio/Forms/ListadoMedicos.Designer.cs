@@ -1,6 +1,6 @@
 ﻿namespace Consultorio
 {
-    partial class Medico
+    partial class ListadoMedicos
     {
         /// <summary>
         /// Required designer variable.

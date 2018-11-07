@@ -1,6 +1,6 @@
 ﻿namespace Consultorio.Forms
 {
-    partial class TarjetasDeDebito
+    partial class ListadoBancos
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
             this.btnEliminar = new Telerik.WinControls.UI.RadButton();
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
-            this.dgvSegurosMedicos = new System.Windows.Forms.DataGridView();
+            this.dgvBancos = new System.Windows.Forms.DataGridView();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
@@ -41,7 +41,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSegurosMedicos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             this.SuspendLayout();
@@ -90,18 +90,18 @@
             this.btnEditar.TabIndex = 16;
             this.btnEditar.Text = "Editar";
             // 
-            // dgvSegurosMedicos
+            // dgvBancos
             // 
-            this.dgvSegurosMedicos.AllowUserToAddRows = false;
-            this.dgvSegurosMedicos.AllowUserToDeleteRows = false;
-            this.dgvSegurosMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSegurosMedicos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
-            this.dgvSegurosMedicos.Location = new System.Drawing.Point(12, 12);
-            this.dgvSegurosMedicos.Name = "dgvSegurosMedicos";
-            this.dgvSegurosMedicos.ReadOnly = true;
-            this.dgvSegurosMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSegurosMedicos.Size = new System.Drawing.Size(409, 308);
-            this.dgvSegurosMedicos.TabIndex = 15;
+            this.dgvBancos.AllowUserToAddRows = false;
+            this.dgvBancos.AllowUserToDeleteRows = false;
+            this.dgvBancos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBancos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
+            this.dgvBancos.Location = new System.Drawing.Point(12, 12);
+            this.dgvBancos.Name = "dgvBancos";
+            this.dgvBancos.ReadOnly = true;
+            this.dgvBancos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBancos.Size = new System.Drawing.Size(409, 308);
+            this.dgvBancos.TabIndex = 15;
             // 
             // btnVolver
             // 
@@ -111,7 +111,6 @@
             this.btnVolver.Size = new System.Drawing.Size(110, 24);
             this.btnVolver.TabIndex = 14;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnAgregar
             // 
@@ -122,7 +121,7 @@
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
             // 
-            // TarjetasDeDebito
+            // TarjetasDeDeDebito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,20 +132,20 @@
             this.Controls.Add(this.txtBoxBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.dgvSegurosMedicos);
+            this.Controls.Add(this.dgvBancos);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregar);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "TarjetasDeDebito";
+            this.Name = "TarjetasDeDeDebito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tarjeta de Débito";
+            this.Text = "Bancos";
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSegurosMedicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             this.ResumeLayout(false);
@@ -161,7 +160,7 @@
         private Telerik.WinControls.UI.RadTextBox txtBoxBuscar;
         private Telerik.WinControls.UI.RadButton btnEliminar;
         private Telerik.WinControls.UI.RadButton btnEditar;
-        private System.Windows.Forms.DataGridView dgvSegurosMedicos;
+        private System.Windows.Forms.DataGridView dgvBancos;
         private Telerik.WinControls.UI.RadButton btnVolver;
         private Telerik.WinControls.UI.RadButton btnAgregar;
     }

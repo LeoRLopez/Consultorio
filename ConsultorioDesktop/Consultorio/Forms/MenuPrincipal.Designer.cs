@@ -1,6 +1,6 @@
 ﻿namespace Consultorio
 {
-    partial class MenuInicio
+    partial class MenuPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuInicio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.menuVertical = new System.Windows.Forms.Panel();
             this.btnTarjetasDeDebito = new Telerik.WinControls.UI.RadButton();
             this.btnEspecialidades = new Telerik.WinControls.UI.RadButton();

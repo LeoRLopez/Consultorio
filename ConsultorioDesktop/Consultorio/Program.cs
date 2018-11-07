@@ -17,7 +17,7 @@ namespace Consultorio
 
             if(splashScreen.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new MenuInicio());
+                Application.Run(new MenuPrincipal());
             }
         }
     }
