@@ -1,6 +1,6 @@
 ﻿namespace Consultorio.Forms
 {
-    partial class TarjetasDeDeDebito
+    partial class TarjetasDeDebito
     {
         /// <summary>
         /// Required designer variable.
@@ -111,6 +111,7 @@
             this.btnVolver.Size = new System.Drawing.Size(110, 24);
             this.btnVolver.TabIndex = 14;
             this.btnVolver.Text = "Volver";
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnAgregar
             // 
@@ -121,7 +122,7 @@
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
             // 
-            // TarjetaDeCredito
+            // TarjetasDeDebito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,9 +138,9 @@
             this.Controls.Add(this.btnAgregar);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "TarjetaDeCredito";
+            this.Name = "TarjetasDeDebito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TarjetaDeCredito";
+            this.Text = "Tarjeta de Débito";
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();

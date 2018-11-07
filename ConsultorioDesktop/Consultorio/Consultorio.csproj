@@ -127,6 +127,12 @@
     <Compile Include="Forms\Admin\EditarPersonal.Designer.cs">
       <DependentUpon>EditarPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TarjetasDeDebito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TarjetasDeDebito.Designer.cs">
+      <DependentUpon>TarjetasDeDebito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Bancos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\NuevoPersonal.resx">
       <DependentUpon>NuevoPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TarjetasDeDebito.resx">
+      <DependentUpon>TarjetasDeDebito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Bancos.resx">
       <DependentUpon>Bancos.cs</DependentUpon>

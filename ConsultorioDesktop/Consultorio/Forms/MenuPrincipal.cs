@@ -1,4 +1,5 @@
-﻿using Consultorio.Reportes;
+﻿using Consultorio.Forms;
+using Consultorio.Reportes;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -190,6 +191,12 @@ namespace Consultorio
         {
             var formEspecialidades = new Escpecialidades();
             var formEspecialidadesResult = formEspecialidades.ShowDialog();
+        }
+
+        private void btnTarjetasDeDebito_Click(object sender, EventArgs e)
+        {
+            var formTarjetasDeDebito = new TarjetasDeDebito();
+            var formTarjetasDeDebitoResult =formTarjetasDeDebito.ShowDialog();
         }
     }
 }

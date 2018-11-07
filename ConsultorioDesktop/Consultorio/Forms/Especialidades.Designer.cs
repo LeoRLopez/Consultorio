@@ -38,10 +38,10 @@
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
-            this.especialidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.especialidadIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioPorDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especialidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegurosMedicos)).BeginInit();
@@ -144,10 +144,6 @@
             this.txtBoxBuscar.Size = new System.Drawing.Size(157, 21);
             this.txtBoxBuscar.TabIndex = 10;
             // 
-            // especialidadBindingSource
-            // 
-            this.especialidadBindingSource.DataSource = typeof(Consultorio.Modelo.Especialidad);
-            // 
             // especialidadIdDataGridViewTextBoxColumn
             // 
             this.especialidadIdDataGridViewTextBoxColumn.DataPropertyName = "EspecialidadId";
@@ -170,6 +166,10 @@
             this.precioPorDefectoDataGridViewTextBoxColumn.HeaderText = "Precio";
             this.precioPorDefectoDataGridViewTextBoxColumn.Name = "precioPorDefectoDataGridViewTextBoxColumn";
             this.precioPorDefectoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // especialidadBindingSource
+            // 
+            this.especialidadBindingSource.DataSource = typeof(Consultorio.Modelo.Especialidad);
             // 
             // Escpecialidades
             // 
