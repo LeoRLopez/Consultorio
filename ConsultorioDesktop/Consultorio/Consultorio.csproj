@@ -127,6 +127,12 @@
     <Compile Include="Forms\Admin\EditarPersonal.Designer.cs">
       <DependentUpon>EditarPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Bancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Bancos.Designer.cs">
+      <DependentUpon>Bancos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Especialidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\NuevoPersonal.resx">
       <DependentUpon>NuevoPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Bancos.resx">
+      <DependentUpon>Bancos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Especialidades.resx">
       <DependentUpon>Especialidades.cs</DependentUpon>
