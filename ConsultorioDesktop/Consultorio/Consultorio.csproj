@@ -181,6 +181,7 @@
     <Compile Include="Forms\Reportes\ReporteListadoPacientes.designer.cs">
       <DependentUpon>ReporteListadoPacientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CustomLINQExtensionMethods.cs" />
     <Compile Include="Modelo\AspNetRoles.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>

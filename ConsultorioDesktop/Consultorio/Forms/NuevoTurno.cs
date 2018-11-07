@@ -76,18 +76,30 @@ namespace Consultorio
 
                 using (var entidades = new ClinicaEntities())
                 {
-                    entidades.Turno.Add(nuevoTurno);
-                    entidades.SaveChanges();
-                    EnviarNotificacionAlPaciente(entidades, nuevoTurno.IdTurno);
-                    MessageBox.Show("Turno creado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (MessageBox.Show("Desea agregar otro Turno?", "TurnARG", MessageBoxButtons.YesNo) == DialogResult.No)
+                    using (var entidadesTransaction = entidades.Database.BeginTransaction())
                     {
-                        __turnoAgregado = true;
-                        this.Close();
-                    }
-                    else
-                    {
-                        LimpiarRegistros();
+                        try
+                        {
+                            entidades.Turno.Add(nuevoTurno);
+                            entidades.SaveChanges();
+                            EnviarNotificacionAlPaciente(entidades, nuevoTurno.IdTurno);
+                            entidadesTransaction.Commit();
+                            MessageBox.Show("Turno creado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (MessageBox.Show("Desea agregar otro Turno?", "TurnARG", MessageBoxButtons.YesNo) == DialogResult.No)
+                            {
+                                __turnoAgregado = true;
+                                this.Close();
+                            }
+                            else
+                            {
+                                LimpiarRegistros();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            entidadesTransaction.Rollback();
+                            MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -110,7 +122,7 @@ namespace Consultorio
                 turnoDB.Medico.MatriculaMedico,
                 turnoDB.FormaDePago.Nombre,
                 turnoDB.PrecioTurno,
-                turnoDB.SegurosMedico.Nombre);
+                turnoDB.SegurosMedico == null ? "-" : turnoDB.SegurosMedico.Nombre);
             var emailModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
             return EnviarEmail(emailModel);
         }
@@ -208,7 +220,7 @@ namespace Consultorio
                     ViernesHorario = medico.Horario4.Nombre,
                     SabadoHorario = medico.Horario5.Nombre,
                     DomingoHorario = medico.Horario6.Nombre,
-                    Especialidades = medico.MedicoEspecialidad.Select(x =>
+                    EspecialidadesMedicoVM = medico.MedicoEspecialidad.Select(x =>
                         new EspecialidadMedicoVM
                         {
                             EspecialidadId = x.Especialidad.EspecialidadId,
@@ -300,7 +312,7 @@ namespace Consultorio
                 dropDownEspecialidades.ValueMember = "EspecialidadId";
                 dropDownEspecialidades.DisplayMember = "NombrePrecio";
                 var especialidades = new List<EspecialidadMedicoVM> { new EspecialidadMedicoVM { EspecialidadId = -1, NombrePrecio = "Seleccione una Especialidad" } };
-                especialidades.AddRange(medicoSeleccionado.Especialidades);
+                especialidades.AddRange(medicoSeleccionado.EspecialidadesMedicoVM);
                 dropDownEspecialidades.DataSource = especialidades;
             }
         }

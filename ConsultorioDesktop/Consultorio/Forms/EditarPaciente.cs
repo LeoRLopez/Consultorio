@@ -8,32 +8,48 @@ using System.Linq;
 using System.Net.Mail;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
+using System.Data.Entity;
 
 namespace Consultorio
 {
     public partial class EditarPaciente : Form
     {
-        private int __idPaciente;
+        private Paciente __paciente;
 
         public EditarPaciente(int idPaciente)
         {
             InitializeComponent();
-            this.__idPaciente = idPaciente;
-            CargarDatosEnPantalla();
-        }
-
-        private void CargarDatosEnPantalla()
-        {
             using (var entidades = new ClinicaEntities())
             {
+                this.__paciente = entidades.Paciente.Include(x => x.Ciudad).Include(x => x.HistoriaClinica).First(x => x.IdPaciente == idPaciente);
             }
         }
 
-        //Le agregue la funcionalidad de que, cuando un registro sea distinto de "" que lo limpie;
-        //Si se vuelve a apretar cancelar, la ventana se cerraria;
+        private void CargarDatosEnPantalla(Paciente paciente)
+        {
+            this.txtBoxNombre.Text = paciente.Nombres;
+            this.txtBoxApellido.Text = paciente.Apellidos;
+            this.txtBoxDocumento.Text = paciente.NumeroDocumento.ToString();
+            this.txtBoxTelefono.Text = paciente.TelCelular;
+            this.radioBtnMasculino.IsChecked = paciente.Sexo == "Masculino";
+            this.radioBtnFemenino.IsChecked = paciente.Sexo == "Femenino";
+            this.dateTimePickerNacimiento.Value = paciente.FechaNacimiento;
+            this.txtBoxDireccion.Text = paciente.Direccion;
+            this.txtBoxEmail.Text = paciente.Email;
+            this.dropDownPais.SelectedValue = paciente.IdPais;
+            this.dropDownProvincia.SelectedValue = paciente.IdProvincia;
+            this.dropDownDepartamento.SelectedValue = paciente.Ciudad.DepartamentoId;
+            this.dropDownCiudad.SelectedValue = paciente.IdCiudad;
+            this.txtBoxCodigoPostal.Text = paciente.CodigoPostal;
+            this.txtBoxAntecedentesMedicos.Text = paciente.HistoriaClinica.AntecedentesMedicos;
+            this.dropDownGrupoSanguineo.SelectedValue = paciente.HistoriaClinica.GrupoSanguineo.Trim();
+            this.checkBoxDonante.Checked = paciente.HistoriaClinica.Donante;
+            this.checkBoxTrasplantado.Checked = paciente.HistoriaClinica.Transplantado;
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Los registros sin guardar se perderán. ¿Salir?", "TurnARG",
+            if (MessageBox.Show("Los registros sin guardar se perderán. ¿Deas salir de todas maneras?", "TurnARG",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 this.Close();
@@ -52,66 +68,58 @@ namespace Consultorio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            errorProvider.Clear();
-
-            if (!ValidarCamposObligatoriosPaciente())
-                return;
-
-            var nuevoPaciente = new Paciente
-            {
-                Nombres = txtBoxNombre.Text.ToUpper(),
-                Apellidos = txtBoxApellido.Text.ToUpper(),
-                Email = txtBoxEmail.Text,
-                NumeroDocumento = Int64.Parse(txtBoxDocumento.Text),
-                FechaNacimiento = dateTimePickerNacimiento.Value,
-                Edad = CalculateAge(dateTimePickerNacimiento.Value),
-                Sexo = radioBtnMasculino.IsChecked ? "Masculino" : "Femenino",
-                PrimeraAtencion = true,
-                TelCelular = txtBoxTelefono.Text.Trim(),
-                Direccion = txtBoxDireccion.Text,
-                CodigoPostal = txtBoxCodigoPostal.Text,
-                IdCiudad = (int)dropDownCiudad.SelectedValue,
-                IdProvincia = (int)dropDownProvincia.SelectedValue,
-                IdPais = (int)dropDownPais.SelectedValue
-            };
-
-            if (!ValidarCamposObligatoriosHistoriaClinica())
-                return;
-
-            nuevoPaciente.HistoriaClinica = new HistoriaClinica
-            {
-                FechaInicio = DateTime.Now,
-                UltimaActualizacion = DateTime.Now,
-                AntecedentesMedicos = txtBoxAntecedentesMedicos.Text.Trim(),
-                Donante = checkBoxDonante.Checked,
-                Transplantado = checkBoxTrasplantado.Checked,
-                GrupoSanguineo = dropDownGrupoSanguineo.Text
-            };
-
             try
             {
+                errorProvider.Clear();
+
+                if (!ValidarCamposObligatoriosPaciente())
+                    return;
+
                 using (var entidades = new ClinicaEntities())
                 {
-                    // Insertar un nuevo Usuario en la tabla AspNetUsers
+                    var pacienteBD = entidades.Paciente.Single(x => x.IdPaciente == this.__paciente.IdPaciente);
+                    pacienteBD.Nombres = txtBoxNombre.Text.ToUpper();
+                    pacienteBD.Apellidos = txtBoxApellido.Text.ToUpper();
+                    pacienteBD.Email = txtBoxEmail.Text;
+                    pacienteBD.NumeroDocumento = Int64.Parse(txtBoxDocumento.Text);
+                    pacienteBD.FechaNacimiento = dateTimePickerNacimiento.Value;
+                    pacienteBD.Edad = CalculateAge(dateTimePickerNacimiento.Value);
+                    pacienteBD.Sexo = radioBtnMasculino.IsChecked ? "Masculino" : "Femenino";
+                    pacienteBD.TelCelular = txtBoxTelefono.Text.Trim();
+                    pacienteBD.Direccion = txtBoxDireccion.Text;
+                    pacienteBD.CodigoPostal = txtBoxCodigoPostal.Text;
+                    pacienteBD.IdCiudad = (int)dropDownCiudad.SelectedValue;
+                    pacienteBD.IdProvincia = (int)dropDownProvincia.SelectedValue;
+                    pacienteBD.IdPais = (int)dropDownPais.SelectedValue;
+
+                    if (!ValidarCamposObligatoriosHistoriaClinica())
+                        return;
+                    var historiaClinicaBD = entidades.HistoriaClinica.Single(x => x.IdHistoriaClinica == pacienteBD.IdHistoriaClinica);
+
+
+                    historiaClinicaBD.UltimaActualizacion = DateTime.Now;
+                    historiaClinicaBD.AntecedentesMedicos = txtBoxAntecedentesMedicos.Text.Trim();
+                    historiaClinicaBD.Donante = checkBoxDonante.Checked;
+                    historiaClinicaBD.Transplantado = checkBoxTrasplantado.Checked;
+                    historiaClinicaBD.GrupoSanguineo = dropDownGrupoSanguineo.Text;
+
+
+                    // Editarel Usuario existente en la tabla AspNetUsers asi se puede seguir logueando en la Web con el nuevo Email
                     var userStore = new UserStore<IdentityUser>(new IdentityDbContext("IdentityDBConnection"));
                     var manager = new UserManager<IdentityUser>(userStore);
-                    var user = new IdentityUser() { UserName = nuevoPaciente.Email, Email = nuevoPaciente.Email, EmailConfirmed = true };
-                    IdentityResult result = manager.Create(user, txtBoxDocumento.Text);
+                    var usuarioExistente = manager.FindByEmail(this.__paciente.Email);
+                    usuarioExistente.UserName = pacienteBD.Email;
+                    usuarioExistente.Email = pacienteBD.Email;
+                    IdentityResult result = manager.Update(usuarioExistente);
                     if (result.Succeeded)
                     {
-                        // Asignar el usuario al Rol Paciente
-                        var currentUser = manager.FindByName(user.UserName);
-                        manager.AddToRole(currentUser.Id, "Paciente");
-
-                        entidades.Paciente.Add(nuevoPaciente);
                         entidades.SaveChanges();
-
-                        MessageBox.Show("Paciente Agregado con Exito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Paciente Editado con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Hubo un error Agregado el Paciente: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Hubo un error Editando el Paciente: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -241,6 +249,7 @@ namespace Consultorio
                 dropDownPais.ValueMember = "PaisId";
                 dropDownPais.DataSource = paises.ToList();
             }
+            CargarDatosEnPantalla(this.__paciente);
         }
 
         private bool ValidarCamposObligatoriosPaciente()

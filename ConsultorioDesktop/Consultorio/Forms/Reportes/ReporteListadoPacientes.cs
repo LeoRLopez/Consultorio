@@ -39,7 +39,9 @@ namespace Consultorio.Reportes
                     NombreCompleto = paciente.Apellidos + ", " + paciente.Nombres,
                     NroDocumento = paciente.NumeroDocumento.ToString(),
                     Telefono = paciente.TelCelular,
-                    Direccion = paciente.Direccion
+                    Direccion = paciente.Direccion,
+                    Email = paciente.Email,
+                    Sexo = paciente.Sexo
                 }).ToList());
                 pacienteVMBindingSource.DataSource = __pacientesVM;
             }
@@ -86,7 +88,9 @@ namespace Consultorio.Reportes
                      NombreCompleto = paciente.Apellidos + ", " + paciente.Nombres,
                      NroDocumento = paciente.NumeroDocumento.ToString(),
                      Telefono = paciente.TelCelular,
-                     Direccion = paciente.Direccion
+                     Direccion = paciente.Direccion,
+                     Email = paciente.Email,
+                     Sexo = paciente.Sexo
                  }).ToList();
                 pacienteVMBindingSource.DataSource = __pacientesVM;
             }

@@ -34,15 +34,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoPacientes));
             this.panelListaPacientes = new Telerik.WinControls.UI.RadPanel();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.pacienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idHistoriaClinicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacienteVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelPacienteSeleccionado = new Telerik.WinControls.UI.RadPanel();
+            this.lblGrupoSanguineo = new Telerik.WinControls.UI.RadLabel();
             this.lblTrasplantado = new Telerik.WinControls.UI.RadLabel();
             this.lblDonante = new Telerik.WinControls.UI.RadLabel();
             this.lblTelefono = new Telerik.WinControls.UI.RadLabel();
@@ -52,18 +45,27 @@
             this.txtHistoriaClinica = new Telerik.WinControls.UI.RadTextBox();
             this.lblEdadSexo = new Telerik.WinControls.UI.RadLabel();
             this.lblNombreApellido = new System.Windows.Forms.Label();
-            this.labelObservaciones = new Telerik.WinControls.UI.RadLabel();
             this.Afecciones = new Telerik.WinControls.UI.RadLabel();
             this.pictureBoxFotoPaciente = new System.Windows.Forms.PictureBox();
             this.object_b5eba493_7d85_4956_839f_e2e31e6ce190 = new Telerik.WinControls.RootRadElement();
-            this.btnCompletarConsulta = new Telerik.WinControls.UI.RadButton();
-            this.lblGrupoSanguineo = new Telerik.WinControls.UI.RadLabel();
+            this.btnEditarPaciente = new Telerik.WinControls.UI.RadButton();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
+            this.pacienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idHistoriaClinicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacienteVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelListaPacientes)).BeginInit();
             this.panelListaPacientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPacienteSeleccionado)).BeginInit();
             this.panelPacienteSeleccionado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblGrupoSanguineo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTrasplantado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDonante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTelefono)).BeginInit();
@@ -72,11 +74,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiagnostico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHistoriaClinica)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblEdadSexo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labelObservaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Afecciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPaciente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCompletarConsulta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblGrupoSanguineo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditarPaciente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelListaPacientes
@@ -86,7 +88,7 @@
             this.panelListaPacientes.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelListaPacientes.Location = new System.Drawing.Point(0, 0);
             this.panelListaPacientes.Name = "panelListaPacientes";
-            this.panelListaPacientes.Size = new System.Drawing.Size(640, 450);
+            this.panelListaPacientes.Size = new System.Drawing.Size(640, 532);
             this.panelListaPacientes.TabIndex = 0;
             this.panelListaPacientes.Text = "panelListaPacientes";
             this.panelListaPacientes.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -112,12 +114,14 @@
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pacienteIdDataGridViewTextBoxColumn,
-            this.idHistoriaClinicaDataGridViewTextBoxColumn,
             this.nombreCompletoDataGridViewTextBoxColumn,
-            this.nroDocumentoDataGridViewTextBoxColumn,
             this.edadDataGridViewTextBoxColumn,
+            this.Sexo,
+            this.nroDocumentoDataGridViewTextBoxColumn,
+            this.Email,
             this.telefonoDataGridViewTextBoxColumn,
-            this.direccionDataGridViewTextBoxColumn});
+            this.direccionDataGridViewTextBoxColumn,
+            this.idHistoriaClinicaDataGridViewTextBoxColumn});
             this.dgvPacientes.DataSource = this.pacienteVMBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
@@ -135,68 +139,9 @@
             this.dgvPacientes.ReadOnly = true;
             this.dgvPacientes.RowHeadersVisible = false;
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientes.Size = new System.Drawing.Size(640, 450);
+            this.dgvPacientes.Size = new System.Drawing.Size(640, 532);
             this.dgvPacientes.TabIndex = 12;
             this.dgvPacientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacientes_CellClick);
-            // 
-            // pacienteIdDataGridViewTextBoxColumn
-            // 
-            this.pacienteIdDataGridViewTextBoxColumn.DataPropertyName = "PacienteId";
-            this.pacienteIdDataGridViewTextBoxColumn.HeaderText = "PacienteId";
-            this.pacienteIdDataGridViewTextBoxColumn.Name = "pacienteIdDataGridViewTextBoxColumn";
-            this.pacienteIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pacienteIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idHistoriaClinicaDataGridViewTextBoxColumn
-            // 
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.DataPropertyName = "IdHistoriaClinica";
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.HeaderText = "IdHistoriaClinica";
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.Name = "idHistoriaClinicaDataGridViewTextBoxColumn";
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreCompletoDataGridViewTextBoxColumn
-            // 
-            this.nombreCompletoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto";
-            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Paciente";
-            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
-            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nroDocumentoDataGridViewTextBoxColumn
-            // 
-            this.nroDocumentoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "NroDocumento";
-            this.nroDocumentoDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.nroDocumentoDataGridViewTextBoxColumn.Name = "nroDocumentoDataGridViewTextBoxColumn";
-            this.nroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // edadDataGridViewTextBoxColumn
-            // 
-            this.edadDataGridViewTextBoxColumn.DataPropertyName = "Edad";
-            this.edadDataGridViewTextBoxColumn.HeaderText = "Edad";
-            this.edadDataGridViewTextBoxColumn.Name = "edadDataGridViewTextBoxColumn";
-            this.edadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telefonoDataGridViewTextBoxColumn
-            // 
-            this.telefonoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
-            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // direccionDataGridViewTextBoxColumn
-            // 
-            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
-            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
-            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pacienteVMBindingSource
-            // 
-            this.pacienteVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PacienteVM);
             // 
             // panelPacienteSeleccionado
             // 
@@ -211,20 +156,29 @@
             this.panelPacienteSeleccionado.Controls.Add(this.txtHistoriaClinica);
             this.panelPacienteSeleccionado.Controls.Add(this.lblEdadSexo);
             this.panelPacienteSeleccionado.Controls.Add(this.lblNombreApellido);
-            this.panelPacienteSeleccionado.Controls.Add(this.labelObservaciones);
             this.panelPacienteSeleccionado.Controls.Add(this.Afecciones);
             this.panelPacienteSeleccionado.Controls.Add(this.pictureBoxFotoPaciente);
             this.panelPacienteSeleccionado.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelPacienteSeleccionado.Location = new System.Drawing.Point(640, 51);
+            this.panelPacienteSeleccionado.Location = new System.Drawing.Point(640, 133);
             this.panelPacienteSeleccionado.Name = "panelPacienteSeleccionado";
             this.panelPacienteSeleccionado.Size = new System.Drawing.Size(310, 399);
             this.panelPacienteSeleccionado.TabIndex = 1;
+            // 
+            // lblGrupoSanguineo
+            // 
+            this.lblGrupoSanguineo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGrupoSanguineo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrupoSanguineo.Location = new System.Drawing.Point(116, 91);
+            this.lblGrupoSanguineo.Name = "lblGrupoSanguineo";
+            this.lblGrupoSanguineo.Size = new System.Drawing.Size(112, 18);
+            this.lblGrupoSanguineo.TabIndex = 13;
+            this.lblGrupoSanguineo.Text = "Grupo Sanguineo";
             // 
             // lblTrasplantado
             // 
             this.lblTrasplantado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTrasplantado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrasplantado.Location = new System.Drawing.Point(8, 119);
+            this.lblTrasplantado.Location = new System.Drawing.Point(16, 119);
             this.lblTrasplantado.Name = "lblTrasplantado";
             this.lblTrasplantado.Size = new System.Drawing.Size(85, 18);
             this.lblTrasplantado.TabIndex = 12;
@@ -233,7 +187,7 @@
             // lblDonante
             // 
             this.lblDonante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDonante.Location = new System.Drawing.Point(7, 95);
+            this.lblDonante.Location = new System.Drawing.Point(30, 95);
             this.lblDonante.Name = "lblDonante";
             this.lblDonante.Size = new System.Drawing.Size(57, 18);
             this.lblDonante.TabIndex = 11;
@@ -242,7 +196,7 @@
             // lblTelefono
             // 
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(120, 47);
+            this.lblTelefono.Location = new System.Drawing.Point(116, 47);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(59, 18);
             this.lblTelefono.TabIndex = 8;
@@ -251,7 +205,7 @@
             // lblDireccion
             // 
             this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.Location = new System.Drawing.Point(120, 68);
+            this.lblDireccion.Location = new System.Drawing.Point(116, 68);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(63, 18);
             this.lblDireccion.TabIndex = 8;
@@ -260,7 +214,7 @@
             // lblDiagnostico
             // 
             this.lblDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiagnostico.Location = new System.Drawing.Point(7, 294);
+            this.lblDiagnostico.Location = new System.Drawing.Point(7, 292);
             this.lblDiagnostico.Name = "lblDiagnostico";
             this.lblDiagnostico.Size = new System.Drawing.Size(77, 18);
             this.lblDiagnostico.TabIndex = 10;
@@ -273,7 +227,7 @@
             this.txtDiagnostico.Location = new System.Drawing.Point(7, 314);
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(291, 82);
+            this.txtDiagnostico.Size = new System.Drawing.Size(291, 73);
             this.txtDiagnostico.TabIndex = 9;
             // 
             // txtHistoriaClinica
@@ -283,13 +237,13 @@
             this.txtHistoriaClinica.Location = new System.Drawing.Point(7, 169);
             this.txtHistoriaClinica.Multiline = true;
             this.txtHistoriaClinica.Name = "txtHistoriaClinica";
-            this.txtHistoriaClinica.Size = new System.Drawing.Size(291, 124);
+            this.txtHistoriaClinica.Size = new System.Drawing.Size(291, 117);
             this.txtHistoriaClinica.TabIndex = 8;
             // 
             // lblEdadSexo
             // 
             this.lblEdadSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEdadSexo.Location = new System.Drawing.Point(120, 26);
+            this.lblEdadSexo.Location = new System.Drawing.Point(116, 26);
             this.lblEdadSexo.Name = "lblEdadSexo";
             this.lblEdadSexo.Size = new System.Drawing.Size(80, 18);
             this.lblEdadSexo.TabIndex = 7;
@@ -299,20 +253,11 @@
             // 
             this.lblNombreApellido.AutoSize = true;
             this.lblNombreApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreApellido.Location = new System.Drawing.Point(120, 7);
+            this.lblNombreApellido.Location = new System.Drawing.Point(116, 7);
             this.lblNombreApellido.Name = "lblNombreApellido";
             this.lblNombreApellido.Size = new System.Drawing.Size(120, 16);
             this.lblNombreApellido.TabIndex = 6;
             this.lblNombreApellido.Text = "Nombre y Apellido";
-            // 
-            // labelObservaciones
-            // 
-            this.labelObservaciones.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelObservaciones.Location = new System.Drawing.Point(7, 275);
-            this.labelObservaciones.Name = "labelObservaciones";
-            this.labelObservaciones.Size = new System.Drawing.Size(86, 17);
-            this.labelObservaciones.TabIndex = 5;
-            this.labelObservaciones.Text = "Observaciones";
             // 
             // Afecciones
             // 
@@ -341,51 +286,148 @@
             this.object_b5eba493_7d85_4956_839f_e2e31e6ce190.StretchHorizontally = true;
             this.object_b5eba493_7d85_4956_839f_e2e31e6ce190.StretchVertically = true;
             // 
-            // btnCompletarConsulta
+            // btnEditarPaciente
             // 
-            this.btnCompletarConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompletarConsulta.Image = ((System.Drawing.Image)(resources.GetObject("btnCompletarConsulta.Image")));
-            this.btnCompletarConsulta.Location = new System.Drawing.Point(647, 1);
-            this.btnCompletarConsulta.Name = "btnCompletarConsulta";
-            this.btnCompletarConsulta.Size = new System.Drawing.Size(303, 44);
-            this.btnCompletarConsulta.TabIndex = 2;
-            this.btnCompletarConsulta.Text = "Completar Consulta";
-            this.btnCompletarConsulta.ThemeName = "ControlDefault";
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnCompletarConsulta.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnCompletarConsulta.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnCompletarConsulta.GetChildAt(0))).Text = "Completar Consulta";
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(10F, 0F);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnCompletarConsulta.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEditarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPaciente.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarPaciente.Image")));
+            this.btnEditarPaciente.Location = new System.Drawing.Point(646, 53);
+            this.btnEditarPaciente.Name = "btnEditarPaciente";
+            this.btnEditarPaciente.Size = new System.Drawing.Size(303, 44);
+            this.btnEditarPaciente.TabIndex = 2;
+            this.btnEditarPaciente.Text = "Editar Paciente Seleccionado";
+            this.btnEditarPaciente.ThemeName = "ControlDefault";
+            this.btnEditarPaciente.Click += new System.EventHandler(this.btnEditarPaciente_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEditarPaciente.GetChildAt(0))).UseSmallImageList = true;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEditarPaciente.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEditarPaciente.GetChildAt(0))).Text = "Editar Paciente Seleccionado";
+            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(10F, 0F);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblGrupoSanguineo
+            // Sexo
             // 
-            this.lblGrupoSanguineo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGrupoSanguineo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupoSanguineo.Location = new System.Drawing.Point(123, 95);
-            this.lblGrupoSanguineo.Name = "lblGrupoSanguineo";
-            this.lblGrupoSanguineo.Size = new System.Drawing.Size(112, 18);
-            this.lblGrupoSanguineo.TabIndex = 13;
-            this.lblGrupoSanguineo.Text = "Grupo Sanguineo";
+            this.Sexo.DataPropertyName = "Sexo";
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            this.Sexo.ReadOnly = true;
+            this.Sexo.Width = 70;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 135;
+            // 
+            // radButton1
+            // 
+            this.radButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radButton1.Image = ((System.Drawing.Image)(resources.GetObject("radButton1.Image")));
+            this.radButton1.Location = new System.Drawing.Point(647, 3);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(303, 44);
+            this.radButton1.TabIndex = 3;
+            this.radButton1.Text = "Nuevo Paciente";
+            this.radButton1.ThemeName = "ControlDefault";
+            this.radButton1.Click += new System.EventHandler(this.radButton1_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).UseSmallImageList = true;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Text = "Nuevo Paciente";
+            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.radButton1.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(10F, 0F);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pacienteIdDataGridViewTextBoxColumn
+            // 
+            this.pacienteIdDataGridViewTextBoxColumn.DataPropertyName = "PacienteId";
+            this.pacienteIdDataGridViewTextBoxColumn.HeaderText = "PacienteId";
+            this.pacienteIdDataGridViewTextBoxColumn.Name = "pacienteIdDataGridViewTextBoxColumn";
+            this.pacienteIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pacienteIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreCompletoDataGridViewTextBoxColumn
+            // 
+            this.nombreCompletoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto";
+            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Paciente";
+            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
+            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // edadDataGridViewTextBoxColumn
+            // 
+            this.edadDataGridViewTextBoxColumn.DataPropertyName = "Edad";
+            this.edadDataGridViewTextBoxColumn.HeaderText = "Edad";
+            this.edadDataGridViewTextBoxColumn.Name = "edadDataGridViewTextBoxColumn";
+            this.edadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.edadDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // nroDocumentoDataGridViewTextBoxColumn
+            // 
+            this.nroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "NroDocumento";
+            this.nroDocumentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.nroDocumentoDataGridViewTextBoxColumn.Name = "nroDocumentoDataGridViewTextBoxColumn";
+            this.nroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nroDocumentoDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.direccionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idHistoriaClinicaDataGridViewTextBoxColumn
+            // 
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.DataPropertyName = "IdHistoriaClinica";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.HeaderText = "IdHistoriaClinica";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.Name = "idHistoriaClinicaDataGridViewTextBoxColumn";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pacienteVMBindingSource
+            // 
+            this.pacienteVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PacienteVM);
             // 
             // ListadoPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(950, 450);
-            this.Controls.Add(this.btnCompletarConsulta);
+            this.ClientSize = new System.Drawing.Size(950, 532);
+            this.Controls.Add(this.radButton1);
+            this.Controls.Add(this.btnEditarPaciente);
             this.Controls.Add(this.panelPacienteSeleccionado);
             this.Controls.Add(this.panelListaPacientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -396,10 +438,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelListaPacientes)).EndInit();
             this.panelListaPacientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPacienteSeleccionado)).EndInit();
             this.panelPacienteSeleccionado.ResumeLayout(false);
             this.panelPacienteSeleccionado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblGrupoSanguineo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTrasplantado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDonante)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTelefono)).EndInit();
@@ -408,11 +450,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiagnostico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHistoriaClinica)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblEdadSexo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labelObservaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Afecciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPaciente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCompletarConsulta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblGrupoSanguineo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditarPaciente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -423,9 +465,8 @@
         private Telerik.WinControls.UI.RadPanel panelPacienteSeleccionado;
         private System.Windows.Forms.PictureBox pictureBoxFotoPaciente;
         private Telerik.WinControls.UI.RadLabel Afecciones;
-        private Telerik.WinControls.UI.RadLabel labelObservaciones;
         private Telerik.WinControls.RootRadElement object_b5eba493_7d85_4956_839f_e2e31e6ce190;
-        private Telerik.WinControls.UI.RadButton btnCompletarConsulta;
+        private Telerik.WinControls.UI.RadButton btnEditarPaciente;
         private System.Windows.Forms.Label lblNombreApellido;
         private Telerik.WinControls.UI.RadLabel lblEdadSexo;
         private Telerik.WinControls.UI.RadTextBox txtDiagnostico;
@@ -435,15 +476,18 @@
         private Telerik.WinControls.UI.RadLabel lblDireccion;
         private System.Windows.Forms.DataGridView dgvPacientes;
         private System.Windows.Forms.BindingSource pacienteVMBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pacienteIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idHistoriaClinicaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompletoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nroDocumentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn edadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
         private Telerik.WinControls.UI.RadLabel lblTrasplantado;
         private Telerik.WinControls.UI.RadLabel lblDonante;
         private Telerik.WinControls.UI.RadLabel lblGrupoSanguineo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pacienteIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompletoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn edadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sexo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroDocumentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idHistoriaClinicaDataGridViewTextBoxColumn;
+        private Telerik.WinControls.UI.RadButton radButton1;
     }
 }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data.Entity;
+using Consultorio.Helpers;
 
 namespace Consultorio
 {
@@ -23,20 +25,25 @@ namespace Consultorio
         {
             using (var entidades = new ClinicaEntities())
             {
-                medicoVMBindingSource.DataSource = entidades.Medico.Select(medico =>
-                new MedicoVM
-                {
-                    MedicoId = medico.IdMedico,
-                    NombreCompleto = medico.PersonalInterno.FirstOrDefault().Apellido + ", " + medico.PersonalInterno.FirstOrDefault().Nombre,
-                    //Especialidad = medico.Especialidad,
-                    LunesHorario = medico.Horario.Nombre,
-                    MartesHorario = medico.Horario1.Nombre,
-                    MiercolesHorario = medico.Horario2.Nombre,
-                    JuevesHorario = medico.Horario3.Nombre,
-                    ViernesHorario = medico.Horario4.Nombre,
-                    SabadoHorario = medico.Horario5.Nombre,
-                    DomingoHorario = medico.Horario6.Nombre
-                }).ToList();
+                medicoVMBindingSource.DataSource = entidades.Medico.Include(x => x.MedicoEspecialidad).Select(medico =>
+                  new MedicoVM
+                  {
+                      MedicoId = medico.IdMedico,
+                      NombreCompleto = medico.PersonalInterno.FirstOrDefault().Apellido + ", " + medico.PersonalInterno.FirstOrDefault().Nombre,
+                      EspecialidadesMedicoVM = medico.MedicoEspecialidad.Select(x => new EspecialidadMedicoVM
+                      {
+                          EspecialidadId = x.EspecialidadId,
+                          NombrePrecio = x.Especialidad.Nombre,
+                          Precio = x.Especialidad.PrecioPorDefecto
+                      }).ToList(),
+                      LunesHorario = medico.Horario.Nombre,
+                      MartesHorario = medico.Horario1.Nombre,
+                      MiercolesHorario = medico.Horario2.Nombre,
+                      JuevesHorario = medico.Horario3.Nombre,
+                      ViernesHorario = medico.Horario4.Nombre,
+                      SabadoHorario = medico.Horario5.Nombre,
+                      DomingoHorario = medico.Horario6.Nombre
+                  }).ToList();
             }
         }
 
@@ -55,10 +62,14 @@ namespace Consultorio
                         IdHistoriaClinica = turno.Paciente.IdHistoriaClinica,
                         NombreCompleto = turno.Paciente.Apellidos + ", " + turno.Paciente.Nombres,
                         NroDocumento = turno.Paciente.NumeroDocumento.ToString(),
-                        Telefono = turno.Paciente.TelCelular
+                        Telefono = turno.Paciente.TelCelular,
+                        Email = turno.Paciente.Email,
+                        Sexo = turno.Paciente.Sexo
                     });
                 }
-                pacienteVMBindingSource.DataSource = pacientes;
+                // Usamos DistinctBy() para No mostrar Pacientes repetidos,
+                // sino una sola fila para el mismo paciente que pudo haber sido atentido varias veces
+                pacienteVMBindingSource.DataSource = pacientes.DistinctBy(x => x.PacienteId);
                 pacienteVMBindingSource.ResetBindings(false);
             }
         }

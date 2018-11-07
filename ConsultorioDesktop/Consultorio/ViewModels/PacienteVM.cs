@@ -15,5 +15,7 @@ namespace Consultorio.ViewModels
         public bool Donante { get;  set; }
         public bool Trasplantado { get; set; }
         public string GrupoSanguineo { get; set; }
+        public string Email { get; set; }
+        public string Sexo { get; set; }
     }
 }

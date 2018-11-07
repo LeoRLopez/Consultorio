@@ -27,6 +27,11 @@ namespace Consultorio
 
         private void Pacientes_Load(object sender, EventArgs e)
         {
+            RefrescarDataGridViewPacientes();
+        }
+
+        private void RefrescarDataGridViewPacientes()
+        {
             using (var entidades = new ClinicaEntities())
             {
                 var pacientes = new List<PacienteVM>();
@@ -39,7 +44,9 @@ namespace Consultorio
                     NombreCompleto = paciente.Apellidos + ", " + paciente.Nombres,
                     NroDocumento = paciente.NumeroDocumento.ToString(),
                     Telefono = paciente.TelCelular,
-                    Direccion = paciente.Direccion
+                    Direccion = paciente.Direccion,
+                    Email = paciente.Email,
+                    Sexo = paciente.Sexo
                 }).ToList());
 
                 pacienteVMBindingSource.DataSource = pacientes;
@@ -50,16 +57,17 @@ namespace Consultorio
         {
             if (dgvPacientes.CurrentRow != null)
             {
-                lblNombreApellido.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).NombreCompleto;
-                lblEdadSexo.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Edad;
-                lblTelefono.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Telefono;
-                lblDireccion.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Direccion;
+                var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
+                lblNombreApellido.Text = pacienteSeleccionado.NombreCompleto;
+                lblEdadSexo.Text = pacienteSeleccionado.Edad;
+                lblTelefono.Text = pacienteSeleccionado.Telefono;
+                lblDireccion.Text = pacienteSeleccionado.Direccion;
                 txtDiagnostico.Enabled = true;
                 txtHistoriaClinica.Enabled = true;
-                txtHistoriaClinica.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).AntecedentesMedicos;
-                lblGrupoSanguineo.Text = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).GrupoSanguineo;
+                txtHistoriaClinica.Text = pacienteSeleccionado.AntecedentesMedicos;
+                lblGrupoSanguineo.Text = pacienteSeleccionado.GrupoSanguineo;
 
-                if (((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Trasplantado)
+                if (pacienteSeleccionado.Trasplantado)
                 {
                     lblTrasplantado.Text = "Es trasplantado";
                 }
@@ -68,7 +76,7 @@ namespace Consultorio
                     lblTrasplantado.Text = "No es trasplantado";
                 }
 
-                if (((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).Donante)
+                if (pacienteSeleccionado.Donante)
                 {
                     lblDonante.Text = "Es donante";
                 }
@@ -76,19 +84,29 @@ namespace Consultorio
                 {
                     lblDonante.Text = "No es donante";
                 }
-
             }
         }
 
-
-            
-    
-
-        private void BtnCompletarConsulta_Click(object sender, EventArgs e)
+        private void btnEditarPaciente_Click(object sender, EventArgs e)
         {
-
+            if (dgvPacientes.CurrentRow != null)
+            {
+                int idPacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem).PacienteId;
+                var formEditarPaciente = new EditarPaciente(idPacienteSeleccionado);
+                formEditarPaciente.ShowDialog();
+                RefrescarDataGridViewPacientes();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            var formNuevoPaciente = new NuevoPaciente();
+            formNuevoPaciente.ShowDialog();
+            RefrescarDataGridViewPacientes();
+        }
     }
 }

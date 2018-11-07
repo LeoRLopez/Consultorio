@@ -1,5 +1,5 @@
-﻿using Consultorio.Modelo;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Consultorio.ViewModels
 {
@@ -14,6 +14,10 @@ namespace Consultorio.ViewModels
         public string ViernesHorario { get; set; }
         public string SabadoHorario { get; set; }
         public string DomingoHorario { get; set; }
-        public List<EspecialidadMedicoVM> Especialidades { get; set; }
+        public List<EspecialidadMedicoVM> EspecialidadesMedicoVM { get; set; }
+        public string NombrarEspecialidades
+        {
+            get { return string.Join(", ", EspecialidadesMedicoVM.Select(x => x.NombrePrecio).ToArray()); }
+        }
     }
 }
