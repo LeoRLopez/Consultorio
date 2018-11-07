@@ -7,30 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Consultorio.Modelo
+namespace ConsultorioWeb.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SegurosMedico
+    public partial class Bancos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SegurosMedico()
+        public Bancos()
         {
-            this.SegurosMedicosMedico = new HashSet<SegurosMedicosMedico>();
-            this.SegurosMedicosPaciente = new HashSet<SegurosMedicosPaciente>();
-            this.Turno = new HashSet<Turno>();
+            this.Bancos_Tarjetas = new HashSet<Bancos_Tarjetas>();
         }
     
-        public int IdSeguroMedico { get; set; }
+        public int IdBanco { get; set; }
         public string Nombre { get; set; }
         public bool BajaLogica { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SegurosMedicosMedico> SegurosMedicosMedico { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SegurosMedicosPaciente> SegurosMedicosPaciente { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Turno> Turno { get; set; }
+        public virtual ICollection<Bancos_Tarjetas> Bancos_Tarjetas { get; set; }
     }
 }

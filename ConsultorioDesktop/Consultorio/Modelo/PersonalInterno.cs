@@ -31,6 +31,7 @@ namespace Consultorio.Modelo
         public Nullable<int> IdPais { get; set; }
         public Nullable<int> IdUsuario { get; set; }
         public Nullable<int> IdMedico { get; set; }
+        public bool Bajalogica { get; set; }
     
         public virtual Ciudad Ciudad { get; set; }
         public virtual Medico Medico { get; set; }

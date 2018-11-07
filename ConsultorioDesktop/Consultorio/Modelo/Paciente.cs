@@ -18,6 +18,7 @@ namespace Consultorio.Modelo
         public Paciente()
         {
             this.Factura = new HashSet<Factura>();
+            this.Paciente_Tarjetas = new HashSet<Paciente_Tarjetas>();
             this.SegurosMedicosPaciente = new HashSet<SegurosMedicosPaciente>();
             this.Turno = new HashSet<Turno>();
         }
@@ -48,6 +49,8 @@ namespace Consultorio.Modelo
         public virtual HistoriaClinica HistoriaClinica { get; set; }
         public virtual Pais Pais { get; set; }
         public virtual Provincia Provincia { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Paciente_Tarjetas> Paciente_Tarjetas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SegurosMedicosPaciente> SegurosMedicosPaciente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

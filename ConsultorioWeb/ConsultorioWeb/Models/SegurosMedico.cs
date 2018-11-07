@@ -24,6 +24,7 @@ namespace ConsultorioWeb.Models
     
         public int IdSeguroMedico { get; set; }
         public string Nombre { get; set; }
+        public bool BajaLogica { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SegurosMedicosMedico> SegurosMedicosMedico { get; set; }

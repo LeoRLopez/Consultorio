@@ -25,10 +25,13 @@ namespace ConsultorioWeb.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Bancos> Bancos { get; set; }
+        public virtual DbSet<Bancos_Tarjetas> Bancos_Tarjetas { get; set; }
         public virtual DbSet<Ciudad> Ciudad { get; set; }
         public virtual DbSet<Departamento> Departamento { get; set; }
         public virtual DbSet<Especialidad> Especialidad { get; set; }
@@ -40,12 +43,14 @@ namespace ConsultorioWeb.Models
         public virtual DbSet<Medico> Medico { get; set; }
         public virtual DbSet<MedicoEspecialidad> MedicoEspecialidad { get; set; }
         public virtual DbSet<Paciente> Paciente { get; set; }
+        public virtual DbSet<Paciente_Tarjetas> Paciente_Tarjetas { get; set; }
         public virtual DbSet<Pais> Pais { get; set; }
         public virtual DbSet<PersonalInterno> PersonalInterno { get; set; }
         public virtual DbSet<Provincia> Provincia { get; set; }
         public virtual DbSet<SegurosMedico> SegurosMedico { get; set; }
         public virtual DbSet<SegurosMedicosMedico> SegurosMedicosMedico { get; set; }
         public virtual DbSet<SegurosMedicosPaciente> SegurosMedicosPaciente { get; set; }
+        public virtual DbSet<Tarjetas> Tarjetas { get; set; }
         public virtual DbSet<Turno> Turno { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }

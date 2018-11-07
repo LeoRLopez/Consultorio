@@ -5,31 +5,38 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0601c2caa2ab43828fecab04df251bd2" Name="Diagram1" ZoomLevel="84">
-        <EntityTypeShape EntityType="ClinicaModel.AspNetRoles" Width="1.5" PointX="10.75" PointY="2.5" />
-        <EntityTypeShape EntityType="ClinicaModel.AspNetUserClaims" Width="1.5" PointX="15.25" PointY="1" />
-        <EntityTypeShape EntityType="ClinicaModel.AspNetUserLogins" Width="1.5" PointX="15.25" PointY="3.75" />
-        <EntityTypeShape EntityType="ClinicaModel.AspNetUsers" Width="1.5" PointX="13" PointY="1.375" />
-        <EntityTypeShape EntityType="ClinicaModel.Ciudad" Width="1.5" PointX="0.75" PointY="15" />
-        <EntityTypeShape EntityType="ClinicaModel.Departamento" Width="1.5" PointX="6" PointY="20.75" />
-        <EntityTypeShape EntityType="ClinicaModel.Especialidad" Width="1.5" PointX="6" PointY="15.125" />
-        <EntityTypeShape EntityType="ClinicaModel.Factura" Width="1.5" PointX="5.25" PointY="5.125" />
-        <EntityTypeShape EntityType="ClinicaModel.FormaDePago" Width="1.5" PointX="3" PointY="6.25" />
-        <EntityTypeShape EntityType="ClinicaModel.HistoriaClinica" Width="1.5" PointX="0.75" PointY="24.125" />
-        <EntityTypeShape EntityType="ClinicaModel.Horario" Width="1.5" PointX="0.75" PointY="10.125" />
-        <EntityTypeShape EntityType="ClinicaModel.LineaFactura" Width="1.5" PointX="10.5" PointY="8.25" />
-        <EntityTypeShape EntityType="ClinicaModel.Medico" Width="1.5" PointX="3" PointY="9" />
-        <EntityTypeShape EntityType="ClinicaModel.MedicoEspecialidad" Width="1.5" PointX="8.25" PointY="14.5" />
-        <EntityTypeShape EntityType="ClinicaModel.Paciente" Width="1.5" PointX="3" PointY="17.875" />
-        <EntityTypeShape EntityType="ClinicaModel.Pais" Width="1.5" PointX="0.75" PointY="21.25" />
-        <EntityTypeShape EntityType="ClinicaModel.PersonalInterno" Width="1.5" PointX="5.25" PointY="8.875" />
-        <EntityTypeShape EntityType="ClinicaModel.Provincia" Width="1.5" PointX="0.75" PointY="18.125" />
-        <EntityTypeShape EntityType="ClinicaModel.SegurosMedico" Width="1.5" PointX="6" PointY="17.875" />
-        <EntityTypeShape EntityType="ClinicaModel.SegurosMedicosMedico" Width="1.5" PointX="8.25" PointY="6.5" />
-        <EntityTypeShape EntityType="ClinicaModel.SegurosMedicosPaciente" Width="1.5" PointX="8.25" PointY="19.75" />
-        <EntityTypeShape EntityType="ClinicaModel.Turno" Width="1.5" PointX="8.25" PointY="9.25" />
-        <EntityTypeShape EntityType="ClinicaModel.Usuario" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="ClinicaModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="ClinicaModel.AspNetRoles" Width="1.5" PointX="10.75" PointY="2.75" />
+        <EntityTypeShape EntityType="ClinicaModel.AspNetUserClaims" Width="1.5" PointX="15.25" PointY="1.25" />
+        <EntityTypeShape EntityType="ClinicaModel.AspNetUserLogins" Width="1.5" PointX="15.25" PointY="4" />
+        <EntityTypeShape EntityType="ClinicaModel.AspNetUsers" Width="1.5" PointX="13" PointY="1.625" />
+        <EntityTypeShape EntityType="ClinicaModel.Bancos" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="ClinicaModel.Bancos_Tarjetas" Width="1.5" PointX="13" PointY="12.625" />
+        <EntityTypeShape EntityType="ClinicaModel.Ciudad" Width="1.5" PointX="0.75" PointY="15.625" />
+        <EntityTypeShape EntityType="ClinicaModel.Departamento" Width="1.5" PointX="6" PointY="21.5" />
+        <EntityTypeShape EntityType="ClinicaModel.Especialidad" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="ClinicaModel.Factura" Width="1.5" PointX="5.25" PointY="10.5" />
+        <EntityTypeShape EntityType="ClinicaModel.FormaDePago" Width="1.5" PointX="3" PointY="26.125" />
+        <EntityTypeShape EntityType="ClinicaModel.HistoriaClinica" Width="1.5" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="ClinicaModel.Horario" Width="1.5" PointX="0.75" PointY="10.5" />
+        <EntityTypeShape EntityType="ClinicaModel.LineaFactura" Width="1.5" PointX="10.5" PointY="7.75" />
+        <EntityTypeShape EntityType="ClinicaModel.Medico" Width="1.5" PointX="3" PointY="9.25" />
+        <EntityTypeShape EntityType="ClinicaModel.MedicoEspecialidad" Width="1.5" PointX="8.25" PointY="5.875" />
+        <EntityTypeShape EntityType="ClinicaModel.Paciente" Width="1.5" PointX="3" PointY="18.375" />
+        <EntityTypeShape EntityType="ClinicaModel.Paciente_Tarjetas" Width="1.5" PointX="13" PointY="17.5" />
+        <EntityTypeShape EntityType="ClinicaModel.Pais" Width="1.5" PointX="0.75" PointY="22.125" />
+        <EntityTypeShape EntityType="ClinicaModel.PersonalInterno" Width="1.5" PointX="8.25" PointY="9.125" />
+        <EntityTypeShape EntityType="ClinicaModel.Provincia" Width="1.5" PointX="0.75" PointY="25" />
+        <EntityTypeShape EntityType="ClinicaModel.SegurosMedico" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="ClinicaModel.SegurosMedicosMedico" Width="1.5" PointX="5.25" PointY="14.875" />
+        <EntityTypeShape EntityType="ClinicaModel.SegurosMedicosPaciente" Width="1.5" PointX="8.25" PointY="16.125" />
+        <EntityTypeShape EntityType="ClinicaModel.Tarjetas" Width="1.5" PointX="10.75" PointY="12.375" />
+        <EntityTypeShape EntityType="ClinicaModel.Turno" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="ClinicaModel.Usuario" Width="1.5" PointX="6" PointY="17.75" />
         <AssociationConnector Association="ClinicaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="ClinicaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ClinicaModel.FK_Bancos_Tarjetas_Bancos" />
+        <AssociationConnector Association="ClinicaModel.FK_Bancos_Tarjetas_Tarjetas" />
         <AssociationConnector Association="ClinicaModel.FK_Departamentoes_Ciudads" />
         <AssociationConnector Association="ClinicaModel.FK_Paciente_Ciudad" />
         <AssociationConnector Association="ClinicaModel.FK_PersonalInterno_Ciudad" />
@@ -57,8 +64,10 @@
         <AssociationConnector Association="ClinicaModel.FK_Turno_Medico" />
         <AssociationConnector Association="ClinicaModel.FK_Paciente_Pais" />
         <AssociationConnector Association="ClinicaModel.FK_Paciente_Provincia" />
+        <AssociationConnector Association="ClinicaModel.FK_Paciente_Tarjetas_Paciente" />
         <AssociationConnector Association="ClinicaModel.FK_SegurosMedicosClientes_Paciente" />
         <AssociationConnector Association="ClinicaModel.FK_Turno_Paciente" />
+        <AssociationConnector Association="ClinicaModel.FK_Paciente_Tarjetas_Tarjetas" />
         <AssociationConnector Association="ClinicaModel.FK_PersonalInterno_Pais" />
         <AssociationConnector Association="ClinicaModel.FK_Provincias_Pais" />
         <AssociationConnector Association="ClinicaModel.FK_PersonalInterno_Provincia" />

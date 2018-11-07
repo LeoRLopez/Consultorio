@@ -24,6 +24,7 @@ namespace Consultorio.Modelo
         public int EspecialidadId { get; set; }
         public string Nombre { get; set; }
         public decimal PrecioPorDefecto { get; set; }
+        public bool BajaLogica { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MedicoEspecialidad> MedicoEspecialidad { get; set; }

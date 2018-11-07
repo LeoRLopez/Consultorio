@@ -220,6 +220,12 @@
     <Compile Include="Models\AspNetUsers.cs">
       <DependentUpon>ClinicaEntidades.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Bancos.cs">
+      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bancos_Tarjetas.cs">
+      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Ciudad.cs">
       <DependentUpon>ClinicaEntidades.tt</DependentUpon>
     </Compile>
@@ -239,6 +245,9 @@
       <DependentUpon>ClinicaEntidades.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ClinicaEntities.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Departamento.cs">
       <DependentUpon>ClinicaEntidades.tt</DependentUpon>
     </Compile>
@@ -272,6 +281,9 @@
     <Compile Include="Models\Paciente.cs">
       <DependentUpon>ClinicaEntidades.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Paciente_Tarjetas.cs">
+      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Pais.cs">
       <DependentUpon>ClinicaEntidades.tt</DependentUpon>
     </Compile>
@@ -288,6 +300,9 @@
       <DependentUpon>ClinicaEntidades.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SegurosMedicosPaciente.cs">
+      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tarjetas.cs">
       <DependentUpon>ClinicaEntidades.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Turno.cs">
