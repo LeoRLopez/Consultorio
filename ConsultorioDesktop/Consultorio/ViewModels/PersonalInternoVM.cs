@@ -1,20 +1,15 @@
-﻿using System;
-
-namespace Consultorio.ViewModels
+﻿namespace Consultorio.ViewModels
 {
     public class PersonalInternoVM
     {
         public int PersonalInternoId { get; set; }
+        public string Rol { get; set; }
         public string NombreCompleto { get; set; }
-        public string NroDocumento { get; set; }
         public string Edad { get; set; }
-        public string Telefono { get; set; }
-        public string Direccion { get; set; }
-        public string AntecedentesMedicos { get; set; }
-        public bool Donante { get;  set; }
-        public bool Trasplantado { get; set; }
-        public string GrupoSanguineo { get; set; }
         public string Email { get; set; }
-        public string Sexo { get; set; }
+        public string Telefono { get; set; }
+        public string UsuarioSistema { get; set; }
+        public string Matricula { get; set; }
+        public string Especialidades { get; set; }
     }
 }

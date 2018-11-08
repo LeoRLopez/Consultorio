@@ -99,6 +99,7 @@
             this.dgvBancos.Location = new System.Drawing.Point(12, 12);
             this.dgvBancos.Name = "dgvBancos";
             this.dgvBancos.ReadOnly = true;
+            this.dgvBancos.RowHeadersVisible = false;
             this.dgvBancos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBancos.Size = new System.Drawing.Size(409, 308);
             this.dgvBancos.TabIndex = 15;

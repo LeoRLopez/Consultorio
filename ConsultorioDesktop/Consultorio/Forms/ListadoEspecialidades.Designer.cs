@@ -89,6 +89,7 @@
             this.dgvEspecialidades.Location = new System.Drawing.Point(12, 12);
             this.dgvEspecialidades.Name = "dgvEspecialidades";
             this.dgvEspecialidades.ReadOnly = true;
+            this.dgvEspecialidades.RowHeadersVisible = false;
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEspecialidades.Size = new System.Drawing.Size(409, 308);
             this.dgvEspecialidades.TabIndex = 7;
@@ -171,7 +172,7 @@
             this.txtBoxBuscar.Size = new System.Drawing.Size(157, 21);
             this.txtBoxBuscar.TabIndex = 10;
             // 
-            // Escpecialidades
+            // ListadoEspecialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,7 +187,7 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Escpecialidades";
+            this.Name = "ListadoEspecialidades";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especialidades";

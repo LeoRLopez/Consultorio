@@ -99,6 +99,7 @@
             this.dgvTarjetas.Location = new System.Drawing.Point(12, 12);
             this.dgvTarjetas.Name = "dgvTarjetas";
             this.dgvTarjetas.ReadOnly = true;
+            this.dgvTarjetas.RowHeadersVisible = false;
             this.dgvTarjetas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTarjetas.Size = new System.Drawing.Size(409, 308);
             this.dgvTarjetas.TabIndex = 15;
@@ -122,7 +123,7 @@
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
             // 
-            // TarjetasDeDebito
+            // ListadoTarjetasDeDebito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,7 +139,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "TarjetasDeDebito";
+            this.Name = "ListadoTarjetasDeDebito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tarjeta de Débito";
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
