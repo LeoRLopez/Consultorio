@@ -1,6 +1,6 @@
 ﻿namespace Consultorio.Forms
 {
-    partial class AgregarEditarEspecialidad
+    partial class AgregarEditarObraSocial
     {
         /// <summary>
         /// Required designer variable.
@@ -31,15 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.cancelButton = new Telerik.WinControls.UI.RadButton();
             this.saveButton = new Telerik.WinControls.UI.RadButton();
-            this.tbPrecio = new Telerik.WinControls.UI.RadTextBox();
-            this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.tbNombre = new Telerik.WinControls.UI.RadTextBoxControl();
             this.lblNombre = new Telerik.WinControls.UI.RadLabel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbPrecio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -68,25 +64,6 @@
             this.saveButton.ThemeName = "MedicalAppTheme";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // tbPrecio
-            // 
-            this.tbPrecio.Location = new System.Drawing.Point(100, 65);
-            this.tbPrecio.Name = "tbPrecio";
-            this.tbPrecio.Size = new System.Drawing.Size(83, 20);
-            this.tbPrecio.TabIndex = 1;
-            this.tbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecioTurno_KeyPress);
-            // 
-            // radLabel2
-            // 
-            this.radLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(15, 65);
-            this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(77, 17);
-            this.radLabel2.TabIndex = 19;
-            this.radLabel2.Text = "Precio Turno";
-            this.radLabel2.ThemeName = "MedicalAppTheme";
-            // 
             // tbNombre
             // 
             this.tbNombre.Location = new System.Drawing.Point(100, 25);
@@ -109,7 +86,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // AgregarEditarEspecialidad
+            // AgregarEditarObraSocial
             // 
             this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,20 +96,16 @@
             this.ClientSize = new System.Drawing.Size(284, 176);
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.tbPrecio);
-            this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AgregarEditarEspecialidad";
+            this.Name = "AgregarEditarObraSocial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Especialidades";
+            this.Text = "Obras Sociales";
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbPrecio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -145,8 +118,6 @@
 
         private Telerik.WinControls.UI.RadButton cancelButton;
         private Telerik.WinControls.UI.RadButton saveButton;
-        private Telerik.WinControls.UI.RadTextBox tbPrecio;
-        private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadTextBoxControl tbNombre;
         private Telerik.WinControls.UI.RadLabel lblNombre;
         private System.Windows.Forms.ErrorProvider errorProvider1;

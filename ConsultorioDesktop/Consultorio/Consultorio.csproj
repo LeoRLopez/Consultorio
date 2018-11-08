@@ -127,6 +127,18 @@
     <Compile Include="Forms\Admin\EditarPersonal.Designer.cs">
       <DependentUpon>EditarPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AgregarEditarBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AgregarEditarBancos.Designer.cs">
+      <DependentUpon>AgregarEditarBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AgregarEditarObraSocial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AgregarEditarObraSocial.Designer.cs">
+      <DependentUpon>AgregarEditarObraSocial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AgregarEditarEspecialidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +362,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\NuevoPersonal.resx">
       <DependentUpon>NuevoPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AgregarEditarBancos.resx">
+      <DependentUpon>AgregarEditarBancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AgregarEditarObraSocial.resx">
+      <DependentUpon>AgregarEditarObraSocial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AgregarEditarEspecialidad.resx">
       <DependentUpon>AgregarEditarEspecialidad.cs</DependentUpon>

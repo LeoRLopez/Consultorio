@@ -1,4 +1,5 @@
-﻿using Consultorio.Modelo;
+﻿using Consultorio.Forms;
+using Consultorio.Modelo;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -41,23 +42,55 @@ namespace Consultorio
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // Crear Formulario para Añadir/Editar Registro
+            var agregarObraSocial = new AgregarEditarObraSocial();
+            agregarObraSocial.ShowDialog();
+            RefrescarGridView();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            // Crear Formulario para Añadir/Editar Registro
+            if(dgvObrasSociales.CurrentRow != null)
+            {
+                SegurosMedico segurosMedicoSeleccionado = ((SegurosMedico)dgvObrasSociales.CurrentRow.DataBoundItem);
+                var editarObraSocial = new AgregarEditarObraSocial(segurosMedicoSeleccionado);
+                editarObraSocial.ShowDialog();
+                RefrescarGridView();
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             // Chequear si no se esta usando se setea a TRUE la columna BajaLogica, 
             // de lo contrario se muestra por pantalla un msj de que esta en uso
+            /*if (dgvObrasSociales.CurrentRow != null)
+            {
+                SegurosMedico seguroMedicoSeleccionado = ((SegurosMedico)dgvObrasSociales.CurrentRow.DataBoundItem);
+                using (var entidades = new ClinicaEntities())
+                {
+                    if (entidades.Turno.Any(x => x.IdSeguroMedico == seguroMedicoSeleccionado.IdSeguroMedico))
+                    {
+                        MessageBox.Show("No se puede eliminar esta especialidad ya que esta siendo utilizada por un medico", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        var SeguroMedicoDB = entidades.SegurosMedico.First(x => x.IdSeguroMedico == seguroMedicoSeleccionado.IdSeguroMedico);
+                        SeguroMedicoDB.BajaLogica = true;
+                        entidades.SaveChanges();
+                        MessageBox.Show("Especialidad eliminada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefrescarGridView();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

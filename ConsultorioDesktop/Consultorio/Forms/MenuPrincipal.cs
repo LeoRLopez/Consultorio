@@ -196,7 +196,13 @@ namespace Consultorio
         private void btnTarjetasDeDebito_Click(object sender, EventArgs e)
         {
             var formTarjetasDeDebito = new ListadoTarjetasDeDebito();
-            var formTarjetasDeDebitoResult =formTarjetasDeDebito.ShowDialog();
+            var formTarjetasDeDebitoResult = formTarjetasDeDebito.ShowDialog();
+        }
+
+        private void btnBancos_Click(object sender, EventArgs e)
+        {
+            var formBancos = new ListadoBancos();
+            var formBancosResult = formBancos.ShowDialog();
         }
     }
 }
