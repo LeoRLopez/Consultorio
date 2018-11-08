@@ -56,6 +56,7 @@ namespace Consultorio
             var personalInterno = new PersonalInterno
             {
                 Activo = true,
+                Bajalogica = false,
                 Apellido = txtBoxApellido.Text,
                 Nombre = txtBoxNombre.Text,
                 FechaNacimiento = dateTimePickerNacimiento.Value,
@@ -78,7 +79,8 @@ namespace Consultorio
             {
                 Contrasenia = txtBoxContraseña.Text,
                 NombreUsuario = txtBoxUsuario.Text,
-                EsAdministrador = chbEsAdmin.Checked
+                EsAdministrador = chbEsAdmin.Checked,
+                BajaLogica = false
             };
 
             personalInterno.Usuario = usuario;
@@ -96,7 +98,7 @@ namespace Consultorio
                     especialidadesSeleccionadas.Add(new MedicoEspecialidad { EspecialidadId = especialidadId });
                 }
 
-                var medico = new Modelo.Medico
+                var medico = new Medico
                 {
                     MatriculaMedico = txtBoxMatricula.Text,
                     LunesHorarioId = (int)ddlHorariosLunes.SelectedValue,
@@ -125,13 +127,14 @@ namespace Consultorio
                     {
                         // Asignar el usuario al Rol correspondiente
                         var currentUser = manager.FindByName(user.UserName);
-                        if (this.__esMedico)
-                        {
-                            manager.AddToRole(currentUser.Id, "Medico");
-                        }
-                        else if (usuario.EsAdministrador)
+
+                        if (usuario.EsAdministrador)
                         {
                             manager.AddToRole(currentUser.Id, "Admin");
+                        }
+                        else if (this.__esMedico)
+                        {
+                            manager.AddToRole(currentUser.Id, "Medico");
                         }
                         else
                         {
@@ -141,12 +144,12 @@ namespace Consultorio
                         entidades.PersonalInterno.Add(personalInterno);
                         entidades.SaveChanges();
 
-                        MessageBox.Show("Personal Agregado con Exito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Personal Agregado con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Hubo un error Agregado el Personal: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Hubo un error Agregando el Personal: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

@@ -104,7 +104,7 @@ namespace Consultorio
                     historiaClinicaBD.GrupoSanguineo = dropDownGrupoSanguineo.Text;
 
 
-                    // Editarel Usuario existente en la tabla AspNetUsers asi se puede seguir logueando en la Web con el nuevo Email
+                    // Actualizar el Usuario existente en la tabla AspNetUsers asi se puede seguir logueando en la Web con el nuevo Email
                     var userStore = new UserStore<IdentityUser>(new IdentityDbContext("IdentityDBConnection"));
                     var manager = new UserManager<IdentityUser>(userStore);
                     var usuarioExistente = manager.FindByEmail(this.__paciente.Email);

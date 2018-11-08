@@ -9,6 +9,7 @@ using System.Net.Mail;
 using System.Windows.Forms;
 using Telerik.WinControls.Enumerations;
 using Telerik.WinControls.UI;
+using System.Data.Entity;
 
 namespace Consultorio
 {
@@ -16,10 +17,68 @@ namespace Consultorio
     {
         private Boolean __esMedico = false;
         private List<Especialidad> __especialidadesMedico;
+        private PersonalInterno __personalInterno;
 
-        public EditarPersonal() : base()
+        public EditarPersonal(int idPersonalInterno) : base()
         {
             InitializeComponent();
+            using (var entidades = new ClinicaEntities())
+            {
+                this.__personalInterno = entidades.PersonalInterno.Include(x => x.Medico).Include(x => x.Usuario).Include(x => x.Ciudad).First(x => x.IdPersonal == idPersonalInterno);
+            }
+        }
+
+        private void CargarDatosEnPantalla(PersonalInterno personalInterno)
+        {
+            // Cargar Campos del Personal Interno
+            this.txtBoxNombre.Text = personalInterno.Nombre;
+            this.txtBoxApellido.Text = personalInterno.Apellido;
+            this.txtBoxDocumento.Text = personalInterno.NumeroDocumento.ToString();
+            this.txtBoxTelefono.Text = personalInterno.TelCel;
+            this.radioButtonMasculino.IsChecked = personalInterno.Sexo == "Masculino";
+            this.radioButtonFemenino.IsChecked = personalInterno.Sexo == "Femenino";
+            this.dateTimePickerNacimiento.Value = personalInterno.FechaNacimiento;
+            this.txtBoxDireccion.Text = personalInterno.Direccion;
+            this.txtBoxEmail.Text = personalInterno.Email;
+            this.dropDownPais.SelectedValue = personalInterno.IdPais;
+            this.dropDownProvincia.SelectedValue = personalInterno.IdProvincia;
+            this.dropDownDepartamento.SelectedValue = personalInterno.Ciudad.DepartamentoId;
+            this.dropDownCiudad.SelectedValue = personalInterno.IdCiudad;
+            this.tbCodigoPostal.Text = personalInterno.Ciudad.CodigoPostal;
+
+            // Cargar campos del Usuario
+            if (personalInterno.Usuario != null)
+            {
+                this.txtBoxUsuario.Text = personalInterno.Usuario.NombreUsuario;
+                this.txtBoxContraseña.Text = personalInterno.Usuario.Contrasenia;
+                this.chbEsAdmin.Checked = personalInterno.Usuario.EsAdministrador;
+            }
+
+            // Cargar Campos del Medico
+            if (personalInterno.Medico != null)
+            {
+                this.RdBtnSiMedico.Checked = true;
+                this.RdBtnNoMedico.Checked = false;
+                this.__esMedico = true;
+                this.txtBoxMatricula.Text = personalInterno.Medico.MatriculaMedico;
+                foreach (var medicoEspecialidad in personalInterno.Medico.MedicoEspecialidad.ToList())
+                {
+                    var especialidadMedico = medicoEspecialidad.Especialidad.Nombre + " $" + medicoEspecialidad.Especialidad.PrecioPorDefecto.ToString("00.##");
+                    var index = listViewEspecialidades.Items.IndexOfKey(especialidadMedico);
+                    listViewEspecialidades.Items[index].Checked = true;
+                }
+                this.ddlHorariosLunes.SelectedValue = personalInterno.Medico.LunesHorarioId;
+                this.ddlHorariosMartes.SelectedValue = personalInterno.Medico.MartesHorarioId;
+                this.ddlHorariosMiercoles.SelectedValue = personalInterno.Medico.MiercolesHorarioId;
+                this.ddlHorariosJueves.SelectedValue = personalInterno.Medico.JuevesHorarioId;
+                this.ddlHorariosViernes.SelectedValue = personalInterno.Medico.ViernesHorarioId;
+            }
+            else
+            {
+                this.RdBtnSiMedico.Checked = false;
+                this.RdBtnNoMedico.Checked = true;
+                this.__esMedico = false;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -43,116 +102,153 @@ namespace Consultorio
 
         private void btnGuardaar_Click(object sender, EventArgs e)
         {
-            errorProvider.Clear();
 
-            if (!ValidarCamposObligatoriosPersonalInterno())
-                return;
-
-            int? idCiudadSeleccionada = dropDownCiudad.SelectedValue == null ? null : (int?)dropDownCiudad.SelectedValue;
-            int? idDepartamentoSeleccionado = dropDownDepartamento.SelectedValue == null ? null : (int?)dropDownDepartamento.SelectedValue;
-            int? idProvinciaSeleccionada = dropDownProvincia.SelectedValue == null ? null : (int?)dropDownProvincia.SelectedValue;
-            int? idPaisSeleccionado = dropDownPais.SelectedValue == null ? null : (int?)dropDownPais.SelectedValue;
-
-            var personalInterno = new PersonalInterno
+            using (var entidades = new ClinicaEntities())
             {
-                Activo = true,
-                Apellido = txtBoxApellido.Text,
-                Nombre = txtBoxNombre.Text,
-                FechaNacimiento = dateTimePickerNacimiento.Value,
-                NumeroDocumento = Int64.Parse(txtBoxDocumento.Text),
-                Email = txtBoxEmail.Text,
-                Direccion = txtBoxDireccion.Text,
-                TelCel = txtBoxTelefono.Text,
-                Sexo = radioButtonMasculino.IsChecked ? "Masculino" : "Femenino",
-                EstadoCivil = txtBoxEstadoCivil.Text,
-                Edad = CalculateAge(dateTimePickerNacimiento.Value),
-                IdCiudad = idCiudadSeleccionada != -1 ? idCiudadSeleccionada : null,
-                IdProvincia = idProvinciaSeleccionada != -1 ? idProvinciaSeleccionada : null,
-                IdPais = idPaisSeleccionado != -1 ? idPaisSeleccionado : null
-            };
-
-            if (!ValidarCamposObligatoriosUsuarioDelSistema())
-                return;
-
-            var usuario = new Usuario
-            {
-                Contrasenia = txtBoxContraseña.Text,
-                NombreUsuario = txtBoxUsuario.Text,
-                EsAdministrador = chbEsAdmin.Checked
-            };
-
-            personalInterno.Usuario = usuario;
-
-            if (this.__esMedico)
-            {
-                if (!ValidarCamposObligatoriosMedico())
-                    return;
-
-                List<MedicoEspecialidad> especialidadesSeleccionadas = new List<MedicoEspecialidad>();
-                foreach (var item in listViewEspecialidades.CheckedItems)
+                using (var entidadesTransaction = entidades.Database.BeginTransaction())
                 {
-                    string nombreEspecialidad = (item as ListViewItem).Text.Split('$')[0].Trim();
-                    int especialidadId = this.__especialidadesMedico.First(x => x.Nombre == nombreEspecialidad).EspecialidadId;
-                    especialidadesSeleccionadas.Add(new MedicoEspecialidad { EspecialidadId = especialidadId });
-                }
-
-                var medico = new Modelo.Medico
-                {
-                    MatriculaMedico = txtBoxMatricula.Text,
-                    LunesHorarioId = (int)ddlHorariosLunes.SelectedValue,
-                    MartesHorarioId = (int)ddlHorariosMartes.SelectedValue,
-                    MiercolesHorarioId = (int)ddlHorariosMiercoles.SelectedValue,
-                    JuevesHorarioId = (int)ddlHorariosJueves.SelectedValue,
-                    ViernesHorarioId = (int)ddlHorariosViernes.SelectedValue,
-                    SabadoHorarioId = 1,// No atiende
-                    DomingoHorarioId = 1,// No atiende
-                    MedicoEspecialidad = especialidadesSeleccionadas
-                };
-
-                personalInterno.Medico = medico;
-            }
-
-            try
-            {
-                using (var entidades = new ClinicaEntities())
-                {
-                    // Insertar un nuevo Usuario en la tabla AspNetUsers
-                    var userStore = new UserStore<IdentityUser>(new IdentityDbContext("IdentityDBConnection"));
-                    var manager = new UserManager<IdentityUser>(userStore);
-                    var user = new IdentityUser() { UserName = personalInterno.Email, Email = personalInterno.Email, EmailConfirmed = true };
-                    IdentityResult result = manager.Create(user, txtBoxDocumento.Text);
-                    if (result.Succeeded)
+                    try
                     {
-                        // Asignar el usuario al Rol correspondiente
-                        var currentUser = manager.FindByName(user.UserName);
+                        errorProvider.Clear();
+
+                        if (!ValidarCamposObligatoriosPersonalInterno())
+                            return;
+
+                        int? idCiudadSeleccionada = dropDownCiudad.SelectedValue == null ? null : (int?)dropDownCiudad.SelectedValue;
+                        int? idDepartamentoSeleccionado = dropDownDepartamento.SelectedValue == null ? null : (int?)dropDownDepartamento.SelectedValue;
+                        int? idProvinciaSeleccionada = dropDownProvincia.SelectedValue == null ? null : (int?)dropDownProvincia.SelectedValue;
+                        int? idPaisSeleccionado = dropDownPais.SelectedValue == null ? null : (int?)dropDownPais.SelectedValue;
+
+                        var personalInternoDB = entidades.PersonalInterno.First(x => x.IdPersonal == this.__personalInterno.IdPersonal);
+                        personalInternoDB.Activo = true;
+                        personalInternoDB.Bajalogica = false;
+                        personalInternoDB.Apellido = txtBoxApellido.Text;
+                        personalInternoDB.Nombre = txtBoxNombre.Text;
+                        personalInternoDB.FechaNacimiento = dateTimePickerNacimiento.Value;
+                        personalInternoDB.NumeroDocumento = Int64.Parse(txtBoxDocumento.Text);
+                        personalInternoDB.Email = txtBoxEmail.Text;
+                        personalInternoDB.Direccion = txtBoxDireccion.Text;
+                        personalInternoDB.TelCel = txtBoxTelefono.Text;
+                        personalInternoDB.Sexo = radioButtonMasculino.IsChecked ? "Masculino" : "Femenino";
+                        personalInternoDB.EstadoCivil = txtBoxEstadoCivil.Text;
+                        personalInternoDB.Edad = CalculateAge(dateTimePickerNacimiento.Value);
+                        personalInternoDB.IdCiudad = idCiudadSeleccionada != -1 ? idCiudadSeleccionada : null;
+                        personalInternoDB.IdProvincia = idProvinciaSeleccionada != -1 ? idProvinciaSeleccionada : null;
+                        personalInternoDB.IdPais = idPaisSeleccionado != -1 ? idPaisSeleccionado : null;
+                        entidades.SaveChanges();
+
+                        if (!ValidarCamposObligatoriosUsuarioDelSistema())
+                            return;
+
+                        var usuarioDB = entidades.Usuario.First(x => x.IdUsuario == this.__personalInterno.IdUsuario);
+                        usuarioDB.Contrasenia = txtBoxContraseña.Text;
+                        usuarioDB.NombreUsuario = txtBoxUsuario.Text;
+                        usuarioDB.EsAdministrador = chbEsAdmin.Checked;
+                        usuarioDB.BajaLogica = false;
+                        entidades.SaveChanges();
+
                         if (this.__esMedico)
                         {
-                            manager.AddToRole(currentUser.Id, "Medico");
+                            if (!ValidarCamposObligatoriosMedico())
+                                return;
+
+                            List<MedicoEspecialidad> especialidadesSeleccionadas = new List<MedicoEspecialidad>();
+                            foreach (var item in listViewEspecialidades.CheckedItems)
+                            {
+                                string nombreEspecialidad = (item as ListViewItem).Text.Split('$')[0].Trim();
+                                int especialidadId = this.__especialidadesMedico.First(x => x.Nombre == nombreEspecialidad).EspecialidadId;
+                                especialidadesSeleccionadas.Add(new MedicoEspecialidad { EspecialidadId = especialidadId });
+                            }
+
+                            // Si no es nulo es porque ya era un medico, entonces actualizamos el registro
+                            if (this.__personalInterno.IdMedico != null)
+                            {
+                                var medicoDB = entidades.Medico.First(x => x.IdMedico == this.__personalInterno.IdMedico);
+                                medicoDB.MatriculaMedico = txtBoxMatricula.Text;
+                                medicoDB.LunesHorarioId = (int)ddlHorariosLunes.SelectedValue;
+                                medicoDB.MartesHorarioId = (int)ddlHorariosMartes.SelectedValue;
+                                medicoDB.MiercolesHorarioId = (int)ddlHorariosMiercoles.SelectedValue;
+                                medicoDB.JuevesHorarioId = (int)ddlHorariosJueves.SelectedValue;
+                                medicoDB.ViernesHorarioId = (int)ddlHorariosViernes.SelectedValue;
+                                medicoDB.SabadoHorarioId = 1;// No atiende
+                                medicoDB.DomingoHorarioId = 1;// No atiende
+
+                                // Eliminar las Especialidades actuales del medico
+                                medicoDB.MedicoEspecialidad.Clear();
+                                entidades.SaveChanges();
+
+                                // Insertar las especialidades seleccionadas
+                                medicoDB.MedicoEspecialidad = especialidadesSeleccionadas;
+                                entidades.SaveChanges();
+                            }
+                            else
+                            {
+                                // Si era nulo es porque el Personal interno no estaba asociado a un Medico
+                                // entonces debemos insertar un nuevo registro de Medico
+                                var medico = new Medico
+                                {
+                                    MatriculaMedico = txtBoxMatricula.Text,
+                                    LunesHorarioId = (int)ddlHorariosLunes.SelectedValue,
+                                    MartesHorarioId = (int)ddlHorariosMartes.SelectedValue,
+                                    MiercolesHorarioId = (int)ddlHorariosMiercoles.SelectedValue,
+                                    JuevesHorarioId = (int)ddlHorariosJueves.SelectedValue,
+                                    ViernesHorarioId = (int)ddlHorariosViernes.SelectedValue,
+                                    SabadoHorarioId = 1,// No atiende
+                                    DomingoHorarioId = 1,// No atiende
+                                    MedicoEspecialidad = especialidadesSeleccionadas
+                                };
+                                personalInternoDB.Medico = medico;
+                                entidades.SaveChanges();
+                            }
                         }
-                        else if (usuario.EsAdministrador)
+
+                        // Actualizar el Usuario existente en la tabla AspNetUsers asi se puede seguir logueando en la Web con el nuevo Email
+                        var userStore = new UserStore<IdentityUser>(new IdentityDbContext("IdentityDBConnection"));
+                        var manager = new UserManager<IdentityUser>(userStore);
+                        var usuarioExistente = manager.FindByEmail(personalInternoDB.Email);
+                        usuarioExistente.UserName = personalInternoDB.Email;
+                        usuarioExistente.Email = personalInternoDB.Email;
+                        IdentityResult result = manager.Update(usuarioExistente);
+
+                        if (result.Succeeded)
                         {
-                            manager.AddToRole(currentUser.Id, "Admin");
+                            // Asignar el usuario al Rol correspondiente
+                            usuarioExistente = manager.FindByName(usuarioExistente.UserName);
+
+                            if (usuarioDB.EsAdministrador)
+                            {
+                                if (!manager.IsInRole(usuarioExistente.Id, "Admin"))
+                                    manager.AddToRole(usuarioExistente.Id, "Admin");
+                            }
+                            else if (this.__esMedico)
+                            {
+                                if (!manager.IsInRole(usuarioExistente.Id, "Medico"))
+                                    manager.AddToRole(usuarioExistente.Id, "Medico");
+                            }
+                            else
+                            {
+                                if (!manager.IsInRole(usuarioExistente.Id, "Usuario"))
+                                    manager.AddToRole(usuarioExistente.Id, "Usuario");
+                            }
+
+                            entidades.SaveChanges();
+                            entidadesTransaction.Commit();
+
+                            MessageBox.Show("Personal Actualizado con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
                         }
                         else
                         {
-                            manager.AddToRole(currentUser.Id, "Usuario");
+                            entidadesTransaction.Rollback();
+                            MessageBox.Show("Hubo un error Actualizando el Personal: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
-                        entidades.PersonalInterno.Add(personalInterno);
-                        entidades.SaveChanges();
-
-                        MessageBox.Show("Personal Agregado con Exito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Hubo un error Agregado el Personal: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        entidadesTransaction.Rollback();
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
