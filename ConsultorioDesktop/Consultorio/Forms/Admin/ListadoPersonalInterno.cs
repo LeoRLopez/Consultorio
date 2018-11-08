@@ -1,6 +1,10 @@
 ﻿using Consultorio.Modelo;
 using System;
 using System.Windows.Forms;
+using System.Linq;
+using Consultorio.ViewModels;
+using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace Consultorio.Forms
 {
@@ -11,7 +15,7 @@ namespace Consultorio.Forms
             InitializeComponent();
         }
 
-        private void Forma_Pago_Load(object sender, EventArgs e)
+        private void ListadoPersonalInterno_Load(object sender, EventArgs e)
         {
             RefrescarGridView();
         }
@@ -20,11 +24,70 @@ namespace Consultorio.Forms
         {
             using (var entidades = new ClinicaEntities())
             {
-                
+                var listaPersonalInterno = entidades.PersonalInterno.Include(x => x.Usuario).Include(x => x.Medico).Include(x => x.Medico.MedicoEspecialidad)
+                                                    .Where(x => x.Bajalogica == false).ToList();
+                personalInternoVMBindingSource.DataSource = ConstruirListaDePersonalInternoVM(listaPersonalInterno);
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private List<PersonalInternoVM> ConstruirListaDePersonalInternoVM(List<PersonalInterno> listaPersonalInterno)
+        {
+            var listaPersonalInternoVM = new List<PersonalInternoVM>();
+            foreach (var personalInterno in listaPersonalInterno)
+            {
+                var personalInternoVM = new PersonalInternoVM
+                {
+                    PersonalInternoId = personalInterno.IdPersonal,
+                    Edad = personalInterno.Edad.ToString(),
+                    Email = personalInterno.Email,
+                    NombreCompleto = personalInterno.Apellido + ", " + personalInterno.Nombre,
+                    Telefono = personalInterno.TelCel
+                };
+                if (personalInterno.IdUsuario != null)
+                {
+                    personalInternoVM.UsuarioSistema = personalInterno.Usuario.NombreUsuario;
+                    personalInternoVM.Rol = personalInterno.Usuario.EsAdministrador ? "Admin" : "Secretario/a";
+                }
+                if (personalInterno.IdMedico != null)
+                {
+                    personalInternoVM.Matricula = personalInterno.Medico.MatriculaMedico;
+                    personalInternoVM.Rol = personalInterno.Usuario.EsAdministrador ? "Admin" : "Médico/a";
+                    var especialidades = personalInterno.Medico.MedicoEspecialidad.Select(x => new EspecialidadMedicoVM
+                    {
+                        EspecialidadId = x.EspecialidadId,
+                        NombrePrecio = x.Especialidad.Nombre,
+                        Precio = x.Especialidad.PrecioPorDefecto
+                    }).ToList();
+                    personalInternoVM.Especialidades = string.Join(", ", especialidades.Select(x => x.NombrePrecio).ToArray());
+                }
+                listaPersonalInternoVM.Add(personalInternoVM);
+            }
+            return listaPersonalInternoVM;
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            var agregarPersonalInterno = new AgregarPersonalInterno();
+            agregarPersonalInterno.ShowDialog();
+            RefrescarGridView();
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            if (dgvPersonalInterno.CurrentRow != null)
+            {
+                var personalInternoVMSeleccionado = ((PersonalInternoVM)dgvPersonalInterno.CurrentRow.DataBoundItem);
+                var editarEspecialidad = new EditarPersonalInterno(personalInternoVMSeleccionado.PersonalInternoId);
+                editarEspecialidad.ShowDialog();
+                RefrescarGridView();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBoxBuscar.Text))
             {
@@ -34,34 +97,11 @@ namespace Consultorio.Forms
             }
             using (var entidades = new ClinicaEntities())
             {
-
-            }
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnAgregar_Click_1(object sender, EventArgs e)
-        {
-            var agregarEspecialidad = new AgregarEditarEspecialidad();
-            agregarEspecialidad.ShowDialog();
-            RefrescarGridView();
-        }
-
-        private void btnEditar_Click_1(object sender, EventArgs e)
-        {
-            if (dgvPersonalInterno.CurrentRow != null)
-            {
-                PersonalInterno personalInternoSeleccionado = ((PersonalInterno)dgvPersonalInterno.CurrentRow.DataBoundItem);
-                var editarEspecialidad = new EditarPersonalInterno(personalInternoSeleccionado.IdPersonal);
-                editarEspecialidad.ShowDialog();
-                RefrescarGridView();
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var listaFiltradaDePersonalInterno = entidades.PersonalInterno.Where(x =>
+                                                             x.Bajalogica == false && (
+                                                             x.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower()) ||
+                                                             x.Apellido.ToLower().Contains(txtBoxBuscar.Text.ToLower()))).ToList();
+                personalInternoVMBindingSource.DataSource = ConstruirListaDePersonalInternoVM(listaFiltradaDePersonalInterno);
             }
         }
 
@@ -92,6 +132,11 @@ namespace Consultorio.Forms
             //{
             //    MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
+        }
+
+        private void btnVolver_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -482,7 +482,7 @@
             this.listViewEspecialidades.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewEspecialidades.Location = new System.Drawing.Point(8, 43);
             this.listViewEspecialidades.Name = "listViewEspecialidades";
-            this.listViewEspecialidades.Size = new System.Drawing.Size(298, 86);
+            this.listViewEspecialidades.Size = new System.Drawing.Size(283, 86);
             this.listViewEspecialidades.TabIndex = 74;
             this.listViewEspecialidades.UseCompatibleStateImageBehavior = false;
             this.listViewEspecialidades.View = System.Windows.Forms.View.List;
@@ -738,7 +738,7 @@
             this.panel2.Size = new System.Drawing.Size(280, 34);
             this.panel2.TabIndex = 73;
             // 
-            // EditarPersonal
+            // EditarPersonalInterno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -783,7 +783,7 @@
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditarPersonal";
+            this.Name = "EditarPersonalInterno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.NuevoUsuario_Load);

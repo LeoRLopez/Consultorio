@@ -28,56 +28,73 @@ namespace Consultorio
             }
         }
 
-        private void CargarDatosEnPantalla(PersonalInterno personalInterno)
+        private void CargarDatosEnPantalla()
         {
-            // Cargar Campos del Personal Interno
-            this.txtBoxNombre.Text = personalInterno.Nombre;
-            this.txtBoxApellido.Text = personalInterno.Apellido;
-            this.txtBoxDocumento.Text = personalInterno.NumeroDocumento.ToString();
-            this.txtBoxTelefono.Text = personalInterno.TelCel;
-            this.radioButtonMasculino.IsChecked = personalInterno.Sexo == "Masculino";
-            this.radioButtonFemenino.IsChecked = personalInterno.Sexo == "Femenino";
-            this.dateTimePickerNacimiento.Value = personalInterno.FechaNacimiento;
-            this.txtBoxDireccion.Text = personalInterno.Direccion;
-            this.txtBoxEmail.Text = personalInterno.Email;
-            this.dropDownPais.SelectedValue = personalInterno.IdPais;
-            this.dropDownProvincia.SelectedValue = personalInterno.IdProvincia;
-            this.dropDownDepartamento.SelectedValue = personalInterno.Ciudad.DepartamentoId;
-            this.dropDownCiudad.SelectedValue = personalInterno.IdCiudad;
-            this.tbCodigoPostal.Text = personalInterno.Ciudad.CodigoPostal.ToString();
-
-            // Cargar campos del Usuario
-            if (personalInterno.Usuario != null)
+            using (var entidades = new ClinicaEntities())
             {
-                this.txtBoxUsuario.Text = personalInterno.Usuario.NombreUsuario;
-                this.txtBoxContraseña.Text = personalInterno.Usuario.Contrasenia;
-                this.chbEsAdmin.Checked = personalInterno.Usuario.EsAdministrador;
-            }
+                var personalInterno = entidades.PersonalInterno.Include(x => x.Medico).Include(x => x.Usuario).Include(x => x.Ciudad).First(x => x.IdPersonal == this.__personalInterno.IdPersonal);
 
-            // Cargar Campos del Medico
-            if (personalInterno.Medico != null)
-            {
-                this.RdBtnSiMedico.IsChecked = true;
-                this.RdBtnNoMedico.IsChecked = false;
-                this.__esMedico = true;
-                this.txtBoxMatricula.Text = personalInterno.Medico.MatriculaMedico;
-                foreach (var medicoEspecialidad in personalInterno.Medico.MedicoEspecialidad.ToList())
+                // Cargar Campos del Personal Interno
+                this.txtBoxNombre.Text = personalInterno.Nombre;
+                this.txtBoxApellido.Text = personalInterno.Apellido;
+                this.txtBoxDocumento.Text = personalInterno.NumeroDocumento.ToString();
+                this.txtBoxTelefono.Text = personalInterno.TelCel;
+                this.radioButtonMasculino.IsChecked = personalInterno.Sexo == "Masculino";
+                this.radioButtonFemenino.IsChecked = personalInterno.Sexo == "Femenino";
+                this.dateTimePickerNacimiento.Value = personalInterno.FechaNacimiento;
+                this.txtBoxDireccion.Text = personalInterno.Direccion;
+                this.txtBoxEmail.Text = personalInterno.Email;
+                this.txtBoxEstadoCivil.Text = personalInterno.EstadoCivil;
+                this.txtBoxEdad.Text = personalInterno.Edad.ToString();
+                this.dropDownPais.SelectedValue = personalInterno.IdPais;
+                this.dropDownProvincia.SelectedValue = personalInterno.IdProvincia;
+                if (personalInterno.Ciudad != null)
                 {
-                    var especialidadMedico = medicoEspecialidad.Especialidad.Nombre + " $" + medicoEspecialidad.Especialidad.PrecioPorDefecto.ToString("00.##");
-                    var index = listViewEspecialidades.Items.IndexOfKey(especialidadMedico);
-                    listViewEspecialidades.Items[index].Checked = true;
+                    this.dropDownDepartamento.SelectedValue = personalInterno.Ciudad.DepartamentoId;
+                    this.tbCodigoPostal.Text = personalInterno.Ciudad.CodigoPostal.ToString();
                 }
-                this.ddlHorariosLunes.SelectedValue = personalInterno.Medico.LunesHorarioId;
-                this.ddlHorariosMartes.SelectedValue = personalInterno.Medico.MartesHorarioId;
-                this.ddlHorariosMiercoles.SelectedValue = personalInterno.Medico.MiercolesHorarioId;
-                this.ddlHorariosJueves.SelectedValue = personalInterno.Medico.JuevesHorarioId;
-                this.ddlHorariosViernes.SelectedValue = personalInterno.Medico.ViernesHorarioId;
-            }
-            else
-            {
-                this.RdBtnSiMedico.IsChecked = false;
-                this.RdBtnNoMedico.IsChecked = true;
-                this.__esMedico = false;
+                this.dropDownCiudad.SelectedValue = personalInterno.IdCiudad;
+
+
+                // Cargar campos del Usuario
+                if (personalInterno.Usuario != null)
+                {
+                    this.txtBoxUsuario.Text = personalInterno.Usuario.NombreUsuario;
+                    this.txtBoxContraseña.Text = personalInterno.Usuario.Contrasenia;
+                    this.chbEsAdmin.Checked = personalInterno.Usuario.EsAdministrador;
+                }
+
+                // Cargar Campos del Medico
+                if (personalInterno.Medico != null)
+                {
+                    this.RdBtnSiMedico.IsChecked = true;
+                    this.RdBtnNoMedico.IsChecked = false;
+                    this.__esMedico = true;
+                    this.txtBoxMatricula.Text = personalInterno.Medico.MatriculaMedico;
+                    foreach (var medicoEspecialidad in personalInterno.Medico.MedicoEspecialidad.ToList())
+                    {
+                        var especialidadMedico = medicoEspecialidad.Especialidad.Nombre + " $" + medicoEspecialidad.Especialidad.PrecioPorDefecto.ToString("00.##");
+                        var item = listViewEspecialidades.FindItemWithText(especialidadMedico);
+                        if (item != null)
+                        {
+                            var index = listViewEspecialidades.Items.IndexOf(item);
+                            if (index != -1)
+                                listViewEspecialidades.Items[index].Checked = true;
+                        }
+                    }
+                    listViewEspecialidades.Refresh();
+                    this.ddlHorariosLunes.SelectedValue = personalInterno.Medico.LunesHorarioId;
+                    this.ddlHorariosMartes.SelectedValue = personalInterno.Medico.MartesHorarioId;
+                    this.ddlHorariosMiercoles.SelectedValue = personalInterno.Medico.MiercolesHorarioId;
+                    this.ddlHorariosJueves.SelectedValue = personalInterno.Medico.JuevesHorarioId;
+                    this.ddlHorariosViernes.SelectedValue = personalInterno.Medico.ViernesHorarioId;
+                }
+                else
+                {
+                    this.RdBtnSiMedico.IsChecked = false;
+                    this.RdBtnNoMedico.IsChecked = true;
+                    this.__esMedico = false;
+                }
             }
         }
 
@@ -110,7 +127,6 @@ namespace Consultorio
                     try
                     {
                         errorProvider.Clear();
-
                         if (!ValidarCamposObligatoriosPersonalInterno())
                             return;
 
@@ -174,7 +190,8 @@ namespace Consultorio
                                 medicoDB.DomingoHorarioId = 1;// No atiende
 
                                 // Eliminar las Especialidades actuales del medico
-                                medicoDB.MedicoEspecialidad.Clear();
+                                //medicoDB.MedicoEspecialidad.Clear();
+                                entidades.MedicoEspecialidad.RemoveRange(entidades.MedicoEspecialidad.Where(x => x.MedicoId == medicoDB.IdMedico));
                                 entidades.SaveChanges();
 
                                 // Insertar las especialidades seleccionadas
@@ -358,6 +375,7 @@ namespace Consultorio
                 dropDownPais.ValueMember = "PaisId";
                 dropDownPais.DataSource = paises.ToList();
             }
+            CargarDatosEnPantalla();
         }
 
         private void dropDownPais_SelectedValueChanged(object sender, EventArgs e)

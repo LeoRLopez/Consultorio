@@ -37,7 +37,6 @@
             this.dgvPersonalInterno = new System.Windows.Forms.DataGridView();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
-            this.personalInternoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personalInternoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioSistemaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +46,7 @@
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matriculaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especialidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personalInternoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
@@ -67,16 +67,17 @@
             this.btnBuscar.Size = new System.Drawing.Size(157, 24);
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // lblBuscar
             // 
             this.lblBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblBuscar.Location = new System.Drawing.Point(860, 12);
+            this.lblBuscar.Location = new System.Drawing.Point(803, 12);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(45, 19);
+            this.lblBuscar.Size = new System.Drawing.Size(104, 19);
             this.lblBuscar.TabIndex = 19;
-            this.lblBuscar.Text = "Buscar:";
+            this.lblBuscar.Text = "Nombre/Apellido:";
             // 
             // txtBoxBuscar
             // 
@@ -144,6 +145,7 @@
             this.btnVolver.Size = new System.Drawing.Size(110, 24);
             this.btnVolver.TabIndex = 14;
             this.btnVolver.Text = "Volver";
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click_1);
             // 
             // btnAgregar
             // 
@@ -155,10 +157,6 @@
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
-            // 
-            // personalInternoVMBindingSource
-            // 
-            this.personalInternoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PersonalInternoVM);
             // 
             // personalInternoIdDataGridViewTextBoxColumn
             // 
@@ -174,6 +172,7 @@
             this.usuarioSistemaDataGridViewTextBoxColumn.HeaderText = "Usuario";
             this.usuarioSistemaDataGridViewTextBoxColumn.Name = "usuarioSistemaDataGridViewTextBoxColumn";
             this.usuarioSistemaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usuarioSistemaDataGridViewTextBoxColumn.Width = 80;
             // 
             // rolDataGridViewTextBoxColumn
             // 
@@ -181,7 +180,7 @@
             this.rolDataGridViewTextBoxColumn.HeaderText = "Rol";
             this.rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
             this.rolDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rolDataGridViewTextBoxColumn.Width = 40;
+            this.rolDataGridViewTextBoxColumn.Width = 60;
             // 
             // nombreCompletoDataGridViewTextBoxColumn
             // 
@@ -231,6 +230,10 @@
             this.especialidadesDataGridViewTextBoxColumn.Name = "especialidadesDataGridViewTextBoxColumn";
             this.especialidadesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // personalInternoVMBindingSource
+            // 
+            this.personalInternoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PersonalInternoVM);
+            // 
             // ListadoPersonalInterno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +253,7 @@
             this.Name = "ListadoPersonalInterno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personal Interno";
+            this.Load += new System.EventHandler(this.ListadoPersonalInterno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();

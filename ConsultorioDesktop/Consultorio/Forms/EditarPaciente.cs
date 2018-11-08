@@ -25,26 +25,26 @@ namespace Consultorio
             }
         }
 
-        private void CargarDatosEnPantalla(Paciente paciente)
+        private void CargarDatosEnPantalla()
         {
-            this.txtBoxNombre.Text = paciente.Nombres;
-            this.txtBoxApellido.Text = paciente.Apellidos;
-            this.txtBoxDocumento.Text = paciente.NumeroDocumento.ToString();
-            this.txtBoxTelefono.Text = paciente.TelCelular;
-            this.radioBtnMasculino.IsChecked = paciente.Sexo == "Masculino";
-            this.radioBtnFemenino.IsChecked = paciente.Sexo == "Femenino";
-            this.dateTimePickerNacimiento.Value = paciente.FechaNacimiento;
-            this.txtBoxDireccion.Text = paciente.Direccion;
-            this.txtBoxEmail.Text = paciente.Email;
-            this.dropDownPais.SelectedValue = paciente.IdPais;
-            this.dropDownProvincia.SelectedValue = paciente.IdProvincia;
-            this.dropDownDepartamento.SelectedValue = paciente.Ciudad.DepartamentoId;
-            this.dropDownCiudad.SelectedValue = paciente.IdCiudad;
-            this.txtBoxCodigoPostal.Text = paciente.CodigoPostal;
-            this.txtBoxAntecedentesMedicos.Text = paciente.HistoriaClinica.AntecedentesMedicos;
-            this.dropDownGrupoSanguineo.SelectedValue = paciente.HistoriaClinica.GrupoSanguineo.Trim();
-            this.checkBoxDonante.Checked = paciente.HistoriaClinica.Donante;
-            this.checkBoxTrasplantado.Checked = paciente.HistoriaClinica.Transplantado;
+            this.txtBoxNombre.Text = this.__paciente.Nombres;
+            this.txtBoxApellido.Text = this.__paciente.Apellidos;
+            this.txtBoxDocumento.Text = this.__paciente.NumeroDocumento.ToString();
+            this.txtBoxTelefono.Text = this.__paciente.TelCelular;
+            this.radioBtnMasculino.IsChecked = this.__paciente.Sexo == "Masculino";
+            this.radioBtnFemenino.IsChecked = this.__paciente.Sexo == "Femenino";
+            this.dateTimePickerNacimiento.Value = this.__paciente.FechaNacimiento;
+            this.txtBoxDireccion.Text = this.__paciente.Direccion;
+            this.txtBoxEmail.Text = this.__paciente.Email;
+            this.dropDownPais.SelectedValue = this.__paciente.IdPais;
+            this.dropDownProvincia.SelectedValue = this.__paciente.IdProvincia;
+            this.dropDownDepartamento.SelectedValue = this.__paciente.Ciudad.DepartamentoId;
+            this.dropDownCiudad.SelectedValue = this.__paciente.IdCiudad;
+            this.txtBoxCodigoPostal.Text = this.__paciente.CodigoPostal;
+            this.txtBoxAntecedentesMedicos.Text = this.__paciente.HistoriaClinica.AntecedentesMedicos;
+            this.dropDownGrupoSanguineo.SelectedValue = this.__paciente.HistoriaClinica.GrupoSanguineo.Trim();
+            this.checkBoxDonante.Checked = this.__paciente.HistoriaClinica.Donante;
+            this.checkBoxTrasplantado.Checked = this.__paciente.HistoriaClinica.Transplantado;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -249,7 +249,7 @@ namespace Consultorio
                 dropDownPais.ValueMember = "PaisId";
                 dropDownPais.DataSource = paises.ToList();
             }
-            CargarDatosEnPantalla(this.__paciente);
+            CargarDatosEnPantalla();
         }
 
         private bool ValidarCamposObligatoriosPaciente()
