@@ -450,6 +450,7 @@
       <DependentUpon>ClinicaModelo.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Consultorio.Modelo.Bancos.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Especialidad.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.FormaDePago.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Medico.datasource" />
