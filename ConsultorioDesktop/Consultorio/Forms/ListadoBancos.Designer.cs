@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
@@ -36,6 +37,10 @@
             this.dgvBancos = new System.Windows.Forms.DataGridView();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
+            this.idBancoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bajaLogicaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bancosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
@@ -44,6 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bancosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -94,7 +100,17 @@
             // 
             this.dgvBancos.AllowUserToAddRows = false;
             this.dgvBancos.AllowUserToDeleteRows = false;
+            this.dgvBancos.AutoGenerateColumns = false;
+            this.dgvBancos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBancos.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvBancos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvBancos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvBancos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBancos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idBancoDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.bajaLogicaDataGridViewCheckBoxColumn});
+            this.dgvBancos.DataSource = this.bancosBindingSource;
             this.dgvBancos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
             this.dgvBancos.Location = new System.Drawing.Point(12, 12);
             this.dgvBancos.Name = "dgvBancos";
@@ -123,6 +139,32 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // idBancoDataGridViewTextBoxColumn
+            // 
+            this.idBancoDataGridViewTextBoxColumn.DataPropertyName = "IdBanco";
+            this.idBancoDataGridViewTextBoxColumn.HeaderText = "Id Banco";
+            this.idBancoDataGridViewTextBoxColumn.Name = "idBancoDataGridViewTextBoxColumn";
+            this.idBancoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idBancoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre del Banco";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bajaLogicaDataGridViewCheckBoxColumn
+            // 
+            this.bajaLogicaDataGridViewCheckBoxColumn.DataPropertyName = "BajaLogica";
+            this.bajaLogicaDataGridViewCheckBoxColumn.HeaderText = "Desabilitado";
+            this.bajaLogicaDataGridViewCheckBoxColumn.Name = "bajaLogicaDataGridViewCheckBoxColumn";
+            this.bajaLogicaDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // bancosBindingSource
+            // 
+            this.bancosBindingSource.DataSource = typeof(Consultorio.Modelo.Bancos);
+            // 
             // ListadoBancos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +192,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bancosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +208,9 @@
         private System.Windows.Forms.DataGridView dgvBancos;
         private Telerik.WinControls.UI.RadButton btnVolver;
         private Telerik.WinControls.UI.RadButton btnAgregar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idBancoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn bajaLogicaDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.BindingSource bancosBindingSource;
     }
 }

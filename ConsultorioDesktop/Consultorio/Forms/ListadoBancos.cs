@@ -9,7 +9,7 @@ namespace Consultorio.Forms
         public ListadoBancos()
         {
             InitializeComponent();
-        }
+        } 
 
         private void Forma_Pago_Load(object sender, EventArgs e)
         {
@@ -20,7 +20,7 @@ namespace Consultorio.Forms
         {
             using (var entidades = new ClinicaEntities())
             {
-                
+
             }
         }
 
