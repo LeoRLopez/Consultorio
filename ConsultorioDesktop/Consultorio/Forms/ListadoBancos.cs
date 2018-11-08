@@ -38,11 +38,6 @@ namespace Consultorio.Forms
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            // Crear Formulario para Añadir/Editar Registro
-        }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             // Crear Formulario para Añadir/Editar Registro
@@ -52,6 +47,13 @@ namespace Consultorio.Forms
         {
             // Chequear si no se esta usando se setea a TRUE la columna BajaLogica, 
             // de lo contrario se muestra por pantalla un msj de que esta en uso
+        }
+        
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            var agregarBanco = new AgregarEditarBancos();
+            agregarBanco.ShowDialog();
+            RefrescarGridView();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

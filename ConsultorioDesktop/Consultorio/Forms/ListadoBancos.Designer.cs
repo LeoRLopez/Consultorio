@@ -111,6 +111,7 @@
             this.btnVolver.Size = new System.Drawing.Size(110, 24);
             this.btnVolver.TabIndex = 14;
             this.btnVolver.Text = "Volver";
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnAgregar
             // 
@@ -120,8 +121,9 @@
             this.btnAgregar.Size = new System.Drawing.Size(157, 25);
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // TarjetasDeDeDebito
+            // ListadoBancos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,7 +139,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "TarjetasDeDeDebito";
+            this.Name = "ListadoBancos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bancos";
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
