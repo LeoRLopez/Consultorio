@@ -1,5 +1,6 @@
 ﻿using Consultorio.Modelo;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Consultorio.Forms
@@ -11,16 +12,11 @@ namespace Consultorio.Forms
             InitializeComponent();
         } 
 
-        private void Forma_Pago_Load(object sender, EventArgs e)
-        {
-            RefrescarGridView();
-        }
-
         private void RefrescarGridView()
         {
             using (var entidades = new ClinicaEntities())
             {
-
+                bancosBindingSource.DataSource = entidades.Bancos.Where(x => x.BajaLogica == false).ToList();
             }
         }
 
@@ -34,19 +30,45 @@ namespace Consultorio.Forms
             }
             using (var entidades = new ClinicaEntities())
             {
-
+                bancosBindingSource.DataSource = entidades.Especialidad.Where(x => x.BajaLogica == false && x.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower())).ToList();
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             // Crear Formulario para Añadir/Editar Registro
+            if(dgvBancos.CurrentRow != null)
+            {
+                Bancos bancoSeleccionado = ((Bancos)dgvBancos.CurrentRow.DataBoundItem);
+                var editarBanco = new AgregarEditarBancos(bancoSeleccionado);
+                editarBanco.ShowDialog();
+                RefrescarGridView();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             // Chequear si no se esta usando se setea a TRUE la columna BajaLogica, 
             // de lo contrario se muestra por pantalla un msj de que esta en uso
+            if(dgvBancos.CurrentRow != null)
+            {
+                Bancos bancoSeleccionado = ((Bancos)dgvBancos.CurrentRow.DataBoundItem);
+                using(var entidades = new ClinicaEntities())
+                {
+                    var bancoDB = entidades.Bancos.First(x => x.IdBanco == bancoSeleccionado.IdBanco);
+                    bancoDB.BajaLogica = true;
+                    MessageBox.Show("Banco Deshabilitado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefrescarGridView();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -59,6 +81,11 @@ namespace Consultorio.Forms
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ListadoBancos_Load(object sender, EventArgs e)
+        {
+            RefrescarGridView();
         }
     }
 }

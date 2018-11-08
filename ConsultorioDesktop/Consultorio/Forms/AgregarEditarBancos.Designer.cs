@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarEditarBancos));
             this.tbNombre = new Telerik.WinControls.UI.RadTextBoxControl();
             this.lblNombre = new Telerik.WinControls.UI.RadLabel();
-            this.tbPrecio = new Telerik.WinControls.UI.RadTextBox();
+            this.tbCodigoBCRA = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.cancelButton = new Telerik.WinControls.UI.RadButton();
             this.saveButton = new Telerik.WinControls.UI.RadButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tbNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblNombre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCodigoBCRA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbNombre
@@ -55,10 +58,10 @@
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.ThemeName = "MedicalAppTheme";
             // 
-            // tbPrecio
+            // tbCodigoBCRA
             // 
-            resources.ApplyResources(this.tbPrecio, "tbPrecio");
-            this.tbPrecio.Name = "tbPrecio";
+            resources.ApplyResources(this.tbCodigoBCRA, "tbCodigoBCRA");
+            this.tbCodigoBCRA.Name = "tbCodigoBCRA";
             // 
             // radLabel2
             // 
@@ -80,6 +83,11 @@
             resources.ApplyResources(this.saveButton, "saveButton");
             this.saveButton.Name = "saveButton";
             this.saveButton.ThemeName = "MedicalAppTheme";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // AgregarEditarBancos
             // 
@@ -88,7 +96,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.tbPrecio);
+            this.Controls.Add(this.tbCodigoBCRA);
             this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
@@ -96,10 +104,11 @@
             this.Name = "AgregarEditarBancos";
             ((System.ComponentModel.ISupportInitialize)(this.tbNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblNombre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCodigoBCRA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,9 +118,10 @@
 
         private Telerik.WinControls.UI.RadTextBoxControl tbNombre;
         private Telerik.WinControls.UI.RadLabel lblNombre;
-        private Telerik.WinControls.UI.RadTextBox tbPrecio;
+        private Telerik.WinControls.UI.RadTextBox tbCodigoBCRA;
         private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadButton cancelButton;
         private Telerik.WinControls.UI.RadButton saveButton;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

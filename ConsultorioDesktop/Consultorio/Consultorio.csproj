@@ -341,6 +341,9 @@
     <Compile Include="Modelo\SegurosMedicosPaciente.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\sysdiagrams.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Tarjetas.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>

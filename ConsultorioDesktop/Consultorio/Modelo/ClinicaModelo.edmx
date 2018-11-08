@@ -73,6 +73,7 @@
           <Property Name="IdBanco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="BajaLogica" Type="bit" Nullable="false" />
+          <Property Name="CodigoBCRA" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Bancos_Tarjetas">
           <Key>
@@ -270,6 +271,16 @@
           <Property Name="IdPaciente" Type="int" Nullable="false" />
           <Property Name="IdSeguroMedico" Type="int" Nullable="false" />
           <Property Name="ConvenioActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Tarjetas">
           <Key>
@@ -874,6 +885,7 @@
           <EntitySet Name="SegurosMedico" EntityType="Self.SegurosMedico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SegurosMedicosMedico" EntityType="Self.SegurosMedicosMedico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SegurosMedicosPaciente" EntityType="Self.SegurosMedicosPaciente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarjetas" EntityType="Self.Tarjetas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
@@ -1259,6 +1271,7 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="ClinicaModel.sysdiagrams" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -1327,6 +1340,7 @@
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BajaLogica" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Bancos_Tarjetas" Relationship="ClinicaModel.FK_Bancos_Tarjetas_Bancos" FromRole="Bancos" ToRole="Bancos_Tarjetas" />
+          <Property Name="CodigoBCRA" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Bancos_Tarjetas">
           <Key>
@@ -2156,6 +2170,16 @@
           <End Type="ClinicaModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="ClinicaModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
         </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2220,6 +2244,7 @@
           <EntitySetMapping Name="Bancos">
             <EntityTypeMapping TypeName="ClinicaModel.Bancos">
               <MappingFragment StoreEntitySet="Bancos">
+                <ScalarProperty Name="CodigoBCRA" ColumnName="CodigoBCRA" />
                 <ScalarProperty Name="BajaLogica" ColumnName="BajaLogica" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
@@ -2491,6 +2516,17 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ClinicaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
