@@ -44,7 +44,7 @@ namespace Consultorio
             this.dropDownProvincia.SelectedValue = personalInterno.IdProvincia;
             this.dropDownDepartamento.SelectedValue = personalInterno.Ciudad.DepartamentoId;
             this.dropDownCiudad.SelectedValue = personalInterno.IdCiudad;
-            this.tbCodigoPostal.Text = personalInterno.Ciudad.CodigoPostal;
+            this.tbCodigoPostal.Text = personalInterno.Ciudad.CodigoPostal.ToString();
 
             // Cargar campos del Usuario
             if (personalInterno.Usuario != null)
@@ -57,8 +57,8 @@ namespace Consultorio
             // Cargar Campos del Medico
             if (personalInterno.Medico != null)
             {
-                this.RdBtnSiMedico.Checked = true;
-                this.RdBtnNoMedico.Checked = false;
+                this.RdBtnSiMedico.IsChecked = true;
+                this.RdBtnNoMedico.IsChecked = false;
                 this.__esMedico = true;
                 this.txtBoxMatricula.Text = personalInterno.Medico.MatriculaMedico;
                 foreach (var medicoEspecialidad in personalInterno.Medico.MedicoEspecialidad.ToList())
@@ -75,8 +75,8 @@ namespace Consultorio
             }
             else
             {
-                this.RdBtnSiMedico.Checked = false;
-                this.RdBtnNoMedico.Checked = true;
+                this.RdBtnSiMedico.IsChecked = false;
+                this.RdBtnNoMedico.IsChecked = true;
                 this.__esMedico = false;
             }
         }
