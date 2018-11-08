@@ -29,6 +29,7 @@ namespace Consultorio
                   new MedicoVM
                   {
                       MedicoId = medico.IdMedico,
+                      Matricula = medico.MatriculaMedico,
                       NombreCompleto = medico.PersonalInterno.FirstOrDefault().Apellido + ", " + medico.PersonalInterno.FirstOrDefault().Nombre,
                       EspecialidadesMedicoVM = medico.MedicoEspecialidad.Select(x => new EspecialidadMedicoVM
                       {

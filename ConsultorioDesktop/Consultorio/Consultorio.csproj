@@ -360,6 +360,7 @@
     </Compile>
     <Compile Include="ViewModels\EspecialidadMedicoVM.cs" />
     <Compile Include="ViewModels\PacienteTurnoVM.cs" />
+    <Compile Include="ViewModels\PersonalInternoVM.cs" />
     <Compile Include="ViewModels\PacienteVM.cs" />
     <Compile Include="ViewModels\PacienteDropDownVM.cs" />
     <Compile Include="ViewModels\MedicoVM.cs" />

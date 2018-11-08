@@ -29,11 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoPacientes));
             this.panelListaPacientes = new Telerik.WinControls.UI.RadPanel();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
+            this.pacienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idHistoriaClinicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacienteVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelPacienteSeleccionado = new Telerik.WinControls.UI.RadPanel();
             this.lblGrupoSanguineo = new Telerik.WinControls.UI.RadLabel();
             this.lblTrasplantado = new Telerik.WinControls.UI.RadLabel();
@@ -49,20 +59,11 @@
             this.pictureBoxFotoPaciente = new System.Windows.Forms.PictureBox();
             this.object_b5eba493_7d85_4956_839f_e2e31e6ce190 = new Telerik.WinControls.RootRadElement();
             this.btnEditarPaciente = new Telerik.WinControls.UI.RadButton();
-            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
-            this.pacienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idHistoriaClinicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pacienteVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelListaPacientes)).BeginInit();
             this.panelListaPacientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPacienteSeleccionado)).BeginInit();
             this.panelPacienteSeleccionado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblGrupoSanguineo)).BeginInit();
@@ -78,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditarPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelListaPacientes
@@ -103,14 +103,14 @@
             this.dgvPacientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPacientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvPacientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pacienteIdDataGridViewTextBoxColumn,
@@ -123,14 +123,14 @@
             this.direccionDataGridViewTextBoxColumn,
             this.idHistoriaClinicaDataGridViewTextBoxColumn});
             this.dgvPacientes.DataSource = this.pacienteVMBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPacientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPacientes.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPacientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPacientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(242)))));
             this.dgvPacientes.Location = new System.Drawing.Point(0, 0);
@@ -142,6 +142,82 @@
             this.dgvPacientes.Size = new System.Drawing.Size(640, 532);
             this.dgvPacientes.TabIndex = 12;
             this.dgvPacientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacientes_CellClick);
+            // 
+            // pacienteIdDataGridViewTextBoxColumn
+            // 
+            this.pacienteIdDataGridViewTextBoxColumn.DataPropertyName = "PacienteId";
+            this.pacienteIdDataGridViewTextBoxColumn.HeaderText = "PacienteId";
+            this.pacienteIdDataGridViewTextBoxColumn.Name = "pacienteIdDataGridViewTextBoxColumn";
+            this.pacienteIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pacienteIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreCompletoDataGridViewTextBoxColumn
+            // 
+            this.nombreCompletoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto";
+            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Paciente";
+            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
+            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // edadDataGridViewTextBoxColumn
+            // 
+            this.edadDataGridViewTextBoxColumn.DataPropertyName = "Edad";
+            this.edadDataGridViewTextBoxColumn.HeaderText = "Edad";
+            this.edadDataGridViewTextBoxColumn.Name = "edadDataGridViewTextBoxColumn";
+            this.edadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.edadDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // Sexo
+            // 
+            this.Sexo.DataPropertyName = "Sexo";
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            this.Sexo.ReadOnly = true;
+            this.Sexo.Width = 70;
+            // 
+            // nroDocumentoDataGridViewTextBoxColumn
+            // 
+            this.nroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "NroDocumento";
+            this.nroDocumentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.nroDocumentoDataGridViewTextBoxColumn.Name = "nroDocumentoDataGridViewTextBoxColumn";
+            this.nroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nroDocumentoDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 135;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.direccionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idHistoriaClinicaDataGridViewTextBoxColumn
+            // 
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.DataPropertyName = "IdHistoriaClinica";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.HeaderText = "IdHistoriaClinica";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.Name = "idHistoriaClinicaDataGridViewTextBoxColumn";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pacienteVMBindingSource
+            // 
+            this.pacienteVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PacienteVM);
             // 
             // panelPacienteSeleccionado
             // 
@@ -292,14 +368,14 @@
             this.btnEditarPaciente.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarPaciente.Image")));
             this.btnEditarPaciente.Location = new System.Drawing.Point(646, 53);
             this.btnEditarPaciente.Name = "btnEditarPaciente";
-            this.btnEditarPaciente.Size = new System.Drawing.Size(303, 44);
+            this.btnEditarPaciente.Size = new System.Drawing.Size(292, 44);
             this.btnEditarPaciente.TabIndex = 2;
-            this.btnEditarPaciente.Text = "Editar Paciente Seleccionado";
+            this.btnEditarPaciente.Text = "     Editar Paciente Seleccionado";
             this.btnEditarPaciente.ThemeName = "ControlDefault";
             this.btnEditarPaciente.Click += new System.EventHandler(this.btnEditarPaciente_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnEditarPaciente.GetChildAt(0))).UseSmallImageList = true;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnEditarPaciente.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEditarPaciente.GetChildAt(0))).Text = "Editar Paciente Seleccionado";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnEditarPaciente.GetChildAt(0))).Text = "     Editar Paciente Seleccionado";
             ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
@@ -315,29 +391,13 @@
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Sexo
-            // 
-            this.Sexo.DataPropertyName = "Sexo";
-            this.Sexo.HeaderText = "Sexo";
-            this.Sexo.Name = "Sexo";
-            this.Sexo.ReadOnly = true;
-            this.Sexo.Width = 70;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 135;
-            // 
             // radButton1
             // 
             this.radButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radButton1.Image = ((System.Drawing.Image)(resources.GetObject("radButton1.Image")));
             this.radButton1.Location = new System.Drawing.Point(647, 3);
             this.radButton1.Name = "radButton1";
-            this.radButton1.Size = new System.Drawing.Size(303, 44);
+            this.radButton1.Size = new System.Drawing.Size(291, 44);
             this.radButton1.TabIndex = 3;
             this.radButton1.Text = "Nuevo Paciente";
             this.radButton1.ThemeName = "ControlDefault";
@@ -360,66 +420,6 @@
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pacienteIdDataGridViewTextBoxColumn
-            // 
-            this.pacienteIdDataGridViewTextBoxColumn.DataPropertyName = "PacienteId";
-            this.pacienteIdDataGridViewTextBoxColumn.HeaderText = "PacienteId";
-            this.pacienteIdDataGridViewTextBoxColumn.Name = "pacienteIdDataGridViewTextBoxColumn";
-            this.pacienteIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pacienteIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreCompletoDataGridViewTextBoxColumn
-            // 
-            this.nombreCompletoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto";
-            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Paciente";
-            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
-            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // edadDataGridViewTextBoxColumn
-            // 
-            this.edadDataGridViewTextBoxColumn.DataPropertyName = "Edad";
-            this.edadDataGridViewTextBoxColumn.HeaderText = "Edad";
-            this.edadDataGridViewTextBoxColumn.Name = "edadDataGridViewTextBoxColumn";
-            this.edadDataGridViewTextBoxColumn.ReadOnly = true;
-            this.edadDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // nroDocumentoDataGridViewTextBoxColumn
-            // 
-            this.nroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "NroDocumento";
-            this.nroDocumentoDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.nroDocumentoDataGridViewTextBoxColumn.Name = "nroDocumentoDataGridViewTextBoxColumn";
-            this.nroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nroDocumentoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // telefonoDataGridViewTextBoxColumn
-            // 
-            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
-            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // direccionDataGridViewTextBoxColumn
-            // 
-            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
-            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
-            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // idHistoriaClinicaDataGridViewTextBoxColumn
-            // 
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.DataPropertyName = "IdHistoriaClinica";
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.HeaderText = "IdHistoriaClinica";
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.Name = "idHistoriaClinicaDataGridViewTextBoxColumn";
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idHistoriaClinicaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pacienteVMBindingSource
-            // 
-            this.pacienteVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PacienteVM);
-            // 
             // ListadoPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,6 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelListaPacientes)).EndInit();
             this.panelListaPacientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPacienteSeleccionado)).EndInit();
             this.panelPacienteSeleccionado.ResumeLayout(false);
             this.panelPacienteSeleccionado.PerformLayout();
@@ -454,7 +455,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditarPaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

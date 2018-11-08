@@ -6,6 +6,7 @@ namespace Consultorio.ViewModels
     public class MedicoVM
     {
         public int MedicoId { get; set; }
+        public string Matricula { get; set; }
         public string NombreCompleto { get; set; }
         public string LunesHorario { get; set; }
         public string MartesHorario { get; set; }

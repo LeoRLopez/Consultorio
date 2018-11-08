@@ -167,6 +167,7 @@ namespace Consultorio.Reportes
                 new MedicoVM
                 {
                     MedicoId = medico.IdMedico,
+                    Matricula = medico.MatriculaMedico,
                     NombreCompleto = medico.PersonalInterno.FirstOrDefault().Apellido + ", " + medico.PersonalInterno.FirstOrDefault().Nombre //+ " (" + medico.Especialidad + ")"
                 }).OrderBy(x => x.NombreCompleto).ToList());
                 dropDownMedicos.DataSource = medicos;

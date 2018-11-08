@@ -212,6 +212,7 @@ namespace Consultorio
                 new MedicoVM
                 {
                     MedicoId = medico.IdMedico,
+                    Matricula = medico.MatriculaMedico,
                     NombreCompleto = medico.PersonalInterno.FirstOrDefault().Apellido + ", " + medico.PersonalInterno.FirstOrDefault().Nombre,
                     LunesHorario = medico.Horario.Nombre,
                     MartesHorario = medico.Horario1.Nombre,
