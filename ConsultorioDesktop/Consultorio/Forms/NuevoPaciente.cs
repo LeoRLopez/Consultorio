@@ -18,11 +18,9 @@ namespace Consultorio
             InitializeComponent();
         }
 
-        //Le agregue la funcionalidad de que, cuando un registro sea distinto de "" que lo limpie;
-        //Si se vuelve a apretar cancelar, la ventana se cerraria;
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Los registros sin guardar se perderán. ¿Salir?", "TurnARG",
+            if (MessageBox.Show("Los registros sin guardar se perderán. ¿Deas salir de todas maneras?", "TurnARG",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 this.Close();
@@ -74,7 +72,7 @@ namespace Consultorio
                 AntecedentesMedicos = txtBoxAntecedentesMedicos.Text.Trim(),
                 Donante = checkBoxDonante.Checked,
                 Transplantado = checkBoxTrasplantado.Checked,
-                GrupoSanguineo = dropDownGrupoSanguineo.Text
+                GrupoSanguineo = dropDownGrupoSanguineo.Text.Trim()
             };
 
             try
@@ -95,12 +93,12 @@ namespace Consultorio
                         entidades.Paciente.Add(nuevoPaciente);
                         entidades.SaveChanges();
 
-                        MessageBox.Show("Paciente Agregado con Exito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Paciente Agregado con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Hubo un error Agregado el Paciente: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Hubo un error Agregando el Paciente: " + Environment.NewLine + string.Join(Environment.NewLine, result.Errors.ToArray()), "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -113,12 +111,12 @@ namespace Consultorio
         private bool ValidarCamposObligatoriosHistoriaClinica()
         {
 
-            if (string.IsNullOrEmpty(txtBoxAntecedentesMedicos.Text) || string.IsNullOrEmpty(dropDownGrupoSanguineo.SelectedItem.Text))
+            if (string.IsNullOrEmpty(txtBoxAntecedentesMedicos.Text) || string.IsNullOrEmpty(dropDownGrupoSanguineo.SelectedItem.Text.Trim()))
             {
                 if (string.IsNullOrEmpty(txtBoxAntecedentesMedicos.Text))
                     errorProvider.SetError(txtBoxAntecedentesMedicos, "Requerido");
 
-                if (string.IsNullOrEmpty(dropDownGrupoSanguineo.SelectedItem.Text))
+                if (string.IsNullOrEmpty(dropDownGrupoSanguineo.SelectedItem.Text.Trim()))
                     errorProvider.SetError(dropDownGrupoSanguineo, "Requerido");
 
                 return false;
