@@ -114,6 +114,7 @@
             this.dgvObrasSociales.Location = new System.Drawing.Point(12, 12);
             this.dgvObrasSociales.Name = "dgvObrasSociales";
             this.dgvObrasSociales.ReadOnly = true;
+            this.dgvObrasSociales.RowHeadersVisible = false;
             this.dgvObrasSociales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvObrasSociales.Size = new System.Drawing.Size(409, 308);
             this.dgvObrasSociales.TabIndex = 7;

@@ -32,25 +32,25 @@
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.dgvFormasDePago = new System.Windows.Forms.DataGridView();
+            this.idFormaDePagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formaDePagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
             this.btnEliminar = new Telerik.WinControls.UI.RadButton();
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
-            this.idFormaDePagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formaDePagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormasDePago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formaDePagoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.formaDePagoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -87,9 +87,31 @@
             this.dgvFormasDePago.Location = new System.Drawing.Point(12, 12);
             this.dgvFormasDePago.Name = "dgvFormasDePago";
             this.dgvFormasDePago.ReadOnly = true;
+            this.dgvFormasDePago.RowHeadersVisible = false;
             this.dgvFormasDePago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFormasDePago.Size = new System.Drawing.Size(409, 308);
             this.dgvFormasDePago.TabIndex = 7;
+            // 
+            // idFormaDePagoDataGridViewTextBoxColumn
+            // 
+            this.idFormaDePagoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idFormaDePagoDataGridViewTextBoxColumn.DataPropertyName = "IdFormaDePago";
+            this.idFormaDePagoDataGridViewTextBoxColumn.HeaderText = "IdFormaDePago";
+            this.idFormaDePagoDataGridViewTextBoxColumn.Name = "idFormaDePagoDataGridViewTextBoxColumn";
+            this.idFormaDePagoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idFormaDePagoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // formaDePagoBindingSource
+            // 
+            this.formaDePagoBindingSource.DataSource = typeof(Consultorio.Modelo.FormaDePago);
             // 
             // errorProvider1
             // 
@@ -142,28 +164,7 @@
             this.txtBoxBuscar.Size = new System.Drawing.Size(157, 21);
             this.txtBoxBuscar.TabIndex = 13;
             // 
-            // idFormaDePagoDataGridViewTextBoxColumn
-            // 
-            this.idFormaDePagoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idFormaDePagoDataGridViewTextBoxColumn.DataPropertyName = "IdFormaDePago";
-            this.idFormaDePagoDataGridViewTextBoxColumn.HeaderText = "IdFormaDePago";
-            this.idFormaDePagoDataGridViewTextBoxColumn.Name = "idFormaDePagoDataGridViewTextBoxColumn";
-            this.idFormaDePagoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idFormaDePagoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // formaDePagoBindingSource
-            // 
-            this.formaDePagoBindingSource.DataSource = typeof(Consultorio.Modelo.FormaDePago);
-            // 
-            // FormasDePago
+            // ListadoFormasDePago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -178,7 +179,7 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormasDePago";
+            this.Name = "ListadoFormasDePago";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formas de Pago";
@@ -186,13 +187,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormasDePago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formaDePagoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.formaDePagoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
