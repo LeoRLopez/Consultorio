@@ -122,7 +122,7 @@ namespace Consultorio
                     var userStore = new UserStore<IdentityUser>(new IdentityDbContext("IdentityDBConnection"));
                     var manager = new UserManager<IdentityUser>(userStore);
                     var user = new IdentityUser() { UserName = personalInterno.Email, Email = personalInterno.Email, EmailConfirmed = true };
-                    IdentityResult result = manager.Create(user, txtBoxDocumento.Text);
+                    IdentityResult result = manager.Create(user, txtBoxContraseña.Text);
                     if (result.Succeeded)
                     {
                         // Asignar el usuario al Rol correspondiente
