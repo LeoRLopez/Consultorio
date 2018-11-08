@@ -121,11 +121,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\HorarioAtencionMedico.cs" />
-    <Compile Include="Forms\Admin\EditarPersonal.cs">
+    <Compile Include="Forms\Admin\EditarPersonalInterno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\EditarPersonal.Designer.cs">
-      <DependentUpon>EditarPersonal.cs</DependentUpon>
+    <Compile Include="Forms\Admin\EditarPersonalInterno.Designer.cs">
+      <DependentUpon>EditarPersonalInterno.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AgregarEditarBancos.cs">
       <SubType>Form</SubType>
@@ -222,11 +222,11 @@
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ClinicaEntities.cs" />
-    <Compile Include="Forms\Admin\NuevoPersonal.cs">
+    <Compile Include="Forms\Admin\AgregarPersonalInterno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\NuevoPersonal.Designer.cs">
-      <DependentUpon>NuevoPersonal.cs</DependentUpon>
+    <Compile Include="Forms\Admin\AgregarPersonalInterno.Designer.cs">
+      <DependentUpon>AgregarPersonalInterno.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\IniciarSesionEventArgs.cs" />
     <Compile Include="Forms\ListadoObrasSociales.cs">
@@ -364,11 +364,11 @@
     <Compile Include="ViewModels\PacienteDropDownVM.cs" />
     <Compile Include="ViewModels\MedicoVM.cs" />
     <Compile Include="ViewModels\TurnoVM.cs" />
-    <EmbeddedResource Include="Forms\Admin\EditarPersonal.resx">
-      <DependentUpon>EditarPersonal.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Admin\EditarPersonalInterno.resx">
+      <DependentUpon>EditarPersonalInterno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\NuevoPersonal.resx">
-      <DependentUpon>NuevoPersonal.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Admin\AgregarPersonalInterno.resx">
+      <DependentUpon>AgregarPersonalInterno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AgregarEditarBancos.resx">
       <DependentUpon>AgregarEditarBancos.cs</DependentUpon>

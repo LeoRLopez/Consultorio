@@ -12,12 +12,12 @@ using Telerik.WinControls.UI;
 
 namespace Consultorio
 {
-    public partial class NuevoPersonal : Form
+    public partial class AgregarPersonalInterno : Form
     {
         private Boolean __esMedico = false;
         private List<Especialidad> __especialidadesMedico;
 
-        public NuevoPersonal() : base()
+        public AgregarPersonalInterno() : base()
         {
             InitializeComponent();
         }

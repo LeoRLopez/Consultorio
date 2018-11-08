@@ -84,6 +84,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(157, 25);
             this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnEditar
             // 
@@ -94,6 +95,7 @@
             this.btnEditar.Size = new System.Drawing.Size(157, 25);
             this.btnEditar.TabIndex = 16;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
             // 
             // dgvPersonalInterno
             // 
@@ -127,6 +129,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(157, 25);
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
             // 
             // ListadoPersonalInterno
             // 

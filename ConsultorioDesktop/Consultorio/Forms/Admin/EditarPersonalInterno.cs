@@ -13,13 +13,13 @@ using System.Data.Entity;
 
 namespace Consultorio
 {
-    public partial class EditarPersonal : Form
+    public partial class EditarPersonalInterno : Form
     {
         private Boolean __esMedico = false;
         private List<Especialidad> __especialidadesMedico;
         private PersonalInterno __personalInterno;
 
-        public EditarPersonal(int idPersonalInterno) : base()
+        public EditarPersonalInterno(int idPersonalInterno) : base()
         {
             InitializeComponent();
             using (var entidades = new ClinicaEntities())

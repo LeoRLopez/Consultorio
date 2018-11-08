@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.menuVertical = new System.Windows.Forms.Panel();
+            this.btnBancos = new Telerik.WinControls.UI.RadButton();
             this.btnTarjetasDeDebito = new Telerik.WinControls.UI.RadButton();
             this.btnEspecialidades = new Telerik.WinControls.UI.RadButton();
             this.btnFormasDePago = new Telerik.WinControls.UI.RadButton();
@@ -49,8 +50,8 @@
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.radOffice2007ScreenTipElement1 = new Telerik.WinControls.UI.RadOffice2007ScreenTipElement();
-            this.btnBancos = new Telerik.WinControls.UI.RadButton();
             this.menuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBancos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTarjetasDeDebito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEspecialidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFormasDePago)).BeginInit();
@@ -68,7 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBancos)).BeginInit();
             this.SuspendLayout();
             // 
             // menuVertical
@@ -91,6 +91,40 @@
             this.menuVertical.Name = "menuVertical";
             this.menuVertical.Size = new System.Drawing.Size(198, 620);
             this.menuVertical.TabIndex = 0;
+            // 
+            // btnBancos
+            // 
+            this.btnBancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBancos.Image = ((System.Drawing.Image)(resources.GetObject("btnBancos.Image")));
+            this.btnBancos.Location = new System.Drawing.Point(3, 421);
+            this.btnBancos.Name = "btnBancos";
+            this.btnBancos.Size = new System.Drawing.Size(189, 44);
+            this.btnBancos.TabIndex = 10;
+            this.btnBancos.Text = "Bancos";
+            this.btnBancos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBancos.TextWrap = true;
+            this.btnBancos.ThemeName = "ControlDefault";
+            this.btnBancos.Click += new System.EventHandler(this.btnBancos_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).UseSmallImageList = true;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).Text = "Bancos";
+            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnBancos.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(5F, 0F);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(1))).TextWrap = true;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 2F;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTarjetasDeDebito
             // 
@@ -260,12 +294,12 @@
             this.btnNuevoPersonal.Name = "btnNuevoPersonal";
             this.btnNuevoPersonal.Size = new System.Drawing.Size(189, 44);
             this.btnNuevoPersonal.TabIndex = 6;
-            this.btnNuevoPersonal.Text = "  Personal";
+            this.btnNuevoPersonal.Text = "  Personal Interno";
             this.btnNuevoPersonal.ThemeName = "ControlDefault";
             this.btnNuevoPersonal.Click += new System.EventHandler(this.btnNuevoPersonal_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPersonal.GetChildAt(0))).UseSmallImageList = true;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPersonal.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPersonal.GetChildAt(0))).Text = "  Personal";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPersonal.GetChildAt(0))).Text = "  Personal Interno";
             ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnNuevoPersonal.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPersonal.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPersonal.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
@@ -511,40 +545,6 @@
             this.radOffice2007ScreenTipElement1.TemplateType = null;
             this.radOffice2007ScreenTipElement1.TipSize = new System.Drawing.Size(0, 0);
             // 
-            // btnBancos
-            // 
-            this.btnBancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBancos.Image = ((System.Drawing.Image)(resources.GetObject("btnBancos.Image")));
-            this.btnBancos.Location = new System.Drawing.Point(3, 421);
-            this.btnBancos.Name = "btnBancos";
-            this.btnBancos.Size = new System.Drawing.Size(189, 44);
-            this.btnBancos.TabIndex = 10;
-            this.btnBancos.Text = "Bancos";
-            this.btnBancos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBancos.TextWrap = true;
-            this.btnBancos.ThemeName = "ControlDefault";
-            this.btnBancos.Click += new System.EventHandler(this.btnBancos_Click);
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnBancos.GetChildAt(0))).Text = "Bancos";
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnBancos.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(5F, 0F);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(1))).TextWrap = true;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 2F;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnBancos.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,6 +561,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuInicio_FormClosing);
             this.Load += new System.EventHandler(this.MenuInicio_Load);
             this.menuVertical.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnBancos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTarjetasDeDebito)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEspecialidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFormasDePago)).EndInit();
@@ -578,7 +579,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBancos)).EndInit();
             this.ResumeLayout(false);
 
         }

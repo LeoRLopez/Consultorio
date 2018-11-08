@@ -165,8 +165,8 @@ namespace Consultorio
 
         private void btnNuevoPersonal_Click(object sender, EventArgs e)
         {
-            NuevoPersonal formNuevoPersonal = new NuevoPersonal();
-            var formNuevoPersonalResult = formNuevoPersonal.ShowDialog();
+            var formListadoPersonalInterno = new ListadoPersonalInterno();
+            formListadoPersonalInterno.ShowDialog();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)

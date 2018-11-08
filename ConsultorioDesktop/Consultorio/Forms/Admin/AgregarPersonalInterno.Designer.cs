@@ -1,6 +1,6 @@
 ﻿namespace Consultorio
 {
-    partial class EditarPersonal
+    partial class AgregarPersonalInterno
     {
         /// <summary>
         /// Required designer variable.
@@ -382,9 +382,9 @@
             this.lblNuevoPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblNuevoPersonal.Location = new System.Drawing.Point(3, 9);
             this.lblNuevoPersonal.Name = "lblNuevoPersonal";
-            this.lblNuevoPersonal.Size = new System.Drawing.Size(137, 24);
+            this.lblNuevoPersonal.Size = new System.Drawing.Size(145, 24);
             this.lblNuevoPersonal.TabIndex = 0;
-            this.lblNuevoPersonal.Text = "Editar Personal";
+            this.lblNuevoPersonal.Text = "Nuevo Personal";
             // 
             // panelAccede
             // 
@@ -738,7 +738,7 @@
             this.panel2.Size = new System.Drawing.Size(280, 34);
             this.panel2.TabIndex = 73;
             // 
-            // EditarPersonal
+            // NuevoPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -783,7 +783,7 @@
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditarPersonal";
+            this.Name = "NuevoPersonal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.NuevoUsuario_Load);
