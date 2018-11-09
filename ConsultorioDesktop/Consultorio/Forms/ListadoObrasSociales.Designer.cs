@@ -104,7 +104,12 @@
             // 
             this.dgvObrasSociales.AllowUserToAddRows = false;
             this.dgvObrasSociales.AllowUserToDeleteRows = false;
+            this.dgvObrasSociales.AllowUserToResizeColumns = false;
+            this.dgvObrasSociales.AllowUserToResizeRows = false;
             this.dgvObrasSociales.AutoGenerateColumns = false;
+            this.dgvObrasSociales.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvObrasSociales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvObrasSociales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvObrasSociales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObrasSociales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idSeguroMedicoDataGridViewTextBoxColumn,
@@ -114,6 +119,7 @@
             this.dgvObrasSociales.Location = new System.Drawing.Point(12, 12);
             this.dgvObrasSociales.Name = "dgvObrasSociales";
             this.dgvObrasSociales.ReadOnly = true;
+            this.dgvObrasSociales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvObrasSociales.RowHeadersVisible = false;
             this.dgvObrasSociales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvObrasSociales.Size = new System.Drawing.Size(409, 308);

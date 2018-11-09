@@ -77,7 +77,12 @@
             // 
             this.dgvFormasDePago.AllowUserToAddRows = false;
             this.dgvFormasDePago.AllowUserToDeleteRows = false;
+            this.dgvFormasDePago.AllowUserToResizeColumns = false;
+            this.dgvFormasDePago.AllowUserToResizeRows = false;
             this.dgvFormasDePago.AutoGenerateColumns = false;
+            this.dgvFormasDePago.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvFormasDePago.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvFormasDePago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvFormasDePago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFormasDePago.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idFormaDePagoDataGridViewTextBoxColumn,
@@ -87,6 +92,7 @@
             this.dgvFormasDePago.Location = new System.Drawing.Point(12, 12);
             this.dgvFormasDePago.Name = "dgvFormasDePago";
             this.dgvFormasDePago.ReadOnly = true;
+            this.dgvFormasDePago.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvFormasDePago.RowHeadersVisible = false;
             this.dgvFormasDePago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFormasDePago.Size = new System.Drawing.Size(409, 308);

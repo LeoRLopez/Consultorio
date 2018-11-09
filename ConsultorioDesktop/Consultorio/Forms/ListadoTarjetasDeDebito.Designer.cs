@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
@@ -36,6 +37,16 @@
             this.dgvTarjetas = new System.Windows.Forms.DataGridView();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
+            this.tarjetasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idTarjetaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titularDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroTarjetaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaVtoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idBancoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreTarjetaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bajaLogicaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bancosTarjetasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacienteTarjetasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
@@ -44,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTarjetas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tarjetasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -94,11 +106,30 @@
             // 
             this.dgvTarjetas.AllowUserToAddRows = false;
             this.dgvTarjetas.AllowUserToDeleteRows = false;
+            this.dgvTarjetas.AllowUserToResizeColumns = false;
+            this.dgvTarjetas.AllowUserToResizeRows = false;
+            this.dgvTarjetas.AutoGenerateColumns = false;
+            this.dgvTarjetas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTarjetas.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvTarjetas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvTarjetas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvTarjetas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTarjetas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idTarjetaDataGridViewTextBoxColumn,
+            this.titularDataGridViewTextBoxColumn,
+            this.numeroTarjetaDataGridViewTextBoxColumn,
+            this.fechaVtoDataGridViewTextBoxColumn,
+            this.idBancoDataGridViewTextBoxColumn,
+            this.nombreTarjetaDataGridViewTextBoxColumn,
+            this.bajaLogicaDataGridViewCheckBoxColumn,
+            this.bancosTarjetasDataGridViewTextBoxColumn,
+            this.pacienteTarjetasDataGridViewTextBoxColumn});
+            this.dgvTarjetas.DataSource = this.tarjetasBindingSource;
             this.dgvTarjetas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
             this.dgvTarjetas.Location = new System.Drawing.Point(12, 12);
             this.dgvTarjetas.Name = "dgvTarjetas";
             this.dgvTarjetas.ReadOnly = true;
+            this.dgvTarjetas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvTarjetas.RowHeadersVisible = false;
             this.dgvTarjetas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTarjetas.Size = new System.Drawing.Size(409, 308);
@@ -122,6 +153,82 @@
             this.btnAgregar.Size = new System.Drawing.Size(157, 25);
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
+            // 
+            // tarjetasBindingSource
+            // 
+            this.tarjetasBindingSource.DataSource = typeof(Consultorio.Modelo.Tarjetas);
+            // 
+            // idTarjetaDataGridViewTextBoxColumn
+            // 
+            this.idTarjetaDataGridViewTextBoxColumn.DataPropertyName = "IdTarjeta";
+            this.idTarjetaDataGridViewTextBoxColumn.HeaderText = "IdTarjeta";
+            this.idTarjetaDataGridViewTextBoxColumn.Name = "idTarjetaDataGridViewTextBoxColumn";
+            this.idTarjetaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idTarjetaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // titularDataGridViewTextBoxColumn
+            // 
+            this.titularDataGridViewTextBoxColumn.DataPropertyName = "Titular";
+            this.titularDataGridViewTextBoxColumn.HeaderText = "Titular";
+            this.titularDataGridViewTextBoxColumn.Name = "titularDataGridViewTextBoxColumn";
+            this.titularDataGridViewTextBoxColumn.ReadOnly = true;
+            this.titularDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // numeroTarjetaDataGridViewTextBoxColumn
+            // 
+            this.numeroTarjetaDataGridViewTextBoxColumn.DataPropertyName = "NumeroTarjeta";
+            this.numeroTarjetaDataGridViewTextBoxColumn.HeaderText = "NumeroTarjeta";
+            this.numeroTarjetaDataGridViewTextBoxColumn.Name = "numeroTarjetaDataGridViewTextBoxColumn";
+            this.numeroTarjetaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numeroTarjetaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fechaVtoDataGridViewTextBoxColumn
+            // 
+            this.fechaVtoDataGridViewTextBoxColumn.DataPropertyName = "FechaVto";
+            this.fechaVtoDataGridViewTextBoxColumn.HeaderText = "FechaVto";
+            this.fechaVtoDataGridViewTextBoxColumn.Name = "fechaVtoDataGridViewTextBoxColumn";
+            this.fechaVtoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaVtoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idBancoDataGridViewTextBoxColumn
+            // 
+            this.idBancoDataGridViewTextBoxColumn.DataPropertyName = "IdBanco";
+            this.idBancoDataGridViewTextBoxColumn.HeaderText = "IdBanco";
+            this.idBancoDataGridViewTextBoxColumn.Name = "idBancoDataGridViewTextBoxColumn";
+            this.idBancoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idBancoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreTarjetaDataGridViewTextBoxColumn
+            // 
+            this.nombreTarjetaDataGridViewTextBoxColumn.DataPropertyName = "NombreTarjeta";
+            this.nombreTarjetaDataGridViewTextBoxColumn.FillWeight = 149.2386F;
+            this.nombreTarjetaDataGridViewTextBoxColumn.HeaderText = "NombreTarjeta";
+            this.nombreTarjetaDataGridViewTextBoxColumn.Name = "nombreTarjetaDataGridViewTextBoxColumn";
+            this.nombreTarjetaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bajaLogicaDataGridViewCheckBoxColumn
+            // 
+            this.bajaLogicaDataGridViewCheckBoxColumn.DataPropertyName = "BajaLogica";
+            this.bajaLogicaDataGridViewCheckBoxColumn.FillWeight = 50.76142F;
+            this.bajaLogicaDataGridViewCheckBoxColumn.HeaderText = "Deshabilitado";
+            this.bajaLogicaDataGridViewCheckBoxColumn.Name = "bajaLogicaDataGridViewCheckBoxColumn";
+            this.bajaLogicaDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // bancosTarjetasDataGridViewTextBoxColumn
+            // 
+            this.bancosTarjetasDataGridViewTextBoxColumn.DataPropertyName = "Bancos_Tarjetas";
+            this.bancosTarjetasDataGridViewTextBoxColumn.HeaderText = "Bancos_Tarjetas";
+            this.bancosTarjetasDataGridViewTextBoxColumn.Name = "bancosTarjetasDataGridViewTextBoxColumn";
+            this.bancosTarjetasDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bancosTarjetasDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pacienteTarjetasDataGridViewTextBoxColumn
+            // 
+            this.pacienteTarjetasDataGridViewTextBoxColumn.DataPropertyName = "Paciente_Tarjetas";
+            this.pacienteTarjetasDataGridViewTextBoxColumn.HeaderText = "Paciente_Tarjetas";
+            this.pacienteTarjetasDataGridViewTextBoxColumn.Name = "pacienteTarjetasDataGridViewTextBoxColumn";
+            this.pacienteTarjetasDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pacienteTarjetasDataGridViewTextBoxColumn.Visible = false;
             // 
             // ListadoTarjetasDeDebito
             // 
@@ -150,6 +257,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTarjetas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tarjetasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +273,15 @@
         private System.Windows.Forms.DataGridView dgvTarjetas;
         private Telerik.WinControls.UI.RadButton btnVolver;
         private Telerik.WinControls.UI.RadButton btnAgregar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTarjetaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titularDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroTarjetaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaVtoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idBancoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreTarjetaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn bajaLogicaDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bancosTarjetasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pacienteTarjetasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource tarjetasBindingSource;
     }
 }

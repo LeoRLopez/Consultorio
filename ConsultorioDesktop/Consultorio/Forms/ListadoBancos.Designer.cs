@@ -62,6 +62,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(157, 24);
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblBuscar
             // 
@@ -88,6 +89,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(157, 25);
             this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -97,11 +99,14 @@
             this.btnEditar.Size = new System.Drawing.Size(157, 25);
             this.btnEditar.TabIndex = 16;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // dgvBancos
             // 
             this.dgvBancos.AllowUserToAddRows = false;
             this.dgvBancos.AllowUserToDeleteRows = false;
+            this.dgvBancos.AllowUserToResizeColumns = false;
+            this.dgvBancos.AllowUserToResizeRows = false;
             this.dgvBancos.AutoGenerateColumns = false;
             this.dgvBancos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBancos.BackgroundColor = System.Drawing.Color.Azure;

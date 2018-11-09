@@ -19,6 +19,23 @@ namespace Consultorio.Forms
                 bancosBindingSource.DataSource = entidades.Bancos.Where(x => x.BajaLogica == false).ToList();
             }
         }
+        
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            var agregarBanco = new AgregarEditarBancos();
+            agregarBanco.ShowDialog();
+            RefrescarGridView();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ListadoBancos_Load(object sender, EventArgs e)
+        {
+            RefrescarGridView();
+        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -37,7 +54,7 @@ namespace Consultorio.Forms
         private void btnEditar_Click(object sender, EventArgs e)
         {
             // Crear Formulario para Añadir/Editar Registro
-            if(dgvBancos.CurrentRow != null)
+            if (dgvBancos.CurrentRow != null)
             {
                 Bancos bancoSeleccionado = ((Bancos)dgvBancos.CurrentRow.DataBoundItem);
                 var editarBanco = new AgregarEditarBancos(bancoSeleccionado);
@@ -52,16 +69,15 @@ namespace Consultorio.Forms
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            // Chequear si no se esta usando se setea a TRUE la columna BajaLogica, 
-            // de lo contrario se muestra por pantalla un msj de que esta en uso
-            if(dgvBancos.CurrentRow != null)
+            if (dgvBancos.CurrentRow != null)
             {
                 Bancos bancoSeleccionado = ((Bancos)dgvBancos.CurrentRow.DataBoundItem);
-                using(var entidades = new ClinicaEntities())
+                using (var entidades = new ClinicaEntities())
                 {
                     var bancoDB = entidades.Bancos.First(x => x.IdBanco == bancoSeleccionado.IdBanco);
                     bancoDB.BajaLogica = true;
-                    MessageBox.Show("Banco Deshabilitado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    entidades.SaveChanges();
+                    MessageBox.Show("Realizado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefrescarGridView();
                 }
             }
@@ -69,23 +85,6 @@ namespace Consultorio.Forms
             {
                 MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-        
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            var agregarBanco = new AgregarEditarBancos();
-            agregarBanco.ShowDialog();
-            RefrescarGridView();
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void ListadoBancos_Load(object sender, EventArgs e)
-        {
-            RefrescarGridView();
         }
     }
 }

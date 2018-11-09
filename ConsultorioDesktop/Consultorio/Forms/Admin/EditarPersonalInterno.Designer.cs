@@ -782,7 +782,7 @@
             this.Controls.Add(this.lblNacimiento);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditarPersonalInterno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";

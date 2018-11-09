@@ -50,6 +50,7 @@ namespace Consultorio.Forms
                     entidades.SaveChanges();
                     this.Close();
                 }
+                MessageBox.Show("Realizado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

@@ -165,20 +165,19 @@ namespace Consultorio
 
         private void btnNuevoPersonal_Click(object sender, EventArgs e)
         {
-            var formListadoPersonalInterno = new ListadoPersonalInterno();
-            formListadoPersonalInterno.ShowDialog();
+            AbrirVentanaEnPanel(new ListadoPersonalInterno());
+            //var formListadoPersonalInterno = new ListadoPersonalInterno();
+            //formListadoPersonalInterno.ShowDialog();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            var ventanaReportes = new ReporteListadoPacientes();
-            ventanaReportes.ShowDialog();
+            AbrirVentanaEnPanel(new ReporteListadoPacientes());
         }
 
         private void btnReportesDeTurnos_Click(object sender, EventArgs e)
         {
-            var ventanaReporteTurnos = new ReporteListadoTurnosPacientes();
-            ventanaReporteTurnos.ShowDialog();
+            AbrirVentanaEnPanel(new ReporteListadoTurnosPacientes());
         }
 
         private void radButton1_Click(object sender, EventArgs e)
