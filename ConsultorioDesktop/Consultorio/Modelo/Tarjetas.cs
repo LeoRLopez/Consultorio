@@ -27,7 +27,6 @@ namespace Consultorio.Modelo
         public System.DateTime FechaVto { get; set; }
         public int IdBanco { get; set; }
         public bool BajaLogica { get; set; }
-        public string NombreTarjeta { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bancos_Tarjetas> Bancos_Tarjetas { get; set; }

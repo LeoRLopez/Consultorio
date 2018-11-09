@@ -3,11 +3,11 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Consultorio.Forms
+namespace Consultorio
 {
-    public partial class ListadoTarjetasDeDebito : Form
+    public partial class ListadoFormasDePago : Form
     {
-        public ListadoTarjetasDeDebito()
+        public ListadoFormasDePago()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace Consultorio.Forms
         {
             using (var entidades = new ClinicaEntities())
             {
-                
+                formaDePagoBindingSource.DataSource = entidades.FormaDePago.ToList();
             }
         }
 
@@ -35,7 +35,7 @@ namespace Consultorio.Forms
             }
             using (var entidades = new ClinicaEntities())
             {
-
+                formaDePagoBindingSource.DataSource = entidades.FormaDePago.Where(x => x.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower())).ToList();
             }
         }
 

@@ -35,23 +35,23 @@
             this.btnEliminar = new Telerik.WinControls.UI.RadButton();
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
             this.dgvBancos = new System.Windows.Forms.DataGridView();
-            this.btnVolver = new Telerik.WinControls.UI.RadButton();
-            this.btnAgregar = new Telerik.WinControls.UI.RadButton();
-            this.bancosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codigoBCRADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idBancoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bajaLogicaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bancosTarjetasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bancosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnVolver = new Telerik.WinControls.UI.RadButton();
+            this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bancosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bancosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -88,7 +88,6 @@
             this.btnEliminar.Size = new System.Drawing.Size(157, 25);
             this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -98,14 +97,11 @@
             this.btnEditar.Size = new System.Drawing.Size(157, 25);
             this.btnEditar.TabIndex = 16;
             this.btnEditar.Text = "Editar";
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // dgvBancos
             // 
             this.dgvBancos.AllowUserToAddRows = false;
             this.dgvBancos.AllowUserToDeleteRows = false;
-            this.dgvBancos.AllowUserToResizeColumns = false;
-            this.dgvBancos.AllowUserToResizeRows = false;
             this.dgvBancos.AutoGenerateColumns = false;
             this.dgvBancos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBancos.BackgroundColor = System.Drawing.Color.Azure;
@@ -123,40 +119,14 @@
             this.dgvBancos.Location = new System.Drawing.Point(12, 12);
             this.dgvBancos.Name = "dgvBancos";
             this.dgvBancos.ReadOnly = true;
-            this.dgvBancos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvBancos.RowHeadersVisible = false;
             this.dgvBancos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBancos.Size = new System.Drawing.Size(409, 308);
             this.dgvBancos.TabIndex = 15;
             // 
-            // btnVolver
-            // 
-            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnVolver.Location = new System.Drawing.Point(450, 296);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(110, 24);
-            this.btnVolver.TabIndex = 14;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.Location = new System.Drawing.Point(429, 106);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(157, 25);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // bancosBindingSource
-            // 
-            this.bancosBindingSource.DataSource = typeof(Consultorio.Modelo.Bancos);
-            // 
             // codigoBCRADataGridViewTextBoxColumn
             // 
             this.codigoBCRADataGridViewTextBoxColumn.DataPropertyName = "CodigoBCRA";
-            this.codigoBCRADataGridViewTextBoxColumn.FillWeight = 35F;
             this.codigoBCRADataGridViewTextBoxColumn.HeaderText = "CodigoBCRA";
             this.codigoBCRADataGridViewTextBoxColumn.Name = "codigoBCRADataGridViewTextBoxColumn";
             this.codigoBCRADataGridViewTextBoxColumn.ReadOnly = true;
@@ -179,7 +149,6 @@
             // bajaLogicaDataGridViewCheckBoxColumn
             // 
             this.bajaLogicaDataGridViewCheckBoxColumn.DataPropertyName = "BajaLogica";
-            this.bajaLogicaDataGridViewCheckBoxColumn.FillWeight = 40F;
             this.bajaLogicaDataGridViewCheckBoxColumn.HeaderText = "Deshabilitado";
             this.bajaLogicaDataGridViewCheckBoxColumn.Name = "bajaLogicaDataGridViewCheckBoxColumn";
             this.bajaLogicaDataGridViewCheckBoxColumn.ReadOnly = true;
@@ -191,6 +160,30 @@
             this.bancosTarjetasDataGridViewTextBoxColumn.Name = "bancosTarjetasDataGridViewTextBoxColumn";
             this.bancosTarjetasDataGridViewTextBoxColumn.ReadOnly = true;
             this.bancosTarjetasDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // bancosBindingSource
+            // 
+            this.bancosBindingSource.DataSource = typeof(Consultorio.Modelo.Bancos);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnVolver.Location = new System.Drawing.Point(450, 296);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(110, 24);
+            this.btnVolver.TabIndex = 14;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAgregar.Location = new System.Drawing.Point(429, 106);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(157, 25);
+            this.btnAgregar.TabIndex = 13;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // ListadoBancos
             // 
@@ -218,9 +211,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bancosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bancosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,11 +229,11 @@
         private System.Windows.Forms.DataGridView dgvBancos;
         private Telerik.WinControls.UI.RadButton btnVolver;
         private Telerik.WinControls.UI.RadButton btnAgregar;
-        private System.Windows.Forms.BindingSource bancosBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoBCRADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idBancoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn bajaLogicaDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bancosTarjetasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bancosBindingSource;
     }
 }

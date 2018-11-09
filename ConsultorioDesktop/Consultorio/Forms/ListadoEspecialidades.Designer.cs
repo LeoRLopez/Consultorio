@@ -32,26 +32,26 @@
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
+            this.especialidadIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioPorDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especialidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
             this.btnEliminar = new Telerik.WinControls.UI.RadButton();
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
-            this.especialidadIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioPorDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.especialidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -78,12 +78,7 @@
             // 
             this.dgvEspecialidades.AllowUserToAddRows = false;
             this.dgvEspecialidades.AllowUserToDeleteRows = false;
-            this.dgvEspecialidades.AllowUserToResizeColumns = false;
-            this.dgvEspecialidades.AllowUserToResizeRows = false;
             this.dgvEspecialidades.AutoGenerateColumns = false;
-            this.dgvEspecialidades.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgvEspecialidades.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dgvEspecialidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.especialidadIdDataGridViewTextBoxColumn,
@@ -94,11 +89,37 @@
             this.dgvEspecialidades.Location = new System.Drawing.Point(12, 12);
             this.dgvEspecialidades.Name = "dgvEspecialidades";
             this.dgvEspecialidades.ReadOnly = true;
-            this.dgvEspecialidades.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvEspecialidades.RowHeadersVisible = false;
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEspecialidades.Size = new System.Drawing.Size(409, 308);
             this.dgvEspecialidades.TabIndex = 7;
+            // 
+            // especialidadIdDataGridViewTextBoxColumn
+            // 
+            this.especialidadIdDataGridViewTextBoxColumn.DataPropertyName = "EspecialidadId";
+            this.especialidadIdDataGridViewTextBoxColumn.HeaderText = "EspecialidadId";
+            this.especialidadIdDataGridViewTextBoxColumn.Name = "especialidadIdDataGridViewTextBoxColumn";
+            this.especialidadIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.especialidadIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioPorDefectoDataGridViewTextBoxColumn
+            // 
+            this.precioPorDefectoDataGridViewTextBoxColumn.DataPropertyName = "PrecioPorDefecto";
+            this.precioPorDefectoDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioPorDefectoDataGridViewTextBoxColumn.Name = "precioPorDefectoDataGridViewTextBoxColumn";
+            this.precioPorDefectoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // especialidadBindingSource
+            // 
+            this.especialidadBindingSource.DataSource = typeof(Consultorio.Modelo.Especialidad);
             // 
             // errorProvider1
             // 
@@ -151,33 +172,6 @@
             this.txtBoxBuscar.Size = new System.Drawing.Size(157, 21);
             this.txtBoxBuscar.TabIndex = 10;
             // 
-            // especialidadIdDataGridViewTextBoxColumn
-            // 
-            this.especialidadIdDataGridViewTextBoxColumn.DataPropertyName = "EspecialidadId";
-            this.especialidadIdDataGridViewTextBoxColumn.HeaderText = "EspecialidadId";
-            this.especialidadIdDataGridViewTextBoxColumn.Name = "especialidadIdDataGridViewTextBoxColumn";
-            this.especialidadIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.especialidadIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // precioPorDefectoDataGridViewTextBoxColumn
-            // 
-            this.precioPorDefectoDataGridViewTextBoxColumn.DataPropertyName = "PrecioPorDefecto";
-            this.precioPorDefectoDataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.precioPorDefectoDataGridViewTextBoxColumn.Name = "precioPorDefectoDataGridViewTextBoxColumn";
-            this.precioPorDefectoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // especialidadBindingSource
-            // 
-            this.especialidadBindingSource.DataSource = typeof(Consultorio.Modelo.Especialidad);
-            // 
             // ListadoEspecialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,13 +195,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
