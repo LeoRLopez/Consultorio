@@ -458,6 +458,7 @@
     <None Include="Properties\DataSources\Consultorio.Modelo.FormaDePago.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Medico.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.SegurosMedico.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Modelo.Tarjetas.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.MedicoVM.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.PacienteTurnoVM.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.PacienteVM.datasource" />

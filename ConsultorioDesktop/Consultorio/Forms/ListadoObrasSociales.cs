@@ -22,7 +22,7 @@ namespace Consultorio
         {
             using (var entidades = new ClinicaEntities())
             {
-                segurosMedicoBindingSource.DataSource = entidades.SegurosMedico.ToList();
+                segurosMedicoBindingSource.DataSource = entidades.SegurosMedico.Where(x => x.BajaLogica == false).ToList();
             }
         }
 
@@ -62,29 +62,22 @@ namespace Consultorio
         {
             // Chequear si no se esta usando se setea a TRUE la columna BajaLogica, 
             // de lo contrario se muestra por pantalla un msj de que esta en uso
-            /*if (dgvObrasSociales.CurrentRow != null)
+            if (dgvObrasSociales.CurrentRow != null)
             {
                 SegurosMedico seguroMedicoSeleccionado = ((SegurosMedico)dgvObrasSociales.CurrentRow.DataBoundItem);
                 using (var entidades = new ClinicaEntities())
                 {
-                    if (entidades.Turno.Any(x => x.IdSeguroMedico == seguroMedicoSeleccionado.IdSeguroMedico))
-                    {
-                        MessageBox.Show("No se puede eliminar esta especialidad ya que esta siendo utilizada por un medico", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        var SeguroMedicoDB = entidades.SegurosMedico.First(x => x.IdSeguroMedico == seguroMedicoSeleccionado.IdSeguroMedico);
-                        SeguroMedicoDB.BajaLogica = true;
-                        entidades.SaveChanges();
-                        MessageBox.Show("Especialidad eliminada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RefrescarGridView();
-                    }
+                    var SeguroMedicoDB = entidades.SegurosMedico.First(x => x.IdSeguroMedico == seguroMedicoSeleccionado.IdSeguroMedico);
+                    SeguroMedicoDB.BajaLogica = true;
+                    entidades.SaveChanges();
+                    MessageBox.Show("Especialidad eliminada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefrescarGridView();
                 }
             }
             else
             {
                 MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }*/
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

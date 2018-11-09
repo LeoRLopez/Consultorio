@@ -21,27 +21,8 @@ namespace Consultorio.Forms
         {
             using (var entidades = new ClinicaEntities())
             {
-                
+                tarjetasBindingSource.DataSource = entidades.Tarjetas.Where(x => x.BajaLogica == false).ToList();
             }
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBoxBuscar.Text))
-            {
-                // Retornar todos los registros porque no escribio nada para buscar
-                RefrescarGridView();
-                return;
-            }
-            using (var entidades = new ClinicaEntities())
-            {
-
-            }
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            // Crear Formulario para Añadir/Editar Registro
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -58,6 +39,25 @@ namespace Consultorio.Forms
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBoxBuscar.Text))
+            {
+                // Retornar todos los registros porque no escribio nada para buscar
+                RefrescarGridView();
+                return;
+            }
+            using (var entidades = new ClinicaEntities())
+            {
+                tarjetasBindingSource.DataSource = entidades.Tarjetas.Where(x => x.BajaLogica == false && x.NombreTarjeta.ToLower().Contains(txtBoxBuscar.Text.ToLower())).ToList();
+            }
         }
     }
 }

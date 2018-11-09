@@ -33,44 +33,7 @@ namespace Consultorio.Forms
                 bancosBindingSource.DataSource = entidades.Especialidad.Where(x => x.BajaLogica == false && x.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower())).ToList();
             }
         }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            // Crear Formulario para Añadir/Editar Registro
-            if(dgvBancos.CurrentRow != null)
-            {
-                Bancos bancoSeleccionado = ((Bancos)dgvBancos.CurrentRow.DataBoundItem);
-                var editarBanco = new AgregarEditarBancos(bancoSeleccionado);
-                editarBanco.ShowDialog();
-                RefrescarGridView();
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            // Chequear si no se esta usando se setea a TRUE la columna BajaLogica, 
-            // de lo contrario se muestra por pantalla un msj de que esta en uso
-            if(dgvBancos.CurrentRow != null)
-            {
-                Bancos bancoSeleccionado = ((Bancos)dgvBancos.CurrentRow.DataBoundItem);
-                using(var entidades = new ClinicaEntities())
-                {
-                    var bancoDB = entidades.Bancos.First(x => x.IdBanco == bancoSeleccionado.IdBanco);
-                    bancoDB.BajaLogica = true;
-                    MessageBox.Show("Banco Deshabilitado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefrescarGridView();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-        
+   
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var agregarBanco = new AgregarEditarBancos();
@@ -86,6 +49,42 @@ namespace Consultorio.Forms
         private void ListadoBancos_Load(object sender, EventArgs e)
         {
             RefrescarGridView();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            // Crear Formulario para Añadir/Editar Registro
+            if (dgvBancos.CurrentRow != null)
+            {
+                Bancos bancoSeleccionado = ((Bancos)dgvBancos.CurrentRow.DataBoundItem);
+                var editarBanco = new AgregarEditarBancos(bancoSeleccionado);
+                editarBanco.ShowDialog();
+                RefrescarGridView();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvBancos.CurrentRow != null)
+            {
+                Bancos bancoSeleccionado = ((Bancos)dgvBancos.CurrentRow.DataBoundItem);
+                using (var entidades = new ClinicaEntities())
+                {
+                    var bancoDB = entidades.Bancos.First(x => x.IdBanco == bancoSeleccionado.IdBanco);
+                    bancoDB.BajaLogica = true;
+                    entidades.SaveChanges();
+                    MessageBox.Show("Banco Deshabilitado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefrescarGridView();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

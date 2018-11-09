@@ -48,6 +48,7 @@ namespace Consultorio.Forms
                         especialidadBD.PrecioPorDefecto = decimal.Parse(tbPrecio.Text);
                     }
                     entidades.SaveChanges();
+                    MessageBox.Show("Guardado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }

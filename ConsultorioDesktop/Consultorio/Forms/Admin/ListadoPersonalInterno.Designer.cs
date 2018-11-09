@@ -37,6 +37,7 @@
             this.dgvPersonalInterno = new System.Windows.Forms.DataGridView();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
+            this.personalInternoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personalInternoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioSistemaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +47,6 @@
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matriculaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.especialidadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personalInternoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
@@ -114,7 +114,12 @@
             // 
             this.dgvPersonalInterno.AllowUserToAddRows = false;
             this.dgvPersonalInterno.AllowUserToDeleteRows = false;
+            this.dgvPersonalInterno.AllowUserToResizeColumns = false;
+            this.dgvPersonalInterno.AllowUserToResizeRows = false;
             this.dgvPersonalInterno.AutoGenerateColumns = false;
+            this.dgvPersonalInterno.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvPersonalInterno.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvPersonalInterno.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvPersonalInterno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonalInterno.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.personalInternoIdDataGridViewTextBoxColumn,
@@ -131,6 +136,7 @@
             this.dgvPersonalInterno.Location = new System.Drawing.Point(12, 12);
             this.dgvPersonalInterno.Name = "dgvPersonalInterno";
             this.dgvPersonalInterno.ReadOnly = true;
+            this.dgvPersonalInterno.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvPersonalInterno.RowHeadersVisible = false;
             this.dgvPersonalInterno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersonalInterno.Size = new System.Drawing.Size(785, 429);
@@ -158,6 +164,10 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
             // 
+            // personalInternoVMBindingSource
+            // 
+            this.personalInternoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PersonalInternoVM);
+            // 
             // personalInternoIdDataGridViewTextBoxColumn
             // 
             this.personalInternoIdDataGridViewTextBoxColumn.DataPropertyName = "PersonalInternoId";
@@ -172,7 +182,7 @@
             this.usuarioSistemaDataGridViewTextBoxColumn.HeaderText = "Usuario";
             this.usuarioSistemaDataGridViewTextBoxColumn.Name = "usuarioSistemaDataGridViewTextBoxColumn";
             this.usuarioSistemaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usuarioSistemaDataGridViewTextBoxColumn.Width = 80;
+            this.usuarioSistemaDataGridViewTextBoxColumn.Width = 150;
             // 
             // rolDataGridViewTextBoxColumn
             // 
@@ -220,7 +230,7 @@
             this.matriculaDataGridViewTextBoxColumn.HeaderText = "Matricula";
             this.matriculaDataGridViewTextBoxColumn.Name = "matriculaDataGridViewTextBoxColumn";
             this.matriculaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.matriculaDataGridViewTextBoxColumn.Width = 80;
+            this.matriculaDataGridViewTextBoxColumn.Width = 60;
             // 
             // especialidadesDataGridViewTextBoxColumn
             // 
@@ -229,10 +239,6 @@
             this.especialidadesDataGridViewTextBoxColumn.HeaderText = "Especialidades";
             this.especialidadesDataGridViewTextBoxColumn.Name = "especialidadesDataGridViewTextBoxColumn";
             this.especialidadesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personalInternoVMBindingSource
-            // 
-            this.personalInternoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PersonalInternoVM);
             // 
             // ListadoPersonalInterno
             // 

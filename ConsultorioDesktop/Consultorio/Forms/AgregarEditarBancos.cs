@@ -61,6 +61,7 @@ namespace Consultorio.Forms
                         bancoDB.CodigoBCRA = int.Parse(tbCodigoBCRA.Text);
                     }
                     entidades.SaveChanges();
+                    MessageBox.Show("Guardado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }

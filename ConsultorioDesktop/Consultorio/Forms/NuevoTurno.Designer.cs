@@ -31,8 +31,8 @@ namespace Consultorio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cancelButton = new Telerik.WinControls.UI.RadButton();
             this.saveButton = new Telerik.WinControls.UI.RadButton();
             this.txtBoxDescripcion = new Telerik.WinControls.UI.RadTextBoxControl();
@@ -50,14 +50,6 @@ namespace Consultorio
             this.radiobtnParticular = new Telerik.WinControls.UI.RadRadioButton();
             this.radioBtnSeguroMedico = new Telerik.WinControls.UI.RadRadioButton();
             this.dgvMedicos = new System.Windows.Forms.DataGridView();
-            this.textboxDiagnostico = new Telerik.WinControls.UI.RadTextBoxControl();
-            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.dropDownHoraTurno = new Telerik.WinControls.UI.RadDropDownList();
-            this.dropDownEspecialidades = new Telerik.WinControls.UI.RadDropDownList();
-            this.label1 = new System.Windows.Forms.Label();
-            this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            this.tbPrecioTurno = new Telerik.WinControls.UI.RadTextBox();
-            this.medicoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lunesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +59,14 @@ namespace Consultorio
             this.viernesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SabadoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DomingoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textboxDiagnostico = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.dropDownHoraTurno = new Telerik.WinControls.UI.RadDropDownList();
+            this.dropDownEspecialidades = new Telerik.WinControls.UI.RadDropDownList();
+            this.label1 = new System.Windows.Forms.Label();
+            this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            this.tbPrecioTurno = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxDescripcion)).BeginInit();
@@ -81,13 +81,13 @@ namespace Consultorio
             ((System.ComponentModel.ISupportInitialize)(this.radiobtnParticular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioBtnSeguroMedico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textboxDiagnostico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownHoraTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownEspecialidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPrecioTurno)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -258,19 +258,21 @@ namespace Consultorio
             // 
             this.dgvMedicos.AllowUserToAddRows = false;
             this.dgvMedicos.AllowUserToDeleteRows = false;
+            this.dgvMedicos.AllowUserToResizeColumns = false;
+            this.dgvMedicos.AllowUserToResizeRows = false;
             this.dgvMedicos.AutoGenerateColumns = false;
-            this.dgvMedicos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dgvMedicos.BackgroundColor = System.Drawing.Color.Azure;
             this.dgvMedicos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvMedicos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvMedicos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.medicoIdDataGridViewTextBoxColumn,
@@ -283,101 +285,25 @@ namespace Consultorio
             this.SabadoHorario,
             this.DomingoHorario});
             this.dgvMedicos.DataSource = this.medicoVMBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMedicos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMedicos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMedicos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(242)))));
             this.dgvMedicos.Location = new System.Drawing.Point(273, 35);
             this.dgvMedicos.MultiSelect = false;
             this.dgvMedicos.Name = "dgvMedicos";
             this.dgvMedicos.ReadOnly = true;
+            this.dgvMedicos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvMedicos.RowHeadersVisible = false;
             this.dgvMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMedicos.Size = new System.Drawing.Size(517, 175);
             this.dgvMedicos.TabIndex = 11;
             this.dgvMedicos.Click += new System.EventHandler(this.dgvMedicos_Click);
-            // 
-            // textboxDiagnostico
-            // 
-            this.textboxDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxDiagnostico.Location = new System.Drawing.Point(538, 239);
-            this.textboxDiagnostico.Multiline = true;
-            this.textboxDiagnostico.Name = "textboxDiagnostico";
-            this.textboxDiagnostico.Size = new System.Drawing.Size(252, 69);
-            this.textboxDiagnostico.TabIndex = 13;
-            this.textboxDiagnostico.ThemeName = "MedicalAppTheme";
-            // 
-            // radLabel1
-            // 
-            this.radLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(538, 216);
-            this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(71, 17);
-            this.radLabel1.TabIndex = 12;
-            this.radLabel1.Text = "Diagnóstico";
-            this.radLabel1.ThemeName = "MedicalAppTheme";
-            // 
-            // dropDownHoraTurno
-            // 
-            this.dropDownHoraTurno.DisplayMember = "-1";
-            this.dropDownHoraTurno.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.dropDownHoraTurno.Location = new System.Drawing.Point(153, 72);
-            this.dropDownHoraTurno.Name = "dropDownHoraTurno";
-            this.dropDownHoraTurno.Size = new System.Drawing.Size(81, 20);
-            this.dropDownHoraTurno.TabIndex = 14;
-            this.dropDownHoraTurno.Text = "-";
-            this.dropDownHoraTurno.ValueMember = "-1";
-            // 
-            // dropDownEspecialidades
-            // 
-            this.dropDownEspecialidades.DisplayMember = "Nombre";
-            this.dropDownEspecialidades.EnableKineticScrolling = true;
-            this.dropDownEspecialidades.Location = new System.Drawing.Point(12, 118);
-            this.dropDownEspecialidades.Name = "dropDownEspecialidades";
-            this.dropDownEspecialidades.Size = new System.Drawing.Size(224, 20);
-            this.dropDownEspecialidades.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
-            this.dropDownEspecialidades.TabIndex = 15;
-            this.dropDownEspecialidades.ThemeName = "ControlDefault";
-            this.dropDownEspecialidades.ValueMember = "IdSeguroMedico";
-            this.dropDownEspecialidades.SelectedValueChanged += new System.EventHandler(this.dropDownEspecialidades_SelectedValueChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 15);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Especialidad Médico";
-            // 
-            // radLabel2
-            // 
-            this.radLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(12, 144);
-            this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(81, 17);
-            this.radLabel2.TabIndex = 17;
-            this.radLabel2.Text = "Precio Turno:";
-            this.radLabel2.ThemeName = "MedicalAppTheme";
-            // 
-            // tbPrecioTurno
-            // 
-            this.tbPrecioTurno.Location = new System.Drawing.Point(99, 143);
-            this.tbPrecioTurno.Name = "tbPrecioTurno";
-            this.tbPrecioTurno.Size = new System.Drawing.Size(83, 20);
-            this.tbPrecioTurno.TabIndex = 18;
-            this.tbPrecioTurno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radTextBox1_KeyPress);
-            // 
-            // medicoVMBindingSource
-            // 
-            this.medicoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.MedicoVM);
             // 
             // medicoIdDataGridViewTextBoxColumn
             // 
@@ -453,6 +379,83 @@ namespace Consultorio
             this.DomingoHorario.Visible = false;
             this.DomingoHorario.Width = 65;
             // 
+            // medicoVMBindingSource
+            // 
+            this.medicoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.MedicoVM);
+            // 
+            // textboxDiagnostico
+            // 
+            this.textboxDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxDiagnostico.Location = new System.Drawing.Point(538, 239);
+            this.textboxDiagnostico.Multiline = true;
+            this.textboxDiagnostico.Name = "textboxDiagnostico";
+            this.textboxDiagnostico.Size = new System.Drawing.Size(252, 69);
+            this.textboxDiagnostico.TabIndex = 13;
+            this.textboxDiagnostico.ThemeName = "MedicalAppTheme";
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel1.Location = new System.Drawing.Point(538, 216);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(71, 17);
+            this.radLabel1.TabIndex = 12;
+            this.radLabel1.Text = "Diagnóstico";
+            this.radLabel1.ThemeName = "MedicalAppTheme";
+            // 
+            // dropDownHoraTurno
+            // 
+            this.dropDownHoraTurno.DisplayMember = "-1";
+            this.dropDownHoraTurno.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
+            this.dropDownHoraTurno.Location = new System.Drawing.Point(153, 72);
+            this.dropDownHoraTurno.Name = "dropDownHoraTurno";
+            this.dropDownHoraTurno.Size = new System.Drawing.Size(81, 20);
+            this.dropDownHoraTurno.TabIndex = 14;
+            this.dropDownHoraTurno.Text = "-";
+            this.dropDownHoraTurno.ValueMember = "-1";
+            // 
+            // dropDownEspecialidades
+            // 
+            this.dropDownEspecialidades.DisplayMember = "Nombre";
+            this.dropDownEspecialidades.EnableKineticScrolling = true;
+            this.dropDownEspecialidades.Location = new System.Drawing.Point(12, 118);
+            this.dropDownEspecialidades.Name = "dropDownEspecialidades";
+            this.dropDownEspecialidades.Size = new System.Drawing.Size(224, 20);
+            this.dropDownEspecialidades.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
+            this.dropDownEspecialidades.TabIndex = 15;
+            this.dropDownEspecialidades.ThemeName = "ControlDefault";
+            this.dropDownEspecialidades.ValueMember = "IdSeguroMedico";
+            this.dropDownEspecialidades.SelectedValueChanged += new System.EventHandler(this.dropDownEspecialidades_SelectedValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 15);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Especialidad Médico";
+            // 
+            // radLabel2
+            // 
+            this.radLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel2.Location = new System.Drawing.Point(12, 144);
+            this.radLabel2.Name = "radLabel2";
+            this.radLabel2.Size = new System.Drawing.Size(81, 17);
+            this.radLabel2.TabIndex = 17;
+            this.radLabel2.Text = "Precio Turno:";
+            this.radLabel2.ThemeName = "MedicalAppTheme";
+            // 
+            // tbPrecioTurno
+            // 
+            this.tbPrecioTurno.Location = new System.Drawing.Point(99, 143);
+            this.tbPrecioTurno.Name = "tbPrecioTurno";
+            this.tbPrecioTurno.Size = new System.Drawing.Size(83, 20);
+            this.tbPrecioTurno.TabIndex = 18;
+            this.tbPrecioTurno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radTextBox1_KeyPress);
+            // 
             // NuevoTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,13 +505,13 @@ namespace Consultorio
             ((System.ComponentModel.ISupportInitialize)(this.radiobtnParticular)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioBtnSeguroMedico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textboxDiagnostico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownHoraTurno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownEspecialidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPrecioTurno)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
