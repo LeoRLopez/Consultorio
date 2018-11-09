@@ -151,6 +151,12 @@
     <Compile Include="Forms\Admin\ListadoPersonalInterno.Designer.cs">
       <DependentUpon>ListadoPersonalInterno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ListadoPersonalInterno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListadoPersonalInterno.Designer.cs">
+      <DependentUpon>ListadoPersonalInterno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ListadoTarjetasDeDebito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,12 +186,6 @@
     </Compile>
     <Compile Include="Forms\EditarPaciente.Designer.cs">
       <DependentUpon>EditarPaciente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ListadoFormasDePago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ListadoFormasDePago.Designer.cs">
-      <DependentUpon>ListadoFormasDePago.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reportes\ReporteListadoTurnos.cs">
       <SubType>Form</SubType>
@@ -386,6 +386,9 @@
     <EmbeddedResource Include="Forms\Admin\ListadoPersonalInterno.resx">
       <DependentUpon>ListadoPersonalInterno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListadoPersonalInterno.resx">
+      <DependentUpon>ListadoPersonalInterno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListadoTarjetasDeDebito.resx">
       <DependentUpon>ListadoTarjetasDeDebito.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,9 +397,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListadoEspecialidades.resx">
       <DependentUpon>ListadoEspecialidades.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ListadoFormasDePago.resx">
-      <DependentUpon>ListadoFormasDePago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListadoObrasSociales.resx">
       <DependentUpon>ListadoObrasSociales.cs</DependentUpon>
