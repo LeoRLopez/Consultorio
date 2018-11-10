@@ -101,7 +101,7 @@
             this.panelOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelOpciones.Location = new System.Drawing.Point(0, 0);
             this.panelOpciones.Name = "panelOpciones";
-            this.panelOpciones.Size = new System.Drawing.Size(967, 168);
+            this.panelOpciones.Size = new System.Drawing.Size(976, 168);
             this.panelOpciones.TabIndex = 0;
             this.panelOpciones.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -163,7 +163,7 @@
             this.dtpHasta.Location = new System.Drawing.Point(265, 82);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowCheckBox = true;
-            this.dtpHasta.Size = new System.Drawing.Size(140, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(140, 22);
             this.dtpHasta.TabIndex = 21;
             // 
             // dtpDesde
@@ -174,7 +174,7 @@
             this.dtpDesde.Location = new System.Drawing.Point(265, 33);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowCheckBox = true;
-            this.dtpDesde.Size = new System.Drawing.Size(140, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(140, 22);
             this.dtpDesde.TabIndex = 20;
             // 
             // btnVolver
@@ -317,7 +317,7 @@
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel1.Location = new System.Drawing.Point(0, 0);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(967, 588);
+            this.radPanel1.Size = new System.Drawing.Size(976, 588);
             this.radPanel1.TabIndex = 1;
             this.radPanel1.Text = "radPanel1";
             this.radPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -432,7 +432,7 @@
             this.dgvPacienteMedicoTurno.ReadOnly = true;
             this.dgvPacienteMedicoTurno.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvPacienteMedicoTurno.ShowGroupPanel = false;
-            this.dgvPacienteMedicoTurno.Size = new System.Drawing.Size(967, 420);
+            this.dgvPacienteMedicoTurno.Size = new System.Drawing.Size(976, 420);
             this.dgvPacienteMedicoTurno.TabIndex = 1;
             this.dgvPacienteMedicoTurno.Text = "radGridView1";
             // 
@@ -447,7 +447,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.CancelButton = this.btnVolver;
-            this.ClientSize = new System.Drawing.Size(967, 588);
+            this.ClientSize = new System.Drawing.Size(976, 588);
             this.Controls.Add(this.radPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
