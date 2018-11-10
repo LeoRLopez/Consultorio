@@ -98,9 +98,9 @@ namespace Consultorio
             AbrirVentanaEnPanel(new ListadoMedicos());
         }
 
-        private void btnFormasDePago_Click(object sender, EventArgs e)
+        private void btnObrasSociales_Click(object sender, EventArgs e)
         {
-            ListadoObrasSociales frmp = new ListadoObrasSociales();
+            ListadoObrasSociales frmp = new ListadoObrasSociales(__esAdministrador);
             frmp.ShowDialog();
         }
 
@@ -182,13 +182,13 @@ namespace Consultorio
 
         private void radButton1_Click(object sender, EventArgs e)
         {
-            var formFormasDePago = new ListadoFormasDePago();
+            var formFormasDePago = new ListadoFormasDePago(__esAdministrador);
             var formFormasDePagoResult = formFormasDePago.ShowDialog();
         }
 
         private void btnEspecialidades_Click(object sender, EventArgs e)
         {
-            var formEspecialidades = new ListadoEspecialidades();
+            var formEspecialidades = new ListadoEspecialidades(__esAdministrador);
             var formEspecialidadesResult = formEspecialidades.ShowDialog();
         }
 

@@ -29,28 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn1 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
-            this.dgvObrasSociales = new System.Windows.Forms.DataGridView();
-            this.idSeguroMedicoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.segurosMedicoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
-            this.btnEliminar = new Telerik.WinControls.UI.RadButton();
+            this.btnHabilitar = new Telerik.WinControls.UI.RadButton();
+            this.dgvObrasSociales = new Telerik.WinControls.UI.RadGridView();
+            this.segurosMedicoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnExportar = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObrasSociales)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segurosMedicoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHabilitar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObrasSociales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObrasSociales.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segurosMedicoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -100,51 +108,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // dgvObrasSociales
-            // 
-            this.dgvObrasSociales.AllowUserToAddRows = false;
-            this.dgvObrasSociales.AllowUserToDeleteRows = false;
-            this.dgvObrasSociales.AllowUserToResizeColumns = false;
-            this.dgvObrasSociales.AllowUserToResizeRows = false;
-            this.dgvObrasSociales.AutoGenerateColumns = false;
-            this.dgvObrasSociales.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgvObrasSociales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dgvObrasSociales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dgvObrasSociales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObrasSociales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idSeguroMedicoDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn});
-            this.dgvObrasSociales.DataSource = this.segurosMedicoBindingSource;
-            this.dgvObrasSociales.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
-            this.dgvObrasSociales.Location = new System.Drawing.Point(12, 12);
-            this.dgvObrasSociales.Name = "dgvObrasSociales";
-            this.dgvObrasSociales.ReadOnly = true;
-            this.dgvObrasSociales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dgvObrasSociales.RowHeadersVisible = false;
-            this.dgvObrasSociales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvObrasSociales.Size = new System.Drawing.Size(409, 308);
-            this.dgvObrasSociales.TabIndex = 7;
-            // 
-            // idSeguroMedicoDataGridViewTextBoxColumn
-            // 
-            this.idSeguroMedicoDataGridViewTextBoxColumn.DataPropertyName = "IdSeguroMedico";
-            this.idSeguroMedicoDataGridViewTextBoxColumn.HeaderText = "IdSeguroMedico";
-            this.idSeguroMedicoDataGridViewTextBoxColumn.Name = "idSeguroMedicoDataGridViewTextBoxColumn";
-            this.idSeguroMedicoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idSeguroMedicoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // segurosMedicoBindingSource
-            // 
-            this.segurosMedicoBindingSource.DataSource = typeof(Consultorio.Modelo.SegurosMedico);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -159,15 +122,99 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // btnEliminar
+            // btnHabilitar
             // 
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnEliminar.Location = new System.Drawing.Point(427, 173);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(157, 25);
-            this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnHabilitar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnHabilitar.Location = new System.Drawing.Point(427, 173);
+            this.btnHabilitar.Name = "btnHabilitar";
+            this.btnHabilitar.Size = new System.Drawing.Size(157, 25);
+            this.btnHabilitar.TabIndex = 9;
+            this.btnHabilitar.Text = "Habilitar/Deshabilitar";
+            this.btnHabilitar.Click += new System.EventHandler(this.btnHabilitarDeshabilitar_Click);
+            // 
+            // dgvObrasSociales
+            // 
+            this.dgvObrasSociales.EnableKineticScrolling = true;
+            this.dgvObrasSociales.Location = new System.Drawing.Point(0, 1);
+            // 
+            // 
+            // 
+            this.dgvObrasSociales.MasterTemplate.AllowAddNewRow = false;
+            this.dgvObrasSociales.MasterTemplate.AllowColumnChooser = false;
+            this.dgvObrasSociales.MasterTemplate.AllowColumnReorder = false;
+            this.dgvObrasSociales.MasterTemplate.AllowColumnResize = false;
+            this.dgvObrasSociales.MasterTemplate.AllowDeleteRow = false;
+            this.dgvObrasSociales.MasterTemplate.AllowDragToGroup = false;
+            this.dgvObrasSociales.MasterTemplate.AllowEditRow = false;
+            this.dgvObrasSociales.MasterTemplate.AllowRowReorder = true;
+            this.dgvObrasSociales.MasterTemplate.AllowRowResize = false;
+            gridViewDecimalColumn1.DataType = typeof(int);
+            gridViewDecimalColumn1.FieldName = "IdSeguroMedico";
+            gridViewDecimalColumn1.HeaderText = "IdSeguroMedico";
+            gridViewDecimalColumn1.IsAutoGenerated = true;
+            gridViewDecimalColumn1.IsVisible = false;
+            gridViewDecimalColumn1.Name = "IdSeguroMedico";
+            gridViewTextBoxColumn1.FieldName = "Nombre";
+            gridViewTextBoxColumn1.HeaderText = "Nombre";
+            gridViewTextBoxColumn1.IsAutoGenerated = true;
+            gridViewTextBoxColumn1.Name = "Nombre";
+            gridViewTextBoxColumn1.Width = 340;
+            gridViewCheckBoxColumn1.FieldName = "BajaLogica";
+            gridViewCheckBoxColumn1.HeaderText = "Habilitado";
+            gridViewCheckBoxColumn1.IsAutoGenerated = true;
+            gridViewCheckBoxColumn1.Name = "BajaLogica";
+            gridViewCheckBoxColumn1.Width = 60;
+            gridViewTextBoxColumn2.DataType = typeof(System.Collections.Generic.ICollection<Consultorio.Modelo.SegurosMedicosMedico>);
+            gridViewTextBoxColumn2.FieldName = "SegurosMedicosMedico";
+            gridViewTextBoxColumn2.HeaderText = "SegurosMedicosMedico";
+            gridViewTextBoxColumn2.IsAutoGenerated = true;
+            gridViewTextBoxColumn2.IsVisible = false;
+            gridViewTextBoxColumn2.Name = "SegurosMedicosMedico";
+            gridViewTextBoxColumn3.DataType = typeof(System.Collections.Generic.ICollection<Consultorio.Modelo.SegurosMedicosPaciente>);
+            gridViewTextBoxColumn3.FieldName = "SegurosMedicosPaciente";
+            gridViewTextBoxColumn3.HeaderText = "SegurosMedicosPaciente";
+            gridViewTextBoxColumn3.IsAutoGenerated = true;
+            gridViewTextBoxColumn3.IsVisible = false;
+            gridViewTextBoxColumn3.Name = "SegurosMedicosPaciente";
+            gridViewTextBoxColumn4.DataType = typeof(System.Collections.Generic.ICollection<Consultorio.Modelo.Turno>);
+            gridViewTextBoxColumn4.FieldName = "Turno";
+            gridViewTextBoxColumn4.HeaderText = "Turno";
+            gridViewTextBoxColumn4.IsAutoGenerated = true;
+            gridViewTextBoxColumn4.IsVisible = false;
+            gridViewTextBoxColumn4.Name = "Turno";
+            this.dgvObrasSociales.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewDecimalColumn1,
+            gridViewTextBoxColumn1,
+            gridViewCheckBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4});
+            this.dgvObrasSociales.MasterTemplate.DataSource = this.segurosMedicoBindingSource;
+            this.dgvObrasSociales.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
+            this.dgvObrasSociales.MasterTemplate.SearchRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
+            this.dgvObrasSociales.MasterTemplate.VerticalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
+            this.dgvObrasSociales.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.dgvObrasSociales.Name = "dgvObrasSociales";
+            this.dgvObrasSociales.ReadOnly = true;
+            this.dgvObrasSociales.ShowGroupPanel = false;
+            this.dgvObrasSociales.ShowGroupPanelScrollbars = false;
+            this.dgvObrasSociales.Size = new System.Drawing.Size(421, 319);
+            this.dgvObrasSociales.TabIndex = 10;
+            this.dgvObrasSociales.Text = "radGridView1";
+            // 
+            // segurosMedicoBindingSource
+            // 
+            this.segurosMedicoBindingSource.DataSource = typeof(Consultorio.Modelo.SegurosMedico);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnExportar.Location = new System.Drawing.Point(429, 218);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(157, 25);
+            this.btnExportar.TabIndex = 10;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // ListadoObrasSociales
             // 
@@ -175,9 +222,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(598, 332);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.dgvObrasSociales);
+            this.Controls.Add(this.btnHabilitar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.txtBoxBuscar);
@@ -194,11 +242,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObrasSociales)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segurosMedicoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHabilitar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObrasSociales.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObrasSociales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.segurosMedicoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,12 +261,11 @@
         private Telerik.WinControls.UI.RadTextBox txtBoxBuscar;
         private Telerik.WinControls.UI.RadLabel lblBuscar;
         private Telerik.WinControls.UI.RadButton btnBuscar;
-        private System.Windows.Forms.DataGridView dgvObrasSociales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idSeguroMedicoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource segurosMedicoBindingSource;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Telerik.WinControls.UI.RadButton btnEditar;
-        private Telerik.WinControls.UI.RadButton btnEliminar;
+        private Telerik.WinControls.UI.RadButton btnHabilitar;
+        private Telerik.WinControls.UI.RadGridView dgvObrasSociales;
+        private Telerik.WinControls.UI.RadButton btnExportar;
     }
 }

@@ -32,26 +32,27 @@
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
+            this.especialidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
-            this.btnEliminar = new Telerik.WinControls.UI.RadButton();
+            this.btnHabilitar = new Telerik.WinControls.UI.RadButton();
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
             this.especialidadIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioPorDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.especialidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BajaLogica = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHabilitar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -88,7 +89,8 @@
             this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.especialidadIdDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
-            this.precioPorDefectoDataGridViewTextBoxColumn});
+            this.precioPorDefectoDataGridViewTextBoxColumn,
+            this.BajaLogica});
             this.dgvEspecialidades.DataSource = this.especialidadBindingSource;
             this.dgvEspecialidades.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
             this.dgvEspecialidades.Location = new System.Drawing.Point(12, 12);
@@ -99,6 +101,10 @@
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEspecialidades.Size = new System.Drawing.Size(409, 308);
             this.dgvEspecialidades.TabIndex = 7;
+            // 
+            // especialidadBindingSource
+            // 
+            this.especialidadBindingSource.DataSource = typeof(Consultorio.Modelo.Especialidad);
             // 
             // errorProvider1
             // 
@@ -114,15 +120,15 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // btnEliminar
+            // btnHabilitar
             // 
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnEliminar.Location = new System.Drawing.Point(429, 164);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(157, 25);
-            this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnHabilitar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnHabilitar.Location = new System.Drawing.Point(429, 164);
+            this.btnHabilitar.Name = "btnHabilitar";
+            this.btnHabilitar.Size = new System.Drawing.Size(157, 25);
+            this.btnHabilitar.TabIndex = 9;
+            this.btnHabilitar.Text = "Habilitar/Eliminar";
+            this.btnHabilitar.Click += new System.EventHandler(this.btnHabilitarDeshabilitar_Click);
             // 
             // btnBuscar
             // 
@@ -154,6 +160,7 @@
             // especialidadIdDataGridViewTextBoxColumn
             // 
             this.especialidadIdDataGridViewTextBoxColumn.DataPropertyName = "EspecialidadId";
+            this.especialidadIdDataGridViewTextBoxColumn.FillWeight = 50F;
             this.especialidadIdDataGridViewTextBoxColumn.HeaderText = "EspecialidadId";
             this.especialidadIdDataGridViewTextBoxColumn.Name = "especialidadIdDataGridViewTextBoxColumn";
             this.especialidadIdDataGridViewTextBoxColumn.ReadOnly = true;
@@ -174,9 +181,12 @@
             this.precioPorDefectoDataGridViewTextBoxColumn.Name = "precioPorDefectoDataGridViewTextBoxColumn";
             this.precioPorDefectoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // especialidadBindingSource
+            // BajaLogica
             // 
-            this.especialidadBindingSource.DataSource = typeof(Consultorio.Modelo.Especialidad);
+            this.BajaLogica.DataPropertyName = "BajaLogica";
+            this.BajaLogica.HeaderText = "Habilitado";
+            this.BajaLogica.Name = "BajaLogica";
+            this.BajaLogica.ReadOnly = true;
             // 
             // ListadoEspecialidades
             // 
@@ -187,7 +197,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.txtBoxBuscar);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnHabilitar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvEspecialidades);
             this.Controls.Add(this.btnVolver);
@@ -201,13 +211,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHabilitar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,13 +230,14 @@
         private System.Windows.Forms.DataGridView dgvEspecialidades;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Telerik.WinControls.UI.RadButton btnEditar;
-        private Telerik.WinControls.UI.RadButton btnEliminar;
+        private Telerik.WinControls.UI.RadButton btnHabilitar;
         private Telerik.WinControls.UI.RadButton btnBuscar;
         private Telerik.WinControls.UI.RadLabel lblBuscar;
         private Telerik.WinControls.UI.RadTextBox txtBoxBuscar;
+        private System.Windows.Forms.BindingSource especialidadBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn especialidadIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioPorDefectoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource especialidadBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn BajaLogica;
     }
 }

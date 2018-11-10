@@ -327,7 +327,7 @@
             this.btnObrasSociales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnObrasSociales.TextWrap = true;
             this.btnObrasSociales.ThemeName = "ControlDefault";
-            this.btnObrasSociales.Click += new System.EventHandler(this.btnFormasDePago_Click);
+            this.btnObrasSociales.Click += new System.EventHandler(this.btnObrasSociales_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnObrasSociales.GetChildAt(0))).UseSmallImageList = true;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnObrasSociales.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnObrasSociales.GetChildAt(0))).TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

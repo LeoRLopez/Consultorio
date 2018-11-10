@@ -20,7 +20,12 @@ namespace Consultorio.Forms
         {
             using (var entidades = new ClinicaEntities())
             {
-                bancosBindingSource.DataSource = entidades.Bancos.ToList().Select(x => new Bancos { IdBanco = x.IdBanco, Nombre = x.Nombre, BajaLogica = !x.BajaLogica }).ToList();
+                bancosBindingSource.DataSource = entidades.Bancos.ToList().Select(x => new Bancos
+                {
+                    IdBanco = x.IdBanco,
+                    Nombre = x.Nombre,
+                    BajaLogica = !x.BajaLogica
+                }).ToList();
             }
         }
         
@@ -51,7 +56,7 @@ namespace Consultorio.Forms
             }
             using (var entidades = new ClinicaEntities())
             {
-                bancosBindingSource.DataSource = entidades.Especialidad.Where(x => x.BajaLogica == false && x.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower())).ToList();
+                bancosBindingSource.DataSource = entidades.Bancos.Where(x => x.BajaLogica == false && x.Nombre.ToLower().Contains(txtBoxBuscar.Text.ToLower())).ToList();
             }
         }
 

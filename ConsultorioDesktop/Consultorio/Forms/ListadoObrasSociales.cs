@@ -3,14 +3,18 @@ using Consultorio.Modelo;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using Telerik.WinControls.Export;
 
 namespace Consultorio
 {
     public partial class ListadoObrasSociales : Form
     {
-        public ListadoObrasSociales()
+        public ListadoObrasSociales(bool __esAdministrador)
         {
             InitializeComponent();
+
+            btnEditar.Visible = __esAdministrador;
+            btnHabilitar.Visible = __esAdministrador;
         }
 
         private void Forma_Pago_Load(object sender, EventArgs e)
@@ -22,7 +26,12 @@ namespace Consultorio
         {
             using (var entidades = new ClinicaEntities())
             {
-                segurosMedicoBindingSource.DataSource = entidades.SegurosMedico.Where(x=> x.BajaLogica == false).ToList();
+                segurosMedicoBindingSource.DataSource = entidades.SegurosMedico.ToList().Select(x => new SegurosMedico
+                {
+                    IdSeguroMedico = x.IdSeguroMedico,
+                    Nombre = x.Nombre,
+                    BajaLogica = !x.BajaLogica
+                }).ToList();
             }
         }
 
@@ -58,19 +67,18 @@ namespace Consultorio
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnHabilitarDeshabilitar_Click(object sender, EventArgs e)
         {
-            // Chequear si no se esta usando se setea a TRUE la columna BajaLogica, 
-            // de lo contrario se muestra por pantalla un msj de que esta en uso
             if (dgvObrasSociales.CurrentRow != null)
             {
                 SegurosMedico seguroMedicoSeleccionado = ((SegurosMedico)dgvObrasSociales.CurrentRow.DataBoundItem);
                 using (var entidades = new ClinicaEntities())
                 {
                     var SeguroMedicoDB = entidades.SegurosMedico.First(x => x.IdSeguroMedico == seguroMedicoSeleccionado.IdSeguroMedico);
-                    SeguroMedicoDB.BajaLogica = true;
+                    SeguroMedicoDB.BajaLogica = seguroMedicoSeleccionado.BajaLogica;
+
                     entidades.SaveChanges();
-                    MessageBox.Show("Seguro eliminada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Realizado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefrescarGridView();
                 }
             }
@@ -85,5 +93,21 @@ namespace Consultorio
             this.Close();
         }
 
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            GridViewSpreadExport spreadExporter = new GridViewSpreadExport(this.dgvObrasSociales, SpreadExportFormat.Xlsx);
+            SpreadExportRenderer exportRenderer = new SpreadExportRenderer();
+            var rutaEscritorioWindows = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            try
+            {
+                spreadExporter.RunExport(rutaEscritorioWindows + "\\Listado de Obras Sociales.xlsx", exportRenderer, "Listado de Pacientes");
+                MessageBox.Show("Listado de Obras Sociales.xlsx guardado en el Escritorio", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
