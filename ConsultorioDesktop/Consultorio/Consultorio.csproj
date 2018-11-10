@@ -326,9 +326,6 @@
     <Compile Include="Modelo\Horario.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\LineaFactura.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\Medico.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
@@ -357,9 +354,6 @@
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\SegurosMedicosPaciente.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\sysdiagrams.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Tarjetas.cs">

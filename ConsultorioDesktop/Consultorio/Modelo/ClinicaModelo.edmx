@@ -114,10 +114,12 @@
             <PropertyRef Name="IdFactura" />
           </Key>
           <Property Name="IdFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTurno" Type="int" Nullable="false" />
           <Property Name="Fecha" Type="datetime" Nullable="false" />
-          <Property Name="IdPaciente" Type="int" Nullable="false" />
-          <Property Name="IdMedico" Type="int" Nullable="false" />
           <Property Name="IdFormaDePago" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="money" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="IdTarjeta" Type="int" />
         </EntityType>
         <EntityType Name="FormaDePago">
           <Key>
@@ -144,16 +146,6 @@
           </Key>
           <Property Name="IdHorario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="LineaFactura">
-          <Key>
-            <PropertyRef Name="IdLineaFactura" />
-          </Key>
-          <Property Name="IdLineaFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdFactura" Type="int" Nullable="false" />
-          <Property Name="IdTurno" Type="int" Nullable="false" />
-          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Monto" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -272,16 +264,6 @@
           <Property Name="IdSeguroMedico" Type="int" Nullable="false" />
           <Property Name="ConvenioActivo" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Tarjetas">
           <Key>
             <PropertyRef Name="IdTarjeta" />
@@ -292,7 +274,6 @@
           <Property Name="FechaVto" Type="date" Nullable="false" />
           <Property Name="IdBanco" Type="int" Nullable="false" />
           <Property Name="BajaLogica" Type="bit" Nullable="false" />
-          <Property Name="NombreTarjeta" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Turno">
           <Key>
@@ -310,6 +291,7 @@
           <Property Name="Atendido" Type="bit" Nullable="false" />
           <Property Name="PrecioTurno" Type="money" Nullable="false" />
           <Property Name="IdEspecialidadMedico" Type="int" Nullable="false" />
+          <Property Name="IdFactura" Type="int" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -437,51 +419,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Factura_Medico">
-          <End Role="Medico" Type="Self.Medico" Multiplicity="1" />
+        <Association Name="FK_Factura_Tarjetas">
+          <End Role="Tarjetas" Type="Self.Tarjetas" Multiplicity="0..1" />
           <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Medico">
-              <PropertyRef Name="IdMedico" />
+            <Principal Role="Tarjetas">
+              <PropertyRef Name="IdTarjeta" />
             </Principal>
             <Dependent Role="Factura">
-              <PropertyRef Name="IdMedico" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Factura_Paciente">
-          <End Role="Paciente" Type="Self.Paciente" Multiplicity="1" />
-          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Paciente">
-              <PropertyRef Name="IdPaciente" />
-            </Principal>
-            <Dependent Role="Factura">
-              <PropertyRef Name="IdPaciente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LineaFactura_Factura">
-          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
-          <End Role="LineaFactura" Type="Self.LineaFactura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Factura">
-              <PropertyRef Name="IdFactura" />
-            </Principal>
-            <Dependent Role="LineaFactura">
-              <PropertyRef Name="IdFactura" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LineaFactura_Turnos">
-          <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
-          <End Role="LineaFactura" Type="Self.LineaFactura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Turno">
-              <PropertyRef Name="IdTurno" />
-            </Principal>
-            <Dependent Role="LineaFactura">
-              <PropertyRef Name="IdTurno" />
+              <PropertyRef Name="IdTarjeta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -811,6 +757,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Turno_Factura">
+          <End Role="Factura" Type="Self.Factura" Multiplicity="0..1" />
+          <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="IdFactura" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="IdFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Turno_FormaDePago">
           <End Role="FormaDePago" Type="Self.FormaDePago" Multiplicity="1" />
           <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
@@ -875,7 +833,6 @@
           <EntitySet Name="FormaDePago" EntityType="Self.FormaDePago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Horario" EntityType="Self.Horario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LineaFactura" EntityType="Self.LineaFactura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Medico" EntityType="Self.Medico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MedicoEspecialidad" EntityType="Self.MedicoEspecialidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
@@ -886,7 +843,6 @@
           <EntitySet Name="SegurosMedico" EntityType="Self.SegurosMedico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SegurosMedicosMedico" EntityType="Self.SegurosMedicosMedico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SegurosMedicosPaciente" EntityType="Self.SegurosMedicosPaciente" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarjetas" EntityType="Self.Tarjetas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
@@ -926,21 +882,9 @@
             <End Role="FormaDePago" EntitySet="FormaDePago" />
             <End Role="Factura" EntitySet="Factura" />
           </AssociationSet>
-          <AssociationSet Name="FK_Factura_Medico" Association="Self.FK_Factura_Medico">
-            <End Role="Medico" EntitySet="Medico" />
+          <AssociationSet Name="FK_Factura_Tarjetas" Association="Self.FK_Factura_Tarjetas">
+            <End Role="Tarjetas" EntitySet="Tarjetas" />
             <End Role="Factura" EntitySet="Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Factura_Paciente" Association="Self.FK_Factura_Paciente">
-            <End Role="Paciente" EntitySet="Paciente" />
-            <End Role="Factura" EntitySet="Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LineaFactura_Factura" Association="Self.FK_LineaFactura_Factura">
-            <End Role="Factura" EntitySet="Factura" />
-            <End Role="LineaFactura" EntitySet="LineaFactura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LineaFactura_Turnos" Association="Self.FK_LineaFactura_Turnos">
-            <End Role="Turno" EntitySet="Turno" />
-            <End Role="LineaFactura" EntitySet="LineaFactura" />
           </AssociationSet>
           <AssociationSet Name="FK_Medico_Horario" Association="Self.FK_Medico_Horario">
             <End Role="Horario" EntitySet="Horario" />
@@ -1050,6 +994,10 @@
             <End Role="Especialidad" EntitySet="Especialidad" />
             <End Role="Turno" EntitySet="Turno" />
           </AssociationSet>
+          <AssociationSet Name="FK_Turno_Factura" Association="Self.FK_Turno_Factura">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
           <AssociationSet Name="FK_Turno_FormaDePago" Association="Self.FK_Turno_FormaDePago">
             <End Role="FormaDePago" EntitySet="FormaDePago" />
             <End Role="Turno" EntitySet="Turno" />
@@ -1086,7 +1034,6 @@
           <EntitySet Name="FormaDePago" EntityType="ClinicaModel.FormaDePago" />
           <EntitySet Name="HistoriaClinica" EntityType="ClinicaModel.HistoriaClinica" />
           <EntitySet Name="Horario" EntityType="ClinicaModel.Horario" />
-          <EntitySet Name="LineaFactura" EntityType="ClinicaModel.LineaFactura" />
           <EntitySet Name="Medico" EntityType="ClinicaModel.Medico" />
           <EntitySet Name="MedicoEspecialidad" EntityType="ClinicaModel.MedicoEspecialidad" />
           <EntitySet Name="Paciente" EntityType="ClinicaModel.Paciente" />
@@ -1144,17 +1091,13 @@
             <End Role="FormaDePago" EntitySet="FormaDePago" />
             <End Role="Factura" EntitySet="Factura" />
           </AssociationSet>
-          <AssociationSet Name="FK_Factura_Medico" Association="ClinicaModel.FK_Factura_Medico">
-            <End Role="Medico" EntitySet="Medico" />
+          <AssociationSet Name="FK_Factura_Tarjetas" Association="ClinicaModel.FK_Factura_Tarjetas">
+            <End Role="Tarjetas" EntitySet="Tarjetas" />
             <End Role="Factura" EntitySet="Factura" />
           </AssociationSet>
-          <AssociationSet Name="FK_Factura_Paciente" Association="ClinicaModel.FK_Factura_Paciente">
-            <End Role="Paciente" EntitySet="Paciente" />
+          <AssociationSet Name="FK_Turno_Factura" Association="ClinicaModel.FK_Turno_Factura">
             <End Role="Factura" EntitySet="Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LineaFactura_Factura" Association="ClinicaModel.FK_LineaFactura_Factura">
-            <End Role="Factura" EntitySet="Factura" />
-            <End Role="LineaFactura" EntitySet="LineaFactura" />
+            <End Role="Turno" EntitySet="Turno" />
           </AssociationSet>
           <AssociationSet Name="FK_Paciente_FormaDePago" Association="ClinicaModel.FK_Paciente_FormaDePago">
             <End Role="FormaDePago" EntitySet="FormaDePago" />
@@ -1195,10 +1138,6 @@
           <AssociationSet Name="FK_Medico_Horario6" Association="ClinicaModel.FK_Medico_Horario6">
             <End Role="Horario" EntitySet="Horario" />
             <End Role="Medico" EntitySet="Medico" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LineaFactura_Turnos" Association="ClinicaModel.FK_LineaFactura_Turnos">
-            <End Role="Turno" EntitySet="Turno" />
-            <End Role="LineaFactura" EntitySet="LineaFactura" />
           </AssociationSet>
           <AssociationSet Name="FK_MedicoEspecialidad_Medico1" Association="ClinicaModel.FK_MedicoEspecialidad_Medico1">
             <End Role="Medico" EntitySet="Medico" />
@@ -1272,7 +1211,6 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="ClinicaModel.sysdiagrams" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -1340,8 +1278,8 @@
           <Property Name="IdBanco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BajaLogica" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Bancos_Tarjetas" Relationship="ClinicaModel.FK_Bancos_Tarjetas_Bancos" FromRole="Bancos" ToRole="Bancos_Tarjetas" />
           <Property Name="CodigoBCRA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bancos_Tarjetas" Relationship="ClinicaModel.FK_Bancos_Tarjetas_Bancos" FromRole="Bancos" ToRole="Bancos_Tarjetas" />
         </EntityType>
         <EntityType Name="Bancos_Tarjetas">
           <Key>
@@ -1391,14 +1329,15 @@
             <PropertyRef Name="IdFactura" />
           </Key>
           <Property Name="IdFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTurno" Type="Int32" Nullable="false" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IdPaciente" Type="Int32" Nullable="false" />
-          <Property Name="IdMedico" Type="Int32" Nullable="false" />
           <Property Name="IdFormaDePago" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IdTarjeta" Type="Int32" />
           <NavigationProperty Name="FormaDePago" Relationship="ClinicaModel.FK_Factura_FormaDePago" FromRole="Factura" ToRole="FormaDePago" />
-          <NavigationProperty Name="Medico" Relationship="ClinicaModel.FK_Factura_Medico" FromRole="Factura" ToRole="Medico" />
-          <NavigationProperty Name="Paciente" Relationship="ClinicaModel.FK_Factura_Paciente" FromRole="Factura" ToRole="Paciente" />
-          <NavigationProperty Name="LineaFactura" Relationship="ClinicaModel.FK_LineaFactura_Factura" FromRole="Factura" ToRole="LineaFactura" />
+          <NavigationProperty Name="Tarjetas" Relationship="ClinicaModel.FK_Factura_Tarjetas" FromRole="Factura" ToRole="Tarjetas" />
+          <NavigationProperty Name="Turno" Relationship="ClinicaModel.FK_Turno_Factura" FromRole="Factura" ToRole="Turno" />
         </EntityType>
         <EntityType Name="FormaDePago">
           <Key>
@@ -1437,18 +1376,6 @@
           <NavigationProperty Name="Medico5" Relationship="ClinicaModel.FK_Medico_Horario5" FromRole="Horario" ToRole="Medico" />
           <NavigationProperty Name="Medico6" Relationship="ClinicaModel.FK_Medico_Horario6" FromRole="Horario" ToRole="Medico" />
         </EntityType>
-        <EntityType Name="LineaFactura">
-          <Key>
-            <PropertyRef Name="IdLineaFactura" />
-          </Key>
-          <Property Name="IdLineaFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdFactura" Type="Int32" Nullable="false" />
-          <Property Name="IdTurno" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Monto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <NavigationProperty Name="Factura" Relationship="ClinicaModel.FK_LineaFactura_Factura" FromRole="LineaFactura" ToRole="Factura" />
-          <NavigationProperty Name="Turno" Relationship="ClinicaModel.FK_LineaFactura_Turnos" FromRole="LineaFactura" ToRole="Turno" />
-        </EntityType>
         <EntityType Name="Medico">
           <Key>
             <PropertyRef Name="IdMedico" />
@@ -1462,7 +1389,6 @@
           <Property Name="ViernesHorarioId" Type="Int32" Nullable="false" />
           <Property Name="SabadoHorarioId" Type="Int32" Nullable="false" />
           <Property Name="DomingoHorarioId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Factura" Relationship="ClinicaModel.FK_Factura_Medico" FromRole="Medico" ToRole="Factura" />
           <NavigationProperty Name="Horario" Relationship="ClinicaModel.FK_Medico_Horario" FromRole="Medico" ToRole="Horario" />
           <NavigationProperty Name="Horario1" Relationship="ClinicaModel.FK_Medico_Horario1" FromRole="Medico" ToRole="Horario" />
           <NavigationProperty Name="Horario2" Relationship="ClinicaModel.FK_Medico_Horario2" FromRole="Medico" ToRole="Horario" />
@@ -1508,7 +1434,6 @@
           <Property Name="IdProvincia" Type="Int32" Nullable="false" />
           <Property Name="IdPais" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ciudad" Relationship="ClinicaModel.FK_Paciente_Ciudad" FromRole="Paciente" ToRole="Ciudad" />
-          <NavigationProperty Name="Factura" Relationship="ClinicaModel.FK_Factura_Paciente" FromRole="Paciente" ToRole="Factura" />
           <NavigationProperty Name="FormaDePago" Relationship="ClinicaModel.FK_Paciente_FormaDePago" FromRole="Paciente" ToRole="FormaDePago" />
           <NavigationProperty Name="HistoriaClinica" Relationship="ClinicaModel.FK_Paciente_HistoriaClinica" FromRole="Paciente" ToRole="HistoriaClinica" />
           <NavigationProperty Name="Pais" Relationship="ClinicaModel.FK_Paciente_Pais" FromRole="Paciente" ToRole="Pais" />
@@ -1621,8 +1546,8 @@
           <Property Name="IdBanco" Type="Int32" Nullable="false" />
           <Property Name="BajaLogica" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Bancos_Tarjetas" Relationship="ClinicaModel.FK_Bancos_Tarjetas_Tarjetas" FromRole="Tarjetas" ToRole="Bancos_Tarjetas" />
+          <NavigationProperty Name="Factura" Relationship="ClinicaModel.FK_Factura_Tarjetas" FromRole="Tarjetas" ToRole="Factura" />
           <NavigationProperty Name="Paciente_Tarjetas" Relationship="ClinicaModel.FK_Paciente_Tarjetas_Tarjetas" FromRole="Tarjetas" ToRole="Paciente_Tarjetas" />
-          <Property Name="NombreTarjeta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Turno">
           <Key>
@@ -1640,9 +1565,10 @@
           <Property Name="Atendido" Type="Boolean" Nullable="false" />
           <Property Name="PrecioTurno" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="IdEspecialidadMedico" Type="Int32" Nullable="false" />
+          <Property Name="IdFactura" Type="Int32" />
           <NavigationProperty Name="Especialidad" Relationship="ClinicaModel.FK_Turno_Especialidad" FromRole="Turno" ToRole="Especialidad" />
+          <NavigationProperty Name="Factura" Relationship="ClinicaModel.FK_Turno_Factura" FromRole="Turno" ToRole="Factura" />
           <NavigationProperty Name="FormaDePago" Relationship="ClinicaModel.FK_Turno_FormaDePago" FromRole="Turno" ToRole="FormaDePago" />
-          <NavigationProperty Name="LineaFactura" Relationship="ClinicaModel.FK_LineaFactura_Turnos" FromRole="Turno" ToRole="LineaFactura" />
           <NavigationProperty Name="Medico" Relationship="ClinicaModel.FK_Turno_Medico" FromRole="Turno" ToRole="Medico" />
           <NavigationProperty Name="Paciente" Relationship="ClinicaModel.FK_Turno_Paciente" FromRole="Turno" ToRole="Paciente" />
           <NavigationProperty Name="SegurosMedico" Relationship="ClinicaModel.FK_Turno_SegurosMedico" FromRole="Turno" ToRole="SegurosMedico" />
@@ -1794,38 +1720,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Factura_Medico">
-          <End Type="ClinicaModel.Medico" Role="Medico" Multiplicity="1" />
+        <Association Name="FK_Factura_Tarjetas">
+          <End Type="ClinicaModel.Tarjetas" Role="Tarjetas" Multiplicity="0..1" />
           <End Type="ClinicaModel.Factura" Role="Factura" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Medico">
-              <PropertyRef Name="IdMedico" />
+            <Principal Role="Tarjetas">
+              <PropertyRef Name="IdTarjeta" />
             </Principal>
             <Dependent Role="Factura">
-              <PropertyRef Name="IdMedico" />
+              <PropertyRef Name="IdTarjeta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Factura_Paciente">
-          <End Type="ClinicaModel.Paciente" Role="Paciente" Multiplicity="1" />
-          <End Type="ClinicaModel.Factura" Role="Factura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Paciente">
-              <PropertyRef Name="IdPaciente" />
-            </Principal>
-            <Dependent Role="Factura">
-              <PropertyRef Name="IdPaciente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LineaFactura_Factura">
-          <End Type="ClinicaModel.Factura" Role="Factura" Multiplicity="1" />
-          <End Type="ClinicaModel.LineaFactura" Role="LineaFactura" Multiplicity="*" />
+        <Association Name="FK_Turno_Factura">
+          <End Type="ClinicaModel.Factura" Role="Factura" Multiplicity="0..1" />
+          <End Type="ClinicaModel.Turno" Role="Turno" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Factura">
               <PropertyRef Name="IdFactura" />
             </Principal>
-            <Dependent Role="LineaFactura">
+            <Dependent Role="Turno">
               <PropertyRef Name="IdFactura" />
             </Dependent>
           </ReferentialConstraint>
@@ -1947,18 +1861,6 @@
             </Principal>
             <Dependent Role="Medico">
               <PropertyRef Name="DomingoHorarioId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LineaFactura_Turnos">
-          <End Type="ClinicaModel.Turno" Role="Turno" Multiplicity="1" />
-          <End Type="ClinicaModel.LineaFactura" Role="LineaFactura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Turno">
-              <PropertyRef Name="IdTurno" />
-            </Principal>
-            <Dependent Role="LineaFactura">
-              <PropertyRef Name="IdTurno" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2172,16 +2074,6 @@
           <End Type="ClinicaModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="ClinicaModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
         </Association>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2294,10 +2186,12 @@
           <EntitySetMapping Name="Factura">
             <EntityTypeMapping TypeName="ClinicaModel.Factura">
               <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="IdTarjeta" ColumnName="IdTarjeta" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
                 <ScalarProperty Name="IdFormaDePago" ColumnName="IdFormaDePago" />
-                <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
-                <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
                 <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2328,17 +2222,6 @@
               <MappingFragment StoreEntitySet="Horario">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IdHorario" ColumnName="IdHorario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LineaFactura">
-            <EntityTypeMapping TypeName="ClinicaModel.LineaFactura">
-              <MappingFragment StoreEntitySet="LineaFactura">
-                <ScalarProperty Name="Monto" ColumnName="Monto" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
-                <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
-                <ScalarProperty Name="IdLineaFactura" ColumnName="IdLineaFactura" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2472,7 +2355,6 @@
           <EntitySetMapping Name="Tarjetas">
             <EntityTypeMapping TypeName="ClinicaModel.Tarjetas">
               <MappingFragment StoreEntitySet="Tarjetas">
-                <ScalarProperty Name="NombreTarjeta" ColumnName="NombreTarjeta" />
                 <ScalarProperty Name="BajaLogica" ColumnName="BajaLogica" />
                 <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
                 <ScalarProperty Name="FechaVto" ColumnName="FechaVto" />
@@ -2485,6 +2367,7 @@
           <EntitySetMapping Name="Turno">
             <EntityTypeMapping TypeName="ClinicaModel.Turno">
               <MappingFragment StoreEntitySet="Turno">
+                <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
                 <ScalarProperty Name="IdEspecialidadMedico" ColumnName="IdEspecialidadMedico" />
                 <ScalarProperty Name="PrecioTurno" ColumnName="PrecioTurno" />
                 <ScalarProperty Name="Atendido" ColumnName="Atendido" />
@@ -2519,17 +2402,6 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ClinicaModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
