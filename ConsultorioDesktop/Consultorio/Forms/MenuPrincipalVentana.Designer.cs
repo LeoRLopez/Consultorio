@@ -51,10 +51,9 @@
             this.lblTotalTurnosHoy = new Telerik.WinControls.UI.RadLabel();
             this.labelHoy = new Telerik.WinControls.UI.RadLabel();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.pacienteTurnoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicoNombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteNombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaHoraTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +65,7 @@
             this.atendidoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diagnosticoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pacienteTurnoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRegistrarNuevoPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelProgramar)).BeginInit();
@@ -354,9 +354,13 @@
             this.dgvPacientes.Size = new System.Drawing.Size(416, 331);
             this.dgvPacientes.TabIndex = 13;
             // 
-            // pacienteTurnoVMBindingSource
+            // Especialidad
             // 
-            this.pacienteTurnoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PacienteTurnoVM);
+            this.Especialidad.DataPropertyName = "Especialidad";
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.ReadOnly = true;
+            this.Especialidad.Width = 105;
             // 
             // pacienteIdDataGridViewTextBoxColumn
             // 
@@ -373,14 +377,6 @@
             this.medicoNombreCompletoDataGridViewTextBoxColumn.Name = "medicoNombreCompletoDataGridViewTextBoxColumn";
             this.medicoNombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
             this.medicoNombreCompletoDataGridViewTextBoxColumn.Width = 105;
-            // 
-            // Especialidad
-            // 
-            this.Especialidad.DataPropertyName = "Especialidad";
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
-            this.Especialidad.ReadOnly = true;
-            this.Especialidad.Width = 105;
             // 
             // pacienteNombreCompletoDataGridViewTextBoxColumn
             // 
@@ -471,7 +467,11 @@
             this.diagnosticoDataGridViewTextBoxColumn.ReadOnly = true;
             this.diagnosticoDataGridViewTextBoxColumn.Visible = false;
             // 
-            // VentanaInicio
+            // pacienteTurnoVMBindingSource
+            // 
+            this.pacienteTurnoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PacienteTurnoVM);
+            // 
+            // MenuPrincipalVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -487,7 +487,7 @@
             this.Controls.Add(this.radPanelTomorrowAppointments);
             this.Controls.Add(this.radPanelTodaysAppointments);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "VentanaInicio";
+            this.Name = "MenuPrincipalVentana";
             this.Text = "VentanaInicio";
             this.Load += new System.EventHandler(this.VentanaInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoTurno)).EndInit();

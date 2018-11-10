@@ -35,6 +35,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelListaPacientes = new Telerik.WinControls.UI.RadPanel();
             this.dgvMedicos = new System.Windows.Forms.DataGridView();
+            this.medicoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombrarEspecialidades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lunesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.martesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.miercolesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.juevesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viernesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sabadoHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domingoHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,17 +63,6 @@
             this.dataFilterDescriptorItem2 = new Telerik.WinControls.UI.DataFilterDescriptorItem();
             this.dataFilterDescriptorItem3 = new Telerik.WinControls.UI.DataFilterDescriptorItem();
             this.dataFilterDescriptorItem4 = new Telerik.WinControls.UI.DataFilterDescriptorItem();
-            this.medicoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombrarEspecialidades = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lunesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.martesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.miercolesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.juevesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.viernesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sabadoHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domingoHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelListaPacientes)).BeginInit();
             this.panelListaPacientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
@@ -136,6 +136,94 @@
             this.dgvMedicos.Size = new System.Drawing.Size(468, 431);
             this.dgvMedicos.TabIndex = 13;
             this.dgvMedicos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicos_CellClick);
+            // 
+            // medicoIdDataGridViewTextBoxColumn
+            // 
+            this.medicoIdDataGridViewTextBoxColumn.DataPropertyName = "MedicoId";
+            this.medicoIdDataGridViewTextBoxColumn.HeaderText = "MedicoId";
+            this.medicoIdDataGridViewTextBoxColumn.Name = "medicoIdDataGridViewTextBoxColumn";
+            this.medicoIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.medicoIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreCompletoDataGridViewTextBoxColumn
+            // 
+            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto";
+            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Medico";
+            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
+            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreCompletoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // Matricula
+            // 
+            this.Matricula.DataPropertyName = "Matricula";
+            this.Matricula.HeaderText = "Matricula";
+            this.Matricula.Name = "Matricula";
+            this.Matricula.ReadOnly = true;
+            this.Matricula.Width = 80;
+            // 
+            // NombrarEspecialidades
+            // 
+            this.NombrarEspecialidades.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NombrarEspecialidades.DataPropertyName = "NombrarEspecialidades";
+            this.NombrarEspecialidades.HeaderText = "Especialidades";
+            this.NombrarEspecialidades.Name = "NombrarEspecialidades";
+            this.NombrarEspecialidades.ReadOnly = true;
+            // 
+            // lunesHorarioDataGridViewTextBoxColumn
+            // 
+            this.lunesHorarioDataGridViewTextBoxColumn.DataPropertyName = "LunesHorario";
+            this.lunesHorarioDataGridViewTextBoxColumn.HeaderText = "Lunes";
+            this.lunesHorarioDataGridViewTextBoxColumn.Name = "lunesHorarioDataGridViewTextBoxColumn";
+            this.lunesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lunesHorarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // martesHorarioDataGridViewTextBoxColumn
+            // 
+            this.martesHorarioDataGridViewTextBoxColumn.DataPropertyName = "MartesHorario";
+            this.martesHorarioDataGridViewTextBoxColumn.HeaderText = "Martes";
+            this.martesHorarioDataGridViewTextBoxColumn.Name = "martesHorarioDataGridViewTextBoxColumn";
+            this.martesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.martesHorarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // miercolesHorarioDataGridViewTextBoxColumn
+            // 
+            this.miercolesHorarioDataGridViewTextBoxColumn.DataPropertyName = "MiercolesHorario";
+            this.miercolesHorarioDataGridViewTextBoxColumn.HeaderText = "Miercoles";
+            this.miercolesHorarioDataGridViewTextBoxColumn.Name = "miercolesHorarioDataGridViewTextBoxColumn";
+            this.miercolesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.miercolesHorarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // juevesHorarioDataGridViewTextBoxColumn
+            // 
+            this.juevesHorarioDataGridViewTextBoxColumn.DataPropertyName = "JuevesHorario";
+            this.juevesHorarioDataGridViewTextBoxColumn.HeaderText = "Jueves";
+            this.juevesHorarioDataGridViewTextBoxColumn.Name = "juevesHorarioDataGridViewTextBoxColumn";
+            this.juevesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.juevesHorarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // viernesHorarioDataGridViewTextBoxColumn
+            // 
+            this.viernesHorarioDataGridViewTextBoxColumn.DataPropertyName = "ViernesHorario";
+            this.viernesHorarioDataGridViewTextBoxColumn.HeaderText = "Viernes";
+            this.viernesHorarioDataGridViewTextBoxColumn.Name = "viernesHorarioDataGridViewTextBoxColumn";
+            this.viernesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.viernesHorarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // sabadoHorarioDataGridViewTextBoxColumn
+            // 
+            this.sabadoHorarioDataGridViewTextBoxColumn.DataPropertyName = "SabadoHorario";
+            this.sabadoHorarioDataGridViewTextBoxColumn.HeaderText = "Sabado";
+            this.sabadoHorarioDataGridViewTextBoxColumn.Name = "sabadoHorarioDataGridViewTextBoxColumn";
+            this.sabadoHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sabadoHorarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // domingoHorarioDataGridViewTextBoxColumn
+            // 
+            this.domingoHorarioDataGridViewTextBoxColumn.DataPropertyName = "DomingoHorario";
+            this.domingoHorarioDataGridViewTextBoxColumn.HeaderText = "Domingo";
+            this.domingoHorarioDataGridViewTextBoxColumn.Name = "domingoHorarioDataGridViewTextBoxColumn";
+            this.domingoHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.domingoHorarioDataGridViewTextBoxColumn.Visible = false;
             // 
             // medicoVMBindingSource
             // 
@@ -303,94 +391,6 @@
             this.dataFilterDescriptorItem4.DescriptorType = typeof(string);
             this.dataFilterDescriptorItem4.IsAutoGenerated = true;
             this.dataFilterDescriptorItem4.Name = "dataFilterDescriptorItem4";
-            // 
-            // medicoIdDataGridViewTextBoxColumn
-            // 
-            this.medicoIdDataGridViewTextBoxColumn.DataPropertyName = "MedicoId";
-            this.medicoIdDataGridViewTextBoxColumn.HeaderText = "MedicoId";
-            this.medicoIdDataGridViewTextBoxColumn.Name = "medicoIdDataGridViewTextBoxColumn";
-            this.medicoIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.medicoIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreCompletoDataGridViewTextBoxColumn
-            // 
-            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto";
-            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Medico";
-            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
-            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreCompletoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // Matricula
-            // 
-            this.Matricula.DataPropertyName = "Matricula";
-            this.Matricula.HeaderText = "Matricula";
-            this.Matricula.Name = "Matricula";
-            this.Matricula.ReadOnly = true;
-            this.Matricula.Width = 80;
-            // 
-            // NombrarEspecialidades
-            // 
-            this.NombrarEspecialidades.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombrarEspecialidades.DataPropertyName = "NombrarEspecialidades";
-            this.NombrarEspecialidades.HeaderText = "Especialidades";
-            this.NombrarEspecialidades.Name = "NombrarEspecialidades";
-            this.NombrarEspecialidades.ReadOnly = true;
-            // 
-            // lunesHorarioDataGridViewTextBoxColumn
-            // 
-            this.lunesHorarioDataGridViewTextBoxColumn.DataPropertyName = "LunesHorario";
-            this.lunesHorarioDataGridViewTextBoxColumn.HeaderText = "Lunes";
-            this.lunesHorarioDataGridViewTextBoxColumn.Name = "lunesHorarioDataGridViewTextBoxColumn";
-            this.lunesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lunesHorarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // martesHorarioDataGridViewTextBoxColumn
-            // 
-            this.martesHorarioDataGridViewTextBoxColumn.DataPropertyName = "MartesHorario";
-            this.martesHorarioDataGridViewTextBoxColumn.HeaderText = "Martes";
-            this.martesHorarioDataGridViewTextBoxColumn.Name = "martesHorarioDataGridViewTextBoxColumn";
-            this.martesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.martesHorarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // miercolesHorarioDataGridViewTextBoxColumn
-            // 
-            this.miercolesHorarioDataGridViewTextBoxColumn.DataPropertyName = "MiercolesHorario";
-            this.miercolesHorarioDataGridViewTextBoxColumn.HeaderText = "Miercoles";
-            this.miercolesHorarioDataGridViewTextBoxColumn.Name = "miercolesHorarioDataGridViewTextBoxColumn";
-            this.miercolesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.miercolesHorarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // juevesHorarioDataGridViewTextBoxColumn
-            // 
-            this.juevesHorarioDataGridViewTextBoxColumn.DataPropertyName = "JuevesHorario";
-            this.juevesHorarioDataGridViewTextBoxColumn.HeaderText = "Jueves";
-            this.juevesHorarioDataGridViewTextBoxColumn.Name = "juevesHorarioDataGridViewTextBoxColumn";
-            this.juevesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.juevesHorarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // viernesHorarioDataGridViewTextBoxColumn
-            // 
-            this.viernesHorarioDataGridViewTextBoxColumn.DataPropertyName = "ViernesHorario";
-            this.viernesHorarioDataGridViewTextBoxColumn.HeaderText = "Viernes";
-            this.viernesHorarioDataGridViewTextBoxColumn.Name = "viernesHorarioDataGridViewTextBoxColumn";
-            this.viernesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.viernesHorarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // sabadoHorarioDataGridViewTextBoxColumn
-            // 
-            this.sabadoHorarioDataGridViewTextBoxColumn.DataPropertyName = "SabadoHorario";
-            this.sabadoHorarioDataGridViewTextBoxColumn.HeaderText = "Sabado";
-            this.sabadoHorarioDataGridViewTextBoxColumn.Name = "sabadoHorarioDataGridViewTextBoxColumn";
-            this.sabadoHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sabadoHorarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // domingoHorarioDataGridViewTextBoxColumn
-            // 
-            this.domingoHorarioDataGridViewTextBoxColumn.DataPropertyName = "DomingoHorario";
-            this.domingoHorarioDataGridViewTextBoxColumn.HeaderText = "Domingo";
-            this.domingoHorarioDataGridViewTextBoxColumn.Name = "domingoHorarioDataGridViewTextBoxColumn";
-            this.domingoHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.domingoHorarioDataGridViewTextBoxColumn.Visible = false;
             // 
             // ListadoMedicos
             // 

@@ -7,16 +7,20 @@ namespace Consultorio.Forms
 {
     public partial class ListadoBancos : Form
     {
-        public ListadoBancos()
+        public ListadoBancos(bool __esAdministrador)
         {
             InitializeComponent();
+
+            btnEditar.Visible = __esAdministrador;
+            btnHabilitar.Visible = __esAdministrador;
+
         } 
 
         private void RefrescarGridView()
         {
             using (var entidades = new ClinicaEntities())
             {
-                bancosBindingSource.DataSource = entidades.Bancos.Where(x => x.BajaLogica == false).ToList();
+                bancosBindingSource.DataSource = entidades.Bancos.ToList().Select(x => new Bancos { IdBanco = x.IdBanco, Nombre = x.Nombre, BajaLogica = !x.BajaLogica }).ToList();
             }
         }
         
@@ -67,7 +71,7 @@ namespace Consultorio.Forms
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnHabilitar_Click(object sender, EventArgs e)
         {
             if (dgvBancos.CurrentRow != null)
             {
@@ -75,7 +79,8 @@ namespace Consultorio.Forms
                 using (var entidades = new ClinicaEntities())
                 {
                     var bancoDB = entidades.Bancos.First(x => x.IdBanco == bancoSeleccionado.IdBanco);
-                    bancoDB.BajaLogica = true;
+                    bancoDB.BajaLogica = bancoSeleccionado.BajaLogica;
+
                     entidades.SaveChanges();
                     MessageBox.Show("Realizado Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefrescarGridView();

@@ -89,7 +89,7 @@
             this.menuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuVertical.Location = new System.Drawing.Point(0, 0);
             this.menuVertical.Name = "menuVertical";
-            this.menuVertical.Size = new System.Drawing.Size(198, 788);
+            this.menuVertical.Size = new System.Drawing.Size(198, 619);
             this.menuVertical.TabIndex = 0;
             // 
             // btnBancos
@@ -534,7 +534,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(198, 40);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(952, 748);
+            this.panelContenedor.Size = new System.Drawing.Size(952, 579);
             this.panelContenedor.TabIndex = 0;
             // 
             // radOffice2007ScreenTipElement1
@@ -549,7 +549,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 788);
+            this.ClientSize = new System.Drawing.Size(1150, 619);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.barraTitulo);
             this.Controls.Add(this.menuVertical);

@@ -1,4 +1,5 @@
-﻿using Consultorio.Modelo;
+﻿using Consultorio.Helpers;
+using Consultorio.Modelo;
 using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Consultorio
             InitializeComponent();
             this.__esAdministrador = esAdministrador;
             this.__idMedico = idMedico;
+
         }
 
         private void btnRegistrarNuevoPaciente_Click(object sender, EventArgs e)
@@ -34,8 +36,19 @@ namespace Consultorio
         {
             using (var entidades = new ClinicaEntities())
             {
-                var pacientes = new List<PacienteVM>();
-                pacientes.AddRange(entidades.Paciente.Select(paciente =>
+                var pacientes = new List<Paciente>();
+                if(__idMedico == -1)
+                {
+                    pacientes = entidades.Paciente.ToList();
+                }
+                else
+                {
+                    var turnosMedicos = entidades.Turno.Where(x => x.IdMedico == __idMedico).ToList();
+                    var idPacientes = turnosMedicos.DistinctBy(x => x.IdPaciente).Select(x => x.IdPaciente).ToList();
+                    pacientes = entidades.Paciente.Where(x => idPacientes.Contains(x.IdPaciente)).ToList();
+                }
+                var pacientesVM = new List<PacienteVM>();
+                pacientesVM.AddRange(pacientes.Select(paciente =>
                 new PacienteVM
                 {
                     PacienteId = paciente.IdPaciente,
@@ -49,7 +62,7 @@ namespace Consultorio
                     Sexo = paciente.Sexo
                 }).ToList());
 
-                pacienteVMBindingSource.DataSource = pacientes;
+                pacienteVMBindingSource.DataSource = pacientesVM;
             }
         }
 

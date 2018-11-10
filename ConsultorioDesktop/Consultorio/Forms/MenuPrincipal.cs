@@ -139,7 +139,7 @@ namespace Consultorio
                     btnMedicos.Visible = false;
                     btnHome.Visible = false;
                 }
-                else
+                else//si es secretario
                 {
                     AbrirVentanaEnPanel(new MenuPrincipalVentana());
                     btnNuevoPersonal.Visible = false;
@@ -200,7 +200,7 @@ namespace Consultorio
 
         private void btnBancos_Click(object sender, EventArgs e)
         {
-            var formBancos = new ListadoBancos();
+            var formBancos = new ListadoBancos(this.__esAdministrador);
             var formBancosResult = formBancos.ShowDialog();
         }
     }
