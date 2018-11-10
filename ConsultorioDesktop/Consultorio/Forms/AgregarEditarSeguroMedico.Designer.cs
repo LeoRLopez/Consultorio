@@ -1,6 +1,6 @@
 ﻿namespace Consultorio.Forms
 {
-    partial class AgregarEditarObraSocial
+    partial class AgregarEditarSeguroMedico
     {
         /// <summary>
         /// Required designer variable.

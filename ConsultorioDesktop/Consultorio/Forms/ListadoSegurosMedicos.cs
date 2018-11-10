@@ -7,9 +7,9 @@ using Telerik.WinControls.Export;
 
 namespace Consultorio
 {
-    public partial class ListadoObrasSociales : Form
+    public partial class ListadoSegurosMedicos : Form
     {
-        public ListadoObrasSociales(bool __esAdministrador)
+        public ListadoSegurosMedicos(bool __esAdministrador)
         {
             InitializeComponent();
 
@@ -51,7 +51,7 @@ namespace Consultorio
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            var agregarObraSocial = new AgregarEditarObraSocial();
+            var agregarObraSocial = new AgregarEditarSeguroMedico();
             agregarObraSocial.ShowDialog();
             RefrescarGridView();
         }
@@ -61,7 +61,7 @@ namespace Consultorio
             if(dgvObrasSociales.CurrentRow != null)
             {
                 SegurosMedico segurosMedicoSeleccionado = ((SegurosMedico)dgvObrasSociales.CurrentRow.DataBoundItem);
-                var editarObraSocial = new AgregarEditarObraSocial(segurosMedicoSeleccionado);
+                var editarObraSocial = new AgregarEditarSeguroMedico(segurosMedicoSeleccionado);
                 editarObraSocial.ShowDialog();
                 RefrescarGridView();
             }

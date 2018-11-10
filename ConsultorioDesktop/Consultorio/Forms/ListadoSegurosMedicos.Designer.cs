@@ -1,6 +1,6 @@
 ﻿namespace Consultorio
 {
-    partial class ListadoObrasSociales
+    partial class ListadoSegurosMedicos
     {
         /// <summary>
         /// Required designer variable.
@@ -96,7 +96,7 @@
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(120, 19);
             this.lblBuscar.TabIndex = 5;
-            this.lblBuscar.Text = "Nombre Obra Social:";
+            this.lblBuscar.Text = "Nombre Seguro Médico:";
             // 
             // btnBuscar
             // 

@@ -3,7 +3,6 @@ using Consultorio.Modelo;
 using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Windows.Forms;
 using Telerik.WinControls.Export;
@@ -12,8 +11,6 @@ namespace Consultorio.Reportes
 {
     public partial class ReporteListadoPacientes : Form
     {
-        private List<PacienteVM> __pacientesVM = new List<PacienteVM>();
-
         public ReporteListadoPacientes()
         {
             InitializeComponent();
@@ -31,7 +28,7 @@ namespace Consultorio.Reportes
         {
             using (var entidades = new ClinicaEntities())
             {
-                __pacientesVM.AddRange(entidades.Paciente.Select(paciente =>
+                pacienteVMBindingSource.DataSource = entidades.Paciente.Select(paciente =>
                 new PacienteVM
                 {
                     PacienteId = paciente.IdPaciente,
@@ -43,8 +40,7 @@ namespace Consultorio.Reportes
                     Direccion = paciente.Direccion,
                     Email = paciente.Email,
                     Sexo = paciente.Sexo
-                }).ToList());
-                pacienteVMBindingSource.DataSource = __pacientesVM;
+                }).ToList();
             }
         }
 
@@ -80,7 +76,8 @@ namespace Consultorio.Reportes
                 {
                     pacientes = pacientes.Where(x => x.IdSeguroMedico == (int)dropDownSegurosMedicos.SelectedValue).ToList();
                 }
-                __pacientesVM = pacientes.Select(paciente =>
+
+                pacienteVMBindingSource.DataSource = pacientes.Select(paciente =>
                  new PacienteVM
                  {
                      PacienteId = paciente.IdPaciente,
@@ -93,7 +90,6 @@ namespace Consultorio.Reportes
                      Email = paciente.Email,
                      Sexo = paciente.Sexo
                  }).ToList();
-                pacienteVMBindingSource.DataSource = __pacientesVM;
             }
         }
 

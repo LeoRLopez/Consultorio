@@ -11,7 +11,6 @@ namespace Consultorio.Reportes
     {
         private bool __esAdministrador = false;
         private int __idMedico;
-        private List<PacienteTurnoVM> __pacientesTurnoVM = new List<PacienteTurnoVM>();
 
         public ListadoTurnos(bool esAdministrador, int idMedico)
         {
@@ -20,6 +19,12 @@ namespace Consultorio.Reportes
             dtpHasta.Value = DateTime.Now.AddMonths(1).Date;
             this.__esAdministrador = esAdministrador;
             this.__idMedico = idMedico;
+            if (!esAdministrador)
+            {
+                btnAgregar.Visible = false;
+                btnEliminar.Visible = false;
+                dropDownMedicos.Enabled = false;
+            }
         }
 
         private void Pacientes_Load(object sender, EventArgs e)
@@ -34,26 +39,35 @@ namespace Consultorio.Reportes
         {
             using (var entidades = new ClinicaEntities())
             {
-                __pacientesTurnoVM.AddRange(entidades.Turno.Select(turno =>
-                            new PacienteTurnoVM
-                            {
-                                TurnoId = turno.IdTurno,
-                                PacienteId = turno.IdPaciente,
-                                MedicoId = turno.IdMedico,
-                                IdSeguroMedico = turno.IdSeguroMedico,
-                                PacienteNombreCompleto = turno.Paciente.Apellidos + ", " + turno.Paciente.Nombres,
-                                Edad = turno.Paciente.Edad.ToString(),
-                                MedicoNombreCompleto = turno.Medico.PersonalInterno.FirstOrDefault().Apellido + ", " + turno.Medico.PersonalInterno.FirstOrDefault().Nombre,
-                                NombreSeguroMedico = turno.SegurosMedico != null ? turno.SegurosMedico.Nombre : "",
-                                Asistio = turno.Asistio,
-                                Atendido = turno.Atendido,
-                                Descripcion = turno.Descripcion,
-                                Diagnostico = turno.Diagnostico,
-                                FechaHoraTurno = turno.FechaYHora,
-                                FormaDePagoId = turno.IdFormaDePago,
-                                FormaDePagoNombre = turno.FormaDePago.Nombre
-                            }).OrderBy(x => x.FechaHoraTurno).ToList());
-                pacienteTurnoVMBindingSource.DataSource = __pacientesTurnoVM;
+                var turnos = new List<Turno>();
+                if (this.__esAdministrador)
+                {
+                    turnos = entidades.Turno.ToList();
+                }
+                else if (this.__idMedico != -1)
+                {
+                    turnos = entidades.Turno.Where(x => x.IdMedico == this.__idMedico).ToList();
+                }
+                var __pacientesTurnoVM = new List<PacienteTurnoVM>();
+                pacienteTurnoVMBindingSource.DataSource = turnos.Select(turno =>
+                                    new PacienteTurnoVM
+                                    {
+                                        TurnoId = turno.IdTurno,
+                                        PacienteId = turno.IdPaciente,
+                                        MedicoId = turno.IdMedico,
+                                        IdSeguroMedico = turno.IdSeguroMedico,
+                                        PacienteNombreCompleto = turno.Paciente.Apellidos + ", " + turno.Paciente.Nombres,
+                                        Edad = turno.Paciente.Edad.ToString(),
+                                        MedicoNombreCompleto = turno.Medico.PersonalInterno.FirstOrDefault().Apellido + ", " + turno.Medico.PersonalInterno.FirstOrDefault().Nombre,
+                                        NombreSeguroMedico = turno.SegurosMedico != null ? turno.SegurosMedico.Nombre : "",
+                                        Asistio = turno.Asistio,
+                                        Atendido = turno.Atendido,
+                                        Descripcion = turno.Descripcion,
+                                        Diagnostico = turno.Diagnostico,
+                                        FechaHoraTurno = turno.FechaYHora,
+                                        FormaDePagoId = turno.IdFormaDePago,
+                                        FormaDePagoNombre = turno.FormaDePago.Nombre
+                                    }).OrderBy(x => x.FechaHoraTurno).ToList();
             }
         }
 
@@ -101,7 +115,12 @@ namespace Consultorio.Reportes
                     turnos = turnos.Where(x => x.FechaYHora.Date <= dtpHasta.Value.Date).ToList();
                 }
 
-                __pacientesTurnoVM = turnos.Select(turno =>
+                if (!this.__esAdministrador)
+                {
+                    turnos = turnos.Where(x => x.IdMedico == this.__idMedico).ToList();
+                }
+
+                pacienteTurnoVMBindingSource.DataSource = turnos.Select(turno =>
                                 new PacienteTurnoVM
                                 {
                                     TurnoId = turno.IdTurno,
@@ -120,7 +139,6 @@ namespace Consultorio.Reportes
                                     FormaDePagoId = turno.IdFormaDePago,
                                     FormaDePagoNombre = turno.FormaDePago.Nombre
                                 }).OrderBy(x => x.FechaHoraTurno).ToList();
-                pacienteTurnoVMBindingSource.DataSource = __pacientesTurnoVM;
             }
         }
 
@@ -175,6 +193,62 @@ namespace Consultorio.Reportes
         {
             AgregarTurno nuevoTurno = new AgregarTurno();
             nuevoTurno.ShowDialog();
+            CargarTurnos();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvPacienteMedicoTurno.CurrentRow != null)
+            {
+                var turnoSeleccionado = ((PacienteTurnoVM)dgvPacienteMedicoTurno.CurrentRow.DataBoundItem);
+                if (this.__esAdministrador)
+                {
+                    EditarTurnoAdmin formEditarTurnoAdmin = new EditarTurnoAdmin(turnoSeleccionado.TurnoId);
+                    formEditarTurnoAdmin.ShowDialog();
+                }
+                else if (this.__idMedico != -1)
+                {
+                    EditarTurnoMedico formEditarTurnoMedico = new EditarTurnoMedico(turnoSeleccionado.TurnoId);
+                    formEditarTurnoMedico.ShowDialog();
+                }
+                CargarTurnos();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            var respuestaUsuario = MessageBox.Show("Está seguro que desea eliminar el Turno?", "Confirmación ",
+                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (respuestaUsuario == DialogResult.Yes)
+            {
+                try
+                {
+                    if (dgvPacienteMedicoTurno.CurrentRow != null)
+                    {
+                        var turnoSeleccionado = ((PacienteTurnoVM)dgvPacienteMedicoTurno.CurrentRow.DataBoundItem);
+                        using (var entidades = new ClinicaEntities())
+                        {
+                            var turnoDB = entidades.Turno.First(x => x.IdTurno == turnoSeleccionado.TurnoId);
+                            entidades.Turno.Remove(turnoDB);
+                            entidades.SaveChanges();
+                            CargarTurnos();
+                            MessageBox.Show("Turno eliminado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

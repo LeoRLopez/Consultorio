@@ -2,7 +2,6 @@
 using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Windows.Forms;
 using Telerik.WinControls.Export;
@@ -11,8 +10,6 @@ namespace Consultorio.Reportes
 {
     public partial class ReporteListadoTurnos : Form
     {
-        private List<PacienteTurnoVM> __pacientesTurnoVM = new List<PacienteTurnoVM>();
-
         public ReporteListadoTurnos()
         {
             InitializeComponent();
@@ -32,7 +29,7 @@ namespace Consultorio.Reportes
         {
             using (var entidades = new ClinicaEntities())
             {
-                __pacientesTurnoVM.AddRange(entidades.Turno.Select(turno =>
+                pacienteTurnoVMBindingSource.DataSource = entidades.Turno.Select(turno =>
                             new PacienteTurnoVM
                             {
                                 TurnoId = turno.IdTurno,
@@ -50,8 +47,7 @@ namespace Consultorio.Reportes
                                 FechaHoraTurno = turno.FechaYHora,
                                 FormaDePagoId = turno.IdFormaDePago,
                                 FormaDePagoNombre = turno.FormaDePago.Nombre
-                            }).OrderBy(x => x.FechaHoraTurno).ToList());
-                pacienteTurnoVMBindingSource.DataSource = __pacientesTurnoVM;
+                            }).OrderBy(x => x.FechaHoraTurno).ToList();
             }
         }
 
@@ -99,7 +95,7 @@ namespace Consultorio.Reportes
                     turnos = turnos.Where(x => x.FechaYHora.Date <= dtpHasta.Value.Date).ToList();
                 }
 
-                __pacientesTurnoVM = turnos.Select(turno =>
+                pacienteTurnoVMBindingSource.DataSource = turnos.Select(turno =>
                                 new PacienteTurnoVM
                                 {
                                     TurnoId = turno.IdTurno,
@@ -118,7 +114,6 @@ namespace Consultorio.Reportes
                                     FormaDePagoId = turno.IdFormaDePago,
                                     FormaDePagoNombre = turno.FormaDePago.Nombre
                                 }).OrderBy(x => x.FechaHoraTurno).ToList();
-                pacienteTurnoVMBindingSource.DataSource = __pacientesTurnoVM;
             }
         }
 

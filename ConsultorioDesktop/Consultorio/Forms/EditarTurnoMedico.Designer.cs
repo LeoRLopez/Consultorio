@@ -31,14 +31,13 @@ namespace Consultorio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cancelButton = new Telerik.WinControls.UI.RadButton();
             this.saveButton = new Telerik.WinControls.UI.RadButton();
-            this.txtBoxDescripcion = new Telerik.WinControls.UI.RadTextBoxControl();
-            this.dateTimePickerTurno = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.txtBoxNotas = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.dtpFechaTurno = new Telerik.WinControls.UI.RadDateTimePicker();
             this.labelDescripcion = new Telerik.WinControls.UI.RadLabel();
-            this.labelMedico = new Telerik.WinControls.UI.RadLabel();
             this.labelHoainicio = new Telerik.WinControls.UI.RadLabel();
             this.labelPaciente = new Telerik.WinControls.UI.RadLabel();
             this.dropDownListaPacientes = new Telerik.WinControls.UI.RadDropDownList();
@@ -50,16 +49,8 @@ namespace Consultorio
             this.radiobtnParticular = new Telerik.WinControls.UI.RadRadioButton();
             this.radioBtnSeguroMedico = new Telerik.WinControls.UI.RadRadioButton();
             this.dgvMedicos = new System.Windows.Forms.DataGridView();
-            this.medicoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lunesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.martesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.miercolesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.juevesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.viernesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SabadoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DomingoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textboxDiagnostico = new Telerik.WinControls.UI.RadTextBoxControl();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.dropDownHoraTurno = new Telerik.WinControls.UI.RadDropDownList();
@@ -67,12 +58,21 @@ namespace Consultorio
             this.label1 = new System.Windows.Forms.Label();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.tbPrecioTurno = new Telerik.WinControls.UI.RadTextBox();
+            this.chbAsistio = new System.Windows.Forms.CheckBox();
+            this.chbAtendido = new System.Windows.Forms.CheckBox();
+            this.medicoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lunesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.martesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.miercolesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.juevesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viernesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBoxDescripcion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerTurno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBoxNotas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFechaTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelDescripcion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelHoainicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownListaPacientes)).BeginInit();
@@ -81,20 +81,20 @@ namespace Consultorio
             ((System.ComponentModel.ISupportInitialize)(this.radiobtnParticular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioBtnSeguroMedico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textboxDiagnostico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownHoraTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownEspecialidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPrecioTurno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.cancelButton.Location = new System.Drawing.Point(137, 276);
+            this.cancelButton.Location = new System.Drawing.Point(425, 276);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(97, 33);
             this.cancelButton.TabIndex = 10;
@@ -105,7 +105,7 @@ namespace Consultorio
             // saveButton
             // 
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.saveButton.Location = new System.Drawing.Point(12, 276);
+            this.saveButton.Location = new System.Drawing.Point(270, 276);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(97, 33);
             this.saveButton.TabIndex = 9;
@@ -113,56 +113,47 @@ namespace Consultorio
             this.saveButton.ThemeName = "MedicalAppTheme";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // txtBoxDescripcion
+            // txtBoxNotas
             // 
-            this.txtBoxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(273, 239);
-            this.txtBoxDescripcion.Multiline = true;
-            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(252, 69);
-            this.txtBoxDescripcion.TabIndex = 8;
-            this.txtBoxDescripcion.ThemeName = "MedicalAppTheme";
+            this.txtBoxNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNotas.Location = new System.Drawing.Point(270, 120);
+            this.txtBoxNotas.Multiline = true;
+            this.txtBoxNotas.Name = "txtBoxNotas";
+            this.txtBoxNotas.Size = new System.Drawing.Size(252, 140);
+            this.txtBoxNotas.TabIndex = 8;
+            this.txtBoxNotas.ThemeName = "MedicalAppTheme";
             // 
-            // dateTimePickerTurno
+            // dtpFechaTurno
             // 
-            this.dateTimePickerTurno.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePickerTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerTurno.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerTurno.Location = new System.Drawing.Point(12, 72);
-            this.dateTimePickerTurno.Name = "dateTimePickerTurno";
-            this.dateTimePickerTurno.Size = new System.Drawing.Size(117, 19);
-            this.dateTimePickerTurno.TabIndex = 2;
-            this.dateTimePickerTurno.TabStop = false;
-            this.dateTimePickerTurno.Text = "17/06/2018";
-            this.dateTimePickerTurno.Value = new System.DateTime(2018, 6, 17, 0, 0, 0, 0);
-            this.dateTimePickerTurno.ValueChanged += new System.EventHandler(this.dateTimePickerTurno_ValueChanged);
+            this.dtpFechaTurno.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaTurno.Enabled = false;
+            this.dtpFechaTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaTurno.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaTurno.Location = new System.Drawing.Point(12, 72);
+            this.dtpFechaTurno.Name = "dtpFechaTurno";
+            this.dtpFechaTurno.Size = new System.Drawing.Size(117, 19);
+            this.dtpFechaTurno.TabIndex = 2;
+            this.dtpFechaTurno.TabStop = false;
+            this.dtpFechaTurno.Text = "17/06/2018";
+            this.dtpFechaTurno.Value = new System.DateTime(2018, 6, 17, 0, 0, 0, 0);
+            this.dtpFechaTurno.ValueChanged += new System.EventHandler(this.dateTimePickerTurno_ValueChanged);
             // 
             // labelDescripcion
             // 
-            this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescripcion.Location = new System.Drawing.Point(273, 216);
+            this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescripcion.Location = new System.Drawing.Point(270, 97);
             this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(39, 17);
+            this.labelDescripcion.Size = new System.Drawing.Size(40, 17);
             this.labelDescripcion.TabIndex = 0;
             this.labelDescripcion.Text = "Notas";
             this.labelDescripcion.ThemeName = "MedicalAppTheme";
             // 
-            // labelMedico
-            // 
-            this.labelMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMedico.Location = new System.Drawing.Point(273, 12);
-            this.labelMedico.Name = "labelMedico";
-            this.labelMedico.Size = new System.Drawing.Size(114, 17);
-            this.labelMedico.TabIndex = 0;
-            this.labelMedico.Text = "Seleccionar Médico";
-            this.labelMedico.ThemeName = "MedicalAppTheme";
-            // 
             // labelHoainicio
             // 
-            this.labelHoainicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHoainicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHoainicio.Location = new System.Drawing.Point(12, 53);
             this.labelHoainicio.Name = "labelHoainicio";
-            this.labelHoainicio.Size = new System.Drawing.Size(136, 17);
+            this.labelHoainicio.Size = new System.Drawing.Size(140, 17);
             this.labelHoainicio.TabIndex = 0;
             this.labelHoainicio.Text = "Fecha y Hora del Turno";
             this.labelHoainicio.ThemeName = "MedicalAppTheme";
@@ -170,10 +161,10 @@ namespace Consultorio
             // labelPaciente
             // 
             this.labelPaciente.BackColor = System.Drawing.Color.Transparent;
-            this.labelPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPaciente.Location = new System.Drawing.Point(12, 8);
             this.labelPaciente.Name = "labelPaciente";
-            this.labelPaciente.Size = new System.Drawing.Size(55, 17);
+            this.labelPaciente.Size = new System.Drawing.Size(57, 17);
             this.labelPaciente.TabIndex = 0;
             this.labelPaciente.Text = "Paciente";
             this.labelPaciente.ThemeName = "MedicalAppTheme";
@@ -182,6 +173,7 @@ namespace Consultorio
             // 
             this.dropDownListaPacientes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.dropDownListaPacientes.DisplayMember = "Apellidos";
+            this.dropDownListaPacientes.Enabled = false;
             this.dropDownListaPacientes.EnableKineticScrolling = true;
             this.dropDownListaPacientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dropDownListaPacientes.Location = new System.Drawing.Point(12, 29);
@@ -198,10 +190,10 @@ namespace Consultorio
             // lblFormaDePago
             // 
             this.lblFormaDePago.AutoSize = true;
-            this.lblFormaDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormaDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormaDePago.Location = new System.Drawing.Point(12, 174);
             this.lblFormaDePago.Name = "lblFormaDePago";
-            this.lblFormaDePago.Size = new System.Drawing.Size(92, 15);
+            this.lblFormaDePago.Size = new System.Drawing.Size(105, 15);
             this.lblFormaDePago.TabIndex = 8;
             this.lblFormaDePago.Text = "Forma de Pago";
             // 
@@ -214,10 +206,10 @@ namespace Consultorio
             // lblSeguroMedico
             // 
             this.lblSeguroMedico.AutoSize = true;
-            this.lblSeguroMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeguroMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeguroMedico.Location = new System.Drawing.Point(12, 221);
             this.lblSeguroMedico.Name = "lblSeguroMedico";
-            this.lblSeguroMedico.Size = new System.Drawing.Size(91, 15);
+            this.lblSeguroMedico.Size = new System.Drawing.Size(104, 15);
             this.lblSeguroMedico.TabIndex = 9;
             this.lblSeguroMedico.Text = "Seguro Médico";
             // 
@@ -237,6 +229,7 @@ namespace Consultorio
             // radiobtnParticular
             // 
             this.radiobtnParticular.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.radiobtnParticular.Enabled = false;
             this.radiobtnParticular.Location = new System.Drawing.Point(12, 194);
             this.radiobtnParticular.Name = "radiobtnParticular";
             this.radiobtnParticular.Size = new System.Drawing.Size(67, 18);
@@ -246,6 +239,7 @@ namespace Consultorio
             // 
             // radioBtnSeguroMedico
             // 
+            this.radioBtnSeguroMedico.Enabled = false;
             this.radioBtnSeguroMedico.Location = new System.Drawing.Point(86, 193);
             this.radioBtnSeguroMedico.Name = "radioBtnSeguroMedico";
             this.radioBtnSeguroMedico.Size = new System.Drawing.Size(96, 18);
@@ -263,14 +257,14 @@ namespace Consultorio
             this.dgvMedicos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvMedicos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvMedicos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.medicoIdDataGridViewTextBoxColumn,
@@ -283,24 +277,141 @@ namespace Consultorio
             this.SabadoHorario,
             this.DomingoHorario});
             this.dgvMedicos.DataSource = this.medicoVMBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMedicos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMedicos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvMedicos.Enabled = false;
             this.dgvMedicos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(242)))));
-            this.dgvMedicos.Location = new System.Drawing.Point(273, 35);
+            this.dgvMedicos.Location = new System.Drawing.Point(270, 14);
             this.dgvMedicos.MultiSelect = false;
             this.dgvMedicos.Name = "dgvMedicos";
             this.dgvMedicos.ReadOnly = true;
             this.dgvMedicos.RowHeadersVisible = false;
             this.dgvMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicos.Size = new System.Drawing.Size(517, 175);
+            this.dgvMedicos.Size = new System.Drawing.Size(517, 63);
             this.dgvMedicos.TabIndex = 11;
             this.dgvMedicos.Click += new System.EventHandler(this.dgvMedicos_Click);
+            // 
+            // SabadoHorario
+            // 
+            this.SabadoHorario.DataPropertyName = "SabadoHorario";
+            this.SabadoHorario.HeaderText = "Sábado";
+            this.SabadoHorario.Name = "SabadoHorario";
+            this.SabadoHorario.ReadOnly = true;
+            this.SabadoHorario.Visible = false;
+            this.SabadoHorario.Width = 60;
+            // 
+            // DomingoHorario
+            // 
+            this.DomingoHorario.DataPropertyName = "DomingoHorario";
+            this.DomingoHorario.HeaderText = "Domingo";
+            this.DomingoHorario.Name = "DomingoHorario";
+            this.DomingoHorario.ReadOnly = true;
+            this.DomingoHorario.Visible = false;
+            this.DomingoHorario.Width = 65;
+            // 
+            // textboxDiagnostico
+            // 
+            this.textboxDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxDiagnostico.Location = new System.Drawing.Point(535, 120);
+            this.textboxDiagnostico.Multiline = true;
+            this.textboxDiagnostico.Name = "textboxDiagnostico";
+            this.textboxDiagnostico.Size = new System.Drawing.Size(252, 189);
+            this.textboxDiagnostico.TabIndex = 13;
+            this.textboxDiagnostico.ThemeName = "MedicalAppTheme";
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel1.Location = new System.Drawing.Point(535, 97);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(74, 17);
+            this.radLabel1.TabIndex = 12;
+            this.radLabel1.Text = "Diagnóstico";
+            this.radLabel1.ThemeName = "MedicalAppTheme";
+            // 
+            // dropDownHoraTurno
+            // 
+            this.dropDownHoraTurno.DisplayMember = "-1";
+            this.dropDownHoraTurno.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
+            this.dropDownHoraTurno.Enabled = false;
+            this.dropDownHoraTurno.Location = new System.Drawing.Point(153, 72);
+            this.dropDownHoraTurno.Name = "dropDownHoraTurno";
+            this.dropDownHoraTurno.Size = new System.Drawing.Size(81, 20);
+            this.dropDownHoraTurno.TabIndex = 14;
+            this.dropDownHoraTurno.Text = "-";
+            this.dropDownHoraTurno.ValueMember = "-1";
+            // 
+            // dropDownEspecialidades
+            // 
+            this.dropDownEspecialidades.DisplayMember = "Nombre";
+            this.dropDownEspecialidades.Enabled = false;
+            this.dropDownEspecialidades.EnableKineticScrolling = true;
+            this.dropDownEspecialidades.Location = new System.Drawing.Point(12, 118);
+            this.dropDownEspecialidades.Name = "dropDownEspecialidades";
+            this.dropDownEspecialidades.Size = new System.Drawing.Size(224, 20);
+            this.dropDownEspecialidades.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
+            this.dropDownEspecialidades.TabIndex = 15;
+            this.dropDownEspecialidades.ThemeName = "ControlDefault";
+            this.dropDownEspecialidades.ValueMember = "IdSeguroMedico";
+            this.dropDownEspecialidades.SelectedValueChanged += new System.EventHandler(this.dropDownEspecialidades_SelectedValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 15);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Especialidad Médico";
+            // 
+            // radLabel2
+            // 
+            this.radLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel2.Location = new System.Drawing.Point(12, 144);
+            this.radLabel2.Name = "radLabel2";
+            this.radLabel2.Size = new System.Drawing.Size(84, 17);
+            this.radLabel2.TabIndex = 17;
+            this.radLabel2.Text = "Precio Turno:";
+            this.radLabel2.ThemeName = "MedicalAppTheme";
+            // 
+            // tbPrecioTurno
+            // 
+            this.tbPrecioTurno.Enabled = false;
+            this.tbPrecioTurno.Location = new System.Drawing.Point(99, 143);
+            this.tbPrecioTurno.Name = "tbPrecioTurno";
+            this.tbPrecioTurno.Size = new System.Drawing.Size(83, 20);
+            this.tbPrecioTurno.TabIndex = 18;
+            this.tbPrecioTurno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radTextBox1_KeyPress);
+            // 
+            // chbAsistio
+            // 
+            this.chbAsistio.AutoSize = true;
+            this.chbAsistio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbAsistio.Location = new System.Drawing.Point(17, 282);
+            this.chbAsistio.Name = "chbAsistio";
+            this.chbAsistio.Size = new System.Drawing.Size(76, 19);
+            this.chbAsistio.TabIndex = 19;
+            this.chbAsistio.Text = "Asistió?";
+            this.chbAsistio.UseVisualStyleBackColor = true;
+            // 
+            // chbAtendido
+            // 
+            this.chbAtendido.AutoSize = true;
+            this.chbAtendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbAtendido.Location = new System.Drawing.Point(144, 282);
+            this.chbAtendido.Name = "chbAtendido";
+            this.chbAtendido.Size = new System.Drawing.Size(90, 19);
+            this.chbAtendido.TabIndex = 20;
+            this.chbAtendido.Text = "Atendido?";
+            this.chbAtendido.UseVisualStyleBackColor = true;
             // 
             // medicoIdDataGridViewTextBoxColumn
             // 
@@ -358,100 +469,9 @@ namespace Consultorio
             this.viernesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
             this.viernesHorarioDataGridViewTextBoxColumn.Width = 75;
             // 
-            // SabadoHorario
-            // 
-            this.SabadoHorario.DataPropertyName = "SabadoHorario";
-            this.SabadoHorario.HeaderText = "Sábado";
-            this.SabadoHorario.Name = "SabadoHorario";
-            this.SabadoHorario.ReadOnly = true;
-            this.SabadoHorario.Visible = false;
-            this.SabadoHorario.Width = 60;
-            // 
-            // DomingoHorario
-            // 
-            this.DomingoHorario.DataPropertyName = "DomingoHorario";
-            this.DomingoHorario.HeaderText = "Domingo";
-            this.DomingoHorario.Name = "DomingoHorario";
-            this.DomingoHorario.ReadOnly = true;
-            this.DomingoHorario.Visible = false;
-            this.DomingoHorario.Width = 65;
-            // 
             // medicoVMBindingSource
             // 
             this.medicoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.MedicoVM);
-            // 
-            // textboxDiagnostico
-            // 
-            this.textboxDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxDiagnostico.Location = new System.Drawing.Point(538, 239);
-            this.textboxDiagnostico.Multiline = true;
-            this.textboxDiagnostico.Name = "textboxDiagnostico";
-            this.textboxDiagnostico.Size = new System.Drawing.Size(252, 69);
-            this.textboxDiagnostico.TabIndex = 13;
-            this.textboxDiagnostico.ThemeName = "MedicalAppTheme";
-            // 
-            // radLabel1
-            // 
-            this.radLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(538, 216);
-            this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(71, 17);
-            this.radLabel1.TabIndex = 12;
-            this.radLabel1.Text = "Diagnóstico";
-            this.radLabel1.ThemeName = "MedicalAppTheme";
-            // 
-            // dropDownHoraTurno
-            // 
-            this.dropDownHoraTurno.DisplayMember = "-1";
-            this.dropDownHoraTurno.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.dropDownHoraTurno.Location = new System.Drawing.Point(153, 72);
-            this.dropDownHoraTurno.Name = "dropDownHoraTurno";
-            this.dropDownHoraTurno.Size = new System.Drawing.Size(81, 20);
-            this.dropDownHoraTurno.TabIndex = 14;
-            this.dropDownHoraTurno.Text = "-";
-            this.dropDownHoraTurno.ValueMember = "-1";
-            // 
-            // dropDownEspecialidades
-            // 
-            this.dropDownEspecialidades.DisplayMember = "Nombre";
-            this.dropDownEspecialidades.EnableKineticScrolling = true;
-            this.dropDownEspecialidades.Location = new System.Drawing.Point(12, 118);
-            this.dropDownEspecialidades.Name = "dropDownEspecialidades";
-            this.dropDownEspecialidades.Size = new System.Drawing.Size(224, 20);
-            this.dropDownEspecialidades.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
-            this.dropDownEspecialidades.TabIndex = 15;
-            this.dropDownEspecialidades.ThemeName = "ControlDefault";
-            this.dropDownEspecialidades.ValueMember = "IdSeguroMedico";
-            this.dropDownEspecialidades.SelectedValueChanged += new System.EventHandler(this.dropDownEspecialidades_SelectedValueChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 15);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Especialidad Médico";
-            // 
-            // radLabel2
-            // 
-            this.radLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(12, 144);
-            this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(81, 17);
-            this.radLabel2.TabIndex = 17;
-            this.radLabel2.Text = "Precio Turno:";
-            this.radLabel2.ThemeName = "MedicalAppTheme";
-            // 
-            // tbPrecioTurno
-            // 
-            this.tbPrecioTurno.Location = new System.Drawing.Point(99, 143);
-            this.tbPrecioTurno.Name = "tbPrecioTurno";
-            this.tbPrecioTurno.Size = new System.Drawing.Size(83, 20);
-            this.tbPrecioTurno.TabIndex = 18;
-            this.tbPrecioTurno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radTextBox1_KeyPress);
             // 
             // EditarTurnoMedico
             // 
@@ -460,6 +480,8 @@ namespace Consultorio
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(799, 321);
+            this.Controls.Add(this.chbAtendido);
+            this.Controls.Add(this.chbAsistio);
             this.Controls.Add(this.tbPrecioTurno);
             this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.dropDownEspecialidades);
@@ -475,10 +497,9 @@ namespace Consultorio
             this.Controls.Add(this.lblFormaDePago);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.txtBoxDescripcion);
-            this.Controls.Add(this.dateTimePickerTurno);
+            this.Controls.Add(this.txtBoxNotas);
+            this.Controls.Add(this.dtpFechaTurno);
             this.Controls.Add(this.labelDescripcion);
-            this.Controls.Add(this.labelMedico);
             this.Controls.Add(this.labelHoainicio);
             this.Controls.Add(this.labelPaciente);
             this.Controls.Add(this.dropDownListaPacientes);
@@ -490,10 +511,9 @@ namespace Consultorio
             this.Load += new System.EventHandler(this.NuevoTurno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBoxDescripcion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerTurno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBoxNotas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFechaTurno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelDescripcion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelHoainicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelPaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownListaPacientes)).EndInit();
@@ -502,13 +522,13 @@ namespace Consultorio
             ((System.ComponentModel.ISupportInitialize)(this.radiobtnParticular)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioBtnSeguroMedico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textboxDiagnostico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownHoraTurno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownEspecialidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPrecioTurno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,10 +538,9 @@ namespace Consultorio
 
         private Telerik.WinControls.UI.RadButton cancelButton;
         private Telerik.WinControls.UI.RadButton saveButton;
-        private Telerik.WinControls.UI.RadTextBoxControl txtBoxDescripcion;
-        private Telerik.WinControls.UI.RadDateTimePicker dateTimePickerTurno;
+        private Telerik.WinControls.UI.RadTextBoxControl txtBoxNotas;
+        private Telerik.WinControls.UI.RadDateTimePicker dtpFechaTurno;
         private Telerik.WinControls.UI.RadLabel labelDescripcion;
-        private Telerik.WinControls.UI.RadLabel labelMedico;
         private Telerik.WinControls.UI.RadLabel labelHoainicio;
         private Telerik.WinControls.UI.RadLabel labelPaciente;
         private Telerik.WinControls.UI.RadDropDownList dropDownListaPacientes;
@@ -551,5 +570,7 @@ namespace Consultorio
         private System.Windows.Forms.DataGridViewTextBoxColumn viernesHorarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SabadoHorario;
         private System.Windows.Forms.DataGridViewTextBoxColumn DomingoHorario;
+        private System.Windows.Forms.CheckBox chbAtendido;
+        private System.Windows.Forms.CheckBox chbAsistio;
     }
 }

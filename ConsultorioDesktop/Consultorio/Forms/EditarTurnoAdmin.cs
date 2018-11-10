@@ -13,9 +13,10 @@ namespace Consultorio
 {
     public partial class EditarTurnoAdmin : Form
     {
+        private Turno _turnoOriginal;
         private int horaTurno;
         private int minutosTurno;
-        private bool __turnoAgregado = false;
+        private bool _turnoFueModificado = false;
         private string _bodyTemplate =
         @"<h2>Detalles del Turno</h2>
             <div>
@@ -39,10 +40,16 @@ namespace Consultorio
                 </dl>
             </div><hr />";
 
-        public EditarTurnoAdmin()
+        public EditarTurnoAdmin(int idTurno)
         {
             InitializeComponent();
-            dateTimePickerTurno.MinDate = DateTime.Now.Date; // No se puede sacar un turno para "ayer"
+            dtpFechaTurno.MinDate = DateTime.Now.Date; // No se puede sacar un turno para "ayer"
+            using (var entidades = new ClinicaEntities())
+            {
+                this._turnoOriginal = entidades.Turno.Include(x => x.FormaDePago).Include(x => x.Medico).Include(x => x.Paciente)
+                    .Include(x => x.Medico).Include(x => x.SegurosMedico).Include(x => x.Especialidad)
+                    .First(x => x.IdTurno == idTurno);
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -57,59 +64,41 @@ namespace Consultorio
             if (!ValidarCamposObligatorios())
                 return;
 
-            var fechaTurno = new DateTime(dateTimePickerTurno.Value.Year, dateTimePickerTurno.Value.Month, dateTimePickerTurno.Value.Day, horaTurno, minutosTurno, 0);
+            var fechaTurno = new DateTime(dtpFechaTurno.Value.Year, dtpFechaTurno.Value.Month, dtpFechaTurno.Value.Day, horaTurno, minutosTurno, 0);
             if (!ValidarFechaDelTurno(fechaTurno))
                 return;
 
-            try
+            using (var entidades = new ClinicaEntities())
             {
-                var nuevoTurno = new Turno
+                using (var entidadesTransaction = entidades.Database.BeginTransaction())
                 {
-                    Atendido = false,
-                    FechaYHora = fechaTurno,
-                    Asistio = false,
-                    IdPaciente = (int)dropDownListaPacientes.SelectedValue,
-                    IdMedico = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem).MedicoId,
-                    IdEspecialidadMedico = (int)dropDownEspecialidades.SelectedValue,
-                    PrecioTurno = decimal.Parse(tbPrecioTurno.Text),
-                    Diagnostico = textboxDiagnostico.Text,
-                    Descripcion = txtBoxDescripcion.Text,
-                    IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Obra Social*/,
-                    IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null,
-                };
-
-                using (var entidades = new ClinicaEntities())
-                {
-                    using (var entidadesTransaction = entidades.Database.BeginTransaction())
+                    try
                     {
-                        try
-                        {
-                            entidades.Turno.Add(nuevoTurno);
-                            entidades.SaveChanges();
-                            EnviarNotificacionAlPaciente(entidades, nuevoTurno.IdTurno);
-                            entidadesTransaction.Commit();
-                            MessageBox.Show("Turno creado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (MessageBox.Show("Desea agregar otro Turno?", "TurnARG", MessageBoxButtons.YesNo) == DialogResult.No)
-                            {
-                                __turnoAgregado = true;
-                                this.Close();
-                            }
-                            else
-                            {
-                                LimpiarRegistros();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            entidadesTransaction.Rollback();
-                            MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        var turnoDB = entidades.Turno.Single(x => x.IdTurno == this._turnoOriginal.IdTurno);
+                        turnoDB.Atendido = false;
+                        turnoDB.FechaYHora = fechaTurno;
+                        turnoDB.Asistio = false;
+                        turnoDB.IdPaciente = (int)dropDownListaPacientes.SelectedValue;
+                        turnoDB.IdMedico = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem).MedicoId;
+                        turnoDB.IdEspecialidadMedico = (int)dropDownEspecialidades.SelectedValue;
+                        turnoDB.PrecioTurno = decimal.Parse(tbPrecioTurno.Text);
+                        turnoDB.Diagnostico = textboxDiagnostico.Text;
+                        turnoDB.Descripcion = txtBoxNotas.Text;
+                        turnoDB.IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/;
+                        turnoDB.IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null;
+                        entidades.SaveChanges();
+                        EnviarNotificacionAlPaciente(entidades, turnoDB.IdTurno);
+                        entidadesTransaction.Commit();
+                        MessageBox.Show("Turno modificado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _turnoFueModificado = true;
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        entidadesTransaction.Rollback();
+                        MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -127,7 +116,7 @@ namespace Consultorio
         {
             var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
             var pacienteEmail = turnoDB.Paciente.Email;
-            var emailSubject = string.Format("Nuevo Turno para el {0} a las {1} hs.", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
+            var emailSubject = string.Format("Turno Modificado - El Nuevo Turno es para el {0} a las {1} hs.", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
             var emailBody = string.Format(_bodyTemplate,
                 turnoDB.FechaYHora.ToString("dd/MM/yyyy HH:mm"),
                 turnoDB.Paciente.Apellidos + ", " + turnoDB.Paciente.Nombres,
@@ -170,16 +159,6 @@ namespace Consultorio
             return new Tuple<bool, string>(true, "Correo electrónico enviado con Éxito.");
         }
 
-        private void LimpiarRegistros()
-        {
-            dropDownListaPacientes.SelectedIndex = 0;
-            dropDownSegurosMedicos.SelectedIndex = 0;
-            txtBoxDescripcion.Clear();
-            textboxDiagnostico.Clear();
-            radiobtnParticular.CheckState = CheckState.Checked;
-            radioBtnSeguroMedico.CheckState = CheckState.Unchecked;
-        }
-
         private void NuevoTurno_Load(object sender, EventArgs e)
         {
             CargarMedicos();
@@ -187,6 +166,46 @@ namespace Consultorio
             CargarSegurosMedico();
             FiltrarCargarHorariosMedicoEnDropDown();
             CargarEspecialidesEnDropDown();
+            CargarDatosEnPantalla();
+        }
+        private void CargarDatosEnPantalla()
+        {
+            try
+            {
+                using (var entidades = new ClinicaEntities())
+                {
+                    var turno = entidades.Turno.Include(x => x.FormaDePago).Include(x => x.Medico).Include(x => x.Paciente)
+                        .Include(x => x.Medico).Include(x => x.SegurosMedico).Include(x => x.Especialidad)
+                        .First(x => x.IdTurno == this._turnoOriginal.IdTurno);
+
+                    dropDownListaPacientes.SelectedValue = turno.IdPaciente;
+                    foreach (DataGridViewRow row in dgvMedicos.Rows)
+                    {
+                        // Index 0 es MedicoId
+                        if (row.Cells[0].Value.ToString().Equals(turno.IdMedico.ToString()))
+                        {
+                            dgvMedicos.CurrentCell = dgvMedicos.Rows[row.Index].Cells[1];
+                            row.Selected = true;
+                            break;
+                        }
+                    }
+
+                    dtpFechaTurno.Value = turno.FechaYHora.Date;
+                    dropDownHoraTurno.SelectedValue = turno.FechaYHora.ToString("HH:mm");
+                    CargarEspecialidesEnDropDown();
+                    dropDownEspecialidades.SelectedValue = turno.IdEspecialidadMedico;
+                    tbPrecioTurno.Text = turno.PrecioTurno.ToString("0.##");
+                    radiobtnParticular.IsChecked = turno.IdFormaDePago == 1;/*Particular*/
+                    radioBtnSeguroMedico.IsChecked = turno.IdFormaDePago == 2;/*Seguro Médico*/
+                    dropDownSegurosMedicos.SelectedValue = turno.IdSeguroMedico;
+                    txtBoxNotas.Text = turno.Descripcion;
+                    textboxDiagnostico.Text = turno.Diagnostico;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CargarSegurosMedico()
@@ -338,7 +357,7 @@ namespace Consultorio
             {
                 List<string> horarios = new List<string>();
                 var medicoSeleccionado = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem);
-                switch (dateTimePickerTurno.Value.DayOfWeek)
+                switch (dtpFechaTurno.Value.DayOfWeek)
                 {
                     case DayOfWeek.Monday:
                         horarios = ObtenerHorariosPorDia(medicoSeleccionado.LunesHorario);
@@ -366,7 +385,7 @@ namespace Consultorio
                 using (var entidades = new ClinicaEntities())
                 {
                     turnosOcupadosDelDia =
-                             entidades.Turno.Where(x => x.IdMedico == medicoSeleccionado.MedicoId && EntityFunctions.TruncateTime(x.FechaYHora) == dateTimePickerTurno.Value.Date)
+                             entidades.Turno.Where(x => x.IdMedico == medicoSeleccionado.MedicoId && EntityFunctions.TruncateTime(x.FechaYHora) == dtpFechaTurno.Value.Date)
                                             .ToList().Select(x => x.FechaYHora.ToString("HH:mm")).ToList();
                 }
                 dropDownHoraTurno.DataSource = horarios.Except(turnosOcupadosDelDia).ToList(); ;
@@ -397,7 +416,7 @@ namespace Consultorio
 
         private void NuevoTurno_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!__turnoAgregado)
+            if (!_turnoFueModificado)
             {
                 if (MessageBox.Show("¿Esta seguro que desea salir?.Los datos no guardados se perderán.", "TurnARG",
                      MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)

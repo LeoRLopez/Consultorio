@@ -36,7 +36,7 @@ namespace Consultorio
             this.cancelButton = new Telerik.WinControls.UI.RadButton();
             this.saveButton = new Telerik.WinControls.UI.RadButton();
             this.txtBoxDescripcion = new Telerik.WinControls.UI.RadTextBoxControl();
-            this.dateTimePickerTurno = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.dtpFechaTurno = new Telerik.WinControls.UI.RadDateTimePicker();
             this.labelDescripcion = new Telerik.WinControls.UI.RadLabel();
             this.labelMedico = new Telerik.WinControls.UI.RadLabel();
             this.labelHoainicio = new Telerik.WinControls.UI.RadLabel();
@@ -70,7 +70,7 @@ namespace Consultorio
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxDescripcion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerTurno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFechaTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelDescripcion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelHoainicio)).BeginInit();
@@ -123,46 +123,46 @@ namespace Consultorio
             this.txtBoxDescripcion.TabIndex = 8;
             this.txtBoxDescripcion.ThemeName = "MedicalAppTheme";
             // 
-            // dateTimePickerTurno
+            // dtpFechaTurno
             // 
-            this.dateTimePickerTurno.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePickerTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerTurno.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerTurno.Location = new System.Drawing.Point(12, 72);
-            this.dateTimePickerTurno.Name = "dateTimePickerTurno";
-            this.dateTimePickerTurno.Size = new System.Drawing.Size(117, 19);
-            this.dateTimePickerTurno.TabIndex = 2;
-            this.dateTimePickerTurno.TabStop = false;
-            this.dateTimePickerTurno.Text = "17/06/2018";
-            this.dateTimePickerTurno.Value = new System.DateTime(2018, 6, 17, 0, 0, 0, 0);
-            this.dateTimePickerTurno.ValueChanged += new System.EventHandler(this.dateTimePickerTurno_ValueChanged);
+            this.dtpFechaTurno.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaTurno.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaTurno.Location = new System.Drawing.Point(12, 72);
+            this.dtpFechaTurno.Name = "dtpFechaTurno";
+            this.dtpFechaTurno.Size = new System.Drawing.Size(117, 19);
+            this.dtpFechaTurno.TabIndex = 2;
+            this.dtpFechaTurno.TabStop = false;
+            this.dtpFechaTurno.Text = "17/06/2018";
+            this.dtpFechaTurno.Value = new System.DateTime(2018, 6, 17, 0, 0, 0, 0);
+            this.dtpFechaTurno.ValueChanged += new System.EventHandler(this.dateTimePickerTurno_ValueChanged);
             // 
             // labelDescripcion
             // 
-            this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescripcion.Location = new System.Drawing.Point(273, 216);
             this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(39, 17);
+            this.labelDescripcion.Size = new System.Drawing.Size(40, 17);
             this.labelDescripcion.TabIndex = 0;
             this.labelDescripcion.Text = "Notas";
             this.labelDescripcion.ThemeName = "MedicalAppTheme";
             // 
             // labelMedico
             // 
-            this.labelMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMedico.Location = new System.Drawing.Point(273, 12);
             this.labelMedico.Name = "labelMedico";
-            this.labelMedico.Size = new System.Drawing.Size(114, 17);
+            this.labelMedico.Size = new System.Drawing.Size(119, 17);
             this.labelMedico.TabIndex = 0;
             this.labelMedico.Text = "Seleccionar Médico";
             this.labelMedico.ThemeName = "MedicalAppTheme";
             // 
             // labelHoainicio
             // 
-            this.labelHoainicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHoainicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHoainicio.Location = new System.Drawing.Point(12, 53);
             this.labelHoainicio.Name = "labelHoainicio";
-            this.labelHoainicio.Size = new System.Drawing.Size(136, 17);
+            this.labelHoainicio.Size = new System.Drawing.Size(140, 17);
             this.labelHoainicio.TabIndex = 0;
             this.labelHoainicio.Text = "Fecha y Hora del Turno";
             this.labelHoainicio.ThemeName = "MedicalAppTheme";
@@ -170,10 +170,10 @@ namespace Consultorio
             // labelPaciente
             // 
             this.labelPaciente.BackColor = System.Drawing.Color.Transparent;
-            this.labelPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPaciente.Location = new System.Drawing.Point(12, 8);
             this.labelPaciente.Name = "labelPaciente";
-            this.labelPaciente.Size = new System.Drawing.Size(55, 17);
+            this.labelPaciente.Size = new System.Drawing.Size(57, 17);
             this.labelPaciente.TabIndex = 0;
             this.labelPaciente.Text = "Paciente";
             this.labelPaciente.ThemeName = "MedicalAppTheme";
@@ -198,10 +198,10 @@ namespace Consultorio
             // lblFormaDePago
             // 
             this.lblFormaDePago.AutoSize = true;
-            this.lblFormaDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormaDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormaDePago.Location = new System.Drawing.Point(12, 174);
             this.lblFormaDePago.Name = "lblFormaDePago";
-            this.lblFormaDePago.Size = new System.Drawing.Size(92, 15);
+            this.lblFormaDePago.Size = new System.Drawing.Size(105, 15);
             this.lblFormaDePago.TabIndex = 8;
             this.lblFormaDePago.Text = "Forma de Pago";
             // 
@@ -214,10 +214,10 @@ namespace Consultorio
             // lblSeguroMedico
             // 
             this.lblSeguroMedico.AutoSize = true;
-            this.lblSeguroMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeguroMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeguroMedico.Location = new System.Drawing.Point(12, 221);
             this.lblSeguroMedico.Name = "lblSeguroMedico";
-            this.lblSeguroMedico.Size = new System.Drawing.Size(91, 15);
+            this.lblSeguroMedico.Size = new System.Drawing.Size(104, 15);
             this.lblSeguroMedico.TabIndex = 9;
             this.lblSeguroMedico.Text = "Seguro Médico";
             // 
@@ -392,10 +392,10 @@ namespace Consultorio
             // 
             // radLabel1
             // 
-            this.radLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel1.Location = new System.Drawing.Point(538, 216);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(71, 17);
+            this.radLabel1.Size = new System.Drawing.Size(74, 17);
             this.radLabel1.TabIndex = 12;
             this.radLabel1.Text = "Diagnóstico";
             this.radLabel1.ThemeName = "MedicalAppTheme";
@@ -427,20 +427,20 @@ namespace Consultorio
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 15);
+            this.label1.Size = new System.Drawing.Size(141, 15);
             this.label1.TabIndex = 16;
             this.label1.Text = "Especialidad Médico";
             // 
             // radLabel2
             // 
             this.radLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel2.Location = new System.Drawing.Point(12, 144);
             this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(81, 17);
+            this.radLabel2.Size = new System.Drawing.Size(84, 17);
             this.radLabel2.TabIndex = 17;
             this.radLabel2.Text = "Precio Turno:";
             this.radLabel2.ThemeName = "MedicalAppTheme";
@@ -476,7 +476,7 @@ namespace Consultorio
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.txtBoxDescripcion);
-            this.Controls.Add(this.dateTimePickerTurno);
+            this.Controls.Add(this.dtpFechaTurno);
             this.Controls.Add(this.labelDescripcion);
             this.Controls.Add(this.labelMedico);
             this.Controls.Add(this.labelHoainicio);
@@ -491,7 +491,7 @@ namespace Consultorio
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxDescripcion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerTurno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFechaTurno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelDescripcion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelHoainicio)).EndInit();
@@ -519,7 +519,7 @@ namespace Consultorio
         private Telerik.WinControls.UI.RadButton cancelButton;
         private Telerik.WinControls.UI.RadButton saveButton;
         private Telerik.WinControls.UI.RadTextBoxControl txtBoxDescripcion;
-        private Telerik.WinControls.UI.RadDateTimePicker dateTimePickerTurno;
+        private Telerik.WinControls.UI.RadDateTimePicker dtpFechaTurno;
         private Telerik.WinControls.UI.RadLabel labelDescripcion;
         private Telerik.WinControls.UI.RadLabel labelMedico;
         private Telerik.WinControls.UI.RadLabel labelHoainicio;

@@ -100,7 +100,7 @@ namespace Consultorio
 
         private void btnObrasSociales_Click(object sender, EventArgs e)
         {
-            ListadoObrasSociales frmp = new ListadoObrasSociales(__esAdministrador);
+            ListadoSegurosMedicos frmp = new ListadoSegurosMedicos(__esAdministrador);
             frmp.ShowDialog();
         }
 

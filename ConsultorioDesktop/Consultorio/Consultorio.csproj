@@ -145,11 +145,11 @@
     <Compile Include="Forms\AgregarEditarBancos.Designer.cs">
       <DependentUpon>AgregarEditarBancos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AgregarEditarObraSocial.cs">
+    <Compile Include="Forms\AgregarEditarSeguroMedico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AgregarEditarObraSocial.Designer.cs">
-      <DependentUpon>AgregarEditarObraSocial.cs</DependentUpon>
+    <Compile Include="Forms\AgregarEditarSeguroMedico.Designer.cs">
+      <DependentUpon>AgregarEditarSeguroMedico.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AgregarEditarEspecialidad.cs">
       <SubType>Form</SubType>
@@ -247,11 +247,11 @@
       <DependentUpon>AgregarPersonalInterno.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\IniciarSesionEventArgs.cs" />
-    <Compile Include="Forms\ListadoObrasSociales.cs">
+    <Compile Include="Forms\ListadoSegurosMedicos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ListadoObrasSociales.Designer.cs">
-      <DependentUpon>ListadoObrasSociales.cs</DependentUpon>
+    <Compile Include="Forms\ListadoSegurosMedicos.Designer.cs">
+      <DependentUpon>ListadoSegurosMedicos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\InicioSesion.cs">
       <SubType>Form</SubType>
@@ -401,8 +401,8 @@
     <EmbeddedResource Include="Forms\AgregarEditarBancos.resx">
       <DependentUpon>AgregarEditarBancos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AgregarEditarObraSocial.resx">
-      <DependentUpon>AgregarEditarObraSocial.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AgregarEditarSeguroMedico.resx">
+      <DependentUpon>AgregarEditarSeguroMedico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AgregarEditarEspecialidad.resx">
       <DependentUpon>AgregarEditarEspecialidad.cs</DependentUpon>
@@ -422,8 +422,8 @@
     <EmbeddedResource Include="Forms\ListadoFormasDePago.resx">
       <DependentUpon>ListadoFormasDePago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ListadoObrasSociales.resx">
-      <DependentUpon>ListadoObrasSociales.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ListadoSegurosMedicos.resx">
+      <DependentUpon>ListadoSegurosMedicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>

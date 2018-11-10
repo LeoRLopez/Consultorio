@@ -42,7 +42,7 @@ namespace Consultorio
         public AgregarTurno()
         {
             InitializeComponent();
-            dateTimePickerTurno.MinDate = DateTime.Now.Date; // No se puede sacar un turno para "ayer"
+            dtpFechaTurno.MinDate = DateTime.Now.Date; // No se puede sacar un turno para "ayer"
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace Consultorio
             if (!ValidarCamposObligatorios())
                 return;
 
-            var fechaTurno = new DateTime(dateTimePickerTurno.Value.Year, dateTimePickerTurno.Value.Month, dateTimePickerTurno.Value.Day, horaTurno, minutosTurno, 0);
+            var fechaTurno = new DateTime(dtpFechaTurno.Value.Year, dtpFechaTurno.Value.Month, dtpFechaTurno.Value.Day, horaTurno, minutosTurno, 0);
             if (!ValidarFechaDelTurno(fechaTurno))
                 return;
 
@@ -74,7 +74,7 @@ namespace Consultorio
                     PrecioTurno = decimal.Parse(tbPrecioTurno.Text),
                     Diagnostico = textboxDiagnostico.Text,
                     Descripcion = txtBoxDescripcion.Text,
-                    IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Obra Social*/,
+                    IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/,
                     IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null,
                 };
 
@@ -338,7 +338,7 @@ namespace Consultorio
             {
                 List<string> horarios = new List<string>();
                 var medicoSeleccionado = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem);
-                switch (dateTimePickerTurno.Value.DayOfWeek)
+                switch (dtpFechaTurno.Value.DayOfWeek)
                 {
                     case DayOfWeek.Monday:
                         horarios = ObtenerHorariosPorDia(medicoSeleccionado.LunesHorario);
@@ -366,7 +366,7 @@ namespace Consultorio
                 using (var entidades = new ClinicaEntities())
                 {
                     turnosOcupadosDelDia =
-                             entidades.Turno.Where(x => x.IdMedico == medicoSeleccionado.MedicoId && EntityFunctions.TruncateTime(x.FechaYHora) == dateTimePickerTurno.Value.Date)
+                             entidades.Turno.Where(x => x.IdMedico == medicoSeleccionado.MedicoId && EntityFunctions.TruncateTime(x.FechaYHora) == dtpFechaTurno.Value.Date)
                                             .ToList().Select(x => x.FechaYHora.ToString("HH:mm")).ToList();
                 }
                 dropDownHoraTurno.DataSource = horarios.Except(turnosOcupadosDelDia).ToList(); ;

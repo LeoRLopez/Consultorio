@@ -5,22 +5,22 @@ using System.Windows.Forms;
 
 namespace Consultorio.Forms
 {
-    public partial class AgregarEditarObraSocial : Form
+    public partial class AgregarEditarSeguroMedico : Form
     {
         private bool __esAgregar;
         private int __idObraSocialEditandose;
 
-        public AgregarEditarObraSocial()
+        public AgregarEditarSeguroMedico()
         {
             InitializeComponent();
-            this.Text = "Agregar Obra Social";
+            this.Text = "Agregar Seguro Médico";
             this.__esAgregar = true;
         }
 
-        public AgregarEditarObraSocial(SegurosMedico segurosMedico)
+        public AgregarEditarSeguroMedico(SegurosMedico segurosMedico)
         {
             InitializeComponent();
-            this.Text = "Editar Obra Social";
+            this.Text = "Editar Seguro Médico";
             this.__esAgregar = false;
             this.__idObraSocialEditandose = segurosMedico.IdSeguroMedico;
             this.tbNombre.Text = segurosMedico.Nombre;
