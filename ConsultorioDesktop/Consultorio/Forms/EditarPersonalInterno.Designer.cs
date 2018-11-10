@@ -55,8 +55,6 @@
             this.lblPais = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblContrasenia = new System.Windows.Forms.Label();
-            this.panelCebecera = new System.Windows.Forms.Panel();
-            this.lblNuevoPersonal = new System.Windows.Forms.Label();
             this.panelAccede = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.chbEsAdmin = new System.Windows.Forms.CheckBox();
@@ -106,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxTelefono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxDireccion)).BeginInit();
-            this.panelCebecera.SuspendLayout();
             this.panelAccede.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxUsuario)).BeginInit();
@@ -140,7 +137,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(16, 60);
+            this.lblNombre.Location = new System.Drawing.Point(16, 12);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 0;
@@ -149,7 +146,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(16, 100);
+            this.lblApellido.Location = new System.Drawing.Point(16, 52);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 1;
@@ -158,7 +155,7 @@
             // lblNacimiento
             // 
             this.lblNacimiento.AutoSize = true;
-            this.lblNacimiento.Location = new System.Drawing.Point(16, 139);
+            this.lblNacimiento.Location = new System.Drawing.Point(16, 91);
             this.lblNacimiento.Name = "lblNacimiento";
             this.lblNacimiento.Size = new System.Drawing.Size(106, 13);
             this.lblNacimiento.TabIndex = 2;
@@ -167,7 +164,7 @@
             // lblDocumento
             // 
             this.lblDocumento.AutoSize = true;
-            this.lblDocumento.Location = new System.Drawing.Point(16, 181);
+            this.lblDocumento.Location = new System.Drawing.Point(16, 133);
             this.lblDocumento.Name = "lblDocumento";
             this.lblDocumento.Size = new System.Drawing.Size(62, 13);
             this.lblDocumento.TabIndex = 3;
@@ -176,7 +173,7 @@
             // lblEstadoCivil
             // 
             this.lblEstadoCivil.AutoSize = true;
-            this.lblEstadoCivil.Location = new System.Drawing.Point(16, 309);
+            this.lblEstadoCivil.Location = new System.Drawing.Point(16, 261);
             this.lblEstadoCivil.Name = "lblEstadoCivil";
             this.lblEstadoCivil.Size = new System.Drawing.Size(62, 13);
             this.lblEstadoCivil.TabIndex = 4;
@@ -185,7 +182,7 @@
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(16, 265);
+            this.lblEdad.Location = new System.Drawing.Point(16, 217);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(32, 13);
             this.lblEdad.TabIndex = 5;
@@ -194,7 +191,7 @@
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
-            this.lblSexo.Location = new System.Drawing.Point(16, 224);
+            this.lblSexo.Location = new System.Drawing.Point(16, 176);
             this.lblSexo.Name = "lblSexo";
             this.lblSexo.Size = new System.Drawing.Size(31, 13);
             this.lblSexo.TabIndex = 6;
@@ -202,14 +199,14 @@
             // 
             // txtBoxNombre
             // 
-            this.txtBoxNombre.Location = new System.Drawing.Point(16, 77);
+            this.txtBoxNombre.Location = new System.Drawing.Point(16, 29);
             this.txtBoxNombre.Name = "txtBoxNombre";
             this.txtBoxNombre.Size = new System.Drawing.Size(164, 20);
             this.txtBoxNombre.TabIndex = 1;
             // 
             // txtBoxApellido
             // 
-            this.txtBoxApellido.Location = new System.Drawing.Point(16, 116);
+            this.txtBoxApellido.Location = new System.Drawing.Point(16, 68);
             this.txtBoxApellido.Name = "txtBoxApellido";
             this.txtBoxApellido.Size = new System.Drawing.Size(164, 20);
             this.txtBoxApellido.TabIndex = 2;
@@ -218,7 +215,7 @@
             // 
             this.dateTimePickerNacimiento.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(16, 155);
+            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(16, 107);
             this.dateTimePickerNacimiento.MaxDate = new System.DateTime(2018, 10, 17, 0, 0, 0, 0);
             this.dateTimePickerNacimiento.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
@@ -230,7 +227,7 @@
             // 
             // txtBoxDocumento
             // 
-            this.txtBoxDocumento.Location = new System.Drawing.Point(16, 201);
+            this.txtBoxDocumento.Location = new System.Drawing.Point(16, 153);
             this.txtBoxDocumento.Name = "txtBoxDocumento";
             this.txtBoxDocumento.Size = new System.Drawing.Size(164, 20);
             this.txtBoxDocumento.TabIndex = 4;
@@ -240,7 +237,7 @@
             // radioButtonMasculino
             // 
             this.radioButtonMasculino.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.radioButtonMasculino.Location = new System.Drawing.Point(16, 240);
+            this.radioButtonMasculino.Location = new System.Drawing.Point(16, 192);
             this.radioButtonMasculino.Name = "radioButtonMasculino";
             this.radioButtonMasculino.Size = new System.Drawing.Size(71, 18);
             this.radioButtonMasculino.TabIndex = 7;
@@ -249,7 +246,7 @@
             // 
             // radioButtonFemenino
             // 
-            this.radioButtonFemenino.Location = new System.Drawing.Point(91, 240);
+            this.radioButtonFemenino.Location = new System.Drawing.Point(91, 192);
             this.radioButtonFemenino.Name = "radioButtonFemenino";
             this.radioButtonFemenino.Size = new System.Drawing.Size(70, 18);
             this.radioButtonFemenino.TabIndex = 8;
@@ -258,7 +255,7 @@
             // 
             // txtBoxEdad
             // 
-            this.txtBoxEdad.Location = new System.Drawing.Point(16, 281);
+            this.txtBoxEdad.Location = new System.Drawing.Point(16, 233);
             this.txtBoxEdad.Name = "txtBoxEdad";
             this.txtBoxEdad.Size = new System.Drawing.Size(164, 20);
             this.txtBoxEdad.TabIndex = 5;
@@ -266,7 +263,7 @@
             // 
             // txtBoxEstadoCivil
             // 
-            this.txtBoxEstadoCivil.Location = new System.Drawing.Point(16, 325);
+            this.txtBoxEstadoCivil.Location = new System.Drawing.Point(16, 277);
             this.txtBoxEstadoCivil.Name = "txtBoxEstadoCivil";
             this.txtBoxEstadoCivil.Size = new System.Drawing.Size(164, 20);
             this.txtBoxEstadoCivil.TabIndex = 6;
@@ -274,7 +271,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(16, 348);
+            this.lblEmail.Location = new System.Drawing.Point(16, 300);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 11;
@@ -282,7 +279,7 @@
             // 
             // txtBoxEmail
             // 
-            this.txtBoxEmail.Location = new System.Drawing.Point(16, 364);
+            this.txtBoxEmail.Location = new System.Drawing.Point(16, 316);
             this.txtBoxEmail.Name = "txtBoxEmail";
             this.txtBoxEmail.Size = new System.Drawing.Size(164, 20);
             this.txtBoxEmail.TabIndex = 7;
@@ -290,7 +287,7 @@
             // 
             // txtBoxTelefono
             // 
-            this.txtBoxTelefono.Location = new System.Drawing.Point(199, 76);
+            this.txtBoxTelefono.Location = new System.Drawing.Point(199, 28);
             this.txtBoxTelefono.Name = "txtBoxTelefono";
             this.txtBoxTelefono.Size = new System.Drawing.Size(164, 20);
             this.txtBoxTelefono.TabIndex = 8;
@@ -299,7 +296,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(199, 60);
+            this.lblTelefono.Location = new System.Drawing.Point(199, 12);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(49, 13);
             this.lblTelefono.TabIndex = 14;
@@ -307,7 +304,7 @@
             // 
             // txtBoxDireccion
             // 
-            this.txtBoxDireccion.Location = new System.Drawing.Point(199, 115);
+            this.txtBoxDireccion.Location = new System.Drawing.Point(199, 67);
             this.txtBoxDireccion.Multiline = true;
             this.txtBoxDireccion.Name = "txtBoxDireccion";
             this.txtBoxDireccion.Size = new System.Drawing.Size(164, 59);
@@ -316,7 +313,7 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(199, 99);
+            this.lblDireccion.Location = new System.Drawing.Point(199, 51);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 16;
@@ -325,7 +322,7 @@
             // lblCiudad
             // 
             this.lblCiudad.AutoSize = true;
-            this.lblCiudad.Location = new System.Drawing.Point(199, 308);
+            this.lblCiudad.Location = new System.Drawing.Point(199, 260);
             this.lblCiudad.Name = "lblCiudad";
             this.lblCiudad.Size = new System.Drawing.Size(40, 13);
             this.lblCiudad.TabIndex = 18;
@@ -334,7 +331,7 @@
             // lblProvincia
             // 
             this.lblProvincia.AutoSize = true;
-            this.lblProvincia.Location = new System.Drawing.Point(199, 224);
+            this.lblProvincia.Location = new System.Drawing.Point(199, 176);
             this.lblProvincia.Name = "lblProvincia";
             this.lblProvincia.Size = new System.Drawing.Size(51, 13);
             this.lblProvincia.TabIndex = 20;
@@ -343,7 +340,7 @@
             // lblPais
             // 
             this.lblPais.AutoSize = true;
-            this.lblPais.Location = new System.Drawing.Point(199, 181);
+            this.lblPais.Location = new System.Drawing.Point(199, 133);
             this.lblPais.Name = "lblPais";
             this.lblPais.Size = new System.Drawing.Size(29, 13);
             this.lblPais.TabIndex = 22;
@@ -367,25 +364,6 @@
             this.lblContrasenia.TabIndex = 26;
             this.lblContrasenia.Text = "Contraseña";
             // 
-            // panelCebecera
-            // 
-            this.panelCebecera.Controls.Add(this.lblNuevoPersonal);
-            this.panelCebecera.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCebecera.Location = new System.Drawing.Point(0, 0);
-            this.panelCebecera.Name = "panelCebecera";
-            this.panelCebecera.Size = new System.Drawing.Size(705, 33);
-            this.panelCebecera.TabIndex = 30;
-            // 
-            // lblNuevoPersonal
-            // 
-            this.lblNuevoPersonal.AutoSize = true;
-            this.lblNuevoPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblNuevoPersonal.Location = new System.Drawing.Point(3, 9);
-            this.lblNuevoPersonal.Name = "lblNuevoPersonal";
-            this.lblNuevoPersonal.Size = new System.Drawing.Size(137, 24);
-            this.lblNuevoPersonal.TabIndex = 0;
-            this.lblNuevoPersonal.Text = "Editar Personal";
-            // 
             // panelAccede
             // 
             this.panelAccede.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -396,7 +374,7 @@
             this.panelAccede.Controls.Add(this.txtBoxUsuario);
             this.panelAccede.Controls.Add(this.lblContrasenia);
             this.panelAccede.Controls.Add(this.lblUsuario);
-            this.panelAccede.Location = new System.Drawing.Point(380, 82);
+            this.panelAccede.Location = new System.Drawing.Point(380, 34);
             this.panelAccede.Name = "panelAccede";
             this.panelAccede.Size = new System.Drawing.Size(280, 76);
             this.panelAccede.TabIndex = 31;
@@ -435,7 +413,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(199, 437);
+            this.btnCancelar.Location = new System.Drawing.Point(199, 389);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(164, 40);
             this.btnCancelar.TabIndex = 38;
@@ -444,7 +422,7 @@
             // 
             // btnGuardaar
             // 
-            this.btnGuardaar.Location = new System.Drawing.Point(16, 437);
+            this.btnGuardaar.Location = new System.Drawing.Point(16, 389);
             this.btnGuardaar.Name = "btnGuardaar";
             this.btnGuardaar.Size = new System.Drawing.Size(164, 37);
             this.btnGuardaar.TabIndex = 37;
@@ -471,7 +449,7 @@
             this.panelMedico.Controls.Add(this.lblMatricula);
             this.panelMedico.Controls.Add(this.lblEspecialidad);
             this.panelMedico.Enabled = false;
-            this.panelMedico.Location = new System.Drawing.Point(380, 196);
+            this.panelMedico.Location = new System.Drawing.Point(380, 148);
             this.panelMedico.Name = "panelMedico";
             this.panelMedico.Size = new System.Drawing.Size(313, 286);
             this.panelMedico.TabIndex = 34;
@@ -639,7 +617,7 @@
             // 
             this.dropDownPais.DisplayMember = "Nombre";
             this.dropDownPais.Enabled = false;
-            this.dropDownPais.Location = new System.Drawing.Point(199, 201);
+            this.dropDownPais.Location = new System.Drawing.Point(199, 153);
             this.dropDownPais.Name = "dropDownPais";
             this.dropDownPais.ReadOnly = true;
             this.dropDownPais.Size = new System.Drawing.Size(164, 20);
@@ -651,7 +629,7 @@
             // 
             this.dropDownProvincia.AutoScroll = true;
             this.dropDownProvincia.DisplayMember = "Nombre";
-            this.dropDownProvincia.Location = new System.Drawing.Point(199, 242);
+            this.dropDownProvincia.Location = new System.Drawing.Point(199, 194);
             this.dropDownProvincia.Name = "dropDownProvincia";
             this.dropDownProvincia.Size = new System.Drawing.Size(164, 20);
             this.dropDownProvincia.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
@@ -662,7 +640,7 @@
             // dropDownCiudad
             // 
             this.dropDownCiudad.DisplayMember = "Nombre";
-            this.dropDownCiudad.Location = new System.Drawing.Point(199, 324);
+            this.dropDownCiudad.Location = new System.Drawing.Point(199, 276);
             this.dropDownCiudad.Name = "dropDownCiudad";
             this.dropDownCiudad.Size = new System.Drawing.Size(164, 20);
             this.dropDownCiudad.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
@@ -673,7 +651,7 @@
             // dropDownDepartamento
             // 
             this.dropDownDepartamento.DisplayMember = "Nombre";
-            this.dropDownDepartamento.Location = new System.Drawing.Point(199, 281);
+            this.dropDownDepartamento.Location = new System.Drawing.Point(199, 233);
             this.dropDownDepartamento.Name = "dropDownDepartamento";
             this.dropDownDepartamento.Size = new System.Drawing.Size(164, 20);
             this.dropDownDepartamento.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
@@ -684,7 +662,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(199, 265);
+            this.label2.Location = new System.Drawing.Point(199, 217);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 40;
@@ -693,7 +671,7 @@
             // tbCodigoPostal
             // 
             this.tbCodigoPostal.IsReadOnly = true;
-            this.tbCodigoPostal.Location = new System.Drawing.Point(199, 363);
+            this.tbCodigoPostal.Location = new System.Drawing.Point(199, 315);
             this.tbCodigoPostal.Name = "tbCodigoPostal";
             this.tbCodigoPostal.Size = new System.Drawing.Size(164, 20);
             this.tbCodigoPostal.TabIndex = 41;
@@ -701,7 +679,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(199, 347);
+            this.label3.Location = new System.Drawing.Point(199, 299);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 42;
@@ -710,7 +688,7 @@
             // lblAccede
             // 
             this.lblAccede.AutoSize = true;
-            this.lblAccede.Location = new System.Drawing.Point(5, 16);
+            this.lblAccede.Location = new System.Drawing.Point(2, 8);
             this.lblAccede.Name = "lblAccede";
             this.lblAccede.Size = new System.Drawing.Size(138, 13);
             this.lblAccede.TabIndex = 27;
@@ -723,9 +701,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.lblAccede);
-            this.panel1.Location = new System.Drawing.Point(380, 39);
+            this.panel1.Location = new System.Drawing.Point(380, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 39);
+            this.panel1.Size = new System.Drawing.Size(280, 29);
             this.panel1.TabIndex = 29;
             // 
             // panel2
@@ -733,7 +711,7 @@
             this.panel2.Controls.Add(this.lblEsMedico);
             this.panel2.Controls.Add(this.RdBtnNoMedico);
             this.panel2.Controls.Add(this.RdBtnSiMedico);
-            this.panel2.Location = new System.Drawing.Point(380, 161);
+            this.panel2.Location = new System.Drawing.Point(380, 113);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(280, 34);
             this.panel2.TabIndex = 73;
@@ -743,7 +721,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(705, 494);
+            this.ClientSize = new System.Drawing.Size(705, 442);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tbCodigoPostal);
@@ -757,7 +735,6 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardaar);
             this.Controls.Add(this.panelAccede);
-            this.Controls.Add(this.panelCebecera);
             this.Controls.Add(this.lblPais);
             this.Controls.Add(this.lblProvincia);
             this.Controls.Add(this.lblCiudad);
@@ -785,7 +762,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditarPersonalInterno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Editar Personal Interno";
             this.Load += new System.EventHandler(this.NuevoUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxApellido)).EndInit();
@@ -798,8 +775,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxTelefono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxDireccion)).EndInit();
-            this.panelCebecera.ResumeLayout(false);
-            this.panelCebecera.PerformLayout();
             this.panelAccede.ResumeLayout(false);
             this.panelAccede.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxContraseña)).EndInit();
@@ -865,8 +840,6 @@
         private System.Windows.Forms.Label lblPais;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblContrasenia;
-        private System.Windows.Forms.Panel panelCebecera;
-        private System.Windows.Forms.Label lblNuevoPersonal;
         private System.Windows.Forms.Panel panelAccede;
         private Telerik.WinControls.UI.RadButton btnCancelar;
         private Telerik.WinControls.UI.RadButton btnGuardaar;

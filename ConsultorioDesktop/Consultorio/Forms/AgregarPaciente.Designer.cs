@@ -125,7 +125,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(164, 37);
             this.btnGuardar.TabIndex = 19;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "Crear";
             this.btnGuardar.ThemeName = "MedicalAppTheme";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -454,7 +454,7 @@
             this.lblEmail.TabIndex = 31;
             this.lblEmail.Text = "Email";
             // 
-            // NuevoPaciente
+            // AgregarPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -497,9 +497,9 @@
             this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.lblNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "NuevoPaciente";
+            this.Name = "AgregarPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nuevo Paciente";
+            this.Text = "Agregar Paciente";
             this.Load += new System.EventHandler(this.NuevoPaciente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).EndInit();

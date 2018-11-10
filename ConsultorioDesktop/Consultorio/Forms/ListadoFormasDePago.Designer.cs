@@ -56,7 +56,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.Location = new System.Drawing.Point(429, 119);
+            this.btnAgregar.Location = new System.Drawing.Point(431, 119);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(157, 25);
             this.btnAgregar.TabIndex = 2;
@@ -126,7 +126,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnEditar.Location = new System.Drawing.Point(429, 162);
+            this.btnEditar.Location = new System.Drawing.Point(431, 150);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(157, 25);
             this.btnEditar.TabIndex = 8;
@@ -136,7 +136,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnEliminar.Location = new System.Drawing.Point(429, 206);
+            this.btnEliminar.Location = new System.Drawing.Point(431, 181);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(157, 25);
             this.btnEliminar.TabIndex = 9;
@@ -156,11 +156,11 @@
             // lblBuscar
             // 
             this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblBuscar.Location = new System.Drawing.Point(488, 12);
+            this.lblBuscar.Location = new System.Drawing.Point(435, 12);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(45, 19);
+            this.lblBuscar.Size = new System.Drawing.Size(140, 19);
             this.lblBuscar.TabIndex = 14;
-            this.lblBuscar.Text = "Buscar:";
+            this.lblBuscar.Text = "Nombre Forma de Pago:";
             // 
             // txtBoxBuscar
             // 
@@ -188,7 +188,7 @@
             this.Name = "ListadoFormasDePago";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Formas de Pago";
+            this.Text = "Listado de Formas de Pago";
             this.Load += new System.EventHandler(this.Forma_Pago_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();

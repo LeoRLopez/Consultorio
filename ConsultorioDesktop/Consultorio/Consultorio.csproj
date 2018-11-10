@@ -121,6 +121,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\HorarioAtencionMedico.cs" />
+    <Compile Include="Forms\EditarTurnoMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditarTurnoMedico.Designer.cs">
+      <DependentUpon>EditarTurnoMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditarTurnoAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditarTurnoAdmin.Designer.cs">
+      <DependentUpon>EditarTurnoAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditarPersonalInterno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +386,12 @@
     <Compile Include="ViewModels\PacienteDropDownVM.cs" />
     <Compile Include="ViewModels\MedicoVM.cs" />
     <Compile Include="ViewModels\TurnoVM.cs" />
+    <EmbeddedResource Include="Forms\EditarTurnoMedico.resx">
+      <DependentUpon>EditarTurnoMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditarTurnoAdmin.resx">
+      <DependentUpon>EditarTurnoAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditarPersonalInterno.resx">
       <DependentUpon>EditarPersonalInterno.cs</DependentUpon>
     </EmbeddedResource>

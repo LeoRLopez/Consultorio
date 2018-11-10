@@ -170,5 +170,11 @@ namespace Consultorio.Reportes
                 dropDownFormasDePago.DataSource = formasDePago;
             }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            AgregarTurno nuevoTurno = new AgregarTurno();
+            nuevoTurno.ShowDialog();
+        }
     }
 }

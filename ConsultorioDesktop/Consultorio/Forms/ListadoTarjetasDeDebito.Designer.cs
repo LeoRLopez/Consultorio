@@ -35,9 +35,6 @@
             this.btnEliminar = new Telerik.WinControls.UI.RadButton();
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
             this.dgvTarjetas = new System.Windows.Forms.DataGridView();
-            this.btnVolver = new Telerik.WinControls.UI.RadButton();
-            this.btnAgregar = new Telerik.WinControls.UI.RadButton();
-            this.tarjetasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idTarjetaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titularDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroTarjetaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,15 +44,18 @@
             this.bajaLogicaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bancosTarjetasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteTarjetasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tarjetasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnVolver = new Telerik.WinControls.UI.RadButton();
+            this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTarjetas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tarjetasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tarjetasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -70,11 +70,11 @@
             // lblBuscar
             // 
             this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblBuscar.Location = new System.Drawing.Point(486, 12);
+            this.lblBuscar.Location = new System.Drawing.Point(433, 12);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(45, 19);
+            this.lblBuscar.Size = new System.Drawing.Size(95, 19);
             this.lblBuscar.TabIndex = 19;
-            this.lblBuscar.Text = "Buscar:";
+            this.lblBuscar.Text = "Nombre Tarjeta:";
             // 
             // txtBoxBuscar
             // 
@@ -134,29 +134,6 @@
             this.dgvTarjetas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTarjetas.Size = new System.Drawing.Size(409, 308);
             this.dgvTarjetas.TabIndex = 15;
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnVolver.Location = new System.Drawing.Point(450, 296);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(110, 24);
-            this.btnVolver.TabIndex = 14;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.Location = new System.Drawing.Point(429, 106);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(157, 25);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Agregar";
-            // 
-            // tarjetasBindingSource
-            // 
-            this.tarjetasBindingSource.DataSource = typeof(Consultorio.Modelo.Tarjetas);
             // 
             // idTarjetaDataGridViewTextBoxColumn
             // 
@@ -230,6 +207,29 @@
             this.pacienteTarjetasDataGridViewTextBoxColumn.ReadOnly = true;
             this.pacienteTarjetasDataGridViewTextBoxColumn.Visible = false;
             // 
+            // tarjetasBindingSource
+            // 
+            this.tarjetasBindingSource.DataSource = typeof(Consultorio.Modelo.Tarjetas);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnVolver.Location = new System.Drawing.Point(450, 296);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(110, 24);
+            this.btnVolver.TabIndex = 14;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAgregar.Location = new System.Drawing.Point(429, 106);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(157, 25);
+            this.btnAgregar.TabIndex = 13;
+            this.btnAgregar.Text = "Agregar";
+            // 
             // ListadoTarjetasDeDebito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,16 +248,16 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ListadoTarjetasDeDebito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tarjeta de Débito";
+            this.Text = "Listado de Tarjeta de Débito";
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTarjetas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tarjetasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tarjetasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

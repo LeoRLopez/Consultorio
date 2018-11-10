@@ -92,11 +92,11 @@
             // lblBuscar
             // 
             this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblBuscar.Location = new System.Drawing.Point(484, 12);
+            this.lblBuscar.Location = new System.Drawing.Point(432, 12);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(45, 19);
+            this.lblBuscar.Size = new System.Drawing.Size(120, 19);
             this.lblBuscar.TabIndex = 5;
-            this.lblBuscar.Text = "Buscar:";
+            this.lblBuscar.Text = "Nombre Obra Social:";
             // 
             // btnBuscar
             // 
@@ -235,7 +235,7 @@
             this.Name = "ListadoObrasSociales";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Obras Sociales";
+            this.Text = "Listado de Obras Sociales";
             this.Load += new System.EventHandler(this.Forma_Pago_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();

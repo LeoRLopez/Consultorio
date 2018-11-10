@@ -32,6 +32,10 @@
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
+            this.especialidadIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioPorDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BajaLogica = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.especialidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
@@ -39,10 +43,6 @@
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
-            this.especialidadIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioPorDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BajaLogica = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
@@ -102,6 +102,37 @@
             this.dgvEspecialidades.Size = new System.Drawing.Size(409, 308);
             this.dgvEspecialidades.TabIndex = 7;
             // 
+            // especialidadIdDataGridViewTextBoxColumn
+            // 
+            this.especialidadIdDataGridViewTextBoxColumn.DataPropertyName = "EspecialidadId";
+            this.especialidadIdDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.especialidadIdDataGridViewTextBoxColumn.HeaderText = "EspecialidadId";
+            this.especialidadIdDataGridViewTextBoxColumn.Name = "especialidadIdDataGridViewTextBoxColumn";
+            this.especialidadIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.especialidadIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioPorDefectoDataGridViewTextBoxColumn
+            // 
+            this.precioPorDefectoDataGridViewTextBoxColumn.DataPropertyName = "PrecioPorDefecto";
+            this.precioPorDefectoDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioPorDefectoDataGridViewTextBoxColumn.Name = "precioPorDefectoDataGridViewTextBoxColumn";
+            this.precioPorDefectoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // BajaLogica
+            // 
+            this.BajaLogica.DataPropertyName = "BajaLogica";
+            this.BajaLogica.HeaderText = "Habilitado";
+            this.BajaLogica.Name = "BajaLogica";
+            this.BajaLogica.ReadOnly = true;
+            // 
             // especialidadBindingSource
             // 
             this.especialidadBindingSource.DataSource = typeof(Consultorio.Modelo.Especialidad);
@@ -157,37 +188,6 @@
             this.txtBoxBuscar.Size = new System.Drawing.Size(157, 21);
             this.txtBoxBuscar.TabIndex = 10;
             // 
-            // especialidadIdDataGridViewTextBoxColumn
-            // 
-            this.especialidadIdDataGridViewTextBoxColumn.DataPropertyName = "EspecialidadId";
-            this.especialidadIdDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.especialidadIdDataGridViewTextBoxColumn.HeaderText = "EspecialidadId";
-            this.especialidadIdDataGridViewTextBoxColumn.Name = "especialidadIdDataGridViewTextBoxColumn";
-            this.especialidadIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.especialidadIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // precioPorDefectoDataGridViewTextBoxColumn
-            // 
-            this.precioPorDefectoDataGridViewTextBoxColumn.DataPropertyName = "PrecioPorDefecto";
-            this.precioPorDefectoDataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.precioPorDefectoDataGridViewTextBoxColumn.Name = "precioPorDefectoDataGridViewTextBoxColumn";
-            this.precioPorDefectoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // BajaLogica
-            // 
-            this.BajaLogica.DataPropertyName = "BajaLogica";
-            this.BajaLogica.HeaderText = "Habilitado";
-            this.BajaLogica.Name = "BajaLogica";
-            this.BajaLogica.ReadOnly = true;
-            // 
             // ListadoEspecialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,7 +206,7 @@
             this.Name = "ListadoEspecialidades";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Especialidades";
+            this.Text = "Listado de Especialidades";
             this.Load += new System.EventHandler(this.ListadoDeEspecialidades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();

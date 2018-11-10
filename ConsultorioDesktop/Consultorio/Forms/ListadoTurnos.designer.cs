@@ -41,6 +41,9 @@
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.panelOpciones = new Telerik.WinControls.UI.RadPanel();
+            this.btnEliminar = new Telerik.WinControls.UI.RadButton();
+            this.btnEditar = new Telerik.WinControls.UI.RadButton();
+            this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
@@ -59,6 +62,9 @@
             this.pacienteTurnoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelOpciones)).BeginInit();
             this.panelOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
@@ -77,6 +83,9 @@
             // panelOpciones
             // 
             this.panelOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
+            this.panelOpciones.Controls.Add(this.btnEliminar);
+            this.panelOpciones.Controls.Add(this.btnEditar);
+            this.panelOpciones.Controls.Add(this.btnAgregar);
             this.panelOpciones.Controls.Add(this.radLabel2);
             this.panelOpciones.Controls.Add(this.radLabel1);
             this.panelOpciones.Controls.Add(this.dtpHasta);
@@ -92,15 +101,43 @@
             this.panelOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelOpciones.Location = new System.Drawing.Point(0, 0);
             this.panelOpciones.Name = "panelOpciones";
-            this.panelOpciones.Size = new System.Drawing.Size(964, 168);
+            this.panelOpciones.Size = new System.Drawing.Size(967, 168);
             this.panelOpciones.TabIndex = 0;
             this.panelOpciones.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEliminar.Location = new System.Drawing.Point(530, 117);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(160, 35);
+            this.btnEliminar.TabIndex = 25;
+            this.btnEliminar.Text = "Eliminar";
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEditar.Location = new System.Drawing.Point(530, 72);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(160, 35);
+            this.btnEditar.TabIndex = 24;
+            this.btnEditar.Text = "Editar";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAgregar.Location = new System.Drawing.Point(530, 27);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(160, 35);
+            this.btnAgregar.TabIndex = 23;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // radLabel2
             // 
             this.radLabel2.BackColor = System.Drawing.Color.Transparent;
             this.radLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(262, 59);
+            this.radLabel2.Location = new System.Drawing.Point(265, 59);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(39, 17);
             this.radLabel2.TabIndex = 11;
@@ -111,7 +148,7 @@
             // 
             this.radLabel1.BackColor = System.Drawing.Color.Transparent;
             this.radLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(262, 12);
+            this.radLabel1.Location = new System.Drawing.Point(265, 12);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(42, 17);
             this.radLabel1.TabIndex = 22;
@@ -123,7 +160,7 @@
             this.dtpHasta.Checked = false;
             this.dtpHasta.CustomFormat = "dd/MM/yyyy";
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHasta.Location = new System.Drawing.Point(262, 82);
+            this.dtpHasta.Location = new System.Drawing.Point(265, 82);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowCheckBox = true;
             this.dtpHasta.Size = new System.Drawing.Size(140, 20);
@@ -134,7 +171,7 @@
             this.dtpDesde.Checked = false;
             this.dtpDesde.CustomFormat = "dd/MM/yyyy";
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDesde.Location = new System.Drawing.Point(262, 33);
+            this.dtpDesde.Location = new System.Drawing.Point(265, 33);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowCheckBox = true;
             this.dtpDesde.Size = new System.Drawing.Size(140, 20);
@@ -144,7 +181,7 @@
             // 
             this.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(801, 57);
+            this.btnVolver.Location = new System.Drawing.Point(828, 66);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(104, 44);
             this.btnVolver.TabIndex = 19;
@@ -172,7 +209,7 @@
             // btnFiltrar
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrar.Location = new System.Drawing.Point(262, 116);
+            this.btnFiltrar.Location = new System.Drawing.Point(265, 116);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(140, 38);
             this.btnFiltrar.TabIndex = 18;
@@ -280,7 +317,7 @@
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel1.Location = new System.Drawing.Point(0, 0);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(964, 588);
+            this.radPanel1.Size = new System.Drawing.Size(967, 588);
             this.radPanel1.TabIndex = 1;
             this.radPanel1.Text = "radPanel1";
             this.radPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -395,7 +432,7 @@
             this.dgvPacienteMedicoTurno.ReadOnly = true;
             this.dgvPacienteMedicoTurno.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvPacienteMedicoTurno.ShowGroupPanel = false;
-            this.dgvPacienteMedicoTurno.Size = new System.Drawing.Size(964, 420);
+            this.dgvPacienteMedicoTurno.Size = new System.Drawing.Size(967, 420);
             this.dgvPacienteMedicoTurno.TabIndex = 1;
             this.dgvPacienteMedicoTurno.Text = "radGridView1";
             // 
@@ -410,16 +447,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.CancelButton = this.btnVolver;
-            this.ClientSize = new System.Drawing.Size(964, 588);
+            this.ClientSize = new System.Drawing.Size(967, 588);
             this.Controls.Add(this.radPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ListadoTurnos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pacientes";
+            this.Text = "Listado de Turnos";
             this.Load += new System.EventHandler(this.Pacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelOpciones)).EndInit();
             this.panelOpciones.ResumeLayout(false);
             this.panelOpciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
@@ -456,5 +498,8 @@
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private System.Windows.Forms.BindingSource pacienteTurnoVMBindingSource;
         private Telerik.WinControls.UI.RadGridView dgvPacienteMedicoTurno;
+        private Telerik.WinControls.UI.RadButton btnEliminar;
+        private Telerik.WinControls.UI.RadButton btnEditar;
+        private Telerik.WinControls.UI.RadButton btnAgregar;
     }
 }

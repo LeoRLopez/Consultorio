@@ -2,7 +2,7 @@
 
 namespace Consultorio
 {
-    partial class AgregarTurno
+    partial class EditarTurnoMedico
     {
         /// <summary>
         /// Required designer variable.
@@ -109,7 +109,7 @@ namespace Consultorio
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(97, 33);
             this.saveButton.TabIndex = 9;
-            this.saveButton.Text = "Crear";
+            this.saveButton.Text = "Guardar";
             this.saveButton.ThemeName = "MedicalAppTheme";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -453,7 +453,7 @@ namespace Consultorio
             this.tbPrecioTurno.TabIndex = 18;
             this.tbPrecioTurno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.radTextBox1_KeyPress);
             // 
-            // AgregarTurno
+            // EditarTurnoMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -483,9 +483,9 @@ namespace Consultorio
             this.Controls.Add(this.labelPaciente);
             this.Controls.Add(this.dropDownListaPacientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "AgregarTurno";
+            this.Name = "EditarTurnoMedico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agregar Turno";
+            this.Text = "Editar Turno";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NuevoTurno_FormClosing);
             this.Load += new System.EventHandler(this.NuevoTurno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).EndInit();
