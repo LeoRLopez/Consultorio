@@ -20,5 +20,6 @@ namespace Consultorio.ViewModels
         public string Descripcion { get; set; }
         public string Diagnostico { get; set; }
         public string Especialidad { get; set; }
+        public bool Pagado { get; set; }
     }
 }

@@ -31,11 +31,11 @@ namespace Consultorio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cancelButton = new Telerik.WinControls.UI.RadButton();
             this.saveButton = new Telerik.WinControls.UI.RadButton();
-            this.txtBoxDescripcion = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.tbDescripcion = new Telerik.WinControls.UI.RadTextBoxControl();
             this.dtpFechaTurno = new Telerik.WinControls.UI.RadDateTimePicker();
             this.labelDescripcion = new Telerik.WinControls.UI.RadLabel();
             this.labelMedico = new Telerik.WinControls.UI.RadLabel();
@@ -69,7 +69,7 @@ namespace Consultorio
             this.tbPrecioTurno = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBoxDescripcion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbDescripcion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFechaTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelDescripcion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).BeginInit();
@@ -113,15 +113,15 @@ namespace Consultorio
             this.saveButton.ThemeName = "MedicalAppTheme";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // txtBoxDescripcion
+            // tbDescripcion
             // 
-            this.txtBoxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(273, 239);
-            this.txtBoxDescripcion.Multiline = true;
-            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(252, 69);
-            this.txtBoxDescripcion.TabIndex = 8;
-            this.txtBoxDescripcion.ThemeName = "MedicalAppTheme";
+            this.tbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDescripcion.Location = new System.Drawing.Point(273, 239);
+            this.tbDescripcion.Multiline = true;
+            this.tbDescripcion.Name = "tbDescripcion";
+            this.tbDescripcion.Size = new System.Drawing.Size(252, 69);
+            this.tbDescripcion.TabIndex = 8;
+            this.tbDescripcion.ThemeName = "MedicalAppTheme";
             // 
             // dtpFechaTurno
             // 
@@ -142,9 +142,9 @@ namespace Consultorio
             this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescripcion.Location = new System.Drawing.Point(273, 216);
             this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(40, 17);
+            this.labelDescripcion.Size = new System.Drawing.Size(74, 17);
             this.labelDescripcion.TabIndex = 0;
-            this.labelDescripcion.Text = "Notas";
+            this.labelDescripcion.Text = "Descripción";
             this.labelDescripcion.ThemeName = "MedicalAppTheme";
             // 
             // labelMedico
@@ -263,14 +263,14 @@ namespace Consultorio
             this.dgvMedicos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvMedicos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvMedicos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.medicoIdDataGridViewTextBoxColumn,
@@ -283,14 +283,14 @@ namespace Consultorio
             this.SabadoHorario,
             this.DomingoHorario});
             this.dgvMedicos.DataSource = this.medicoVMBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMedicos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMedicos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMedicos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(242)))));
             this.dgvMedicos.Location = new System.Drawing.Point(273, 35);
             this.dgvMedicos.MultiSelect = false;
@@ -475,7 +475,7 @@ namespace Consultorio
             this.Controls.Add(this.lblFormaDePago);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.txtBoxDescripcion);
+            this.Controls.Add(this.tbDescripcion);
             this.Controls.Add(this.dtpFechaTurno);
             this.Controls.Add(this.labelDescripcion);
             this.Controls.Add(this.labelMedico);
@@ -490,7 +490,7 @@ namespace Consultorio
             this.Load += new System.EventHandler(this.NuevoTurno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBoxDescripcion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbDescripcion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFechaTurno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelDescripcion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).EndInit();
@@ -518,7 +518,7 @@ namespace Consultorio
 
         private Telerik.WinControls.UI.RadButton cancelButton;
         private Telerik.WinControls.UI.RadButton saveButton;
-        private Telerik.WinControls.UI.RadTextBoxControl txtBoxDescripcion;
+        private Telerik.WinControls.UI.RadTextBoxControl tbDescripcion;
         private Telerik.WinControls.UI.RadDateTimePicker dtpFechaTurno;
         private Telerik.WinControls.UI.RadLabel labelDescripcion;
         private Telerik.WinControls.UI.RadLabel labelMedico;

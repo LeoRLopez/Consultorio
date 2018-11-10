@@ -46,7 +46,8 @@ namespace Consultorio.Reportes
                                 Diagnostico = turno.Diagnostico,
                                 FechaHoraTurno = turno.FechaYHora,
                                 FormaDePagoId = turno.IdFormaDePago,
-                                FormaDePagoNombre = turno.FormaDePago.Nombre
+                                FormaDePagoNombre = turno.FormaDePago.Nombre,
+                                Pagado = turno.IdFactura != null
                             }).OrderBy(x => x.FechaHoraTurno).ToList();
             }
         }
@@ -112,7 +113,8 @@ namespace Consultorio.Reportes
                                     Diagnostico = turno.Diagnostico,
                                     FechaHoraTurno = turno.FechaYHora,
                                     FormaDePagoId = turno.IdFormaDePago,
-                                    FormaDePagoNombre = turno.FormaDePago.Nombre
+                                    FormaDePagoNombre = turno.FormaDePago.Nombre,
+                                    Pagado = turno.IdFactura != null
                                 }).OrderBy(x => x.FechaHoraTurno).ToList();
             }
         }

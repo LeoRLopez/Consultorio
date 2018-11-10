@@ -46,7 +46,7 @@ namespace Consultorio.Reportes
                 }
                 else if (this.__idMedico != -1)
                 {
-                    turnos = entidades.Turno.Where(x => x.IdMedico == this.__idMedico).ToList();
+                    turnos = entidades.Turno.Where(x => x.IdMedico == this.__idMedico && (!x.Atendido && !x.Asistio)).ToList();
                 }
                 var __pacientesTurnoVM = new List<PacienteTurnoVM>();
                 pacienteTurnoVMBindingSource.DataSource = turnos.Select(turno =>
@@ -66,7 +66,8 @@ namespace Consultorio.Reportes
                                         Diagnostico = turno.Diagnostico,
                                         FechaHoraTurno = turno.FechaYHora,
                                         FormaDePagoId = turno.IdFormaDePago,
-                                        FormaDePagoNombre = turno.FormaDePago.Nombre
+                                        FormaDePagoNombre = turno.FormaDePago.Nombre,
+                                        Pagado = turno.IdFactura != null
                                     }).OrderBy(x => x.FechaHoraTurno).ToList();
             }
         }
@@ -137,7 +138,8 @@ namespace Consultorio.Reportes
                                     Diagnostico = turno.Diagnostico,
                                     FechaHoraTurno = turno.FechaYHora,
                                     FormaDePagoId = turno.IdFormaDePago,
-                                    FormaDePagoNombre = turno.FormaDePago.Nombre
+                                    FormaDePagoNombre = turno.FormaDePago.Nombre,
+                                    Pagado = turno.IdFactura != null
                                 }).OrderBy(x => x.FechaHoraTurno).ToList();
             }
         }

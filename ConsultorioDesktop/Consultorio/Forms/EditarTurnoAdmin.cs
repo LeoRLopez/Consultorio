@@ -47,8 +47,24 @@ namespace Consultorio
             using (var entidades = new ClinicaEntities())
             {
                 this._turnoOriginal = entidades.Turno.Include(x => x.FormaDePago).Include(x => x.Medico).Include(x => x.Paciente)
-                    .Include(x => x.Medico).Include(x => x.SegurosMedico).Include(x => x.Especialidad)
+                    .Include(x => x.Medico).Include(x => x.SegurosMedico).Include(x => x.Especialidad).Include(x => x.Factura)
                     .First(x => x.IdTurno == idTurno);
+                if (this._turnoOriginal.IdFactura != null && this._turnoOriginal.Factura != null)
+                {
+                    dropDownListaPacientes.Enabled = false;
+                    dgvMedicos.Enabled = false;
+                    dtpFechaTurno.Enabled = false;
+                    dropDownHoraTurno.Enabled = false;
+                    dropDownEspecialidades.Enabled = false;
+                    tbPrecioTurno.Enabled = false;
+                    radiobtnParticular.Enabled = false;
+                    radioBtnSeguroMedico.Enabled = false;
+                    dropDownSegurosMedicos.Enabled = false;
+                    chbAsistio.Enabled = false;
+                    chbAtendido.Enabled = false;
+                    tbDescripcion.Enabled = false;
+                    textboxDiagnostico.Enabled = false;
+                }
             }
         }
 
@@ -83,7 +99,7 @@ namespace Consultorio
                         turnoDB.IdEspecialidadMedico = (int)dropDownEspecialidades.SelectedValue;
                         turnoDB.PrecioTurno = decimal.Parse(tbPrecioTurno.Text);
                         turnoDB.Diagnostico = textboxDiagnostico.Text;
-                        turnoDB.Descripcion = txtBoxNotas.Text;
+                        turnoDB.Descripcion = tbDescripcion.Text;
                         turnoDB.IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/;
                         turnoDB.IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null;
                         entidades.SaveChanges();
@@ -208,7 +224,7 @@ namespace Consultorio
                     radiobtnParticular.IsChecked = turno.IdFormaDePago == 1;/*Particular*/
                     radioBtnSeguroMedico.IsChecked = turno.IdFormaDePago == 2;/*Seguro Médico*/
                     dropDownSegurosMedicos.SelectedValue = turno.IdSeguroMedico;
-                    txtBoxNotas.Text = turno.Descripcion;
+                    tbDescripcion.Text = turno.Descripcion;
                     textboxDiagnostico.Text = turno.Diagnostico;
                 }
             }

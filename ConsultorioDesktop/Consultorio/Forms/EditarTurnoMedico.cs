@@ -45,7 +45,7 @@ namespace Consultorio
                         var turnoDB = entidades.Turno.Single(x => x.IdTurno == this._turnoOriginal.IdTurno);
                         turnoDB.Atendido = chbAtendido.Checked;
                         turnoDB.Asistio = chbAsistio.Checked;
-                        turnoDB.Descripcion = txtBoxNotas.Text;
+                        turnoDB.Descripcion = tbDescripcion.Text;
                         turnoDB.Diagnostico = textboxDiagnostico.Text;
                         entidades.SaveChanges();
                         entidadesTransaction.Commit();
@@ -103,7 +103,7 @@ namespace Consultorio
                     radiobtnParticular.IsChecked = turno.IdFormaDePago == 1;/*Particular*/
                     radioBtnSeguroMedico.IsChecked = turno.IdFormaDePago == 2;/*Seguro Médico*/
                     dropDownSegurosMedicos.SelectedValue = turno.IdSeguroMedico;
-                    txtBoxNotas.Text = turno.Descripcion;
+                    tbDescripcion.Text = turno.Descripcion;
                     textboxDiagnostico.Text = turno.Diagnostico;
                 }
             }
