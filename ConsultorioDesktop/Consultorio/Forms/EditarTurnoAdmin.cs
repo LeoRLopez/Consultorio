@@ -327,9 +327,9 @@ namespace Consultorio
                 return false;
             }
 
-            var idSeguroSeleccionado = (int)dropDownSegurosMedicos.SelectedValue;
             if (radioBtnSeguroMedico.IsChecked)
             {
+                var idSeguroSeleccionado = (int)dropDownSegurosMedicos.SelectedValue;
                 if (idSeguroSeleccionado == -1)
                 {
                     errorProvider.SetError(dropDownSegurosMedicos, "Debe seleccionar un Seguro");
