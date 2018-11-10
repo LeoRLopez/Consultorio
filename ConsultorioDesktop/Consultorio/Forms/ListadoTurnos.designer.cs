@@ -451,7 +451,7 @@
             this.CancelButton = this.btnVolver;
             this.ClientSize = new System.Drawing.Size(977, 588);
             this.Controls.Add(this.radPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ListadoTurnos";

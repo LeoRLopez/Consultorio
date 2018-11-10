@@ -371,7 +371,7 @@
             this.CancelButton = this.btnVolver;
             this.ClientSize = new System.Drawing.Size(683, 642);
             this.Controls.Add(this.radPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReporteListadoPacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Pacientes";
