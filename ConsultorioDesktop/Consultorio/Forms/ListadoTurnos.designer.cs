@@ -165,7 +165,7 @@
             this.dtpHasta.Location = new System.Drawing.Point(265, 82);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowCheckBox = true;
-            this.dtpHasta.Size = new System.Drawing.Size(140, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(140, 22);
             this.dtpHasta.TabIndex = 21;
             // 
             // dtpDesde
@@ -176,7 +176,7 @@
             this.dtpDesde.Location = new System.Drawing.Point(265, 33);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowCheckBox = true;
-            this.dtpDesde.Size = new System.Drawing.Size(140, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(140, 22);
             this.dtpDesde.TabIndex = 20;
             // 
             // btnVolver
@@ -451,7 +451,7 @@
             this.CancelButton = this.btnVolver;
             this.ClientSize = new System.Drawing.Size(970, 588);
             this.Controls.Add(this.radPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ListadoTurnos";

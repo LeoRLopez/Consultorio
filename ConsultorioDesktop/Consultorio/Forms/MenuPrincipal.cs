@@ -206,8 +206,7 @@ namespace Consultorio
 
         private void btnTurnos_Click(object sender, EventArgs e)
         {
-            var formBancos = new ListadoTurnos(this.__esAdministrador, this.__idMedico);
-            var formBancosResult = formBancos.ShowDialog();
+            AbrirVentanaEnPanel(new ListadoTurnos(this.__esAdministrador, this.__idMedico));
         }
     }
 }
