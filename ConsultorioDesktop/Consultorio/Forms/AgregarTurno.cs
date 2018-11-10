@@ -86,7 +86,7 @@ namespace Consultorio
                         {
                             entidades.Turno.Add(nuevoTurno);
                             entidades.SaveChanges();
-                            EnviarNotificacionAlPaciente(entidades, nuevoTurno.IdTurno);
+                            EnviarNotificacionesPorEmail(entidades, nuevoTurno.IdTurno);
                             entidadesTransaction.Commit();
                             MessageBox.Show("Turno creado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             if (MessageBox.Show("Desea agregar otro Turno?", "TurnARG", MessageBoxButtons.YesNo) == DialogResult.No)
@@ -123,10 +123,10 @@ namespace Consultorio
             return true;
         }
 
-        private Tuple<bool, string> EnviarNotificacionAlPaciente(ClinicaEntities db, int idTurno)
+        private bool EnviarNotificacionesPorEmail(ClinicaEntities db, int idTurno)
         {
-            var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
-            var pacienteEmail = turnoDB.Paciente.Email;
+            var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(m => m.Medico.PersonalInterno).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
+
             var emailSubject = string.Format("Nuevo Turno para el {0} a las {1} hs.", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
             var emailBody = string.Format(_bodyTemplate,
                 turnoDB.FechaYHora.ToString("dd/MM/yyyy HH:mm"),
@@ -137,8 +137,16 @@ namespace Consultorio
                 turnoDB.FormaDePago.Nombre,
                 turnoDB.PrecioTurno,
                 turnoDB.SegurosMedico == null ? "-" : turnoDB.SegurosMedico.Nombre);
-            var emailModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
-            return EnviarEmail(emailModel);
+
+            var pacienteEmail = turnoDB.Paciente.Email;
+            var emailPacienteModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
+            var emailPacienteEnviado = EnviarEmail(emailPacienteModel);
+
+            var medicoEmail = turnoDB.Medico.PersonalInterno.First().Email;
+            var emailMedicoModel = new EmailModel { ToEmail = medicoEmail, EmailSubject = emailSubject, EMailBody = emailBody };
+            var emailMedicoEnviado = EnviarEmail(emailMedicoModel);
+
+            return emailPacienteEnviado.Item1 && emailMedicoEnviado.Item1;
         }
 
         private Tuple<bool, string> EnviarEmail(EmailModel email)

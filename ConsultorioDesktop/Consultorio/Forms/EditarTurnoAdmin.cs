@@ -75,9 +75,9 @@ namespace Consultorio
                     try
                     {
                         var turnoDB = entidades.Turno.Single(x => x.IdTurno == this._turnoOriginal.IdTurno);
-                        turnoDB.Atendido = false;
+                        turnoDB.Atendido = chbAtendido.Checked;
                         turnoDB.FechaYHora = fechaTurno;
-                        turnoDB.Asistio = false;
+                        turnoDB.Asistio = chbAsistio.Checked;
                         turnoDB.IdPaciente = (int)dropDownListaPacientes.SelectedValue;
                         turnoDB.IdMedico = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem).MedicoId;
                         turnoDB.IdEspecialidadMedico = (int)dropDownEspecialidades.SelectedValue;
@@ -87,7 +87,7 @@ namespace Consultorio
                         turnoDB.IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/;
                         turnoDB.IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null;
                         entidades.SaveChanges();
-                        EnviarNotificacionAlPaciente(entidades, turnoDB.IdTurno);
+                        EnviarNotificacionesPorEmail(entidades, turnoDB.IdTurno);
                         entidadesTransaction.Commit();
                         MessageBox.Show("Turno modificado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _turnoFueModificado = true;
@@ -112,11 +112,11 @@ namespace Consultorio
             return true;
         }
 
-        private Tuple<bool, string> EnviarNotificacionAlPaciente(ClinicaEntities db, int idTurno)
+        private bool EnviarNotificacionesPorEmail(ClinicaEntities db, int idTurno)
         {
-            var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
-            var pacienteEmail = turnoDB.Paciente.Email;
-            var emailSubject = string.Format("Turno Modificado - El Nuevo Turno es para el {0} a las {1} hs.", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
+            var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(m => m.Medico.PersonalInterno).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
+
+            var emailSubject = string.Format("Turno Modificado: Nuevo Turno para el {0} a las {1} hs.", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
             var emailBody = string.Format(_bodyTemplate,
                 turnoDB.FechaYHora.ToString("dd/MM/yyyy HH:mm"),
                 turnoDB.Paciente.Apellidos + ", " + turnoDB.Paciente.Nombres,
@@ -126,8 +126,16 @@ namespace Consultorio
                 turnoDB.FormaDePago.Nombre,
                 turnoDB.PrecioTurno,
                 turnoDB.SegurosMedico == null ? "-" : turnoDB.SegurosMedico.Nombre);
-            var emailModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
-            return EnviarEmail(emailModel);
+
+            var pacienteEmail = turnoDB.Paciente.Email;
+            var emailPacienteModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
+            var emailPacienteEnviado = EnviarEmail(emailPacienteModel);
+
+            var medicoEmail = turnoDB.Medico.PersonalInterno.First().Email;
+            var emailMedicoModel = new EmailModel { ToEmail = medicoEmail, EmailSubject = emailSubject, EMailBody = emailBody };
+            var emailMedicoEnviado = EnviarEmail(emailMedicoModel);
+
+            return emailPacienteEnviado.Item1 && emailMedicoEnviado.Item1;
         }
 
         private Tuple<bool, string> EnviarEmail(EmailModel email)
@@ -190,6 +198,8 @@ namespace Consultorio
                         }
                     }
 
+                    chbAsistio.Checked = turno.Asistio;
+                    chbAtendido.Checked = turno.Atendido;
                     dtpFechaTurno.Value = turno.FechaYHora.Date;
                     dropDownHoraTurno.SelectedValue = turno.FechaYHora.ToString("HH:mm");
                     CargarEspecialidesEnDropDown();
