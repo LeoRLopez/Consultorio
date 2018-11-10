@@ -135,7 +135,7 @@
           <Property Name="IdHistoriaClinica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FechaInicio" Type="date" Nullable="false" />
           <Property Name="UltimaActualizacion" Type="date" Nullable="false" />
-          <Property Name="AntecedentesMedicos" Type="nvarchar" MaxLength="250" />
+          <Property Name="AntecedentesMedicos" Type="nvarchar(max)" />
           <Property Name="GrupoSanguineo" Type="nchar" MaxLength="10" />
           <Property Name="Donante" Type="bit" Nullable="false" />
           <Property Name="Transplantado" Type="bit" Nullable="false" />
@@ -1356,7 +1356,7 @@
           <Property Name="IdHistoriaClinica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UltimaActualizacion" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="AntecedentesMedicos" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AntecedentesMedicos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="GrupoSanguineo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Donante" Type="Boolean" Nullable="false" />
           <Property Name="Transplantado" Type="Boolean" Nullable="false" />
