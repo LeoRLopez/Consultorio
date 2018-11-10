@@ -177,7 +177,7 @@ namespace Consultorio
 
         private void btnReportesDeTurnos_Click(object sender, EventArgs e)
         {
-            AbrirVentanaEnPanel(new ReporteListadoTurnosPacientes());
+            AbrirVentanaEnPanel(new ReporteListadoTurnos());
         }
 
         private void radButton1_Click(object sender, EventArgs e)
@@ -201,6 +201,12 @@ namespace Consultorio
         private void btnBancos_Click(object sender, EventArgs e)
         {
             var formBancos = new ListadoBancos(this.__esAdministrador);
+            var formBancosResult = formBancos.ShowDialog();
+        }
+
+        private void btnTurnos_Click(object sender, EventArgs e)
+        {
+            var formBancos = new ListadoTurnos(this.__esAdministrador, this.__idMedico);
             var formBancosResult = formBancos.ShowDialog();
         }
     }

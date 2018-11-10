@@ -18,13 +18,13 @@ namespace Consultorio
 
         private void btnRegistrarNuevoPaciente_Click(object sender, EventArgs e)
         {
-            NuevoPaciente nuevoPaciente = new NuevoPaciente();
+            AgregarPaciente nuevoPaciente = new AgregarPaciente();
             nuevoPaciente.ShowDialog();
         }
 
         private void btnNuevoTurno_Click(object sender, EventArgs e)
         {
-            NuevoTurno nuevoTurno = new NuevoTurno();
+            AgregarTurno nuevoTurno = new AgregarTurno();
             nuevoTurno.ShowDialog();
             CargarTurnosEnPantalla();
         }

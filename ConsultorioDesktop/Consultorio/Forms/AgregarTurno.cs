@@ -11,7 +11,7 @@ using Telerik.WinControls.UI;
 
 namespace Consultorio
 {
-    public partial class NuevoTurno : Form
+    public partial class AgregarTurno : Form
     {
         private int horaTurno;
         private int minutosTurno;
@@ -39,7 +39,7 @@ namespace Consultorio
                 </dl>
             </div><hr />";
 
-        public NuevoTurno()
+        public AgregarTurno()
         {
             InitializeComponent();
             dateTimePickerTurno.MinDate = DateTime.Now.Date; // No se puede sacar un turno para "ayer"
@@ -57,12 +57,16 @@ namespace Consultorio
             if (!ValidarCamposObligatorios())
                 return;
 
+            var fechaTurno = new DateTime(dateTimePickerTurno.Value.Year, dateTimePickerTurno.Value.Month, dateTimePickerTurno.Value.Day, horaTurno, minutosTurno, 0);
+            if (!ValidarFechaDelTurno(fechaTurno))
+                return;
+
             try
             {
                 var nuevoTurno = new Turno
                 {
                     Atendido = false,
-                    FechaYHora = new DateTime(dateTimePickerTurno.Value.Year, dateTimePickerTurno.Value.Month, dateTimePickerTurno.Value.Day, horaTurno, minutosTurno, 0),
+                    FechaYHora = fechaTurno,
                     Asistio = false,
                     IdPaciente = (int)dropDownListaPacientes.SelectedValue,
                     IdMedico = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem).MedicoId,
@@ -107,6 +111,16 @@ namespace Consultorio
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool ValidarFechaDelTurno(DateTime fechaTurno)
+        {
+            if (fechaTurno.Date > DateTime.Now.Date.AddDays(7))
+            {
+                MessageBox.Show("Los turnos no pueden darse con más de una semana de anticipación", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            return true;
         }
 
         private Tuple<bool, string> EnviarNotificacionAlPaciente(ClinicaEntities db, int idTurno)

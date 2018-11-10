@@ -2,22 +2,24 @@
 using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Windows.Forms;
-using Telerik.WinControls.Export;
 
 namespace Consultorio.Reportes
 {
-    public partial class ReporteListadoTurnos : Form
+    public partial class ListadoTurnos : Form
     {
+        private bool __esAdministrador = false;
+        private int __idMedico;
         private List<PacienteTurnoVM> __pacientesTurnoVM = new List<PacienteTurnoVM>();
 
-        public ReporteListadoTurnos()
+        public ListadoTurnos(bool esAdministrador, int idMedico)
         {
             InitializeComponent();
             dtpDesde.Value = DateTime.Now.Date;
             dtpHasta.Value = DateTime.Now.AddMonths(1).Date;
+            this.__esAdministrador = esAdministrador;
+            this.__idMedico = idMedico;
         }
 
         private void Pacientes_Load(object sender, EventArgs e)
@@ -119,22 +121,6 @@ namespace Consultorio.Reportes
                                     FormaDePagoNombre = turno.FormaDePago.Nombre
                                 }).OrderBy(x => x.FechaHoraTurno).ToList();
                 pacienteTurnoVMBindingSource.DataSource = __pacientesTurnoVM;
-            }
-        }
-
-        private void btnExportar_Click(object sender, EventArgs e)
-        {
-            GridViewSpreadExport spreadExporter = new GridViewSpreadExport(this.dgvPacienteMedicoTurno, SpreadExportFormat.Xlsx);
-            SpreadExportRenderer exportRenderer = new SpreadExportRenderer();
-            var rutaEscritorioWindows = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            try
-            {
-                spreadExporter.RunExport(rutaEscritorioWindows + "\\Listado de Turnos.xlsx", exportRenderer, "Listado de Pacientes");
-                MessageBox.Show("Listado de Turnos.xlsx guardado en el Escritorio", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

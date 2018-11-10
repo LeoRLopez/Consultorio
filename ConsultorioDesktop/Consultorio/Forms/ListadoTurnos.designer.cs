@@ -1,6 +1,6 @@
 ﻿namespace Consultorio.Reportes
 {
-    partial class ReporteListadoTurnos
+    partial class ListadoTurnos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteListadoTurnos));
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -54,7 +53,6 @@
             this.lblFormaDePago = new System.Windows.Forms.Label();
             this.labelMedico = new Telerik.WinControls.UI.RadLabel();
             this.dropDownMedicos = new Telerik.WinControls.UI.RadDropDownList();
-            this.btnExportar = new Telerik.WinControls.UI.RadButton();
             this.object_b5eba493_7d85_4956_839f_e2e31e6ce190 = new Telerik.WinControls.RootRadElement();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.dgvPacienteMedicoTurno = new Telerik.WinControls.UI.RadGridView();
@@ -69,7 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dropDownSegurosMedicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownMedicos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExportar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacienteMedicoTurno)).BeginInit();
@@ -92,7 +89,6 @@
             this.panelOpciones.Controls.Add(this.lblFormaDePago);
             this.panelOpciones.Controls.Add(this.labelMedico);
             this.panelOpciones.Controls.Add(this.dropDownMedicos);
-            this.panelOpciones.Controls.Add(this.btnExportar);
             this.panelOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelOpciones.Location = new System.Drawing.Point(0, 0);
             this.panelOpciones.Name = "panelOpciones";
@@ -130,7 +126,7 @@
             this.dtpHasta.Location = new System.Drawing.Point(262, 82);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowCheckBox = true;
-            this.dtpHasta.Size = new System.Drawing.Size(130, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(140, 20);
             this.dtpHasta.TabIndex = 21;
             // 
             // dtpDesde
@@ -141,7 +137,7 @@
             this.dtpDesde.Location = new System.Drawing.Point(262, 33);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowCheckBox = true;
-            this.dtpDesde.Size = new System.Drawing.Size(130, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(140, 20);
             this.dtpDesde.TabIndex = 20;
             // 
             // btnVolver
@@ -176,9 +172,9 @@
             // btnFiltrar
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrar.Location = new System.Drawing.Point(441, 57);
+            this.btnFiltrar.Location = new System.Drawing.Point(262, 116);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(97, 44);
+            this.btnFiltrar.Size = new System.Drawing.Size(140, 38);
             this.btnFiltrar.TabIndex = 18;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.ThemeName = "ControlDefault";
@@ -270,35 +266,6 @@
             this.dropDownMedicos.ThemeName = "MedicalAppTheme";
             this.dropDownMedicos.ValueMember = "IdPaciente";
             // 
-            // btnExportar
-            // 
-            this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportar.Image = ((System.Drawing.Image)(resources.GetObject("btnExportar.Image")));
-            this.btnExportar.Location = new System.Drawing.Point(599, 57);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(115, 44);
-            this.btnExportar.TabIndex = 2;
-            this.btnExportar.Text = "       Exportar";
-            this.btnExportar.ThemeName = "ControlDefault";
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnExportar.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnExportar.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnExportar.GetChildAt(0))).Text = "       Exportar";
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnExportar.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(10F, 0F);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnExportar.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // object_b5eba493_7d85_4956_839f_e2e31e6ce190
             // 
             this.object_b5eba493_7d85_4956_839f_e2e31e6ce190.Name = "object_b5eba493_7d85_4956_839f_e2e31e6ce190";
@@ -389,14 +356,14 @@
             gridViewTextBoxColumn7.AllowGroup = false;
             gridViewTextBoxColumn7.EnableExpressionEditor = false;
             gridViewTextBoxColumn7.FieldName = "Diagnostico";
-            gridViewTextBoxColumn7.HeaderText = "Diagnostico";
+            gridViewTextBoxColumn7.HeaderText = "Diagnóstico ";
             gridViewTextBoxColumn7.IsAutoGenerated = true;
             gridViewTextBoxColumn7.Name = "Diagnostico";
             gridViewTextBoxColumn7.Width = 100;
             gridViewCheckBoxColumn1.AllowGroup = false;
             gridViewCheckBoxColumn1.EnableExpressionEditor = false;
             gridViewCheckBoxColumn1.FieldName = "Asistio";
-            gridViewCheckBoxColumn1.HeaderText = "Asistió ?";
+            gridViewCheckBoxColumn1.HeaderText = "Asistió?";
             gridViewCheckBoxColumn1.IsAutoGenerated = true;
             gridViewCheckBoxColumn1.MinWidth = 20;
             gridViewCheckBoxColumn1.Name = "Asistio";
@@ -436,7 +403,7 @@
             // 
             this.pacienteTurnoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PacienteTurnoVM);
             // 
-            // ReporteListadoTurnos
+            // ListadoTurnos
             // 
             this.AcceptButton = this.btnFiltrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,7 +413,7 @@
             this.ClientSize = new System.Drawing.Size(964, 588);
             this.Controls.Add(this.radPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ReporteListadoTurnos";
+            this.Name = "ListadoTurnos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pacientes";
             this.Load += new System.EventHandler(this.Pacientes_Load);
@@ -461,7 +428,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dropDownSegurosMedicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownMedicos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExportar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacienteMedicoTurno.MasterTemplate)).EndInit();
@@ -475,7 +441,6 @@
 
         private Telerik.WinControls.UI.RadPanel panelOpciones;
         private Telerik.WinControls.RootRadElement object_b5eba493_7d85_4956_839f_e2e31e6ce190;
-        private Telerik.WinControls.UI.RadButton btnExportar;
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Telerik.WinControls.UI.RadDropDownList dropDownSegurosMedicos;
         private System.Windows.Forms.Label lblSeguroMedico;

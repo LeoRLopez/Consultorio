@@ -2,7 +2,7 @@
 
 namespace Consultorio
 {
-    partial class NuevoTurno
+    partial class AgregarTurno
     {
         /// <summary>
         /// Required designer variable.

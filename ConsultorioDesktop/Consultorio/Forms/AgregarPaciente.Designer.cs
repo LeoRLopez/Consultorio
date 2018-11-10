@@ -1,6 +1,6 @@
 ﻿namespace Consultorio
 {
-    partial class NuevoPaciente
+    partial class AgregarPaciente
     {
         /// <summary>
         /// Required designer variable.

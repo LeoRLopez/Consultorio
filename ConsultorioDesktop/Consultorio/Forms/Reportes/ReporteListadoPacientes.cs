@@ -1,4 +1,5 @@
-﻿using Consultorio.Modelo;
+﻿using Consultorio.Helpers;
+using Consultorio.Modelo;
 using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace Consultorio.Reportes
                 // y seleccionar los pacientes asociados a los mismos.
                 if ((int)dropDownMedicos.SelectedValue != -1)
                 {
-                    foreach (var turno in entidades.Turno.Where(x => x.IdMedico == (int)dropDownMedicos.SelectedValue).ToList())
+                    foreach (var turno in entidades.Turno.Where(x => x.IdMedico == (int)dropDownMedicos.SelectedValue).DistinctBy(x => x.IdPaciente).ToList())
                     {
                         pacientes.Add(turno.Paciente);
                     }

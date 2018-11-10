@@ -121,10 +121,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\HorarioAtencionMedico.cs" />
-    <Compile Include="Forms\Admin\EditarPersonalInterno.cs">
+    <Compile Include="Forms\EditarPersonalInterno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\EditarPersonalInterno.Designer.cs">
+    <Compile Include="Forms\EditarPersonalInterno.Designer.cs">
       <DependentUpon>EditarPersonalInterno.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AgregarEditarBancos.cs">
@@ -145,10 +145,10 @@
     <Compile Include="Forms\AgregarEditarEspecialidad.Designer.cs">
       <DependentUpon>AgregarEditarEspecialidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Admin\ListadoPersonalInterno.cs">
+    <Compile Include="Forms\ListadoPersonalInterno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\ListadoPersonalInterno.Designer.cs">
+    <Compile Include="Forms\ListadoPersonalInterno.Designer.cs">
       <DependentUpon>ListadoPersonalInterno.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ListadoTarjetasDeDebito.cs">
@@ -187,6 +187,12 @@
     <Compile Include="Forms\ListadoFormasDePago.Designer.cs">
       <DependentUpon>ListadoFormasDePago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ListadoTurnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListadoTurnos.designer.cs">
+      <DependentUpon>ListadoTurnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reportes\ReporteListadoTurnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,13 +228,13 @@
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ClinicaEntities.cs" />
-    <Compile Include="Forms\Admin\AgregarPersonalInterno.cs">
+    <Compile Include="Forms\AgregarPersonalInterno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\AgregarPersonalInterno.Designer.cs">
+    <Compile Include="Forms\AgregarPersonalInterno.Designer.cs">
       <DependentUpon>AgregarPersonalInterno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\IniciarSesionEventArgs.cs" />
+    <Compile Include="Helpers\IniciarSesionEventArgs.cs" />
     <Compile Include="Forms\ListadoObrasSociales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,11 +259,11 @@
     <Compile Include="Forms\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NuevoPaciente.cs">
+    <Compile Include="Forms\AgregarPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NuevoPaciente.Designer.cs">
-      <DependentUpon>NuevoPaciente.cs</DependentUpon>
+    <Compile Include="Forms\AgregarPaciente.Designer.cs">
+      <DependentUpon>AgregarPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -265,11 +271,11 @@
     <Compile Include="Forms\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NuevoTurno.cs">
+    <Compile Include="Forms\AgregarTurno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NuevoTurno.Designer.cs">
-      <DependentUpon>NuevoTurno.cs</DependentUpon>
+    <Compile Include="Forms\AgregarTurno.Designer.cs">
+      <DependentUpon>AgregarTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ClinicaModelo.Context.cs">
       <AutoGen>True</AutoGen>
@@ -368,10 +374,10 @@
     <Compile Include="ViewModels\PacienteDropDownVM.cs" />
     <Compile Include="ViewModels\MedicoVM.cs" />
     <Compile Include="ViewModels\TurnoVM.cs" />
-    <EmbeddedResource Include="Forms\Admin\EditarPersonalInterno.resx">
+    <EmbeddedResource Include="Forms\EditarPersonalInterno.resx">
       <DependentUpon>EditarPersonalInterno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\AgregarPersonalInterno.resx">
+    <EmbeddedResource Include="Forms\AgregarPersonalInterno.resx">
       <DependentUpon>AgregarPersonalInterno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AgregarEditarBancos.resx">
@@ -383,7 +389,7 @@
     <EmbeddedResource Include="Forms\AgregarEditarEspecialidad.resx">
       <DependentUpon>AgregarEditarEspecialidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\ListadoPersonalInterno.resx">
+    <EmbeddedResource Include="Forms\ListadoPersonalInterno.resx">
       <DependentUpon>ListadoPersonalInterno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListadoTarjetasDeDebito.resx">
@@ -413,6 +419,9 @@
     <EmbeddedResource Include="Forms\EditarPaciente.resx">
       <DependentUpon>EditarPaciente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListadoTurnos.resx">
+      <DependentUpon>ListadoTurnos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportes\ReporteListadoTurnos.resx">
       <DependentUpon>ReporteListadoTurnos.cs</DependentUpon>
     </EmbeddedResource>
@@ -422,14 +431,14 @@
     <EmbeddedResource Include="Forms\SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NuevoPaciente.resx">
-      <DependentUpon>NuevoPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AgregarPaciente.resx">
+      <DependentUpon>AgregarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NuevoTurno.resx">
-      <DependentUpon>NuevoTurno.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AgregarTurno.resx">
+      <DependentUpon>AgregarTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

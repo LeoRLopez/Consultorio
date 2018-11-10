@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNuevoTurno = new Telerik.WinControls.UI.RadButton();
             this.btnRegistrarNuevoPaciente = new Telerik.WinControls.UI.RadButton();
-            this.labelProgramar = new Telerik.WinControls.UI.RadLabel();
             this.labelSiguientePaciente = new Telerik.WinControls.UI.RadLabel();
             this.dashboardClockCalendarPanel = new Telerik.WinControls.UI.RadPanel();
             this.radCalendarDashboard = new Telerik.WinControls.UI.RadCalendar();
@@ -51,9 +50,9 @@
             this.lblTotalTurnosHoy = new Telerik.WinControls.UI.RadLabel();
             this.labelHoy = new Telerik.WinControls.UI.RadLabel();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicoNombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteNombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaHoraTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,9 +65,9 @@
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diagnosticoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteTurnoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelProgramar = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRegistrarNuevoPaciente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labelProgramar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelSiguientePaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardClockCalendarPanel)).BeginInit();
             this.dashboardClockCalendarPanel.SuspendLayout();
@@ -90,12 +89,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.labelHoy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacienteTurnoVMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labelProgramar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNuevoTurno
             // 
             this.btnNuevoTurno.Font = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.btnNuevoTurno.Location = new System.Drawing.Point(731, 50);
+            this.btnNuevoTurno.Location = new System.Drawing.Point(731, 48);
             this.btnNuevoTurno.Name = "btnNuevoTurno";
             this.btnNuevoTurno.Size = new System.Drawing.Size(171, 33);
             this.btnNuevoTurno.TabIndex = 2;
@@ -106,7 +106,7 @@
             // btnRegistrarNuevoPaciente
             // 
             this.btnRegistrarNuevoPaciente.Font = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.btnRegistrarNuevoPaciente.Location = new System.Drawing.Point(302, 50);
+            this.btnRegistrarNuevoPaciente.Location = new System.Drawing.Point(302, 48);
             this.btnRegistrarNuevoPaciente.Name = "btnRegistrarNuevoPaciente";
             this.btnRegistrarNuevoPaciente.Size = new System.Drawing.Size(171, 33);
             this.btnRegistrarNuevoPaciente.TabIndex = 1;
@@ -114,26 +114,16 @@
             this.btnRegistrarNuevoPaciente.ThemeName = "MedicalAppTheme";
             this.btnRegistrarNuevoPaciente.Click += new System.EventHandler(this.btnRegistrarNuevoPaciente_Click);
             // 
-            // labelProgramar
-            // 
-            this.labelProgramar.BackColor = System.Drawing.Color.Transparent;
-            this.labelProgramar.Font = new System.Drawing.Font("Trebuchet MS", 21F);
-            this.labelProgramar.Location = new System.Drawing.Point(553, 45);
-            this.labelProgramar.Name = "labelProgramar";
-            this.labelProgramar.Size = new System.Drawing.Size(146, 38);
-            this.labelProgramar.TabIndex = 0;
-            this.labelProgramar.Text = "Programar";
-            // 
             // labelSiguientePaciente
             // 
             this.labelSiguientePaciente.BackColor = System.Drawing.Color.Transparent;
             this.labelSiguientePaciente.Font = new System.Drawing.Font("Trebuchet MS", 21F);
             this.labelSiguientePaciente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(11)))), ((int)(((byte)(79)))));
-            this.labelSiguientePaciente.Location = new System.Drawing.Point(28, 45);
+            this.labelSiguientePaciente.Location = new System.Drawing.Point(12, 45);
             this.labelSiguientePaciente.Name = "labelSiguientePaciente";
-            this.labelSiguientePaciente.Size = new System.Drawing.Size(242, 38);
+            this.labelSiguientePaciente.Size = new System.Drawing.Size(276, 38);
             this.labelSiguientePaciente.TabIndex = 0;
-            this.labelSiguientePaciente.Text = "Paciente siguente";
+            this.labelSiguientePaciente.Text = "Siguientes Pacientes";
             // 
             // dashboardClockCalendarPanel
             // 
@@ -354,14 +344,6 @@
             this.dgvPacientes.Size = new System.Drawing.Size(416, 331);
             this.dgvPacientes.TabIndex = 13;
             // 
-            // Especialidad
-            // 
-            this.Especialidad.DataPropertyName = "Especialidad";
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
-            this.Especialidad.ReadOnly = true;
-            this.Especialidad.Width = 105;
-            // 
             // pacienteIdDataGridViewTextBoxColumn
             // 
             this.pacienteIdDataGridViewTextBoxColumn.DataPropertyName = "PacienteId";
@@ -377,6 +359,14 @@
             this.medicoNombreCompletoDataGridViewTextBoxColumn.Name = "medicoNombreCompletoDataGridViewTextBoxColumn";
             this.medicoNombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
             this.medicoNombreCompletoDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.DataPropertyName = "Especialidad";
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.ReadOnly = true;
+            this.Especialidad.Width = 105;
             // 
             // pacienteNombreCompletoDataGridViewTextBoxColumn
             // 
@@ -471,6 +461,16 @@
             // 
             this.pacienteTurnoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PacienteTurnoVM);
             // 
+            // labelProgramar
+            // 
+            this.labelProgramar.BackColor = System.Drawing.Color.Transparent;
+            this.labelProgramar.Font = new System.Drawing.Font("Trebuchet MS", 21F);
+            this.labelProgramar.Location = new System.Drawing.Point(553, 45);
+            this.labelProgramar.Name = "labelProgramar";
+            this.labelProgramar.Size = new System.Drawing.Size(146, 38);
+            this.labelProgramar.TabIndex = 0;
+            this.labelProgramar.Text = "Programar";
+            // 
             // MenuPrincipalVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,7 +492,6 @@
             this.Load += new System.EventHandler(this.VentanaInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoTurno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRegistrarNuevoPaciente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.labelProgramar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelSiguientePaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardClockCalendarPanel)).EndInit();
             this.dashboardClockCalendarPanel.ResumeLayout(false);
@@ -517,6 +516,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.labelHoy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacienteTurnoVMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.labelProgramar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,7 +525,6 @@
         #endregion
         private Telerik.WinControls.UI.RadButton btnNuevoTurno;
         private Telerik.WinControls.UI.RadButton btnRegistrarNuevoPaciente;
-        private Telerik.WinControls.UI.RadLabel labelProgramar;
         private Telerik.WinControls.UI.RadLabel labelSiguientePaciente;
         private Telerik.WinControls.UI.RadPanel dashboardClockCalendarPanel;
         private Telerik.WinControls.UI.RadCalendar radCalendarDashboard;
@@ -559,5 +558,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn atendidoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn diagnosticoDataGridViewTextBoxColumn;
+        private Telerik.WinControls.UI.RadLabel labelProgramar;
     }
 }

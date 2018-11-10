@@ -11,9 +11,9 @@ using Telerik.WinControls.UI;
 
 namespace Consultorio
 {
-    public partial class NuevoPaciente : Form
+    public partial class AgregarPaciente : Form
     {
-        public NuevoPaciente()
+        public AgregarPaciente()
         {
             InitializeComponent();
         }

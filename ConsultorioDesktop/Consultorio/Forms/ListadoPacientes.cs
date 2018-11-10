@@ -18,12 +18,11 @@ namespace Consultorio
             InitializeComponent();
             this.__esAdministrador = esAdministrador;
             this.__idMedico = idMedico;
-
         }
 
         private void btnRegistrarNuevoPaciente_Click(object sender, EventArgs e)
         {
-            NuevoPaciente nuevoPaciente = new NuevoPaciente();
+            AgregarPaciente nuevoPaciente = new AgregarPaciente();
             nuevoPaciente.ShowDialog();
         }
 
@@ -117,7 +116,7 @@ namespace Consultorio
 
         private void radButton1_Click(object sender, EventArgs e)
         {
-            var formNuevoPaciente = new NuevoPaciente();
+            var formNuevoPaciente = new AgregarPaciente();
             formNuevoPaciente.ShowDialog();
             RefrescarDataGridViewPacientes();
         }
