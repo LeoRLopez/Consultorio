@@ -18,6 +18,9 @@ namespace Consultorio
             InitializeComponent();
             this.__esAdministrador = esAdministrador;
             this.__idMedico = idMedico;
+
+            btnEditarPaciente.Visible = esAdministrador;
+            btnNuevoPaciente.Visible = esAdministrador;
         }
 
         private void btnRegistrarNuevoPaciente_Click(object sender, EventArgs e)
@@ -114,7 +117,7 @@ namespace Consultorio
             }
         }
 
-        private void radButton1_Click(object sender, EventArgs e)
+        private void btnNuevoPaciente_Click(object sender, EventArgs e)
         {
             var formNuevoPaciente = new AgregarPaciente();
             formNuevoPaciente.ShowDialog();

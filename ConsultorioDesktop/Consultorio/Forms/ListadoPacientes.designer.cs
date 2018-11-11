@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoPacientes));
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoPacientes));
             this.panelListaPacientes = new Telerik.WinControls.UI.RadPanel();
+            this.dgvPacientes = new Telerik.WinControls.UI.RadGridView();
             this.panelPacienteSeleccionado = new Telerik.WinControls.UI.RadPanel();
             this.lblGrupoSanguineo = new Telerik.WinControls.UI.RadLabel();
             this.lblTrasplantado = new Telerik.WinControls.UI.RadLabel();
@@ -51,11 +52,12 @@
             this.pictureBoxFotoPaciente = new System.Windows.Forms.PictureBox();
             this.object_b5eba493_7d85_4956_839f_e2e31e6ce190 = new Telerik.WinControls.RootRadElement();
             this.btnEditarPaciente = new Telerik.WinControls.UI.RadButton();
-            this.radButton1 = new Telerik.WinControls.UI.RadButton();
-            this.dgvPacientes = new Telerik.WinControls.UI.RadGridView();
+            this.btnNuevoPaciente = new Telerik.WinControls.UI.RadButton();
             this.pacienteVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelListaPacientes)).BeginInit();
             this.panelListaPacientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPacienteSeleccionado)).BeginInit();
             this.panelPacienteSeleccionado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblGrupoSanguineo)).BeginInit();
@@ -70,9 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Afecciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditarPaciente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNuevoPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,13 +80,69 @@
             // 
             this.panelListaPacientes.BackColor = System.Drawing.Color.Snow;
             this.panelListaPacientes.Controls.Add(this.dgvPacientes);
-            this.panelListaPacientes.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelListaPacientes.Location = new System.Drawing.Point(0, 0);
             this.panelListaPacientes.Name = "panelListaPacientes";
-            this.panelListaPacientes.Size = new System.Drawing.Size(640, 532);
+            this.panelListaPacientes.Size = new System.Drawing.Size(640, 528);
             this.panelListaPacientes.TabIndex = 0;
             this.panelListaPacientes.Text = "panelListaPacientes";
             this.panelListaPacientes.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgvPacientes
+            // 
+            this.dgvPacientes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dgvPacientes.EnableKineticScrolling = true;
+            this.dgvPacientes.Location = new System.Drawing.Point(0, 0);
+            // 
+            // 
+            // 
+            this.dgvPacientes.MasterTemplate.AllowAddNewRow = false;
+            this.dgvPacientes.MasterTemplate.AllowColumnChooser = false;
+            this.dgvPacientes.MasterTemplate.AllowColumnReorder = false;
+            this.dgvPacientes.MasterTemplate.AllowColumnResize = false;
+            this.dgvPacientes.MasterTemplate.AllowDeleteRow = false;
+            this.dgvPacientes.MasterTemplate.AllowDragToGroup = false;
+            this.dgvPacientes.MasterTemplate.AllowEditRow = false;
+            this.dgvPacientes.MasterTemplate.AllowRowReorder = true;
+            this.dgvPacientes.MasterTemplate.AllowRowResize = false;
+            this.dgvPacientes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn1.FieldName = "NombreCompleto";
+            gridViewTextBoxColumn1.HeaderText = "Nombre";
+            gridViewTextBoxColumn1.IsAutoGenerated = true;
+            gridViewTextBoxColumn1.Name = "NombreCompleto";
+            gridViewTextBoxColumn1.Width = 216;
+            gridViewTextBoxColumn2.FieldName = "Edad";
+            gridViewTextBoxColumn2.HeaderText = "Edad";
+            gridViewTextBoxColumn2.IsAutoGenerated = true;
+            gridViewTextBoxColumn2.Name = "Edad";
+            gridViewTextBoxColumn2.Width = 62;
+            gridViewTextBoxColumn3.FieldName = "Email";
+            gridViewTextBoxColumn3.HeaderText = "Email";
+            gridViewTextBoxColumn3.IsAutoGenerated = true;
+            gridViewTextBoxColumn3.Name = "Email";
+            gridViewTextBoxColumn3.Width = 214;
+            gridViewTextBoxColumn4.FieldName = "Telefono";
+            gridViewTextBoxColumn4.HeaderText = "Telefono";
+            gridViewTextBoxColumn4.IsAutoGenerated = true;
+            gridViewTextBoxColumn4.Name = "Telefono";
+            gridViewTextBoxColumn4.Width = 126;
+            this.dgvPacientes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4});
+            this.dgvPacientes.MasterTemplate.DataSource = this.pacienteVMBindingSource;
+            this.dgvPacientes.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
+            this.dgvPacientes.MasterTemplate.SearchRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
+            this.dgvPacientes.MasterTemplate.VerticalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
+            this.dgvPacientes.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.dgvPacientes.Name = "dgvPacientes";
+            this.dgvPacientes.ReadOnly = true;
+            this.dgvPacientes.ShowGroupPanel = false;
+            this.dgvPacientes.ShowGroupPanelScrollbars = false;
+            this.dgvPacientes.Size = new System.Drawing.Size(640, 528);
+            this.dgvPacientes.TabIndex = 23;
+            this.dgvPacientes.Text = "radGridView1";
+            this.dgvPacientes.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgvPacientes_CellClick);
             // 
             // panelPacienteSeleccionado
             // 
@@ -103,10 +159,9 @@
             this.panelPacienteSeleccionado.Controls.Add(this.lblNombreApellido);
             this.panelPacienteSeleccionado.Controls.Add(this.Afecciones);
             this.panelPacienteSeleccionado.Controls.Add(this.pictureBoxFotoPaciente);
-            this.panelPacienteSeleccionado.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPacienteSeleccionado.Location = new System.Drawing.Point(640, 0);
             this.panelPacienteSeleccionado.Name = "panelPacienteSeleccionado";
-            this.panelPacienteSeleccionado.Size = new System.Drawing.Size(310, 429);
+            this.panelPacienteSeleccionado.Size = new System.Drawing.Size(310, 528);
             this.panelPacienteSeleccionado.TabIndex = 1;
             // 
             // lblGrupoSanguineo
@@ -165,24 +220,22 @@
             // 
             // txtDiagnostico
             // 
-            this.txtDiagnostico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiagnostico.AutoSize = false;
             this.txtDiagnostico.Enabled = false;
-            this.txtDiagnostico.Location = new System.Drawing.Point(7, 353);
+            this.txtDiagnostico.Location = new System.Drawing.Point(6, 353);
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(291, 73);
+            this.txtDiagnostico.Size = new System.Drawing.Size(301, 172);
             this.txtDiagnostico.TabIndex = 9;
             // 
             // txtHistoriaClinica
             // 
-            this.txtHistoriaClinica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHistoriaClinica.AutoSize = false;
             this.txtHistoriaClinica.Enabled = false;
             this.txtHistoriaClinica.Location = new System.Drawing.Point(7, 206);
             this.txtHistoriaClinica.Multiline = true;
             this.txtHistoriaClinica.Name = "txtHistoriaClinica";
-            this.txtHistoriaClinica.Size = new System.Drawing.Size(291, 117);
+            this.txtHistoriaClinica.Size = new System.Drawing.Size(300, 117);
             this.txtHistoriaClinica.TabIndex = 8;
             // 
             // lblEdadSexo
@@ -235,7 +288,7 @@
             // 
             this.btnEditarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarPaciente.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarPaciente.Image")));
-            this.btnEditarPaciente.Location = new System.Drawing.Point(646, 485);
+            this.btnEditarPaciente.Location = new System.Drawing.Point(348, 534);
             this.btnEditarPaciente.Name = "btnEditarPaciente";
             this.btnEditarPaciente.Size = new System.Drawing.Size(292, 44);
             this.btnEditarPaciente.TabIndex = 2;
@@ -260,91 +313,34 @@
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnEditarPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // radButton1
+            // btnNuevoPaciente
             // 
-            this.radButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radButton1.Image = ((System.Drawing.Image)(resources.GetObject("radButton1.Image")));
-            this.radButton1.Location = new System.Drawing.Point(647, 435);
-            this.radButton1.Name = "radButton1";
-            this.radButton1.Size = new System.Drawing.Size(291, 44);
-            this.radButton1.TabIndex = 3;
-            this.radButton1.Text = "Nuevo Paciente";
-            this.radButton1.ThemeName = "ControlDefault";
-            this.radButton1.Click += new System.EventHandler(this.radButton1_Click);
-            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton1.GetChildAt(0))).Text = "Nuevo Paciente";
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.radButton1.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(10F, 0F);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dgvPacientes
-            // 
-            this.dgvPacientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPacientes.EnableKineticScrolling = true;
-            this.dgvPacientes.Location = new System.Drawing.Point(0, 0);
-            // 
-            // 
-            // 
-            this.dgvPacientes.MasterTemplate.AllowAddNewRow = false;
-            this.dgvPacientes.MasterTemplate.AllowColumnChooser = false;
-            this.dgvPacientes.MasterTemplate.AllowColumnReorder = false;
-            this.dgvPacientes.MasterTemplate.AllowColumnResize = false;
-            this.dgvPacientes.MasterTemplate.AllowDeleteRow = false;
-            this.dgvPacientes.MasterTemplate.AllowDragToGroup = false;
-            this.dgvPacientes.MasterTemplate.AllowEditRow = false;
-            this.dgvPacientes.MasterTemplate.AllowRowReorder = true;
-            this.dgvPacientes.MasterTemplate.AllowRowResize = false;
-            this.dgvPacientes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.FieldName = "NombreCompleto";
-            gridViewTextBoxColumn1.HeaderText = "Nombre";
-            gridViewTextBoxColumn1.IsAutoGenerated = true;
-            gridViewTextBoxColumn1.Name = "NombreCompleto";
-            gridViewTextBoxColumn1.Width = 216;
-            gridViewTextBoxColumn2.FieldName = "Edad";
-            gridViewTextBoxColumn2.HeaderText = "Edad";
-            gridViewTextBoxColumn2.IsAutoGenerated = true;
-            gridViewTextBoxColumn2.Name = "Edad";
-            gridViewTextBoxColumn2.Width = 62;
-            gridViewTextBoxColumn3.FieldName = "Email";
-            gridViewTextBoxColumn3.HeaderText = "Email";
-            gridViewTextBoxColumn3.IsAutoGenerated = true;
-            gridViewTextBoxColumn3.Name = "Email";
-            gridViewTextBoxColumn3.Width = 214;
-            gridViewTextBoxColumn4.FieldName = "Telefono";
-            gridViewTextBoxColumn4.HeaderText = "Telefono";
-            gridViewTextBoxColumn4.IsAutoGenerated = true;
-            gridViewTextBoxColumn4.Name = "Telefono";
-            gridViewTextBoxColumn4.Width = 126;
-            this.dgvPacientes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4});
-            this.dgvPacientes.MasterTemplate.DataSource = this.pacienteVMBindingSource;
-            this.dgvPacientes.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
-            this.dgvPacientes.MasterTemplate.SearchRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
-            this.dgvPacientes.MasterTemplate.VerticalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
-            this.dgvPacientes.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            this.dgvPacientes.Name = "dgvPacientes";
-            this.dgvPacientes.ReadOnly = true;
-            this.dgvPacientes.ShowGroupPanel = false;
-            this.dgvPacientes.ShowGroupPanelScrollbars = false;
-            this.dgvPacientes.Size = new System.Drawing.Size(640, 532);
-            this.dgvPacientes.TabIndex = 23;
-            this.dgvPacientes.Text = "radGridView1";
-            this.dgvPacientes.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgvPacientes_CellClick);
+            this.btnNuevoPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoPaciente.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoPaciente.Image")));
+            this.btnNuevoPaciente.Location = new System.Drawing.Point(12, 534);
+            this.btnNuevoPaciente.Name = "btnNuevoPaciente";
+            this.btnNuevoPaciente.Size = new System.Drawing.Size(291, 44);
+            this.btnNuevoPaciente.TabIndex = 3;
+            this.btnNuevoPaciente.Text = "Nuevo Paciente";
+            this.btnNuevoPaciente.ThemeName = "ControlDefault";
+            this.btnNuevoPaciente.Click += new System.EventHandler(this.btnNuevoPaciente_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPaciente.GetChildAt(0))).UseSmallImageList = true;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPaciente.GetChildAt(0))).Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnNuevoPaciente.GetChildAt(0))).Text = "Nuevo Paciente";
+            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(10F, 0F);
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnNuevoPaciente.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pacienteVMBindingSource
             // 
@@ -355,8 +351,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(950, 532);
-            this.Controls.Add(this.radButton1);
+            this.ClientSize = new System.Drawing.Size(1188, 590);
+            this.Controls.Add(this.btnNuevoPaciente);
             this.Controls.Add(this.btnEditarPaciente);
             this.Controls.Add(this.panelPacienteSeleccionado);
             this.Controls.Add(this.panelListaPacientes);
@@ -367,6 +363,8 @@
             this.Load += new System.EventHandler(this.Pacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelListaPacientes)).EndInit();
             this.panelListaPacientes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPacienteSeleccionado)).EndInit();
             this.panelPacienteSeleccionado.ResumeLayout(false);
             this.panelPacienteSeleccionado.PerformLayout();
@@ -382,9 +380,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Afecciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditarPaciente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNuevoPaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacienteVMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -409,7 +405,7 @@
         private Telerik.WinControls.UI.RadLabel lblTrasplantado;
         private Telerik.WinControls.UI.RadLabel lblDonante;
         private Telerik.WinControls.UI.RadLabel lblGrupoSanguineo;
-        private Telerik.WinControls.UI.RadButton radButton1;
+        private Telerik.WinControls.UI.RadButton btnNuevoPaciente;
         private Telerik.WinControls.UI.RadGridView dgvPacientes;
     }
 }

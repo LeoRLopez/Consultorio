@@ -49,9 +49,9 @@
             this.lblTotalTurnosHoy = new Telerik.WinControls.UI.RadLabel();
             this.labelHoy = new Telerik.WinControls.UI.RadLabel();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicoNombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pacienteNombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaHoraTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,7 +90,7 @@
             // btnNuevoTurno
             // 
             this.btnNuevoTurno.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoTurno.Location = new System.Drawing.Point(977, 530);
+            this.btnNuevoTurno.Location = new System.Drawing.Point(573, 24);
             this.btnNuevoTurno.Name = "btnNuevoTurno";
             this.btnNuevoTurno.Size = new System.Drawing.Size(193, 37);
             this.btnNuevoTurno.TabIndex = 2;
@@ -101,7 +101,7 @@
             // btnRegistrarNuevoPaciente
             // 
             this.btnRegistrarNuevoPaciente.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarNuevoPaciente.Location = new System.Drawing.Point(778, 530);
+            this.btnRegistrarNuevoPaciente.Location = new System.Drawing.Point(374, 24);
             this.btnRegistrarNuevoPaciente.Name = "btnRegistrarNuevoPaciente";
             this.btnRegistrarNuevoPaciente.Size = new System.Drawing.Size(193, 38);
             this.btnRegistrarNuevoPaciente.TabIndex = 1;
@@ -151,7 +151,7 @@
             this.radPanelTomorrowAppointments.Controls.Add(this.labelMañana);
             this.radPanelTomorrowAppointments.Location = new System.Drawing.Point(977, 259);
             this.radPanelTomorrowAppointments.Name = "radPanelTomorrowAppointments";
-            this.radPanelTomorrowAppointments.Size = new System.Drawing.Size(193, 265);
+            this.radPanelTomorrowAppointments.Size = new System.Drawing.Size(193, 309);
             this.radPanelTomorrowAppointments.TabIndex = 0;
             this.radPanelTomorrowAppointments.ThemeName = "MedicalAppTheme";
             // 
@@ -159,7 +159,7 @@
             // 
             this.labelManianaUltimoTurno.BackColor = System.Drawing.Color.Transparent;
             this.labelManianaUltimoTurno.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.labelManianaUltimoTurno.Location = new System.Drawing.Point(14, 229);
+            this.labelManianaUltimoTurno.Location = new System.Drawing.Point(14, 257);
             this.labelManianaUltimoTurno.Name = "labelManianaUltimoTurno";
             this.labelManianaUltimoTurno.Size = new System.Drawing.Size(86, 22);
             this.labelManianaUltimoTurno.TabIndex = 0;
@@ -180,7 +180,7 @@
             // 
             this.labelManianaPrimerTurno.BackColor = System.Drawing.Color.Transparent;
             this.labelManianaPrimerTurno.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.labelManianaPrimerTurno.Location = new System.Drawing.Point(14, 201);
+            this.labelManianaPrimerTurno.Location = new System.Drawing.Point(14, 213);
             this.labelManianaPrimerTurno.Name = "labelManianaPrimerTurno";
             this.labelManianaPrimerTurno.Size = new System.Drawing.Size(93, 22);
             this.labelManianaPrimerTurno.TabIndex = 0;
@@ -218,7 +218,7 @@
             this.radPanelTodaysAppointments.Controls.Add(this.labelHoy);
             this.radPanelTodaysAppointments.Location = new System.Drawing.Point(778, 259);
             this.radPanelTodaysAppointments.Name = "radPanelTodaysAppointments";
-            this.radPanelTodaysAppointments.Size = new System.Drawing.Size(193, 265);
+            this.radPanelTodaysAppointments.Size = new System.Drawing.Size(193, 309);
             this.radPanelTodaysAppointments.TabIndex = 0;
             this.radPanelTodaysAppointments.ThemeName = "MedicalAppTheme";
             // 
@@ -226,7 +226,7 @@
             // 
             this.labelHoyPrimerTurno.BackColor = System.Drawing.Color.Transparent;
             this.labelHoyPrimerTurno.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.labelHoyPrimerTurno.Location = new System.Drawing.Point(14, 201);
+            this.labelHoyPrimerTurno.Location = new System.Drawing.Point(14, 213);
             this.labelHoyPrimerTurno.Name = "labelHoyPrimerTurno";
             this.labelHoyPrimerTurno.Size = new System.Drawing.Size(93, 22);
             this.labelHoyPrimerTurno.TabIndex = 0;
@@ -247,7 +247,7 @@
             // 
             this.labelHoyUltimoTurno.BackColor = System.Drawing.Color.Transparent;
             this.labelHoyUltimoTurno.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.labelHoyUltimoTurno.Location = new System.Drawing.Point(14, 229);
+            this.labelHoyUltimoTurno.Location = new System.Drawing.Point(14, 257);
             this.labelHoyUltimoTurno.Name = "labelHoyUltimoTurno";
             this.labelHoyUltimoTurno.Size = new System.Drawing.Size(86, 22);
             this.labelHoyUltimoTurno.TabIndex = 0;
@@ -329,14 +329,6 @@
             this.dgvPacientes.Size = new System.Drawing.Size(754, 492);
             this.dgvPacientes.TabIndex = 13;
             // 
-            // Especialidad
-            // 
-            this.Especialidad.DataPropertyName = "Especialidad";
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
-            this.Especialidad.ReadOnly = true;
-            this.Especialidad.Width = 105;
-            // 
             // pacienteIdDataGridViewTextBoxColumn
             // 
             this.pacienteIdDataGridViewTextBoxColumn.DataPropertyName = "PacienteId";
@@ -352,6 +344,14 @@
             this.medicoNombreCompletoDataGridViewTextBoxColumn.Name = "medicoNombreCompletoDataGridViewTextBoxColumn";
             this.medicoNombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
             this.medicoNombreCompletoDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.DataPropertyName = "Especialidad";
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.ReadOnly = true;
+            this.Especialidad.Width = 105;
             // 
             // pacienteNombreCompletoDataGridViewTextBoxColumn
             // 

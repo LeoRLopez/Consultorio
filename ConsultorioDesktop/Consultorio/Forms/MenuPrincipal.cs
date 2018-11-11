@@ -146,6 +146,7 @@ namespace Consultorio
                     btnReporteTurnos.Visible = false;
                     btnTarjetasDeDebito.Visible = false;
                     btnTurnos.Visible = false;
+                    btnFormasDePago.Visible = false;
                 }
                 else//si es secretario
                 {
@@ -183,7 +184,7 @@ namespace Consultorio
             AbrirVentanaEnPanel(new ReporteListadoTurnos());
         }
 
-        private void radButton1_Click(object sender, EventArgs e)
+        private void btnFormasDePago_Click(object sender, EventArgs e)
         {
             var formFormasDePago = new ListadoFormasDePago(__esAdministrador);
             var formFormasDePagoResult = formFormasDePago.ShowDialog();
@@ -210,14 +211,6 @@ namespace Consultorio
         private void btnTurnos_Click(object sender, EventArgs e)
         {
             AbrirVentanaEnPanel(new ListadoTurnos(this.__esAdministrador, this.__idMedico));
-        }
-
-        
-        
-        private void btnFormasDePago_Click(object sender, EventArgs e)
-        {
-            var formFormasDePago = new ListadoFormasDePago();
-            var formFormasDePagoResult = formFormasDePago.ShowDialog();
         }
 
         private void btnReportePacientes_Click(object sender, EventArgs e)
