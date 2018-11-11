@@ -40,6 +40,7 @@ namespace Consultorio.Modelo
         public int IdCiudad { get; set; }
         public int IdProvincia { get; set; }
         public int IdPais { get; set; }
+        public string GrupoSanguineo { get; set; }
     
         public virtual Ciudad Ciudad { get; set; }
         public virtual FormaDePago FormaDePago { get; set; }

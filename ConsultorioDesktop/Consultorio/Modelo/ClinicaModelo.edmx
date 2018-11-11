@@ -133,10 +133,9 @@
             <PropertyRef Name="IdHistoriaClinica" />
           </Key>
           <Property Name="IdHistoriaClinica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FechaInicio" Type="date" Nullable="false" />
-          <Property Name="UltimaActualizacion" Type="date" Nullable="false" />
+          <Property Name="FechaInicioPrimerAtencion" Type="date" />
+          <Property Name="FechaAtencion" Type="date" Nullable="false" />
           <Property Name="AntecedentesMedicos" Type="nvarchar(max)" />
-          <Property Name="GrupoSanguineo" Type="nchar" MaxLength="10" />
           <Property Name="Donante" Type="bit" Nullable="false" />
           <Property Name="Transplantado" Type="bit" Nullable="false" />
         </EntityType>
@@ -191,6 +190,7 @@
           <Property Name="IdCiudad" Type="int" Nullable="false" />
           <Property Name="IdProvincia" Type="int" Nullable="false" />
           <Property Name="IdPais" Type="int" Nullable="false" />
+          <Property Name="GrupoSanguineo" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Paciente_Tarjetas">
           <Key>
@@ -1355,13 +1355,12 @@
             <PropertyRef Name="IdHistoriaClinica" />
           </Key>
           <Property Name="IdHistoriaClinica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="UltimaActualizacion" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="AntecedentesMedicos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="GrupoSanguineo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Donante" Type="Boolean" Nullable="false" />
           <Property Name="Transplantado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Paciente" Relationship="ClinicaModel.FK_Paciente_HistoriaClinica" FromRole="HistoriaClinica" ToRole="Paciente" />
+          <Property Name="FechaInicioPrimerAtencion" Type="DateTime" Precision="0" />
+          <Property Name="FechaAtencion" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Horario">
           <Key>
@@ -1442,6 +1441,7 @@
           <NavigationProperty Name="Paciente_Tarjetas" Relationship="ClinicaModel.FK_Paciente_Tarjetas_Paciente" FromRole="Paciente" ToRole="Paciente_Tarjetas" />
           <NavigationProperty Name="SegurosMedicosPaciente" Relationship="ClinicaModel.FK_SegurosMedicosClientes_Paciente" FromRole="Paciente" ToRole="SegurosMedicosPaciente" />
           <NavigationProperty Name="Turno" Relationship="ClinicaModel.FK_Turno_Paciente" FromRole="Paciente" ToRole="Turno" />
+          <Property Name="GrupoSanguineo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Paciente_Tarjetas">
           <Key>
@@ -2209,12 +2209,11 @@
           <EntitySetMapping Name="HistoriaClinica">
             <EntityTypeMapping TypeName="ClinicaModel.HistoriaClinica">
               <MappingFragment StoreEntitySet="HistoriaClinica">
+                <ScalarProperty Name="FechaAtencion" ColumnName="FechaAtencion" />
+                <ScalarProperty Name="FechaInicioPrimerAtencion" ColumnName="FechaInicioPrimerAtencion" />
                 <ScalarProperty Name="Transplantado" ColumnName="Transplantado" />
                 <ScalarProperty Name="Donante" ColumnName="Donante" />
-                <ScalarProperty Name="GrupoSanguineo" ColumnName="GrupoSanguineo" />
                 <ScalarProperty Name="AntecedentesMedicos" ColumnName="AntecedentesMedicos" />
-                <ScalarProperty Name="UltimaActualizacion" ColumnName="UltimaActualizacion" />
-                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
                 <ScalarProperty Name="IdHistoriaClinica" ColumnName="IdHistoriaClinica" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2254,6 +2253,7 @@
           <EntitySetMapping Name="Paciente">
             <EntityTypeMapping TypeName="ClinicaModel.Paciente">
               <MappingFragment StoreEntitySet="Paciente">
+                <ScalarProperty Name="GrupoSanguineo" ColumnName="GrupoSanguineo" />
                 <ScalarProperty Name="IdPais" ColumnName="IdPais" />
                 <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
                 <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />

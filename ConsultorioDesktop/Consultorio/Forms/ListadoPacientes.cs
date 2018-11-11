@@ -61,7 +61,10 @@ namespace Consultorio
                     Telefono = paciente.TelCelular,
                     Direccion = paciente.Direccion,
                     Email = paciente.Email,
-                    Sexo = paciente.Sexo
+                    Sexo = paciente.Sexo,
+                    GrupoSanguineo = paciente.GrupoSanguineo,
+                    Donante = paciente.HistoriaClinica.Donante,
+                    Trasplantado = paciente.HistoriaClinica.Transplantado
                 }).ToList());
 
                 pacienteVMBindingSource.DataSource = pacientesVM;
@@ -136,7 +139,7 @@ namespace Consultorio
                 txtDiagnostico.Enabled = true;
                 txtHistoriaClinica.Enabled = true;
                 txtHistoriaClinica.Text = pacienteSeleccionado.AntecedentesMedicos;
-                lblGrupoSanguineo.Text = pacienteSeleccionado.GrupoSanguineo;
+                lblGrupoSanguineo.Text = "Grupo y factor sanguíneo: " + pacienteSeleccionado.GrupoSanguineo;
 
                 if (pacienteSeleccionado.Trasplantado)
                 {
@@ -156,6 +159,11 @@ namespace Consultorio
                     lblDonante.Text = "No es donante";
                 }
             }
+        }
+
+        private void btnCompletarConsulta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

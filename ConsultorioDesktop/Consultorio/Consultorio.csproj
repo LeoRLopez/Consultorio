@@ -477,6 +477,7 @@
     <None Include="Properties\DataSources\Consultorio.Modelo.Bancos.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Especialidad.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.FormaDePago.datasource" />
+    <None Include="Properties\DataSources\Consultorio.Modelo.HistoriaClinica.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Medico.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.SegurosMedico.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Tarjetas.datasource" />

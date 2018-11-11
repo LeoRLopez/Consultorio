@@ -59,7 +59,8 @@ namespace Consultorio
                 CodigoPostal = txtBoxCodigoPostal.Text,
                 IdCiudad = (int)dropDownCiudad.SelectedValue,
                 IdProvincia = (int)dropDownProvincia.SelectedValue,
-                IdPais = (int)dropDownPais.SelectedValue
+                IdPais = (int)dropDownPais.SelectedValue,
+                GrupoSanguineo = dropDownGrupoSanguineo.Text.Trim()
             };
 
             if (!ValidarCamposObligatoriosHistoriaClinica())
@@ -67,12 +68,11 @@ namespace Consultorio
 
             nuevoPaciente.HistoriaClinica = new HistoriaClinica
             {
-                FechaInicio = DateTime.Now,
-                UltimaActualizacion = DateTime.Now,
+                FechaInicioPrimerAtencion = DateTime.Now,
+                FechaAtencion = DateTime.Now,
                 AntecedentesMedicos = txtBoxAntecedentesMedicos.Text.Trim(),
                 Donante = checkBoxDonante.Checked,
-                Transplantado = checkBoxTrasplantado.Checked,
-                GrupoSanguineo = dropDownGrupoSanguineo.Text.Trim()
+                Transplantado = checkBoxTrasplantado.Checked
             };
 
             try

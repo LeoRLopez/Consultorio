@@ -72,7 +72,6 @@ namespace Consultorio
                     IdMedico = ((MedicoVM)dgvMedicos.CurrentRow.DataBoundItem).MedicoId,
                     IdEspecialidadMedico = (int)dropDownEspecialidades.SelectedValue,
                     PrecioTurno = decimal.Parse(tbPrecioTurno.Text),
-                    Diagnostico = textboxDiagnostico.Text,
                     Descripcion = tbDescripcion.Text,
                     IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/,
                     IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null,
@@ -183,7 +182,6 @@ namespace Consultorio
             dropDownListaPacientes.SelectedIndex = 0;
             dropDownSegurosMedicos.SelectedIndex = 0;
             tbDescripcion.Clear();
-            textboxDiagnostico.Clear();
             radiobtnParticular.CheckState = CheckState.Checked;
             radioBtnSeguroMedico.CheckState = CheckState.Unchecked;
         }

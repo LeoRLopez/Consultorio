@@ -42,7 +42,7 @@ namespace Consultorio
             this.dropDownCiudad.SelectedValue = this.__paciente.IdCiudad;
             this.txtBoxCodigoPostal.Text = this.__paciente.CodigoPostal;
             this.txtBoxAntecedentesMedicos.Text = this.__paciente.HistoriaClinica.AntecedentesMedicos;
-            this.dropDownGrupoSanguineo.SelectedValue = this.__paciente.HistoriaClinica.GrupoSanguineo.Trim();
+            this.dropDownGrupoSanguineo.SelectedValue = this.__paciente.GrupoSanguineo.Trim();
             this.checkBoxDonante.Checked = this.__paciente.HistoriaClinica.Donante;
             this.checkBoxTrasplantado.Checked = this.__paciente.HistoriaClinica.Transplantado;
         }
@@ -91,17 +91,17 @@ namespace Consultorio
                     pacienteBD.IdCiudad = (int)dropDownCiudad.SelectedValue;
                     pacienteBD.IdProvincia = (int)dropDownProvincia.SelectedValue;
                     pacienteBD.IdPais = (int)dropDownPais.SelectedValue;
+                    pacienteBD.GrupoSanguineo = dropDownGrupoSanguineo.Text;
 
                     if (!ValidarCamposObligatoriosHistoriaClinica())
                         return;
                     var historiaClinicaBD = entidades.HistoriaClinica.Single(x => x.IdHistoriaClinica == pacienteBD.IdHistoriaClinica);
 
 
-                    historiaClinicaBD.UltimaActualizacion = DateTime.Now;
+                    historiaClinicaBD.FechaAtencion = DateTime.Now;
                     historiaClinicaBD.AntecedentesMedicos = txtBoxAntecedentesMedicos.Text.Trim();
                     historiaClinicaBD.Donante = checkBoxDonante.Checked;
                     historiaClinicaBD.Transplantado = checkBoxTrasplantado.Checked;
-                    historiaClinicaBD.GrupoSanguineo = dropDownGrupoSanguineo.Text;
 
 
                     // Actualizar el Usuario existente en la tabla AspNetUsers asi se puede seguir logueando en la Web con el nuevo Email
