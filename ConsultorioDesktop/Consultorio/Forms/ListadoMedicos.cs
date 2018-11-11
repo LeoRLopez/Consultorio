@@ -75,7 +75,7 @@ namespace Consultorio
             }
         }
 
-        private void dgvMedicos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMedicos_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             if (dgvMedicos.CurrentRow != null)
             {

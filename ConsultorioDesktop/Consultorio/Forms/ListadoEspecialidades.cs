@@ -11,9 +11,11 @@ namespace Consultorio
         public ListadoEspecialidades(bool __esAdministrador)
         {
             InitializeComponent();
+        }
 
-            btnEditar.Visible = __esAdministrador;
-            btnHabilitar.Visible = __esAdministrador;
+        public ListadoEspecialidades()
+        {
+            InitializeComponent();
         }
 
         private void ListadoDeEspecialidades_Load(object sender, EventArgs e)

@@ -96,7 +96,7 @@
             this.panelOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelOpciones.Location = new System.Drawing.Point(0, 0);
             this.panelOpciones.Name = "panelOpciones";
-            this.panelOpciones.Size = new System.Drawing.Size(967, 168);
+            this.panelOpciones.Size = new System.Drawing.Size(1188, 168);
             this.panelOpciones.TabIndex = 0;
             this.panelOpciones.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -313,7 +313,7 @@
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel1.Location = new System.Drawing.Point(0, 0);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(967, 588);
+            this.radPanel1.Size = new System.Drawing.Size(1188, 590);
             this.radPanel1.TabIndex = 1;
             this.radPanel1.Text = "radPanel1";
             this.radPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -428,7 +428,7 @@
             this.dgvPacienteMedicoTurno.ReadOnly = true;
             this.dgvPacienteMedicoTurno.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvPacienteMedicoTurno.ShowGroupPanel = false;
-            this.dgvPacienteMedicoTurno.Size = new System.Drawing.Size(967, 420);
+            this.dgvPacienteMedicoTurno.Size = new System.Drawing.Size(1188, 422);
             this.dgvPacienteMedicoTurno.TabIndex = 1;
             this.dgvPacienteMedicoTurno.Text = "radGridView1";
             // 
@@ -443,7 +443,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.CancelButton = this.btnVolver;
-            this.ClientSize = new System.Drawing.Size(967, 588);
+            this.ClientSize = new System.Drawing.Size(1188, 590);
             this.Controls.Add(this.radPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReporteListadoTurnos";

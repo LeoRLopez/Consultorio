@@ -17,6 +17,11 @@ namespace Consultorio
             btnHabilitar.Visible = __esAdministrador;
         }
 
+        public ListadoSegurosMedicos()
+        {
+            InitializeComponent();
+        }
+
         private void Forma_Pago_Load(object sender, EventArgs e)
         {
             RefrescarGridView();

@@ -14,7 +14,12 @@ namespace Consultorio.Forms
             btnEditar.Visible = __esAdministrador;
             btnHabilitar.Visible = __esAdministrador;
 
-        } 
+        }
+
+        public ListadoBancos()
+        {
+            InitializeComponent();
+        }
 
         private void RefrescarGridView()
         {

@@ -83,7 +83,7 @@
             this.panelOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelOpciones.Location = new System.Drawing.Point(0, 0);
             this.panelOpciones.Name = "panelOpciones";
-            this.panelOpciones.Size = new System.Drawing.Size(683, 168);
+            this.panelOpciones.Size = new System.Drawing.Size(1188, 168);
             this.panelOpciones.TabIndex = 0;
             this.panelOpciones.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -256,7 +256,7 @@
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel1.Location = new System.Drawing.Point(0, 0);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(683, 642);
+            this.radPanel1.Size = new System.Drawing.Size(1188, 590);
             this.radPanel1.TabIndex = 1;
             this.radPanel1.Text = "radPanel1";
             this.radPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -354,7 +354,7 @@
             this.dgvPacientes.Name = "dgvPacientes";
             this.dgvPacientes.ReadOnly = true;
             this.dgvPacientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dgvPacientes.Size = new System.Drawing.Size(683, 474);
+            this.dgvPacientes.Size = new System.Drawing.Size(1188, 422);
             this.dgvPacientes.TabIndex = 14;
             this.dgvPacientes.Text = "radGridView1";
             // 
@@ -369,7 +369,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.CancelButton = this.btnVolver;
-            this.ClientSize = new System.Drawing.Size(683, 642);
+            this.ClientSize = new System.Drawing.Size(1188, 590);
             this.Controls.Add(this.radPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReporteListadoPacientes";

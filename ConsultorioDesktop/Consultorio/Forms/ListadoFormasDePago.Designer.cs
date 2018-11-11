@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
-            this.dgvFormasDePago = new System.Windows.Forms.DataGridView();
-            this.idFormaDePagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formaDePagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
@@ -41,9 +40,9 @@
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
+            this.dgvBancos = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFormasDePago)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formaDePagoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
@@ -51,6 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBancos.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -72,48 +73,6 @@
             this.btnVolver.TabIndex = 3;
             this.btnVolver.Text = "Volver";
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // dgvFormasDePago
-            // 
-            this.dgvFormasDePago.AllowUserToAddRows = false;
-            this.dgvFormasDePago.AllowUserToDeleteRows = false;
-            this.dgvFormasDePago.AllowUserToResizeColumns = false;
-            this.dgvFormasDePago.AllowUserToResizeRows = false;
-            this.dgvFormasDePago.AutoGenerateColumns = false;
-            this.dgvFormasDePago.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgvFormasDePago.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dgvFormasDePago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dgvFormasDePago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFormasDePago.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idFormaDePagoDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn});
-            this.dgvFormasDePago.DataSource = this.formaDePagoBindingSource;
-            this.dgvFormasDePago.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
-            this.dgvFormasDePago.Location = new System.Drawing.Point(12, 12);
-            this.dgvFormasDePago.Name = "dgvFormasDePago";
-            this.dgvFormasDePago.ReadOnly = true;
-            this.dgvFormasDePago.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvFormasDePago.RowHeadersVisible = false;
-            this.dgvFormasDePago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFormasDePago.Size = new System.Drawing.Size(409, 308);
-            this.dgvFormasDePago.TabIndex = 7;
-            // 
-            // idFormaDePagoDataGridViewTextBoxColumn
-            // 
-            this.idFormaDePagoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idFormaDePagoDataGridViewTextBoxColumn.DataPropertyName = "IdFormaDePago";
-            this.idFormaDePagoDataGridViewTextBoxColumn.HeaderText = "IdFormaDePago";
-            this.idFormaDePagoDataGridViewTextBoxColumn.Name = "idFormaDePagoDataGridViewTextBoxColumn";
-            this.idFormaDePagoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idFormaDePagoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // formaDePagoBindingSource
             // 
@@ -170,18 +129,55 @@
             this.txtBoxBuscar.Size = new System.Drawing.Size(157, 21);
             this.txtBoxBuscar.TabIndex = 13;
             // 
+            // dgvBancos
+            // 
+            this.dgvBancos.EnableKineticScrolling = true;
+            this.dgvBancos.Location = new System.Drawing.Point(8, 12);
+            // 
+            // 
+            // 
+            this.dgvBancos.MasterTemplate.AllowAddNewRow = false;
+            this.dgvBancos.MasterTemplate.AllowColumnChooser = false;
+            this.dgvBancos.MasterTemplate.AllowColumnReorder = false;
+            this.dgvBancos.MasterTemplate.AllowColumnResize = false;
+            this.dgvBancos.MasterTemplate.AllowDeleteRow = false;
+            this.dgvBancos.MasterTemplate.AllowDragToGroup = false;
+            this.dgvBancos.MasterTemplate.AllowEditRow = false;
+            this.dgvBancos.MasterTemplate.AllowRowReorder = true;
+            this.dgvBancos.MasterTemplate.AllowRowResize = false;
+            this.dgvBancos.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn1.FieldName = "Nombre";
+            gridViewTextBoxColumn1.HeaderText = "Nombre";
+            gridViewTextBoxColumn1.IsAutoGenerated = true;
+            gridViewTextBoxColumn1.Name = "Nombre";
+            gridViewTextBoxColumn1.Width = 388;
+            this.dgvBancos.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1});
+            this.dgvBancos.MasterTemplate.DataSource = this.formaDePagoBindingSource;
+            this.dgvBancos.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
+            this.dgvBancos.MasterTemplate.SearchRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
+            this.dgvBancos.MasterTemplate.VerticalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
+            this.dgvBancos.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.dgvBancos.Name = "dgvBancos";
+            this.dgvBancos.ReadOnly = true;
+            this.dgvBancos.ShowGroupPanel = false;
+            this.dgvBancos.ShowGroupPanelScrollbars = false;
+            this.dgvBancos.Size = new System.Drawing.Size(409, 308);
+            this.dgvBancos.TabIndex = 22;
+            this.dgvBancos.Text = "radGridView1";
+            // 
             // ListadoFormasDePago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(598, 332);
+            this.Controls.Add(this.dgvBancos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.txtBoxBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.dgvFormasDePago);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -192,7 +188,6 @@
             this.Load += new System.EventHandler(this.Forma_Pago_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFormasDePago)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formaDePagoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
@@ -200,6 +195,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBancos.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBancos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,15 +206,13 @@
         #endregion
         private Telerik.WinControls.UI.RadButton btnAgregar;
         private Telerik.WinControls.UI.RadButton btnVolver;
-        private System.Windows.Forms.DataGridView dgvFormasDePago;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Telerik.WinControls.UI.RadButton btnEditar;
         private Telerik.WinControls.UI.RadButton btnEliminar;
         private Telerik.WinControls.UI.RadButton btnBuscar;
         private Telerik.WinControls.UI.RadLabel lblBuscar;
         private Telerik.WinControls.UI.RadTextBox txtBoxBuscar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFormaDePagoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource formaDePagoBindingSource;
+        private Telerik.WinControls.UI.RadGridView dgvBancos;
     }
 }

@@ -65,7 +65,7 @@ namespace Consultorio
             }
         }
 
-        private void dgvPacientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        /*private void dgvPacientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvPacientes.CurrentRow != null)
             {
@@ -97,7 +97,7 @@ namespace Consultorio
                     lblDonante.Text = "No es donante";
                 }
             }
-        }
+        }*/
 
         private void btnEditarPaciente_Click(object sender, EventArgs e)
         {
@@ -119,6 +119,40 @@ namespace Consultorio
             var formNuevoPaciente = new AgregarPaciente();
             formNuevoPaciente.ShowDialog();
             RefrescarDataGridViewPacientes();
+        }
+
+        private void dgvPacientes_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            if (dgvPacientes.CurrentRow != null)
+            {
+                var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
+                lblNombreApellido.Text = pacienteSeleccionado.NombreCompleto;
+                lblEdadSexo.Text = pacienteSeleccionado.Edad;
+                lblTelefono.Text = pacienteSeleccionado.Telefono;
+                lblDireccion.Text = pacienteSeleccionado.Direccion;
+                txtDiagnostico.Enabled = true;
+                txtHistoriaClinica.Enabled = true;
+                txtHistoriaClinica.Text = pacienteSeleccionado.AntecedentesMedicos;
+                lblGrupoSanguineo.Text = pacienteSeleccionado.GrupoSanguineo;
+
+                if (pacienteSeleccionado.Trasplantado)
+                {
+                    lblTrasplantado.Text = "Es trasplantado";
+                }
+                else
+                {
+                    lblTrasplantado.Text = "No es trasplantado";
+                }
+
+                if (pacienteSeleccionado.Donante)
+                {
+                    lblDonante.Text = "Es donante";
+                }
+                else
+                {
+                    lblDonante.Text = "No es donante";
+                }
+            }
         }
     }
 }

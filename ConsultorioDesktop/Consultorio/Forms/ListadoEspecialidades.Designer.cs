@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn1 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn2 = new Telerik.WinControls.UI.GridViewDecimalColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.btnAgregar = new Telerik.WinControls.UI.RadButton();
             this.btnVolver = new Telerik.WinControls.UI.RadButton();
-            this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
-            this.especialidadIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioPorDefectoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BajaLogica = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.especialidadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
@@ -43,9 +45,9 @@
             this.btnBuscar = new Telerik.WinControls.UI.RadButton();
             this.lblBuscar = new Telerik.WinControls.UI.RadLabel();
             this.txtBoxBuscar = new Telerik.WinControls.UI.RadTextBox();
+            this.dgvEspecialidades = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
@@ -53,6 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -74,64 +78,6 @@
             this.btnVolver.TabIndex = 3;
             this.btnVolver.Text = "Volver";
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // dgvEspecialidades
-            // 
-            this.dgvEspecialidades.AllowUserToAddRows = false;
-            this.dgvEspecialidades.AllowUserToDeleteRows = false;
-            this.dgvEspecialidades.AllowUserToResizeColumns = false;
-            this.dgvEspecialidades.AllowUserToResizeRows = false;
-            this.dgvEspecialidades.AutoGenerateColumns = false;
-            this.dgvEspecialidades.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgvEspecialidades.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dgvEspecialidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.especialidadIdDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.precioPorDefectoDataGridViewTextBoxColumn,
-            this.BajaLogica});
-            this.dgvEspecialidades.DataSource = this.especialidadBindingSource;
-            this.dgvEspecialidades.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(252)))), ((int)(((byte)(249)))));
-            this.dgvEspecialidades.Location = new System.Drawing.Point(12, 12);
-            this.dgvEspecialidades.Name = "dgvEspecialidades";
-            this.dgvEspecialidades.ReadOnly = true;
-            this.dgvEspecialidades.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dgvEspecialidades.RowHeadersVisible = false;
-            this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEspecialidades.Size = new System.Drawing.Size(409, 308);
-            this.dgvEspecialidades.TabIndex = 7;
-            // 
-            // especialidadIdDataGridViewTextBoxColumn
-            // 
-            this.especialidadIdDataGridViewTextBoxColumn.DataPropertyName = "EspecialidadId";
-            this.especialidadIdDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.especialidadIdDataGridViewTextBoxColumn.HeaderText = "EspecialidadId";
-            this.especialidadIdDataGridViewTextBoxColumn.Name = "especialidadIdDataGridViewTextBoxColumn";
-            this.especialidadIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.especialidadIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // precioPorDefectoDataGridViewTextBoxColumn
-            // 
-            this.precioPorDefectoDataGridViewTextBoxColumn.DataPropertyName = "PrecioPorDefecto";
-            this.precioPorDefectoDataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.precioPorDefectoDataGridViewTextBoxColumn.Name = "precioPorDefectoDataGridViewTextBoxColumn";
-            this.precioPorDefectoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // BajaLogica
-            // 
-            this.BajaLogica.DataPropertyName = "BajaLogica";
-            this.BajaLogica.HeaderText = "Habilitado";
-            this.BajaLogica.Name = "BajaLogica";
-            this.BajaLogica.ReadOnly = true;
             // 
             // especialidadBindingSource
             // 
@@ -188,18 +134,91 @@
             this.txtBoxBuscar.Size = new System.Drawing.Size(157, 21);
             this.txtBoxBuscar.TabIndex = 10;
             // 
+            // dgvEspecialidades
+            // 
+            this.dgvEspecialidades.EnableKineticScrolling = true;
+            this.dgvEspecialidades.Location = new System.Drawing.Point(12, 12);
+            // 
+            // 
+            // 
+            this.dgvEspecialidades.MasterTemplate.AllowAddNewRow = false;
+            this.dgvEspecialidades.MasterTemplate.AllowColumnChooser = false;
+            this.dgvEspecialidades.MasterTemplate.AllowColumnReorder = false;
+            this.dgvEspecialidades.MasterTemplate.AllowColumnResize = false;
+            this.dgvEspecialidades.MasterTemplate.AllowDeleteRow = false;
+            this.dgvEspecialidades.MasterTemplate.AllowDragToGroup = false;
+            this.dgvEspecialidades.MasterTemplate.AllowEditRow = false;
+            this.dgvEspecialidades.MasterTemplate.AllowRowReorder = true;
+            this.dgvEspecialidades.MasterTemplate.AllowRowResize = false;
+            this.dgvEspecialidades.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewDecimalColumn1.DataType = typeof(int);
+            gridViewDecimalColumn1.FieldName = "EspecialidadId";
+            gridViewDecimalColumn1.HeaderText = "EspecialidadId";
+            gridViewDecimalColumn1.IsAutoGenerated = true;
+            gridViewDecimalColumn1.IsVisible = false;
+            gridViewDecimalColumn1.Name = "EspecialidadId";
+            gridViewDecimalColumn1.Width = 66;
+            gridViewTextBoxColumn1.FieldName = "Nombre";
+            gridViewTextBoxColumn1.HeaderText = "Nombre";
+            gridViewTextBoxColumn1.IsAutoGenerated = true;
+            gridViewTextBoxColumn1.Name = "Nombre";
+            gridViewTextBoxColumn1.Width = 199;
+            gridViewDecimalColumn2.FieldName = "PrecioPorDefecto";
+            gridViewDecimalColumn2.HeaderText = "Precio";
+            gridViewDecimalColumn2.IsAutoGenerated = true;
+            gridViewDecimalColumn2.Name = "PrecioPorDefecto";
+            gridViewDecimalColumn2.Width = 130;
+            gridViewCheckBoxColumn1.FieldName = "BajaLogica";
+            gridViewCheckBoxColumn1.HeaderText = "Habilitado";
+            gridViewCheckBoxColumn1.IsAutoGenerated = true;
+            gridViewCheckBoxColumn1.Name = "BajaLogica";
+            gridViewCheckBoxColumn1.Width = 61;
+            gridViewTextBoxColumn2.DataType = typeof(System.Collections.Generic.ICollection<Consultorio.Modelo.MedicoEspecialidad>);
+            gridViewTextBoxColumn2.FieldName = "MedicoEspecialidad";
+            gridViewTextBoxColumn2.HeaderText = "MedicoEspecialidad";
+            gridViewTextBoxColumn2.IsAutoGenerated = true;
+            gridViewTextBoxColumn2.IsVisible = false;
+            gridViewTextBoxColumn2.Name = "MedicoEspecialidad";
+            gridViewTextBoxColumn2.Width = 79;
+            gridViewTextBoxColumn3.DataType = typeof(System.Collections.Generic.ICollection<Consultorio.Modelo.Turno>);
+            gridViewTextBoxColumn3.FieldName = "Turno";
+            gridViewTextBoxColumn3.HeaderText = "Turno";
+            gridViewTextBoxColumn3.IsAutoGenerated = true;
+            gridViewTextBoxColumn3.IsVisible = false;
+            gridViewTextBoxColumn3.Name = "Turno";
+            gridViewTextBoxColumn3.Width = 94;
+            this.dgvEspecialidades.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewDecimalColumn1,
+            gridViewTextBoxColumn1,
+            gridViewDecimalColumn2,
+            gridViewCheckBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3});
+            this.dgvEspecialidades.MasterTemplate.DataSource = this.especialidadBindingSource;
+            this.dgvEspecialidades.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
+            this.dgvEspecialidades.MasterTemplate.SearchRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
+            this.dgvEspecialidades.MasterTemplate.VerticalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysHide;
+            this.dgvEspecialidades.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.dgvEspecialidades.Name = "dgvEspecialidades";
+            this.dgvEspecialidades.ReadOnly = true;
+            this.dgvEspecialidades.ShowGroupPanel = false;
+            this.dgvEspecialidades.ShowGroupPanelScrollbars = false;
+            this.dgvEspecialidades.Size = new System.Drawing.Size(409, 308);
+            this.dgvEspecialidades.TabIndex = 23;
+            this.dgvEspecialidades.Text = "radGridView1";
+            // 
             // ListadoEspecialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(598, 332);
+            this.Controls.Add(this.dgvEspecialidades);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.txtBoxBuscar);
             this.Controls.Add(this.btnHabilitar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.dgvEspecialidades);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -210,7 +229,6 @@
             this.Load += new System.EventHandler(this.ListadoDeEspecialidades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.especialidadBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
@@ -218,6 +236,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,7 +247,6 @@
         #endregion
         private Telerik.WinControls.UI.RadButton btnAgregar;
         private Telerik.WinControls.UI.RadButton btnVolver;
-        private System.Windows.Forms.DataGridView dgvEspecialidades;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Telerik.WinControls.UI.RadButton btnEditar;
         private Telerik.WinControls.UI.RadButton btnHabilitar;
@@ -235,9 +254,6 @@
         private Telerik.WinControls.UI.RadLabel lblBuscar;
         private Telerik.WinControls.UI.RadTextBox txtBoxBuscar;
         private System.Windows.Forms.BindingSource especialidadBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn especialidadIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioPorDefectoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn BajaLogica;
+        private Telerik.WinControls.UI.RadGridView dgvEspecialidades;
     }
 }

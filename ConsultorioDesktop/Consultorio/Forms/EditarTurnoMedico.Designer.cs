@@ -48,17 +48,6 @@ namespace Consultorio
             this.dropDownSegurosMedicos = new Telerik.WinControls.UI.RadDropDownList();
             this.radiobtnParticular = new Telerik.WinControls.UI.RadRadioButton();
             this.radioBtnSeguroMedico = new Telerik.WinControls.UI.RadRadioButton();
-            this.dgvMedicos = new System.Windows.Forms.DataGridView();
-            this.medicoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lunesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.martesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.miercolesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.juevesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.viernesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SabadoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DomingoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textboxDiagnostico = new Telerik.WinControls.UI.RadTextBoxControl();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.dropDownHoraTurno = new Telerik.WinControls.UI.RadDropDownList();
@@ -68,6 +57,17 @@ namespace Consultorio
             this.tbPrecioTurno = new Telerik.WinControls.UI.RadTextBox();
             this.chbAsistio = new System.Windows.Forms.CheckBox();
             this.chbAtendido = new System.Windows.Forms.CheckBox();
+            this.medicoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DomingoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SabadoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viernesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.juevesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.miercolesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.martesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lunesHorarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCompletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMedicos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDescripcion)).BeginInit();
@@ -80,21 +80,21 @@ namespace Consultorio
             ((System.ComponentModel.ISupportInitialize)(this.dropDownSegurosMedicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radiobtnParticular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioBtnSeguroMedico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textboxDiagnostico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownHoraTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownEspecialidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPrecioTurno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.cancelButton.Location = new System.Drawing.Point(425, 276);
+            this.cancelButton.Location = new System.Drawing.Point(137, 311);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(97, 33);
             this.cancelButton.TabIndex = 10;
@@ -105,7 +105,7 @@ namespace Consultorio
             // saveButton
             // 
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.saveButton.Location = new System.Drawing.Point(270, 276);
+            this.saveButton.Location = new System.Drawing.Point(12, 311);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(97, 33);
             this.saveButton.TabIndex = 9;
@@ -116,10 +116,10 @@ namespace Consultorio
             // tbDescripcion
             // 
             this.tbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDescripcion.Location = new System.Drawing.Point(270, 120);
+            this.tbDescripcion.Location = new System.Drawing.Point(270, 240);
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(252, 140);
+            this.tbDescripcion.Size = new System.Drawing.Size(252, 104);
             this.tbDescripcion.TabIndex = 8;
             this.tbDescripcion.ThemeName = "MedicalAppTheme";
             // 
@@ -141,7 +141,7 @@ namespace Consultorio
             // labelDescripcion
             // 
             this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescripcion.Location = new System.Drawing.Point(270, 97);
+            this.labelDescripcion.Location = new System.Drawing.Point(270, 217);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(74, 17);
             this.labelDescripcion.TabIndex = 0;
@@ -248,147 +248,20 @@ namespace Consultorio
             this.radioBtnSeguroMedico.Text = "Seguro Médico";
             this.radioBtnSeguroMedico.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radioBtnSeguroMedico_ToggleStateChanged);
             // 
-            // dgvMedicos
-            // 
-            this.dgvMedicos.AllowUserToAddRows = false;
-            this.dgvMedicos.AllowUserToDeleteRows = false;
-            this.dgvMedicos.AutoGenerateColumns = false;
-            this.dgvMedicos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.dgvMedicos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvMedicos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dgvMedicos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.medicoIdDataGridViewTextBoxColumn,
-            this.nombreCompletoDataGridViewTextBoxColumn,
-            this.lunesHorarioDataGridViewTextBoxColumn,
-            this.martesHorarioDataGridViewTextBoxColumn,
-            this.miercolesHorarioDataGridViewTextBoxColumn,
-            this.juevesHorarioDataGridViewTextBoxColumn,
-            this.viernesHorarioDataGridViewTextBoxColumn,
-            this.SabadoHorario,
-            this.DomingoHorario});
-            this.dgvMedicos.DataSource = this.medicoVMBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMedicos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvMedicos.Enabled = false;
-            this.dgvMedicos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(242)))));
-            this.dgvMedicos.Location = new System.Drawing.Point(270, 14);
-            this.dgvMedicos.MultiSelect = false;
-            this.dgvMedicos.Name = "dgvMedicos";
-            this.dgvMedicos.ReadOnly = true;
-            this.dgvMedicos.RowHeadersVisible = false;
-            this.dgvMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicos.Size = new System.Drawing.Size(517, 63);
-            this.dgvMedicos.TabIndex = 11;
-            this.dgvMedicos.Click += new System.EventHandler(this.dgvMedicos_Click);
-            // 
-            // medicoIdDataGridViewTextBoxColumn
-            // 
-            this.medicoIdDataGridViewTextBoxColumn.DataPropertyName = "MedicoId";
-            this.medicoIdDataGridViewTextBoxColumn.HeaderText = "MedicoId";
-            this.medicoIdDataGridViewTextBoxColumn.Name = "medicoIdDataGridViewTextBoxColumn";
-            this.medicoIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.medicoIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreCompletoDataGridViewTextBoxColumn
-            // 
-            this.nombreCompletoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto";
-            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Medico";
-            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
-            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lunesHorarioDataGridViewTextBoxColumn
-            // 
-            this.lunesHorarioDataGridViewTextBoxColumn.DataPropertyName = "LunesHorario";
-            this.lunesHorarioDataGridViewTextBoxColumn.HeaderText = "Lunes";
-            this.lunesHorarioDataGridViewTextBoxColumn.Name = "lunesHorarioDataGridViewTextBoxColumn";
-            this.lunesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lunesHorarioDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // martesHorarioDataGridViewTextBoxColumn
-            // 
-            this.martesHorarioDataGridViewTextBoxColumn.DataPropertyName = "MartesHorario";
-            this.martesHorarioDataGridViewTextBoxColumn.HeaderText = "Martes";
-            this.martesHorarioDataGridViewTextBoxColumn.Name = "martesHorarioDataGridViewTextBoxColumn";
-            this.martesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.martesHorarioDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // miercolesHorarioDataGridViewTextBoxColumn
-            // 
-            this.miercolesHorarioDataGridViewTextBoxColumn.DataPropertyName = "MiercolesHorario";
-            this.miercolesHorarioDataGridViewTextBoxColumn.HeaderText = "Miércoles";
-            this.miercolesHorarioDataGridViewTextBoxColumn.Name = "miercolesHorarioDataGridViewTextBoxColumn";
-            this.miercolesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.miercolesHorarioDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // juevesHorarioDataGridViewTextBoxColumn
-            // 
-            this.juevesHorarioDataGridViewTextBoxColumn.DataPropertyName = "JuevesHorario";
-            this.juevesHorarioDataGridViewTextBoxColumn.HeaderText = "Jueves";
-            this.juevesHorarioDataGridViewTextBoxColumn.Name = "juevesHorarioDataGridViewTextBoxColumn";
-            this.juevesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.juevesHorarioDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // viernesHorarioDataGridViewTextBoxColumn
-            // 
-            this.viernesHorarioDataGridViewTextBoxColumn.DataPropertyName = "ViernesHorario";
-            this.viernesHorarioDataGridViewTextBoxColumn.HeaderText = "Viernes";
-            this.viernesHorarioDataGridViewTextBoxColumn.Name = "viernesHorarioDataGridViewTextBoxColumn";
-            this.viernesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.viernesHorarioDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // SabadoHorario
-            // 
-            this.SabadoHorario.DataPropertyName = "SabadoHorario";
-            this.SabadoHorario.HeaderText = "Sábado";
-            this.SabadoHorario.Name = "SabadoHorario";
-            this.SabadoHorario.ReadOnly = true;
-            this.SabadoHorario.Visible = false;
-            this.SabadoHorario.Width = 60;
-            // 
-            // DomingoHorario
-            // 
-            this.DomingoHorario.DataPropertyName = "DomingoHorario";
-            this.DomingoHorario.HeaderText = "Domingo";
-            this.DomingoHorario.Name = "DomingoHorario";
-            this.DomingoHorario.ReadOnly = true;
-            this.DomingoHorario.Visible = false;
-            this.DomingoHorario.Width = 65;
-            // 
-            // medicoVMBindingSource
-            // 
-            this.medicoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.MedicoVM);
-            // 
             // textboxDiagnostico
             // 
             this.textboxDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxDiagnostico.Location = new System.Drawing.Point(535, 120);
+            this.textboxDiagnostico.Location = new System.Drawing.Point(535, 240);
             this.textboxDiagnostico.Multiline = true;
             this.textboxDiagnostico.Name = "textboxDiagnostico";
-            this.textboxDiagnostico.Size = new System.Drawing.Size(252, 189);
+            this.textboxDiagnostico.Size = new System.Drawing.Size(252, 104);
             this.textboxDiagnostico.TabIndex = 13;
             this.textboxDiagnostico.ThemeName = "MedicalAppTheme";
             // 
             // radLabel1
             // 
             this.radLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(535, 97);
+            this.radLabel1.Location = new System.Drawing.Point(535, 217);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(74, 17);
             this.radLabel1.TabIndex = 12;
@@ -455,7 +328,7 @@ namespace Consultorio
             // 
             this.chbAsistio.AutoSize = true;
             this.chbAsistio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbAsistio.Location = new System.Drawing.Point(17, 282);
+            this.chbAsistio.Location = new System.Drawing.Point(12, 266);
             this.chbAsistio.Name = "chbAsistio";
             this.chbAsistio.Size = new System.Drawing.Size(76, 19);
             this.chbAsistio.TabIndex = 19;
@@ -466,12 +339,139 @@ namespace Consultorio
             // 
             this.chbAtendido.AutoSize = true;
             this.chbAtendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbAtendido.Location = new System.Drawing.Point(144, 282);
+            this.chbAtendido.Location = new System.Drawing.Point(139, 266);
             this.chbAtendido.Name = "chbAtendido";
             this.chbAtendido.Size = new System.Drawing.Size(90, 19);
             this.chbAtendido.TabIndex = 20;
             this.chbAtendido.Text = "Atendido?";
             this.chbAtendido.UseVisualStyleBackColor = true;
+            // 
+            // medicoVMBindingSource
+            // 
+            this.medicoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.MedicoVM);
+            // 
+            // DomingoHorario
+            // 
+            this.DomingoHorario.DataPropertyName = "DomingoHorario";
+            this.DomingoHorario.HeaderText = "Domingo";
+            this.DomingoHorario.Name = "DomingoHorario";
+            this.DomingoHorario.ReadOnly = true;
+            this.DomingoHorario.Visible = false;
+            this.DomingoHorario.Width = 65;
+            // 
+            // SabadoHorario
+            // 
+            this.SabadoHorario.DataPropertyName = "SabadoHorario";
+            this.SabadoHorario.HeaderText = "Sábado";
+            this.SabadoHorario.Name = "SabadoHorario";
+            this.SabadoHorario.ReadOnly = true;
+            this.SabadoHorario.Visible = false;
+            this.SabadoHorario.Width = 60;
+            // 
+            // viernesHorarioDataGridViewTextBoxColumn
+            // 
+            this.viernesHorarioDataGridViewTextBoxColumn.DataPropertyName = "ViernesHorario";
+            this.viernesHorarioDataGridViewTextBoxColumn.HeaderText = "Viernes";
+            this.viernesHorarioDataGridViewTextBoxColumn.Name = "viernesHorarioDataGridViewTextBoxColumn";
+            this.viernesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.viernesHorarioDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // juevesHorarioDataGridViewTextBoxColumn
+            // 
+            this.juevesHorarioDataGridViewTextBoxColumn.DataPropertyName = "JuevesHorario";
+            this.juevesHorarioDataGridViewTextBoxColumn.HeaderText = "Jueves";
+            this.juevesHorarioDataGridViewTextBoxColumn.Name = "juevesHorarioDataGridViewTextBoxColumn";
+            this.juevesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.juevesHorarioDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // miercolesHorarioDataGridViewTextBoxColumn
+            // 
+            this.miercolesHorarioDataGridViewTextBoxColumn.DataPropertyName = "MiercolesHorario";
+            this.miercolesHorarioDataGridViewTextBoxColumn.HeaderText = "Miércoles";
+            this.miercolesHorarioDataGridViewTextBoxColumn.Name = "miercolesHorarioDataGridViewTextBoxColumn";
+            this.miercolesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.miercolesHorarioDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // martesHorarioDataGridViewTextBoxColumn
+            // 
+            this.martesHorarioDataGridViewTextBoxColumn.DataPropertyName = "MartesHorario";
+            this.martesHorarioDataGridViewTextBoxColumn.HeaderText = "Martes";
+            this.martesHorarioDataGridViewTextBoxColumn.Name = "martesHorarioDataGridViewTextBoxColumn";
+            this.martesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.martesHorarioDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // lunesHorarioDataGridViewTextBoxColumn
+            // 
+            this.lunesHorarioDataGridViewTextBoxColumn.DataPropertyName = "LunesHorario";
+            this.lunesHorarioDataGridViewTextBoxColumn.HeaderText = "Lunes";
+            this.lunesHorarioDataGridViewTextBoxColumn.Name = "lunesHorarioDataGridViewTextBoxColumn";
+            this.lunesHorarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lunesHorarioDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // nombreCompletoDataGridViewTextBoxColumn
+            // 
+            this.nombreCompletoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto";
+            this.nombreCompletoDataGridViewTextBoxColumn.HeaderText = "Medico";
+            this.nombreCompletoDataGridViewTextBoxColumn.Name = "nombreCompletoDataGridViewTextBoxColumn";
+            this.nombreCompletoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // medicoIdDataGridViewTextBoxColumn
+            // 
+            this.medicoIdDataGridViewTextBoxColumn.DataPropertyName = "MedicoId";
+            this.medicoIdDataGridViewTextBoxColumn.HeaderText = "MedicoId";
+            this.medicoIdDataGridViewTextBoxColumn.Name = "medicoIdDataGridViewTextBoxColumn";
+            this.medicoIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.medicoIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dgvMedicos
+            // 
+            this.dgvMedicos.AllowUserToAddRows = false;
+            this.dgvMedicos.AllowUserToDeleteRows = false;
+            this.dgvMedicos.AutoGenerateColumns = false;
+            this.dgvMedicos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dgvMedicos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvMedicos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvMedicos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMedicos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMedicos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.medicoIdDataGridViewTextBoxColumn,
+            this.nombreCompletoDataGridViewTextBoxColumn,
+            this.lunesHorarioDataGridViewTextBoxColumn,
+            this.martesHorarioDataGridViewTextBoxColumn,
+            this.miercolesHorarioDataGridViewTextBoxColumn,
+            this.juevesHorarioDataGridViewTextBoxColumn,
+            this.viernesHorarioDataGridViewTextBoxColumn,
+            this.SabadoHorario,
+            this.DomingoHorario});
+            this.dgvMedicos.DataSource = this.medicoVMBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMedicos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMedicos.Enabled = false;
+            this.dgvMedicos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(242)))));
+            this.dgvMedicos.Location = new System.Drawing.Point(270, 14);
+            this.dgvMedicos.MultiSelect = false;
+            this.dgvMedicos.Name = "dgvMedicos";
+            this.dgvMedicos.ReadOnly = true;
+            this.dgvMedicos.RowHeadersVisible = false;
+            this.dgvMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMedicos.Size = new System.Drawing.Size(517, 197);
+            this.dgvMedicos.TabIndex = 11;
+            this.dgvMedicos.Click += new System.EventHandler(this.dgvMedicos_Click);
             // 
             // EditarTurnoMedico
             // 
@@ -479,7 +479,7 @@ namespace Consultorio
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(799, 321);
+            this.ClientSize = new System.Drawing.Size(799, 356);
             this.Controls.Add(this.chbAtendido);
             this.Controls.Add(this.chbAsistio);
             this.Controls.Add(this.tbPrecioTurno);
@@ -521,14 +521,14 @@ namespace Consultorio
             ((System.ComponentModel.ISupportInitialize)(this.dropDownSegurosMedicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radiobtnParticular)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioBtnSeguroMedico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textboxDiagnostico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownHoraTurno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownEspecialidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPrecioTurno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicoVMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,7 +551,6 @@ namespace Consultorio
         private System.Windows.Forms.Label lblSeguroMedico;
         private Telerik.WinControls.UI.RadRadioButton radioBtnSeguroMedico;
         private Telerik.WinControls.UI.RadRadioButton radiobtnParticular;
-        private System.Windows.Forms.DataGridView dgvMedicos;
         private System.Windows.Forms.BindingSource medicoVMBindingSource;
         private Telerik.WinControls.UI.RadTextBoxControl textboxDiagnostico;
         private Telerik.WinControls.UI.RadLabel radLabel1;
@@ -561,6 +560,9 @@ namespace Consultorio
         private System.Windows.Forms.DataGridViewTextBoxColumn especialidadDataGridViewTextBoxColumn;
         private Telerik.WinControls.UI.RadTextBox tbPrecioTurno;
         private Telerik.WinControls.UI.RadLabel radLabel2;
+        private System.Windows.Forms.CheckBox chbAtendido;
+        private System.Windows.Forms.CheckBox chbAsistio;
+        private System.Windows.Forms.DataGridView dgvMedicos;
         private System.Windows.Forms.DataGridViewTextBoxColumn medicoIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompletoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lunesHorarioDataGridViewTextBoxColumn;
@@ -570,7 +572,5 @@ namespace Consultorio
         private System.Windows.Forms.DataGridViewTextBoxColumn viernesHorarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SabadoHorario;
         private System.Windows.Forms.DataGridViewTextBoxColumn DomingoHorario;
-        private System.Windows.Forms.CheckBox chbAtendido;
-        private System.Windows.Forms.CheckBox chbAsistio;
     }
 }

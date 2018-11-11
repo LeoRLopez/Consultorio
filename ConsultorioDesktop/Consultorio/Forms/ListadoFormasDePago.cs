@@ -7,6 +7,11 @@ namespace Consultorio
 {
     public partial class ListadoFormasDePago : Form
     {
+        public ListadoFormasDePago()
+        {
+            InitializeComponent();
+        }
+
         public ListadoFormasDePago(bool __esAdministrador)
         {
             InitializeComponent();

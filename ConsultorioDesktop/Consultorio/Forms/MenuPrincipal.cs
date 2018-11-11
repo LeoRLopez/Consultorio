@@ -138,6 +138,14 @@ namespace Consultorio
                     btnNuevoPersonal.Visible = false;
                     btnMedicos.Visible = false;
                     btnHome.Visible = false;
+                    btnBancos.Visible = false;
+                    btnEspecialidades.Visible = false;
+                    btnNuevoPersonal.Visible = false;
+                    btnObrasSociales.Visible = false;
+                    btnReportePacientes.Visible = false;
+                    btnReporteTurnos.Visible = false;
+                    btnTarjetasDeDebito.Visible = false;
+                    btnTurnos.Visible = false;
                 }
                 else//si es secretario
                 {
@@ -170,11 +178,6 @@ namespace Consultorio
             //formListadoPersonalInterno.ShowDialog();
         }
 
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            AbrirVentanaEnPanel(new ReporteListadoPacientes());
-        }
-
         private void btnReportesDeTurnos_Click(object sender, EventArgs e)
         {
             AbrirVentanaEnPanel(new ReporteListadoTurnos());
@@ -200,13 +203,26 @@ namespace Consultorio
 
         private void btnBancos_Click(object sender, EventArgs e)
         {
-            var formBancos = new ListadoBancos(this.__esAdministrador);
+            var formBancos = new ListadoBancos();
             var formBancosResult = formBancos.ShowDialog();
         }
 
         private void btnTurnos_Click(object sender, EventArgs e)
         {
             AbrirVentanaEnPanel(new ListadoTurnos(this.__esAdministrador, this.__idMedico));
+        }
+
+        
+        
+        private void btnFormasDePago_Click(object sender, EventArgs e)
+        {
+            var formFormasDePago = new ListadoFormasDePago();
+            var formFormasDePagoResult = formFormasDePago.ShowDialog();
+        }
+
+        private void btnReportePacientes_Click(object sender, EventArgs e)
+        {
+            AbrirVentanaEnPanel(new ReporteListadoPacientes());
         }
     }
 }
