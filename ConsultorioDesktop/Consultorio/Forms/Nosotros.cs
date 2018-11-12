@@ -13,9 +13,10 @@ namespace Consultorio.Forms
 {
     public partial class Nosotros : Form
     {
-        public Nosotros( )
+        public Nosotros(bool __esAdministrador)
         {
             InitializeComponent();
+            btnEditar.Visible = __esAdministrador;
         }
 
         private void Nosotros_Load(object sender, EventArgs e)

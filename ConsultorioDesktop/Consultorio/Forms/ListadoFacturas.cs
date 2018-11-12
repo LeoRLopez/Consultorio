@@ -107,11 +107,6 @@ namespace Consultorio.Reportes
             }
         }
 
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void CargarMedicos()
         {
             using (var entidades = new ClinicaEntities())

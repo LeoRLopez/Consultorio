@@ -224,7 +224,7 @@ namespace Consultorio
 
         private void btnNosotros_Click(object sender, EventArgs e)
         {
-            var ventanaNosotros = new Nosotros();
+            var ventanaNosotros = new Nosotros(__esAdministrador);
             ventanaNosotros.ShowDialog();
         }
     }

@@ -34,7 +34,6 @@
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
-            this.btnVolver = new Telerik.WinControls.UI.RadButton();
             this.btnFiltrar = new Telerik.WinControls.UI.RadButton();
             this.dropDownFormasDePago = new Telerik.WinControls.UI.RadDropDownList();
             this.lblFormaDePago = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@
             this.panelOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFiltrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownFormasDePago)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).BeginInit();
@@ -80,7 +78,6 @@
             this.panelOpciones.Controls.Add(this.radLabel1);
             this.panelOpciones.Controls.Add(this.dtpHasta);
             this.panelOpciones.Controls.Add(this.dtpDesde);
-            this.panelOpciones.Controls.Add(this.btnVolver);
             this.panelOpciones.Controls.Add(this.btnFiltrar);
             this.panelOpciones.Controls.Add(this.dropDownFormasDePago);
             this.panelOpciones.Controls.Add(this.lblFormaDePago);
@@ -136,35 +133,6 @@
             this.dtpDesde.ShowCheckBox = true;
             this.dtpDesde.Size = new System.Drawing.Size(140, 20);
             this.dtpDesde.TabIndex = 20;
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(828, 66);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(104, 44);
-            this.btnVolver.TabIndex = 19;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.ThemeName = "ControlDefault";
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnVolver.GetChildAt(0))).UseSmallImageList = true;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnVolver.GetChildAt(0))).Image = null;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnVolver.GetChildAt(0))).Text = "Volver";
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.btnVolver.GetChildAt(0).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchHorizontally = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).StretchVertically = false;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Center;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ScaleSize = new System.Drawing.Size(25, 25);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageScaling = Telerik.WinControls.Enumerations.ImageScaling.SizeToFit;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).PositionOffset = new System.Drawing.SizeF(10F, 0F);
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ClickMode = Telerik.WinControls.ClickMode.Release;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(1))).CustomFontSize = 15F;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnVolver.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnFiltrar
             // 
@@ -266,6 +234,7 @@
             this.dgvFacturas.AllowUserToAddRows = false;
             this.dgvFacturas.AllowUserToDeleteRows = false;
             this.dgvFacturas.AutoGenerateColumns = false;
+            this.dgvFacturas.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idFacturaDataGridViewTextBoxColumn,
@@ -415,7 +384,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
-            this.CancelButton = this.btnVolver;
             this.ClientSize = new System.Drawing.Size(1188, 590);
             this.Controls.Add(this.radPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -430,7 +398,6 @@
             this.panelOpciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFiltrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dropDownFormasDePago)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.labelMedico)).EndInit();
@@ -453,7 +420,6 @@
         private System.Windows.Forms.Label lblFormaDePago;
         private Telerik.WinControls.UI.RadDropDownList dropDownFormasDePago;
         private Telerik.WinControls.UI.RadButton btnFiltrar;
-        private Telerik.WinControls.UI.RadButton btnVolver;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private Telerik.WinControls.UI.RadLabel radLabel2;

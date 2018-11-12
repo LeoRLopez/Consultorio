@@ -21,6 +21,8 @@ namespace Consultorio
 
             btnEditarPaciente.Visible = esAdministrador;
             btnNuevoPaciente.Visible = esAdministrador;
+
+            
         }
 
         private void btnRegistrarNuevoPaciente_Click(object sender, EventArgs e)
@@ -163,7 +165,16 @@ namespace Consultorio
 
         private void btnCompletarConsulta_Click(object sender, EventArgs e)
         {
+            using(var entidades = new ClinicaEntities())
+            {
+                var paciente = new PacienteVM()
+                {
+                    
+                };
 
+
+
+            }
         }
     }
 }
