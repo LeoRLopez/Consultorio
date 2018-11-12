@@ -104,24 +104,27 @@ namespace Consultorio
                         turnoDB.Descripcion = tbDescripcion.Text;
                         turnoDB.IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/;
                         turnoDB.IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null;
-                        var factura = new Factura
+
+                        var deseaFacturarDialog = MessageBox.Show("Desea Facturar el Turno?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (deseaFacturarDialog == DialogResult.Yes)
                         {
-                            IdTurno = turnoDB.IdTurno,
-                            Fecha = DateTime.Now,
-                            IdFormaDePago = turnoDB.IdFormaDePago,
-                            Monto = turnoDB.PrecioTurno
-                        };
-                        var formFacturacion = new AgregarFactura(factura);
-                        var result = formFacturacion.ShowDialog();
-                        if (result == DialogResult.OK)
-                        {
-                            entidades.SaveChanges();
-                            EnviarNotificacionesPorEmail(entidades, turnoDB.IdTurno);
-                            entidadesTransaction.Commit();
-                            MessageBox.Show("Turno modificado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            _turnoFueModificado = true;
-                            this.Close();
+                            var factura = new Factura
+                            {
+                                IdTurno = turnoDB.IdTurno,
+                                Fecha = DateTime.Now,
+                                IdFormaDePago = turnoDB.IdFormaDePago,
+                                Monto = turnoDB.PrecioTurno
+                            };
+                            var formFacturacion = new AgregarFactura(factura);
+                            formFacturacion.ShowDialog();
                         }
+
+                        entidades.SaveChanges();
+                        EnviarNotificacionesPorEmail(entidades, turnoDB.IdTurno);
+                        entidadesTransaction.Commit();
+                        MessageBox.Show("Turno modificado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _turnoFueModificado = true;
+                        this.Close();
                     }
                     catch (Exception ex)
                     {

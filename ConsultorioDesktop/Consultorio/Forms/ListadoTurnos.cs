@@ -1,4 +1,5 @@
-﻿using Consultorio.Modelo;
+﻿using Consultorio.Forms;
+using Consultorio.Modelo;
 using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -67,7 +68,8 @@ namespace Consultorio.Reportes
                                         FechaHoraTurno = turno.FechaYHora,
                                         FormaDePagoId = turno.IdFormaDePago,
                                         FormaDePagoNombre = turno.FormaDePago.Nombre,
-                                        Pagado = turno.IdFactura != null
+                                        Pagado = turno.IdFactura != null,
+                                        PrecioTurno = turno.PrecioTurno
                                     }).OrderBy(x => x.FechaHoraTurno).ToList();
             }
         }
@@ -139,14 +141,10 @@ namespace Consultorio.Reportes
                                     FechaHoraTurno = turno.FechaYHora,
                                     FormaDePagoId = turno.IdFormaDePago,
                                     FormaDePagoNombre = turno.FormaDePago.Nombre,
-                                    Pagado = turno.IdFactura != null
+                                    Pagado = turno.IdFactura != null,
+                                    PrecioTurno = turno.PrecioTurno
                                 }).OrderBy(x => x.FechaHoraTurno).ToList();
             }
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void CargarSegurosMedico()
@@ -251,6 +249,44 @@ namespace Consultorio.Reportes
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            if (dgvPacienteMedicoTurno.CurrentRow != null)
+            {
+                var turnoSeleccionado = ((PacienteTurnoVM)dgvPacienteMedicoTurno.CurrentRow.DataBoundItem);
+                if (!turnoSeleccionado.Pagado)
+                {
+                    var deseaFacturarDialog = MessageBox.Show("Desea Facturar el Turno?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (deseaFacturarDialog == DialogResult.Yes)
+                    {
+                        var factura = new Factura
+                        {
+                            IdTurno = turnoSeleccionado.TurnoId,
+                            Fecha = DateTime.Now,
+                            IdFormaDePago = turnoSeleccionado.FormaDePagoId,
+                            Monto = turnoSeleccionado.PrecioTurno
+                        };
+                        var formFacturacion = new AgregarFactura(factura);
+                        formFacturacion.ShowDialog();
+                    }
+                    CargarTurnos();
+                }
+                else
+                {
+                    MessageBox.Show("El turno seleccionado ya ha sido Facturado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnVolver_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

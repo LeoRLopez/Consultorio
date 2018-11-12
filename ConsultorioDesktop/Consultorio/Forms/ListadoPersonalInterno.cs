@@ -125,7 +125,7 @@ namespace Consultorio.Forms
             }
         }
 
-        private void btnVolver_Click_1(object sender, EventArgs e)
+        private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
         }

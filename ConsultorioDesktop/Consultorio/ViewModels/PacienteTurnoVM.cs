@@ -11,6 +11,7 @@ namespace Consultorio.ViewModels
         public string PacienteNombreCompleto { get; set; }      
         public string FormaDePagoNombre { get; set; }
         public string MedicoNombreCompleto { get; set; }
+        public decimal PrecioTurno { get; set; }
         public DateTime FechaHoraTurno { get; set; }
         public string Edad { get; set; }
         public Nullable<int> IdSeguroMedico { get; set; }

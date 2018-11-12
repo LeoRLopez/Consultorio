@@ -51,6 +51,7 @@ namespace Consultorio.Forms
                         turnoDB.IdFactura = this._factura.IdFactura;
                         entidades.SaveChanges();
                         this.DialogResult = DialogResult.OK;
+                        MessageBox.Show("Factura Creada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
@@ -62,7 +63,10 @@ namespace Consultorio.Forms
             }
             catch (Exception ex)
             {
+                this.DialogResult = DialogResult.Cancel;
+                MessageBox.Show("Factura no creada. Si desea hacerlo en el futuro debe Editar de nuevo el Turno o mediate el boton Facturar en el Listado de Turnos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();            
             }
         }
 

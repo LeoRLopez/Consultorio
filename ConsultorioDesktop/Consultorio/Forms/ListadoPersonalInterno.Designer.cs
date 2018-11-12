@@ -47,6 +47,7 @@
             this.lblbNombre = new Telerik.WinControls.UI.RadLabel();
             this.dgvPersonalInterno = new Telerik.WinControls.UI.RadGridView();
             this.personalInternoVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnVolver = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonalInterno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonalInterno.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personalInternoVMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -204,12 +206,23 @@
             // 
             this.personalInternoVMBindingSource.DataSource = typeof(Consultorio.ViewModels.PersonalInternoVM);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnVolver.Location = new System.Drawing.Point(1066, 555);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(110, 24);
+            this.btnVolver.TabIndex = 23;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // ListadoPersonalInterno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1188, 590);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dgvPersonalInterno);
             this.Controls.Add(this.lblbNombre);
             this.Controls.Add(this.btnBuscar);
@@ -232,6 +245,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonalInterno.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonalInterno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personalInternoVMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVolver)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +261,6 @@
         private System.Windows.Forms.BindingSource personalInternoVMBindingSource;
         private Telerik.WinControls.UI.RadLabel lblbNombre;
         private Telerik.WinControls.UI.RadGridView dgvPersonalInterno;
+        private Telerik.WinControls.UI.RadButton btnVolver;
     }
 }

@@ -48,7 +48,8 @@ namespace Consultorio
                     PacienteNombreCompleto = turno.Paciente.Apellidos + ", " + turno.Paciente.Nombres,
                     MedicoNombreCompleto = turno.Medico.PersonalInterno.FirstOrDefault().Apellido + ", " + turno.Medico.PersonalInterno.FirstOrDefault().Nombre,
                     Especialidad = turno.Especialidad.Nombre,
-                    FechaHoraTurno = turno.FechaYHora
+                    FechaHoraTurno = turno.FechaYHora,
+                    PrecioTurno = turno.PrecioTurno
                 }).OrderBy(x => x.FechaHoraTurno).ThenBy(x => x.MedicoNombreCompleto).ThenBy(x => x.PacienteNombreCompleto).ThenBy(x => x.Edad);
                 lblTotalTurnosHoy.Text = turnosHoy.Count.ToString();
                 if (turnosHoy.Any())
