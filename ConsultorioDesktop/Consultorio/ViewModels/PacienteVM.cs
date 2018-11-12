@@ -17,5 +17,7 @@ namespace Consultorio.ViewModels
         public string GrupoSanguineo { get; set; }
         public string Email { get; set; }
         public string Sexo { get; set; }
+        public int TurnoId { get; set; }
+
     }
 }

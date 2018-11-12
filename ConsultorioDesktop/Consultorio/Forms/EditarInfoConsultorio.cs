@@ -25,7 +25,6 @@ namespace Consultorio.Forms
             this.Close();
         }
 
-
         private bool ValidarCamposObligatorios()
         {
             if (string.IsNullOrEmpty(tbNombreConsultorio.Text) || string.IsNullOrEmpty(tbDireccion.Text) || string.IsNullOrEmpty(tbTelefono.Text)

@@ -139,8 +139,8 @@ namespace Consultorio
                 lblTelefono.Text = pacienteSeleccionado.Telefono;
                 lblDireccion.Text = pacienteSeleccionado.Direccion;
                 txtDiagnostico.Enabled = true;
-                txtHistoriaClinica.Enabled = true;
-                txtHistoriaClinica.Text = pacienteSeleccionado.AntecedentesMedicos;
+                txtDetallesConsulta.Enabled = true;
+                txtDetallesConsulta.Text = pacienteSeleccionado.AntecedentesMedicos;
                 lblGrupoSanguineo.Text = "Grupo y factor sanguíneo: " + pacienteSeleccionado.GrupoSanguineo;
 
                 if (pacienteSeleccionado.Trasplantado)
@@ -165,16 +165,47 @@ namespace Consultorio
 
         private void btnCompletarConsulta_Click(object sender, EventArgs e)
         {
-            using(var entidades = new ClinicaEntities())
+            try
             {
-                var paciente = new PacienteVM()
+                errorProvider1.Clear();
+                if (!ValidarCamposObligatorios())
+                    return;
+
+                var fecha = DateTime.Now.ToString();
+                using (var entidades = new ClinicaEntities())
                 {
-                    
-                };
+                    var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
+                    var nuevaHistClinica = entidades.HistoriaClinica.First();
+                    nuevaHistClinica.AntecedentesMedicos += "Fecha: " + fecha + "/nDetalles de la consulta: " + txtDetallesConsulta.Text + "/nDiagnostico: " + txtDiagnostico.Text;
+
+                    var actualizado = entidades.Paciente.Select(x => x.HistoriaClinica.IdHistoriaClinica == pacienteSeleccionado.IdHistoriaClinica).ToList();
 
 
 
+                    entidades.SaveChanges();
+                    MessageBox.Show("Datos Editados con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool ValidarCamposObligatorios()
+        {
+            if (string.IsNullOrEmpty(txtDetallesConsulta.Text) || string.IsNullOrEmpty(txtDiagnostico.Text))
+            {
+                if (string.IsNullOrEmpty(txtDetallesConsulta.Text))
+                    errorProvider1.SetError(txtDetallesConsulta, "Requerido");
+
+                if (string.IsNullOrEmpty(txtDiagnostico.Text))
+                    errorProvider1.SetError(txtDiagnostico, "Requerido");
+
+                return false;
+            }
+            return true;
         }
     }
 }
