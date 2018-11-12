@@ -131,7 +131,7 @@
             this.dtpHasta.Location = new System.Drawing.Point(262, 82);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowCheckBox = true;
-            this.dtpHasta.Size = new System.Drawing.Size(130, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(130, 22);
             this.dtpHasta.TabIndex = 21;
             // 
             // dtpDesde
@@ -142,7 +142,7 @@
             this.dtpDesde.Location = new System.Drawing.Point(262, 33);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowCheckBox = true;
-            this.dtpDesde.Size = new System.Drawing.Size(130, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(130, 22);
             this.dtpDesde.TabIndex = 20;
             // 
             // btnVolver
@@ -410,10 +410,10 @@
             gridViewCheckBoxColumn2.Name = "Atendido";
             gridViewCheckBoxColumn2.Width = 65;
             gridViewCheckBoxColumn3.EnableExpressionEditor = false;
-            gridViewCheckBoxColumn3.FieldName = "PrecioTurno";
+            gridViewCheckBoxColumn3.FieldName = "Pagado";
             gridViewCheckBoxColumn3.HeaderText = "Facturado?";
             gridViewCheckBoxColumn3.MinWidth = 20;
-            gridViewCheckBoxColumn3.Name = "PrecioTurno";
+            gridViewCheckBoxColumn3.Name = "Pagado";
             gridViewCheckBoxColumn3.Width = 100;
             this.dgvPacienteMedicoTurno.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
