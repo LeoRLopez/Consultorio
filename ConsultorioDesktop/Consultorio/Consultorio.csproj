@@ -121,6 +121,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\HorarioAtencionMedico.cs" />
+    <Compile Include="Forms\AgregarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AgregarFactura.Designer.cs">
+      <DependentUpon>AgregarFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditarTurnoMedico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,12 @@
     </Compile>
     <Compile Include="Forms\ListadoFormasDePago.Designer.cs">
       <DependentUpon>ListadoFormasDePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListadoFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListadoFacturas.designer.cs">
+      <DependentUpon>ListadoFacturas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ListadoTurnos.cs">
       <SubType>Form</SubType>
@@ -374,12 +386,16 @@
       <DependentUpon>MenuPrincipalVentana.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\EspecialidadMedicoVM.cs" />
+    <Compile Include="ViewModels\FacturaTurnoVM.cs" />
     <Compile Include="ViewModels\PacienteTurnoVM.cs" />
     <Compile Include="ViewModels\PersonalInternoVM.cs" />
     <Compile Include="ViewModels\PacienteVM.cs" />
     <Compile Include="ViewModels\PacienteDropDownVM.cs" />
     <Compile Include="ViewModels\MedicoVM.cs" />
     <Compile Include="ViewModels\TurnoVM.cs" />
+    <EmbeddedResource Include="Forms\AgregarFactura.resx">
+      <DependentUpon>AgregarFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditarTurnoMedico.resx">
       <DependentUpon>EditarTurnoMedico.cs</DependentUpon>
     </EmbeddedResource>
@@ -431,6 +447,9 @@
     <EmbeddedResource Include="Forms\EditarPaciente.resx">
       <DependentUpon>EditarPaciente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListadoFacturas.resx">
+      <DependentUpon>ListadoFacturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListadoTurnos.resx">
       <DependentUpon>ListadoTurnos.cs</DependentUpon>
     </EmbeddedResource>
@@ -481,6 +500,7 @@
     <None Include="Properties\DataSources\Consultorio.Modelo.Medico.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.SegurosMedico.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Tarjetas.datasource" />
+    <None Include="Properties\DataSources\Consultorio.ViewModels.FacturaTurnoVM.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.MedicoVM.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.PacienteTurnoVM.datasource" />
     <None Include="Properties\DataSources\Consultorio.ViewModels.PacienteVM.datasource" />

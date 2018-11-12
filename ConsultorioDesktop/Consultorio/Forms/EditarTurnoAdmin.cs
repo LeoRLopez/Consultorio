@@ -1,4 +1,5 @@
-﻿using Consultorio.Modelo;
+﻿using Consultorio.Forms;
+using Consultorio.Modelo;
 using Consultorio.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,7 @@ namespace Consultorio
                     chbAtendido.Enabled = false;
                     tbDescripcion.Enabled = false;
                     textboxDiagnostico.Enabled = false;
+                    saveButton.Enabled = false;
                 }
             }
         }
@@ -102,12 +104,24 @@ namespace Consultorio
                         turnoDB.Descripcion = tbDescripcion.Text;
                         turnoDB.IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/;
                         turnoDB.IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null;
-                        entidades.SaveChanges();
-                        EnviarNotificacionesPorEmail(entidades, turnoDB.IdTurno);
-                        entidadesTransaction.Commit();
-                        MessageBox.Show("Turno modificado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        _turnoFueModificado = true;
-                        this.Close();
+                        var factura = new Factura
+                        {
+                            IdTurno = turnoDB.IdTurno,
+                            Fecha = DateTime.Now,
+                            IdFormaDePago = turnoDB.IdFormaDePago,
+                            Monto = turnoDB.PrecioTurno
+                        };
+                        var formFacturacion = new AgregarFactura(factura);
+                        var result = formFacturacion.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            entidades.SaveChanges();
+                            EnviarNotificacionesPorEmail(entidades, turnoDB.IdTurno);
+                            entidadesTransaction.Commit();
+                            MessageBox.Show("Turno modificado y notificación por Correo electrónico enviada!", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            _turnoFueModificado = true;
+                            this.Close();
+                        }
                     }
                     catch (Exception ex)
                     {

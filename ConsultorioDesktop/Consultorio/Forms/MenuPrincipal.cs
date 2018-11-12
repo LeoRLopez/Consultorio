@@ -147,12 +147,12 @@ namespace Consultorio
                     btnTarjetasDeDebito.Visible = false;
                     btnTurnos.Visible = false;
                     btnFormasDePago.Visible = false;
+                    btnFacturacion.Visible = false;
                 }
                 else//si es secretario
                 {
                     AbrirVentanaEnPanel(new MenuPrincipalVentana());
                     btnNuevoPersonal.Visible = false;
-                    btnPacientes.Visible = false;
                 }
             }
         }
@@ -216,6 +216,11 @@ namespace Consultorio
         private void btnReportePacientes_Click(object sender, EventArgs e)
         {
             AbrirVentanaEnPanel(new ReporteListadoPacientes());
+        }
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            AbrirVentanaEnPanel(new ListadoFacturas());
         }
     }
 }

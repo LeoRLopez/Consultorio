@@ -268,7 +268,7 @@
           <Key>
             <PropertyRef Name="IdTarjeta" />
           </Key>
-          <Property Name="IdTarjeta" Type="int" Nullable="false" />
+          <Property Name="IdTarjeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Titular" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NumeroTarjeta" Type="nvarchar" MaxLength="16" Nullable="false" />

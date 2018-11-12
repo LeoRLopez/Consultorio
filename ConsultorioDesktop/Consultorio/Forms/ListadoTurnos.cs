@@ -76,7 +76,7 @@ namespace Consultorio.Reportes
         {
             using (var entidades = new ClinicaEntities())
             {
-                var turnos = new List<Turno>(); ;
+                var turnos = new List<Turno>();
 
                 // Si selecciona un medico tenemos que ir a buscar todos los turnos de ese medico
                 if ((int)dropDownMedicos.SelectedValue != -1)
