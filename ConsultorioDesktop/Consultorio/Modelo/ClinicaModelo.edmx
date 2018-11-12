@@ -79,7 +79,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdTarjeta" Type="int" Nullable="false" />
           <Property Name="IdBanco" Type="int" Nullable="false" />
         </EntityType>
@@ -146,6 +146,18 @@
           <Property Name="IdHorario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="InfoConsultorio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreConsultorio" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Dirección" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DiasyHorariosAtencion" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Web" Type="nchar" MaxLength="150" />
+        </EntityType>
         <EntityType Name="Medico">
           <Key>
             <PropertyRef Name="IdMedico" />
@@ -196,7 +208,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdPaciente" Type="int" Nullable="false" />
           <Property Name="IdTarjeta" Type="int" Nullable="false" />
         </EntityType>
@@ -834,6 +846,7 @@
           <EntitySet Name="FormaDePago" EntityType="Self.FormaDePago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Horario" EntityType="Self.Horario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoConsultorio" EntityType="Self.InfoConsultorio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Medico" EntityType="Self.Medico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MedicoEspecialidad" EntityType="Self.MedicoEspecialidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
@@ -1212,6 +1225,7 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="InfoConsultorio" EntityType="ClinicaModel.InfoConsultorio" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -2076,6 +2090,18 @@
           <End Type="ClinicaModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="ClinicaModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
         </Association>
+        <EntityType Name="InfoConsultorio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreConsultorio" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Dirección" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiasyHorariosAtencion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Web" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2405,6 +2431,19 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="InfoConsultorio">
+            <EntityTypeMapping TypeName="ClinicaModel.InfoConsultorio">
+              <MappingFragment StoreEntitySet="InfoConsultorio">
+                <ScalarProperty Name="Web" ColumnName="Web" />
+                <ScalarProperty Name="DiasyHorariosAtencion" ColumnName="DiasyHorariosAtencion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="NombreConsultorio" ColumnName="NombreConsultorio" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

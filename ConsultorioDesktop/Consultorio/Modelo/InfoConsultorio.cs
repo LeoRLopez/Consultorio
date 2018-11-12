@@ -12,14 +12,14 @@ namespace Consultorio.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class SegurosMedicosPaciente
+    public partial class InfoConsultorio
     {
-        public int Id { get; set; }
-        public int IdPaciente { get; set; }
-        public int IdSeguroMedico { get; set; }
-        public bool ConvenioActivo { get; set; }
-    
-        public virtual Paciente Paciente { get; set; }
-        public virtual SegurosMedico SegurosMedico { get; set; }
+        public int id { get; set; }
+        public string NombreConsultorio { get; set; }
+        public string Dirección { get; set; }
+        public string Telefono { get; set; }
+        public string Email { get; set; }
+        public string DiasyHorariosAtencion { get; set; }
+        public string Web { get; set; }
     }
 }

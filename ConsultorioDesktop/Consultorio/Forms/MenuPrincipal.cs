@@ -107,7 +107,6 @@ namespace Consultorio
         private void MenuInicio_Load(object sender, EventArgs e)
         {
             MostrarFormIniciarSesion();
-
         }
 
         private void MostrarFormIniciarSesion()
@@ -221,6 +220,12 @@ namespace Consultorio
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
             AbrirVentanaEnPanel(new ListadoFacturas());
+        }
+
+        private void btnNosotros_Click(object sender, EventArgs e)
+        {
+            var ventanaNosotros = new Nosotros();
+            ventanaNosotros.ShowDialog();
         }
     }
 }

@@ -127,6 +127,12 @@
     <Compile Include="Forms\AgregarFactura.Designer.cs">
       <DependentUpon>AgregarFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditarInfoConsultorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditarInfoConsultorio.Designer.cs">
+      <DependentUpon>EditarInfoConsultorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditarTurnoMedico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,12 @@
     </Compile>
     <Compile Include="Forms\ListadoTurnos.designer.cs">
       <DependentUpon>ListadoTurnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Nosotros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Nosotros.Designer.cs">
+      <DependentUpon>Nosotros.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reportes\ReporteListadoTurnos.cs">
       <SubType>Form</SubType>
@@ -338,6 +350,9 @@
     <Compile Include="Modelo\Horario.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\InfoConsultorio.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Medico.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
@@ -396,6 +411,9 @@
     <EmbeddedResource Include="Forms\AgregarFactura.resx">
       <DependentUpon>AgregarFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditarInfoConsultorio.resx">
+      <DependentUpon>EditarInfoConsultorio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditarTurnoMedico.resx">
       <DependentUpon>EditarTurnoMedico.cs</DependentUpon>
     </EmbeddedResource>
@@ -452,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListadoTurnos.resx">
       <DependentUpon>ListadoTurnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Nosotros.resx">
+      <DependentUpon>Nosotros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportes\ReporteListadoTurnos.resx">
       <DependentUpon>ReporteListadoTurnos.cs</DependentUpon>

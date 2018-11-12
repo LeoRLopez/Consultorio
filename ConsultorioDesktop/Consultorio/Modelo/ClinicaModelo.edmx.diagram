@@ -73,6 +73,7 @@
         <AssociationConnector Association="ClinicaModel.FK_SegurosMedicosPaciente_SegurosMedico" />
         <AssociationConnector Association="ClinicaModel.FK_Turno_SegurosMedico" />
         <AssociationConnector Association="ClinicaModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="ClinicaModel.InfoConsultorio" Width="1.5" PointX="10.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
