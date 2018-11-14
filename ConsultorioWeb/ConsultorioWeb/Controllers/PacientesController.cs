@@ -1,4 +1,4 @@
-﻿using ConsultorioWeb.Models;
+﻿using Consultorio.Modelo;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;

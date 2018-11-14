@@ -51,6 +51,9 @@
     <ApplicationIcon>Sagrada.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Consultorio.Modelo">
+      <HintPath>..\..\Consultorio.Modelo\Consultorio.Modelo\bin\Debug\Consultorio.Modelo.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -242,28 +245,6 @@
       <DependentUpon>ReporteListadoPacientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CustomLINQExtensionMethods.cs" />
-    <Compile Include="Modelo\AspNetRoles.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\AspNetUserClaims.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\AspNetUserLogins.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\AspNetUsers.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Bancos.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Bancos_Tarjetas.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Ciudad.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\ClinicaEntities.cs" />
     <Compile Include="Forms\AgregarPersonalInterno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,85 +293,6 @@
     </Compile>
     <Compile Include="Forms\AgregarTurno.Designer.cs">
       <DependentUpon>AgregarTurno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\ClinicaModelo.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicaModelo.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\ClinicaModelo.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\ClinicaModelo.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicaModelo.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\C__MigrationHistory.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Departamento.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\EmailModel.cs" />
-    <Compile Include="Modelo\Especialidad.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Factura.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\FormaDePago.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\HistoriaClinica.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Horario.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\InfoConsultorio.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Medico.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\MedicoEspecialidad.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Paciente.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Paciente_Tarjetas.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Pais.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\PersonalInterno.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Provincia.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\SegurosMedico.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\SegurosMedicosMedico.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\SegurosMedicosPaciente.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Tarjetas.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Turno.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelo\Usuario.cs">
-      <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -506,13 +408,6 @@
     <EmbeddedResource Include="Forms\MenuPrincipalVentana.resx">
       <DependentUpon>MenuPrincipalVentana.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Modelo\ClinicaModelo.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClinicaModelo.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Modelo\ClinicaModelo.edmx.diagram">
-      <DependentUpon>ClinicaModelo.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Bancos.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Especialidad.datasource" />
@@ -547,16 +442,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Modelo\ClinicaModelo.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClinicaModelo.edmx</DependentUpon>
-      <LastGenOutput>ClinicaModelo.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Modelo\ClinicaModelo.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClinicaModelo.edmx</DependentUpon>
-      <LastGenOutput>ClinicaModelo.cs</LastGenOutput>
-    </Content>
     <Content Include="Sagrada.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Consultorio.Modelo">
+      <HintPath>..\..\Consultorio.Modelo\Consultorio.Modelo\bin\Debug\Consultorio.Modelo.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -208,109 +211,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRoles.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaims.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogins.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUsers.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Bancos.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Bancos_Tarjetas.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Ciudad.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClinicaEntidades.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicaEntidades.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClinicaEntidades.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClinicaEntidades.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicaEntidades.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClinicaEntities.cs" />
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Departamento.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EmailModel.cs" />
-    <Compile Include="Models\Especialidad.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Factura.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FormaDePago.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HistoriaClinica.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Horario.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\LineaFactura.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Medico.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MedicoEspecialidad.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Paciente.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Paciente_Tarjetas.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Pais.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PersonalInterno.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Provincia.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SegurosMedico.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SegurosMedicosMedico.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SegurosMedicosPaciente.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Tarjetas.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Turno.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Usuario.cs">
-      <DependentUpon>ClinicaEntidades.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -365,27 +267,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ClinicaEntidades.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClinicaEntidades.edmx</DependentUpon>
-      <LastGenOutput>ClinicaEntidades.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ClinicaEntidades.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClinicaEntidades.edmx</DependentUpon>
-      <LastGenOutput>ClinicaEntidades.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\ClinicaEntidades.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClinicaEntidades.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ClinicaEntidades.edmx.diagram">
-      <DependentUpon>ClinicaEntidades.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ConsultorioWeb - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ConsultorioWeb - Web Deploy.pubxml" />

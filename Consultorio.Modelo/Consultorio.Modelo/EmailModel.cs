@@ -2,7 +2,7 @@
 
 namespace Consultorio.Modelo
 {
-    class EmailModel
+    public class EmailModel
     {
         [DataType(DataType.EmailAddress), Display(Name = "To")]
         [Required]
