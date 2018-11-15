@@ -33,13 +33,16 @@ namespace Consultorio.Reportes
                 {
                     PacienteId = paciente.IdPaciente,
                     Edad = paciente.Edad.ToString(),
-                    IdHistoriaClinica = paciente.IdHistoriaClinica,
+                    IdHistoriasClinicas = paciente.HistoriaClinica.Select(x => x.IdHistoriaClinica).ToList(),
                     NombreCompleto = paciente.Apellidos + ", " + paciente.Nombres,
                     NroDocumento = paciente.NumeroDocumento.ToString(),
                     Telefono = paciente.TelCelular,
                     Direccion = paciente.Direccion,
                     Email = paciente.Email,
-                    Sexo = paciente.Sexo
+                    Sexo = paciente.Sexo,
+                    Donante = paciente.Donante ?? false,
+                    Trasplantado = paciente.Transplantado ?? false,
+                    AntecedentesMedicos = string.Join(Environment.NewLine, paciente.HistoriaClinica.SelectMany(x => x.Descripcion).ToArray())
                 }).ToList();
             }
         }
@@ -82,7 +85,7 @@ namespace Consultorio.Reportes
                  {
                      PacienteId = paciente.IdPaciente,
                      Edad = paciente.Edad.ToString(),
-                     IdHistoriaClinica = paciente.IdHistoriaClinica,
+                     IdHistoriasClinicas = paciente.HistoriaClinica.Select(x=>x.IdHistoriaClinica).ToList(),
                      NombreCompleto = paciente.Apellidos + ", " + paciente.Nombres,
                      NroDocumento = paciente.NumeroDocumento.ToString(),
                      Telefono = paciente.TelCelular,

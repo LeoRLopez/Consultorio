@@ -14,20 +14,13 @@ namespace Consultorio.Modelo
     
     public partial class HistoriaClinica
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HistoriaClinica()
-        {
-            this.Paciente = new HashSet<Paciente>();
-        }
-    
         public int IdHistoriaClinica { get; set; }
-        public Nullable<System.DateTime> FechaInicioPrimerAtencion { get; set; }
         public System.DateTime FechaAtencion { get; set; }
-        public string AntecedentesMedicos { get; set; }
-        public bool Donante { get; set; }
-        public bool Transplantado { get; set; }
+        public string Descripcion { get; set; }
+        public int IdPaciente { get; set; }
+        public Nullable<int> IdTurno { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Paciente> Paciente { get; set; }
+        public virtual Paciente Paciente { get; set; }
+        public virtual Turno Turno { get; set; }
     }
 }

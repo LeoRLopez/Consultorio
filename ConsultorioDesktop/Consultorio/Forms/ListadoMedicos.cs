@@ -60,7 +60,7 @@ namespace Consultorio
                     {
                         PacienteId = turno.Paciente.IdPaciente,
                         Edad = turno.Paciente.Edad.ToString(),
-                        IdHistoriaClinica = turno.Paciente.IdHistoriaClinica,
+                        IdHistoriasClinicas = turno.Paciente.HistoriaClinica.Select(x=>x.IdHistoriaClinica).ToList(),
                         NombreCompleto = turno.Paciente.Apellidos + ", " + turno.Paciente.Nombres,
                         NroDocumento = turno.Paciente.NumeroDocumento.ToString(),
                         Telefono = turno.Paciente.TelCelular,

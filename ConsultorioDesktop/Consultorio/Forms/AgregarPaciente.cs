@@ -60,20 +60,19 @@ namespace Consultorio
                 IdCiudad = (int)dropDownCiudad.SelectedValue,
                 IdProvincia = (int)dropDownProvincia.SelectedValue,
                 IdPais = (int)dropDownPais.SelectedValue,
-                GrupoSanguineo = dropDownGrupoSanguineo.Text.Trim()
+                GrupoSanguineo = dropDownGrupoSanguineo.Text.Trim(),
+                Donante = checkBoxDonante.Checked,
+                Transplantado = checkBoxTrasplantado.Checked
             };
 
             if (!ValidarCamposObligatoriosHistoriaClinica())
                 return;
 
-            nuevoPaciente.HistoriaClinica = new HistoriaClinica
+            nuevoPaciente.HistoriaClinica.Add(new HistoriaClinica
             {
-                FechaInicioPrimerAtencion = DateTime.Now,
                 FechaAtencion = DateTime.Now,
-                AntecedentesMedicos = txtBoxAntecedentesMedicos.Text.Trim(),
-                Donante = checkBoxDonante.Checked,
-                Transplantado = checkBoxTrasplantado.Checked
-            };
+                Descripcion = txtBoxAntecedentesMedicos.Text.Trim()
+            });
 
             try
             {

@@ -41,10 +41,10 @@ namespace Consultorio
             this.dropDownDepartamento.SelectedValue = this.__paciente.Ciudad.DepartamentoId;
             this.dropDownCiudad.SelectedValue = this.__paciente.IdCiudad;
             this.txtBoxCodigoPostal.Text = this.__paciente.CodigoPostal;
-            this.txtBoxAntecedentesMedicos.Text = this.__paciente.HistoriaClinica.AntecedentesMedicos;
+            this.txtBoxAntecedentesMedicos.Text = string.Join(Environment.NewLine, this.__paciente.HistoriaClinica.Select(x => x.Descripcion).ToArray());
             this.dropDownGrupoSanguineo.SelectedValue = this.__paciente.GrupoSanguineo.Trim();
-            this.checkBoxDonante.Checked = this.__paciente.HistoriaClinica.Donante;
-            this.checkBoxTrasplantado.Checked = this.__paciente.HistoriaClinica.Transplantado;
+            this.checkBoxDonante.Checked = this.__paciente.Donante ?? false;
+            this.checkBoxTrasplantado.Checked = this.__paciente.Transplantado ?? false;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -92,17 +92,11 @@ namespace Consultorio
                     pacienteBD.IdProvincia = (int)dropDownProvincia.SelectedValue;
                     pacienteBD.IdPais = (int)dropDownPais.SelectedValue;
                     pacienteBD.GrupoSanguineo = dropDownGrupoSanguineo.Text;
+                    pacienteBD.Donante = checkBoxDonante.Checked;
+                    pacienteBD.Transplantado = checkBoxTrasplantado.Checked;
 
-                    if (!ValidarCamposObligatoriosHistoriaClinica())
-                        return;
-                    var historiaClinicaBD = entidades.HistoriaClinica.Single(x => x.IdHistoriaClinica == pacienteBD.IdHistoriaClinica);
-
-
-                    historiaClinicaBD.FechaAtencion = DateTime.Now;
-                    historiaClinicaBD.AntecedentesMedicos = txtBoxAntecedentesMedicos.Text.Trim();
-                    historiaClinicaBD.Donante = checkBoxDonante.Checked;
-                    historiaClinicaBD.Transplantado = checkBoxTrasplantado.Checked;
-
+                    //if (!ValidarCamposObligatoriosHistoriaClinica())
+                    //    return;
 
                     // Actualizar el Usuario existente en la tabla AspNetUsers asi se puede seguir logueando en la Web con el nuevo Email
                     var userStore = new UserStore<IdentityUser>(new IdentityDbContext("IdentityDBConnection"));

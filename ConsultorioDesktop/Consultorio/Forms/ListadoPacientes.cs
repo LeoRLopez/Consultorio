@@ -22,7 +22,7 @@ namespace Consultorio
             btnEditarPaciente.Visible = esAdministrador;
             btnNuevoPaciente.Visible = esAdministrador;
 
-            
+
         }
 
         private void btnRegistrarNuevoPaciente_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace Consultorio
             using (var entidades = new ClinicaEntities())
             {
                 var pacientes = new List<Paciente>();
-                if(__idMedico == -1)
+                if (__idMedico == -1)
                 {
                     pacientes = entidades.Paciente.ToList();
                 }
@@ -57,7 +57,7 @@ namespace Consultorio
                 {
                     PacienteId = paciente.IdPaciente,
                     Edad = paciente.Edad.ToString(),
-                    IdHistoriaClinica = paciente.IdHistoriaClinica,
+                    IdHistoriasClinicas = paciente.HistoriaClinica.Select(x => x.IdHistoriaClinica).ToList(),
                     NombreCompleto = paciente.Apellidos + ", " + paciente.Nombres,
                     NroDocumento = paciente.NumeroDocumento.ToString(),
                     Telefono = paciente.TelCelular,
@@ -65,8 +65,8 @@ namespace Consultorio
                     Email = paciente.Email,
                     Sexo = paciente.Sexo,
                     GrupoSanguineo = paciente.GrupoSanguineo,
-                    Donante = paciente.HistoriaClinica.Donante,
-                    Trasplantado = paciente.HistoriaClinica.Transplantado
+                    Donante = paciente.Donante ?? false,
+                    Trasplantado = paciente.Transplantado ?? false
                 }).ToList());
 
                 pacienteVMBindingSource.DataSource = pacientesVM;
@@ -167,25 +167,23 @@ namespace Consultorio
         {
             try
             {
-                errorProvider1.Clear();
-                if (!ValidarCamposObligatorios())
-                    return;
+                //errorProvider1.Clear();
+                //if (!ValidarCamposObligatorios())
+                //    return;
 
-                var fecha = DateTime.Now.ToString();
-                using (var entidades = new ClinicaEntities())
-                {
-                    var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
-                    var nuevaHistClinica = entidades.HistoriaClinica.First();
-                    nuevaHistClinica.AntecedentesMedicos += "Fecha: " + fecha + "/nDetalles de la consulta: " + txtDetallesConsulta.Text + "/nDiagnostico: " + txtDiagnostico.Text;
+                //var fecha = DateTime.Now.ToString();
+                //using (var entidades = new ClinicaEntities())
+                //{
+                //    var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
+                //    var nuevaHistClinica = entidades.HistoriaClinica.First();
+                //    nuevaHistClinica.Descripcion += "Fecha: " + fecha + "/nDetalles de la consulta: " + txtDetallesConsulta.Text + "/nDiagnostico: " + txtDiagnostico.Text;
 
-                    var actualizado = entidades.Paciente.Select(x => x.HistoriaClinica.IdHistoriaClinica == pacienteSeleccionado.IdHistoriaClinica).ToList();
+                //    var actualizado = entidades.Paciente.Select(x => x.HistoriaClinica.IdHistoriaClinica == pacienteSeleccionado.IdHistoriaClinica).ToList();
 
-
-
-                    entidades.SaveChanges();
-                    MessageBox.Show("Datos Editados con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
+                //    entidades.SaveChanges();
+                //    MessageBox.Show("Datos Editados con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    this.Close();
+                //}
             }
             catch (Exception ex)
             {

@@ -17,6 +17,7 @@ namespace Consultorio.Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Paciente()
         {
+            this.HistoriaClinica = new HashSet<HistoriaClinica>();
             this.Paciente_Tarjetas = new HashSet<Paciente_Tarjetas>();
             this.SegurosMedicosPaciente = new HashSet<SegurosMedicosPaciente>();
             this.Turno = new HashSet<Turno>();
@@ -32,7 +33,6 @@ namespace Consultorio.Modelo
         public string Sexo { get; set; }
         public bool PrimeraAtencion { get; set; }
         public string TelCelular { get; set; }
-        public Nullable<int> IdHistoriaClinica { get; set; }
         public Nullable<int> IdFormaPagoPorDefecto { get; set; }
         public Nullable<int> IdSeguroMedico { get; set; }
         public string Direccion { get; set; }
@@ -41,10 +41,13 @@ namespace Consultorio.Modelo
         public int IdProvincia { get; set; }
         public int IdPais { get; set; }
         public string GrupoSanguineo { get; set; }
+        public Nullable<bool> Donante { get; set; }
+        public Nullable<bool> Transplantado { get; set; }
     
         public virtual Ciudad Ciudad { get; set; }
         public virtual FormaDePago FormaDePago { get; set; }
-        public virtual HistoriaClinica HistoriaClinica { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HistoriaClinica> HistoriaClinica { get; set; }
         public virtual Pais Pais { get; set; }
         public virtual Provincia Provincia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
