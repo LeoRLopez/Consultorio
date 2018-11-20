@@ -34,14 +34,6 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoPacientes));
-            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn1 = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn2 = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewDecimalColumn gridViewDecimalColumn3 = new Telerik.WinControls.UI.GridViewDecimalColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.panelListaPacientes = new Telerik.WinControls.UI.RadPanel();
             this.dgvPacientes = new Telerik.WinControls.UI.RadGridView();
             this.pacienteVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,9 +43,13 @@
             this.lblDonante = new Telerik.WinControls.UI.RadLabel();
             this.lblTelefono = new Telerik.WinControls.UI.RadLabel();
             this.lblDireccion = new Telerik.WinControls.UI.RadLabel();
-            this.lblDiagnostico = new Telerik.WinControls.UI.RadLabel();
-            this.txtDiagnostico = new Telerik.WinControls.UI.RadTextBox();
-            this.txtDetallesConsulta = new Telerik.WinControls.UI.RadTextBox();
+            this.dgvHistoriasClinicas = new System.Windows.Forms.DataGridView();
+            this.idHistoriaClinicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaAtencionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPacienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTurnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.historiaClinicaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblEdadSexo = new Telerik.WinControls.UI.RadLabel();
             this.lblNombreApellido = new System.Windows.Forms.Label();
             this.lblDetallesConsulta = new Telerik.WinControls.UI.RadLabel();
@@ -62,9 +58,6 @@
             this.btnEditarPaciente = new Telerik.WinControls.UI.RadButton();
             this.btnNuevoPaciente = new Telerik.WinControls.UI.RadButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.historiaClinicaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvHistoriasClinicas = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.panelListaPacientes)).BeginInit();
             this.panelListaPacientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
@@ -77,19 +70,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblDonante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTelefono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDireccion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblDiagnostico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiagnostico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetallesConsulta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoriasClinicas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.historiaClinicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblEdadSexo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDetallesConsulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditarPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.historiaClinicaBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoriasClinicas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoriasClinicas.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // panelListaPacientes
@@ -98,14 +86,14 @@
             this.panelListaPacientes.Controls.Add(this.dgvPacientes);
             this.panelListaPacientes.Location = new System.Drawing.Point(0, 0);
             this.panelListaPacientes.Name = "panelListaPacientes";
-            this.panelListaPacientes.Size = new System.Drawing.Size(640, 323);
+            this.panelListaPacientes.Size = new System.Drawing.Size(640, 515);
             this.panelListaPacientes.TabIndex = 0;
             this.panelListaPacientes.Text = "panelListaPacientes";
             this.panelListaPacientes.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvPacientes
             // 
-            this.dgvPacientes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dgvPacientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPacientes.EnableKineticScrolling = true;
             this.dgvPacientes.Location = new System.Drawing.Point(0, 0);
             // 
@@ -125,17 +113,17 @@
             gridViewTextBoxColumn1.HeaderText = "Nombre";
             gridViewTextBoxColumn1.IsAutoGenerated = true;
             gridViewTextBoxColumn1.Name = "NombreCompleto";
-            gridViewTextBoxColumn1.Width = 272;
+            gridViewTextBoxColumn1.Width = 277;
             gridViewTextBoxColumn2.FieldName = "Edad";
             gridViewTextBoxColumn2.HeaderText = "Edad";
             gridViewTextBoxColumn2.IsAutoGenerated = true;
             gridViewTextBoxColumn2.Name = "Edad";
-            gridViewTextBoxColumn2.Width = 78;
+            gridViewTextBoxColumn2.Width = 74;
             gridViewTextBoxColumn3.FieldName = "Email";
             gridViewTextBoxColumn3.HeaderText = "Email";
             gridViewTextBoxColumn3.IsAutoGenerated = true;
             gridViewTextBoxColumn3.Name = "Email";
-            gridViewTextBoxColumn3.Width = 271;
+            gridViewTextBoxColumn3.Width = 270;
             this.dgvPacientes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -149,7 +137,7 @@
             this.dgvPacientes.ReadOnly = true;
             this.dgvPacientes.ShowGroupPanel = false;
             this.dgvPacientes.ShowGroupPanelScrollbars = false;
-            this.dgvPacientes.Size = new System.Drawing.Size(640, 323);
+            this.dgvPacientes.Size = new System.Drawing.Size(640, 515);
             this.dgvPacientes.TabIndex = 23;
             this.dgvPacientes.Text = "radGridView1";
             this.dgvPacientes.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgvPacientes_CellClick);
@@ -162,26 +150,24 @@
             // 
             this.panelPacienteSeleccionado.BackColor = System.Drawing.Color.Snow;
             this.panelPacienteSeleccionado.Controls.Add(this.lblGrupoSanguineo);
+            this.panelPacienteSeleccionado.Controls.Add(this.dgvHistoriasClinicas);
             this.panelPacienteSeleccionado.Controls.Add(this.lblTrasplantado);
             this.panelPacienteSeleccionado.Controls.Add(this.lblDonante);
             this.panelPacienteSeleccionado.Controls.Add(this.lblTelefono);
             this.panelPacienteSeleccionado.Controls.Add(this.lblDireccion);
-            this.panelPacienteSeleccionado.Controls.Add(this.lblDiagnostico);
-            this.panelPacienteSeleccionado.Controls.Add(this.txtDiagnostico);
-            this.panelPacienteSeleccionado.Controls.Add(this.txtDetallesConsulta);
             this.panelPacienteSeleccionado.Controls.Add(this.lblEdadSexo);
             this.panelPacienteSeleccionado.Controls.Add(this.lblNombreApellido);
             this.panelPacienteSeleccionado.Controls.Add(this.lblDetallesConsulta);
             this.panelPacienteSeleccionado.Controls.Add(this.pictureBoxFotoPaciente);
             this.panelPacienteSeleccionado.Location = new System.Drawing.Point(640, 0);
             this.panelPacienteSeleccionado.Name = "panelPacienteSeleccionado";
-            this.panelPacienteSeleccionado.Size = new System.Drawing.Size(451, 528);
+            this.panelPacienteSeleccionado.Size = new System.Drawing.Size(536, 578);
             this.panelPacienteSeleccionado.TabIndex = 1;
             // 
             // lblGrupoSanguineo
             // 
             this.lblGrupoSanguineo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupoSanguineo.Location = new System.Drawing.Point(7, 94);
+            this.lblGrupoSanguineo.Location = new System.Drawing.Point(7, 95);
             this.lblGrupoSanguineo.Name = "lblGrupoSanguineo";
             this.lblGrupoSanguineo.Size = new System.Drawing.Size(112, 18);
             this.lblGrupoSanguineo.TabIndex = 13;
@@ -190,7 +176,7 @@
             // lblTrasplantado
             // 
             this.lblTrasplantado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrasplantado.Location = new System.Drawing.Point(7, 142);
+            this.lblTrasplantado.Location = new System.Drawing.Point(7, 143);
             this.lblTrasplantado.Name = "lblTrasplantado";
             this.lblTrasplantado.Size = new System.Drawing.Size(85, 18);
             this.lblTrasplantado.TabIndex = 12;
@@ -199,7 +185,7 @@
             // lblDonante
             // 
             this.lblDonante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDonante.Location = new System.Drawing.Point(7, 118);
+            this.lblDonante.Location = new System.Drawing.Point(7, 119);
             this.lblDonante.Name = "lblDonante";
             this.lblDonante.Size = new System.Drawing.Size(57, 18);
             this.lblDonante.TabIndex = 11;
@@ -223,34 +209,69 @@
             this.lblDireccion.TabIndex = 8;
             this.lblDireccion.Text = "Dirección";
             // 
-            // lblDiagnostico
+            // dgvHistoriasClinicas
             // 
-            this.lblDiagnostico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiagnostico.Location = new System.Drawing.Point(7, 329);
-            this.lblDiagnostico.Name = "lblDiagnostico";
-            this.lblDiagnostico.Size = new System.Drawing.Size(84, 18);
-            this.lblDiagnostico.TabIndex = 10;
-            this.lblDiagnostico.Text = "Diagnósticos";
+            this.dgvHistoriasClinicas.AllowUserToAddRows = false;
+            this.dgvHistoriasClinicas.AllowUserToDeleteRows = false;
+            this.dgvHistoriasClinicas.AutoGenerateColumns = false;
+            this.dgvHistoriasClinicas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistoriasClinicas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idHistoriaClinicaDataGridViewTextBoxColumn,
+            this.fechaAtencionDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.idPacienteDataGridViewTextBoxColumn,
+            this.idTurnoDataGridViewTextBoxColumn});
+            this.dgvHistoriasClinicas.DataSource = this.historiaClinicaBindingSource;
+            this.dgvHistoriasClinicas.Location = new System.Drawing.Point(7, 198);
+            this.dgvHistoriasClinicas.Name = "dgvHistoriasClinicas";
+            this.dgvHistoriasClinicas.ReadOnly = true;
+            this.dgvHistoriasClinicas.RowHeadersVisible = false;
+            this.dgvHistoriasClinicas.Size = new System.Drawing.Size(526, 377);
+            this.dgvHistoriasClinicas.TabIndex = 1;
             // 
-            // txtDiagnostico
+            // idHistoriaClinicaDataGridViewTextBoxColumn
             // 
-            this.txtDiagnostico.AutoSize = false;
-            this.txtDiagnostico.Enabled = false;
-            this.txtDiagnostico.Location = new System.Drawing.Point(6, 353);
-            this.txtDiagnostico.Multiline = true;
-            this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(442, 175);
-            this.txtDiagnostico.TabIndex = 9;
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.DataPropertyName = "IdHistoriaClinica";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.HeaderText = "IdHistoriaClinica";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.Name = "idHistoriaClinicaDataGridViewTextBoxColumn";
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idHistoriaClinicaDataGridViewTextBoxColumn.Visible = false;
             // 
-            // txtDetallesConsulta
+            // fechaAtencionDataGridViewTextBoxColumn
             // 
-            this.txtDetallesConsulta.AutoSize = false;
-            this.txtDetallesConsulta.Enabled = false;
-            this.txtDetallesConsulta.Location = new System.Drawing.Point(7, 206);
-            this.txtDetallesConsulta.Multiline = true;
-            this.txtDetallesConsulta.Name = "txtDetallesConsulta";
-            this.txtDetallesConsulta.Size = new System.Drawing.Size(441, 117);
-            this.txtDetallesConsulta.TabIndex = 8;
+            this.fechaAtencionDataGridViewTextBoxColumn.DataPropertyName = "FechaAtencion";
+            this.fechaAtencionDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaAtencionDataGridViewTextBoxColumn.Name = "fechaAtencionDataGridViewTextBoxColumn";
+            this.fechaAtencionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaAtencionDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idPacienteDataGridViewTextBoxColumn
+            // 
+            this.idPacienteDataGridViewTextBoxColumn.DataPropertyName = "IdPaciente";
+            this.idPacienteDataGridViewTextBoxColumn.HeaderText = "IdPaciente";
+            this.idPacienteDataGridViewTextBoxColumn.Name = "idPacienteDataGridViewTextBoxColumn";
+            this.idPacienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPacienteDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // idTurnoDataGridViewTextBoxColumn
+            // 
+            this.idTurnoDataGridViewTextBoxColumn.DataPropertyName = "IdTurno";
+            this.idTurnoDataGridViewTextBoxColumn.HeaderText = "IdTurno";
+            this.idTurnoDataGridViewTextBoxColumn.Name = "idTurnoDataGridViewTextBoxColumn";
+            this.idTurnoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idTurnoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // historiaClinicaBindingSource
+            // 
+            this.historiaClinicaBindingSource.DataSource = typeof(Consultorio.Modelo.HistoriaClinica);
             // 
             // lblEdadSexo
             // 
@@ -274,11 +295,11 @@
             // lblDetallesConsulta
             // 
             this.lblDetallesConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetallesConsulta.Location = new System.Drawing.Point(6, 182);
+            this.lblDetallesConsulta.Location = new System.Drawing.Point(6, 174);
             this.lblDetallesConsulta.Name = "lblDetallesConsulta";
-            this.lblDetallesConsulta.Size = new System.Drawing.Size(110, 18);
+            this.lblDetallesConsulta.Size = new System.Drawing.Size(113, 18);
             this.lblDetallesConsulta.TabIndex = 4;
-            this.lblDetallesConsulta.Text = "Historias Clinicas";
+            this.lblDetallesConsulta.Text = "Historias Clinicas:";
             // 
             // pictureBoxFotoPaciente
             // 
@@ -302,7 +323,7 @@
             // 
             this.btnEditarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarPaciente.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarPaciente.Image")));
-            this.btnEditarPaciente.Location = new System.Drawing.Point(348, 534);
+            this.btnEditarPaciente.Location = new System.Drawing.Point(331, 534);
             this.btnEditarPaciente.Name = "btnEditarPaciente";
             this.btnEditarPaciente.Size = new System.Drawing.Size(292, 44);
             this.btnEditarPaciente.TabIndex = 2;
@@ -360,80 +381,12 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // historiaClinicaBindingSource
-            // 
-            this.historiaClinicaBindingSource.DataSource = typeof(Consultorio.Modelo.HistoriaClinica);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dgvHistoriasClinicas);
-            this.panel1.Location = new System.Drawing.Point(0, 329);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(641, 196);
-            this.panel1.TabIndex = 4;
-            // 
-            // dgvHistoriasClinicas
-            // 
-            this.dgvHistoriasClinicas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHistoriasClinicas.Location = new System.Drawing.Point(0, 0);
-            // 
-            // 
-            // 
-            gridViewDecimalColumn1.DataType = typeof(int);
-            gridViewDecimalColumn1.FieldName = "IdHistoriaClinica";
-            gridViewDecimalColumn1.HeaderText = "IdHistoriaClinica";
-            gridViewDecimalColumn1.IsAutoGenerated = true;
-            gridViewDecimalColumn1.Name = "IdHistoriaClinica";
-            gridViewDateTimeColumn1.FieldName = "FechaAtencion";
-            gridViewDateTimeColumn1.HeaderText = "FechaAtencion";
-            gridViewDateTimeColumn1.IsAutoGenerated = true;
-            gridViewDateTimeColumn1.Name = "FechaAtencion";
-            gridViewTextBoxColumn4.FieldName = "Descripcion";
-            gridViewTextBoxColumn4.HeaderText = "Descripcion";
-            gridViewTextBoxColumn4.IsAutoGenerated = true;
-            gridViewTextBoxColumn4.Name = "Descripcion";
-            gridViewDecimalColumn2.DataType = typeof(int);
-            gridViewDecimalColumn2.FieldName = "IdPaciente";
-            gridViewDecimalColumn2.HeaderText = "IdPaciente";
-            gridViewDecimalColumn2.IsAutoGenerated = true;
-            gridViewDecimalColumn2.Name = "IdPaciente";
-            gridViewDecimalColumn3.DataType = typeof(System.Nullable<int>);
-            gridViewDecimalColumn3.FieldName = "IdTurno";
-            gridViewDecimalColumn3.HeaderText = "IdTurno";
-            gridViewDecimalColumn3.IsAutoGenerated = true;
-            gridViewDecimalColumn3.Name = "IdTurno";
-            gridViewTextBoxColumn5.DataType = typeof(Consultorio.Modelo.Paciente);
-            gridViewTextBoxColumn5.FieldName = "Paciente";
-            gridViewTextBoxColumn5.HeaderText = "Paciente";
-            gridViewTextBoxColumn5.IsAutoGenerated = true;
-            gridViewTextBoxColumn5.Name = "Paciente";
-            gridViewTextBoxColumn6.DataType = typeof(Consultorio.Modelo.Turno);
-            gridViewTextBoxColumn6.FieldName = "Turno";
-            gridViewTextBoxColumn6.HeaderText = "Turno";
-            gridViewTextBoxColumn6.IsAutoGenerated = true;
-            gridViewTextBoxColumn6.Name = "Turno";
-            this.dgvHistoriasClinicas.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewDecimalColumn1,
-            gridViewDateTimeColumn1,
-            gridViewTextBoxColumn4,
-            gridViewDecimalColumn2,
-            gridViewDecimalColumn3,
-            gridViewTextBoxColumn5,
-            gridViewTextBoxColumn6});
-            this.dgvHistoriasClinicas.MasterTemplate.DataSource = this.historiaClinicaBindingSource;
-            this.dgvHistoriasClinicas.MasterTemplate.ViewDefinition = tableViewDefinition2;
-            this.dgvHistoriasClinicas.Name = "dgvHistoriasClinicas";
-            this.dgvHistoriasClinicas.Size = new System.Drawing.Size(641, 196);
-            this.dgvHistoriasClinicas.TabIndex = 0;
-            this.dgvHistoriasClinicas.Text = "radGridView1";
-            // 
             // ListadoPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1188, 590);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNuevoPaciente);
             this.Controls.Add(this.btnEditarPaciente);
             this.Controls.Add(this.panelPacienteSeleccionado);
@@ -456,19 +409,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblDonante)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTelefono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDireccion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblDiagnostico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiagnostico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetallesConsulta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoriasClinicas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.historiaClinicaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblEdadSexo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDetallesConsulta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditarPaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoPaciente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.historiaClinicaBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoriasClinicas.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoriasClinicas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -483,9 +431,6 @@
         private Telerik.WinControls.UI.RadButton btnEditarPaciente;
         private System.Windows.Forms.Label lblNombreApellido;
         private Telerik.WinControls.UI.RadLabel lblEdadSexo;
-        private Telerik.WinControls.UI.RadTextBox txtDiagnostico;
-        private Telerik.WinControls.UI.RadTextBox txtDetallesConsulta;
-        private Telerik.WinControls.UI.RadLabel lblDiagnostico;
         private Telerik.WinControls.UI.RadLabel lblTelefono;
         private Telerik.WinControls.UI.RadLabel lblDireccion;
         private System.Windows.Forms.BindingSource pacienteVMBindingSource;
@@ -496,7 +441,11 @@
         private Telerik.WinControls.UI.RadGridView dgvPacientes;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.BindingSource historiaClinicaBindingSource;
-        private System.Windows.Forms.Panel panel1;
-        private Telerik.WinControls.UI.RadGridView dgvHistoriasClinicas;
+        private System.Windows.Forms.DataGridView dgvHistoriasClinicas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idHistoriaClinicaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaAtencionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPacienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTurnoDataGridViewTextBoxColumn;
     }
 }

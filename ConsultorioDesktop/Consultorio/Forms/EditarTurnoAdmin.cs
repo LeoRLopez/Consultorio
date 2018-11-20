@@ -104,7 +104,14 @@ namespace Consultorio
                         turnoDB.Descripcion = tbDescripcion.Text;
                         turnoDB.IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/;
                         turnoDB.IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null;
-
+                        entidades.HistoriaClinica.Add(
+                        new HistoriaClinica
+                        {
+                            Descripcion = turnoDB.Descripcion,
+                            FechaAtencion = turnoDB.FechaYHora,
+                            IdPaciente = turnoDB.IdPaciente,
+                            IdTurno = turnoDB.IdTurno
+                        });
                         var deseaFacturarDialog = MessageBox.Show("Desea Facturar el Turno?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (deseaFacturarDialog == DialogResult.Yes)
                         {
@@ -118,7 +125,6 @@ namespace Consultorio
                             var formFacturacion = new AgregarFactura(factura);
                             formFacturacion.ShowDialog();
                         }
-
                         entidades.SaveChanges();
                         EnviarNotificacionesPorEmail(entidades, turnoDB.IdTurno);
                         entidadesTransaction.Commit();

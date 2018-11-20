@@ -47,6 +47,14 @@ namespace Consultorio
                         turnoDB.Asistio = chbAsistio.Checked;
                         turnoDB.Descripcion = tbDescripcion.Text;
                         turnoDB.Diagnostico = textboxDiagnostico.Text;
+                        entidades.HistoriaClinica.Add(
+                            new HistoriaClinica
+                            {
+                                Descripcion = turnoDB.Descripcion,
+                                FechaAtencion = turnoDB.FechaYHora,
+                                IdPaciente = turnoDB.IdPaciente,
+                                IdTurno = turnoDB.IdTurno
+                            });
                         entidades.SaveChanges();
                         entidadesTransaction.Commit();
                         MessageBox.Show("Turno actualizado.", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);

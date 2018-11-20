@@ -45,7 +45,7 @@ namespace Consultorio
                 }
                 else
                 {
-                    var turnosMedicos = entidades.Turno.Where(x => x.IdMedico == __idMedico).ToList().Where(x=> x.Atendido != false).ToList();
+                    var turnosMedicos = entidades.Turno.Where(x => x.IdMedico == __idMedico).ToList().Where(x => x.Atendido != false).ToList();
                     var idPacientes = turnosMedicos.DistinctBy(x => x.IdPaciente).Select(x => x.IdPaciente).ToList();
                     pacientes = entidades.Paciente.Where(x => idPacientes.Contains(x.IdPaciente)).ToList();
                 }
@@ -103,9 +103,6 @@ namespace Consultorio
                 lblEdadSexo.Text = pacienteSeleccionado.Edad;
                 lblTelefono.Text = pacienteSeleccionado.Telefono;
                 lblDireccion.Text = pacienteSeleccionado.Direccion;
-                txtDiagnostico.Enabled = true;
-                txtDetallesConsulta.Enabled = true;
-                txtDetallesConsulta.Text = pacienteSeleccionado.AntecedentesMedicos;
                 lblGrupoSanguineo.Text = "Grupo y factor sanguíneo: " + pacienteSeleccionado.GrupoSanguineo;
 
                 if (pacienteSeleccionado.Trasplantado)
@@ -126,32 +123,16 @@ namespace Consultorio
                     lblDonante.Text = "No es donante";
                 }
 
-                //CargarHistoriasClinicas(pacienteSeleccionado.PacienteId);
+                CargarHistoriasClinicas(pacienteSeleccionado.PacienteId);
             }
         }
 
-        //private void CargarHistoriasClinicas(int idHistoriaClinica)
-        //{
-        //    using (var entidades = new ClinicaEntities())
-        //    {
-        //        var historiaClinica = new List<HistoriaClinica>();
-        //
-        //        foreach (var x in entidades.HistoriaClinica.Where(x => x.IdPaciente == idHistoriaClinica).ToList())
-        //        {
-        //           historiaClinica.Add(new HistoriaClinica
-        //            {
-        //                IdHistoriaClinica = x.IdHistoriaClinica,
-        //                FechaAtencion = x.Turno.FechaYHora,
-        //                Descripcion = x.Descripcion,
-        //                IdPaciente = x.IdPaciente
-        //
-        //            });
-        //        }
-        //        // Usamos DistinctBy() para No mostrar Pacientes repetidos,
-        //        // sino una sola fila para el mismo paciente que pudo haber sido atentido varias veces
-        //        pacienteVMBindingSource.DataSource = historiaClinica.DistinctBy(x => x.IdHistoriaClinica);
-        //        pacienteVMBindingSource.ResetBindings(false);
-        //    }
-        //}
+        private void CargarHistoriasClinicas(int idPaciente)
+        {
+            using (var entidades = new ClinicaEntities())
+            {
+                historiaClinicaBindingSource.DataSource = entidades.HistoriaClinica.Where(x => x.IdPaciente == idPaciente).OrderByDescending(x => x.FechaAtencion).ToList();
+            }
+        }
     }
 }
