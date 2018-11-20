@@ -47,10 +47,11 @@ namespace Consultorio
                 }
                 else
                 {
-                    var turnosMedicos = entidades.Turno.Where(x => x.IdMedico == __idMedico).ToList();
+                    var turnosMedicos = entidades.Turno.Where(x => x.IdMedico == __idMedico).ToList().Where(x=> x.Atendido != false).ToList();
                     var idPacientes = turnosMedicos.DistinctBy(x => x.IdPaciente).Select(x => x.IdPaciente).ToList();
                     pacientes = entidades.Paciente.Where(x => idPacientes.Contains(x.IdPaciente)).ToList();
                 }
+
                 var pacientesVM = new List<PacienteVM>();
                 pacientesVM.AddRange(pacientes.Select(paciente =>
                 new PacienteVM
@@ -72,40 +73,6 @@ namespace Consultorio
                 pacienteVMBindingSource.DataSource = pacientesVM;
             }
         }
-
-        /*private void dgvPacientes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvPacientes.CurrentRow != null)
-            {
-                var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
-                lblNombreApellido.Text = pacienteSeleccionado.NombreCompleto;
-                lblEdadSexo.Text = pacienteSeleccionado.Edad;
-                lblTelefono.Text = pacienteSeleccionado.Telefono;
-                lblDireccion.Text = pacienteSeleccionado.Direccion;
-                txtDiagnostico.Enabled = true;
-                txtHistoriaClinica.Enabled = true;
-                txtHistoriaClinica.Text = pacienteSeleccionado.AntecedentesMedicos;
-                lblGrupoSanguineo.Text = pacienteSeleccionado.GrupoSanguineo;
-
-                if (pacienteSeleccionado.Trasplantado)
-                {
-                    lblTrasplantado.Text = "Es trasplantado";
-                }
-                else
-                {
-                    lblTrasplantado.Text = "No es trasplantado";
-                }
-
-                if (pacienteSeleccionado.Donante)
-                {
-                    lblDonante.Text = "Es donante";
-                }
-                else
-                {
-                    lblDonante.Text = "No es donante";
-                }
-            }
-        }*/
 
         private void btnEditarPaciente_Click(object sender, EventArgs e)
         {
@@ -160,30 +127,58 @@ namespace Consultorio
                 {
                     lblDonante.Text = "No es donante";
                 }
+
+                //CargarHistoriasClinicas(pacienteSeleccionado.PacienteId);
             }
         }
+
+        //private void CargarHistoriasClinicas(int idHistoriaClinica)
+        //{
+        //    using (var entidades = new ClinicaEntities())
+        //    {
+        //        var historiaClinica = new List<HistoriaClinica>();
+        //
+        //        foreach (var x in entidades.HistoriaClinica.Where(x => x.IdPaciente == idHistoriaClinica).ToList())
+        //        {
+        //           historiaClinica.Add(new HistoriaClinica
+        //            {
+        //                IdHistoriaClinica = x.IdHistoriaClinica,
+        //                FechaAtencion = x.Turno.FechaYHora,
+        //                Descripcion = x.Descripcion,
+        //                IdPaciente = x.IdPaciente
+        //
+        //            });
+        //        }
+        //        // Usamos DistinctBy() para No mostrar Pacientes repetidos,
+        //        // sino una sola fila para el mismo paciente que pudo haber sido atentido varias veces
+        //        pacienteVMBindingSource.DataSource = historiaClinica.DistinctBy(x => x.IdHistoriaClinica);
+        //        pacienteVMBindingSource.ResetBindings(false);
+        //    }
+        //}
 
         private void btnCompletarConsulta_Click(object sender, EventArgs e)
         {
             try
             {
-                //errorProvider1.Clear();
-                //if (!ValidarCamposObligatorios())
-                //    return;
+                errorProvider1.Clear();
+                if (!ValidarCamposObligatorios())
+                    return;
 
-                //var fecha = DateTime.Now.ToString();
-                //using (var entidades = new ClinicaEntities())
-                //{
-                //    var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
-                //    var nuevaHistClinica = entidades.HistoriaClinica.First();
-                //    nuevaHistClinica.Descripcion += "Fecha: " + fecha + "/nDetalles de la consulta: " + txtDetallesConsulta.Text + "/nDiagnostico: " + txtDiagnostico.Text;
+                using (var entidades = new ClinicaEntities())
+                {
+                    var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
+                    var nuevaHistoriaClinica = new HistoriaClinica();
+                    nuevaHistoriaClinica.Descripcion =" /nDetalles de la consulta: " + txtDetallesConsulta.Text + " /nDiagnostico: " + txtDiagnostico.Text;
+                    nuevaHistoriaClinica.FechaAtencion = DateTime.Today;
+                    nuevaHistoriaClinica.IdPaciente = pacienteSeleccionado.PacienteId;
+                    nuevaHistoriaClinica.IdTurno = pacienteSeleccionado.TurnoId;
 
-                //    var actualizado = entidades.Paciente.Select(x => x.HistoriaClinica.IdHistoriaClinica == pacienteSeleccionado.IdHistoriaClinica).ToList();
-
-                //    entidades.SaveChanges();
-                //    MessageBox.Show("Datos Editados con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    this.Close();
-                //}
+                    entidades.HistoriaClinica.Add(nuevaHistoriaClinica);
+                    
+                    entidades.SaveChanges();
+                    MessageBox.Show("Datos Editados con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -205,5 +200,6 @@ namespace Consultorio
             }
             return true;
         }
+
     }
 }
