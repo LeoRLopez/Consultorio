@@ -26,6 +26,7 @@ namespace Consultorio.Reportes
                 btnEliminar.Visible = false;
                 dropDownMedicos.Enabled = false;
                 btnFacturar.Visible = false;
+                btnEditar.Visible = false;
             }
         }
 
