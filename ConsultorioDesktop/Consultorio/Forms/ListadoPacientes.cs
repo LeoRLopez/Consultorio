@@ -21,8 +21,6 @@ namespace Consultorio
 
             btnEditarPaciente.Visible = esAdministrador;
             btnNuevoPaciente.Visible = esAdministrador;
-
-
         }
 
         private void btnRegistrarNuevoPaciente_Click(object sender, EventArgs e)
@@ -155,51 +153,5 @@ namespace Consultorio
         //        pacienteVMBindingSource.ResetBindings(false);
         //    }
         //}
-
-        private void btnCompletarConsulta_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                errorProvider1.Clear();
-                if (!ValidarCamposObligatorios())
-                    return;
-
-                using (var entidades = new ClinicaEntities())
-                {
-                    var pacienteSeleccionado = ((PacienteVM)dgvPacientes.CurrentRow.DataBoundItem);
-                    var nuevaHistoriaClinica = new HistoriaClinica();
-                    nuevaHistoriaClinica.Descripcion =" /nDetalles de la consulta: " + txtDetallesConsulta.Text + " /nDiagnostico: " + txtDiagnostico.Text;
-                    nuevaHistoriaClinica.FechaAtencion = DateTime.Today;
-                    nuevaHistoriaClinica.IdPaciente = pacienteSeleccionado.PacienteId;
-                    nuevaHistoriaClinica.IdTurno = pacienteSeleccionado.TurnoId;
-
-                    entidades.HistoriaClinica.Add(nuevaHistoriaClinica);
-                    
-                    entidades.SaveChanges();
-                    MessageBox.Show("Datos Editados con Éxito", "TurnARG", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private bool ValidarCamposObligatorios()
-        {
-            if (string.IsNullOrEmpty(txtDetallesConsulta.Text) || string.IsNullOrEmpty(txtDiagnostico.Text))
-            {
-                if (string.IsNullOrEmpty(txtDetallesConsulta.Text))
-                    errorProvider1.SetError(txtDetallesConsulta, "Requerido");
-
-                if (string.IsNullOrEmpty(txtDiagnostico.Text))
-                    errorProvider1.SetError(txtDiagnostico, "Requerido");
-
-                return false;
-            }
-            return true;
-        }
-
     }
 }
