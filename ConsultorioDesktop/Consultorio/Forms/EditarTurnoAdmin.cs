@@ -15,6 +15,7 @@ namespace Consultorio
     public partial class EditarTurnoAdmin : Form
     {
         private Turno _turnoOriginal;
+        private bool _esAdmin = false;
         private int horaTurno;
         private int minutosTurno;
         private bool _turnoFueModificado = false;
@@ -41,9 +42,15 @@ namespace Consultorio
                 </dl>
             </div><hr />";
 
-        public EditarTurnoAdmin(int idTurno)
+        public EditarTurnoAdmin(int idTurno, bool esAdmin)
         {
             InitializeComponent();
+            _esAdmin = esAdmin;
+            if (!esAdmin)
+            {
+                tbDescripcion.Enabled = false;
+                textboxDiagnostico.Enabled = false;
+            }
             dtpFechaTurno.MinDate = DateTime.Now.Date; // No se puede sacar un turno para "ayer"
             using (var entidades = new ClinicaEntities())
             {
@@ -104,14 +111,18 @@ namespace Consultorio
                         turnoDB.Descripcion = tbDescripcion.Text;
                         turnoDB.IdFormaDePago = radiobtnParticular.IsChecked ? 1 /*Particular*/ : 2 /*Seguro Médico*/;
                         turnoDB.IdSeguroMedico = radioBtnSeguroMedico.IsChecked ? (Nullable<int>)dropDownSegurosMedicos.SelectedValue : null;
-                        entidades.HistoriaClinica.Add(
-                        new HistoriaClinica
+                        if (_esAdmin)
                         {
-                            Descripcion = "Descripción: " + turnoDB.Descripcion + Environment.NewLine + "Diagnóstico : " + turnoDB.Diagnostico,
-                            FechaAtencion = turnoDB.FechaYHora,
-                            IdPaciente = turnoDB.IdPaciente,
-                            IdTurno = turnoDB.IdTurno
-                        });
+                            entidades.HistoriaClinica.Add(
+                                new HistoriaClinica
+                                {
+                                    Descripcion = "Descripción: " + turnoDB.Descripcion + Environment.NewLine + "Diagnóstico : " + turnoDB.Diagnostico,
+                                    FechaAtencion = turnoDB.FechaYHora,
+                                    IdPaciente = turnoDB.IdPaciente,
+                                    IdTurno = turnoDB.IdTurno
+                                });
+                        }
+
                         var deseaFacturarDialog = MessageBox.Show("Desea Facturar el Turno?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (deseaFacturarDialog == DialogResult.Yes)
                         {

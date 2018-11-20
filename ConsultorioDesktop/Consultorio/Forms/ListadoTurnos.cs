@@ -26,7 +26,6 @@ namespace Consultorio.Reportes
                 btnEliminar.Visible = false;
                 dropDownMedicos.Enabled = false;
                 btnFacturar.Visible = false;
-                btnEditar.Visible = false;
             }
         }
 
@@ -205,7 +204,7 @@ namespace Consultorio.Reportes
                 var turnoSeleccionado = ((PacienteTurnoVM)dgvPacienteMedicoTurno.CurrentRow.DataBoundItem);
                 if (this.__esAdministrador)
                 {
-                    EditarTurnoAdmin formEditarTurnoAdmin = new EditarTurnoAdmin(turnoSeleccionado.TurnoId);
+                    EditarTurnoAdmin formEditarTurnoAdmin = new EditarTurnoAdmin(turnoSeleccionado.TurnoId, __esAdministrador);
                     formEditarTurnoAdmin.ShowDialog();
                 }
                 else if (this.__idMedico != -1)
