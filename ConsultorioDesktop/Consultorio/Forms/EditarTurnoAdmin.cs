@@ -107,7 +107,7 @@ namespace Consultorio
                         entidades.HistoriaClinica.Add(
                         new HistoriaClinica
                         {
-                            Descripcion = turnoDB.Descripcion,
+                            Descripcion = "Descripción: " + turnoDB.Descripcion + Environment.NewLine + "Diagnóstico : " + turnoDB.Diagnostico,
                             FechaAtencion = turnoDB.FechaYHora,
                             IdPaciente = turnoDB.IdPaciente,
                             IdTurno = turnoDB.IdTurno
