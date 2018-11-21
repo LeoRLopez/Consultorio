@@ -28,7 +28,7 @@ namespace Consultorio.Reportes
         {
             using (var entidades = new ClinicaEntities())
             {
-                pacienteVMBindingSource.DataSource = entidades.Paciente.Select(paciente =>
+                pacienteVMBindingSource.DataSource = entidades.Paciente.ToList().Select(paciente =>
                 new PacienteVM
                 {
                     PacienteId = paciente.IdPaciente,
@@ -41,8 +41,7 @@ namespace Consultorio.Reportes
                     Email = paciente.Email,
                     Sexo = paciente.Sexo,
                     Donante = paciente.Donante ?? false,
-                    Trasplantado = paciente.Transplantado ?? false,
-                    AntecedentesMedicos = string.Join(Environment.NewLine, paciente.HistoriaClinica.SelectMany(x => x.Descripcion).ToArray())
+                    Trasplantado = paciente.Transplantado ?? false
                 }).ToList();
             }
         }
