@@ -201,11 +201,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\EspecialidadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PacientesController.cs" />
-    <Compile Include="Controllers\PersonalesInternosController.cs" />
     <Compile Include="Controllers\TurnosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -326,21 +323,6 @@
     <Content Include="Views\Turnos\Details.cshtml" />
     <Content Include="Views\Turnos\Edit.cshtml" />
     <Content Include="Views\Turnos\Index.cshtml" />
-    <Content Include="Views\Pacientes\Create.cshtml" />
-    <Content Include="Views\Pacientes\Delete.cshtml" />
-    <Content Include="Views\Pacientes\Details.cshtml" />
-    <Content Include="Views\Pacientes\Edit.cshtml" />
-    <Content Include="Views\Pacientes\Index.cshtml" />
-    <Content Include="Views\Especialidades\Create.cshtml" />
-    <Content Include="Views\Especialidades\Delete.cshtml" />
-    <Content Include="Views\Especialidades\Details.cshtml" />
-    <Content Include="Views\Especialidades\Edit.cshtml" />
-    <Content Include="Views\Especialidades\Index.cshtml" />
-    <Content Include="Views\PersonalesInternos\Create.cshtml" />
-    <Content Include="Views\PersonalesInternos\Delete.cshtml" />
-    <Content Include="Views\PersonalesInternos\Details.cshtml" />
-    <Content Include="Views\PersonalesInternos\Edit.cshtml" />
-    <Content Include="Views\PersonalesInternos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
