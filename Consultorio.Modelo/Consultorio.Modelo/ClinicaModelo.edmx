@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ClinicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -146,6 +156,9 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DiasyHorariosAtencion" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Web" Type="nchar" MaxLength="150" />
+          <Property Name="Mision" Type="nvarchar(max)" />
+          <Property Name="Vision" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -266,6 +279,14 @@
           <Property Name="IdSeguroMedico" Type="int" Nullable="false" />
           <Property Name="ConvenioActivo" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="ServicioExtra">
+          <Key>
+            <PropertyRef Name="ServicioExtraId" />
+          </Key>
+          <Property Name="ServicioExtraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Precio" Type="money" Nullable="false" />
+        </EntityType>
         <EntityType Name="Tarjetas">
           <Key>
             <PropertyRef Name="IdTarjeta" />
@@ -295,6 +316,8 @@
           <Property Name="PrecioTurno" Type="money" Nullable="false" />
           <Property Name="IdEspecialidadMedico" Type="int" Nullable="false" />
           <Property Name="IdFactura" Type="int" />
+          <Property Name="IdServicioExtra" Type="int" />
+          <Property Name="DescripcionServicioExtra" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -832,7 +855,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Turno_ServicioExtra">
+          <End Role="ServicioExtra" Type="Self.ServicioExtra" Multiplicity="0..1" />
+          <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicioExtra">
+              <PropertyRef Name="ServicioExtraId" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="IdServicioExtra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ClinicaModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -858,6 +894,7 @@
           <EntitySet Name="SegurosMedico" EntityType="Self.SegurosMedico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SegurosMedicosMedico" EntityType="Self.SegurosMedicosMedico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SegurosMedicosPaciente" EntityType="Self.SegurosMedicosPaciente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicioExtra" EntityType="Self.ServicioExtra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarjetas" EntityType="Self.Tarjetas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
@@ -1033,12 +1070,17 @@
             <End Role="SegurosMedico" EntitySet="SegurosMedico" />
             <End Role="Turno" EntitySet="Turno" />
           </AssociationSet>
+          <AssociationSet Name="FK_Turno_ServicioExtra" Association="Self.FK_Turno_ServicioExtra">
+            <End Role="ServicioExtra" EntitySet="ServicioExtra" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ClinicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ClinicaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="ClinicaModel.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="ClinicaModel.AspNetRoles" />
           <EntitySet Name="AspNetUserClaims" EntityType="ClinicaModel.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="ClinicaModel.AspNetUserLogins" />
@@ -1063,6 +1105,7 @@
           <EntitySet Name="SegurosMedico" EntityType="ClinicaModel.SegurosMedico" />
           <EntitySet Name="SegurosMedicosMedico" EntityType="ClinicaModel.SegurosMedicosMedico" />
           <EntitySet Name="SegurosMedicosPaciente" EntityType="ClinicaModel.SegurosMedicosPaciente" />
+          <EntitySet Name="ServicioExtra" EntityType="ClinicaModel.ServicioExtra" />
           <EntitySet Name="Tarjetas" EntityType="ClinicaModel.Tarjetas" />
           <EntitySet Name="Turno" EntityType="ClinicaModel.Turno" />
           <EntitySet Name="Usuario" EntityType="ClinicaModel.Usuario" />
@@ -1230,11 +1273,25 @@
             <End Role="SegurosMedico" EntitySet="SegurosMedico" />
             <End Role="Turno" EntitySet="Turno" />
           </AssociationSet>
+          <AssociationSet Name="FK_Turno_ServicioExtra" Association="ClinicaModel.FK_Turno_ServicioExtra">
+            <End Role="ServicioExtra" EntitySet="ServicioExtra" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="ClinicaModel.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -1399,6 +1456,9 @@
           <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DiasyHorariosAtencion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Web" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="Mision" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vision" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -1561,6 +1621,15 @@
           <NavigationProperty Name="Paciente" Relationship="ClinicaModel.FK_SegurosMedicosClientes_Paciente" FromRole="SegurosMedicosPaciente" ToRole="Paciente" />
           <NavigationProperty Name="SegurosMedico" Relationship="ClinicaModel.FK_SegurosMedicosPaciente_SegurosMedico" FromRole="SegurosMedicosPaciente" ToRole="SegurosMedico" />
         </EntityType>
+        <EntityType Name="ServicioExtra">
+          <Key>
+            <PropertyRef Name="ServicioExtraId" />
+          </Key>
+          <Property Name="ServicioExtraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="Turno" Relationship="ClinicaModel.FK_Turno_ServicioExtra" FromRole="ServicioExtra" ToRole="Turno" />
+        </EntityType>
         <EntityType Name="Tarjetas">
           <Key>
             <PropertyRef Name="IdTarjeta" />
@@ -1593,6 +1662,8 @@
           <Property Name="PrecioTurno" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="IdEspecialidadMedico" Type="Int32" Nullable="false" />
           <Property Name="IdFactura" Type="Int32" />
+          <Property Name="IdServicioExtra" Type="Int32" />
+          <Property Name="DescripcionServicioExtra" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Especialidad" Relationship="ClinicaModel.FK_Turno_Especialidad" FromRole="Turno" ToRole="Especialidad" />
           <NavigationProperty Name="Factura" Relationship="ClinicaModel.FK_Turno_Factura" FromRole="Turno" ToRole="Factura" />
           <NavigationProperty Name="FormaDePago" Relationship="ClinicaModel.FK_Turno_FormaDePago" FromRole="Turno" ToRole="FormaDePago" />
@@ -1600,6 +1671,7 @@
           <NavigationProperty Name="Medico" Relationship="ClinicaModel.FK_Turno_Medico" FromRole="Turno" ToRole="Medico" />
           <NavigationProperty Name="Paciente" Relationship="ClinicaModel.FK_Turno_Paciente" FromRole="Turno" ToRole="Paciente" />
           <NavigationProperty Name="SegurosMedico" Relationship="ClinicaModel.FK_Turno_SegurosMedico" FromRole="Turno" ToRole="SegurosMedico" />
+          <NavigationProperty Name="ServicioExtra" Relationship="ClinicaModel.FK_Turno_ServicioExtra" FromRole="Turno" ToRole="ServicioExtra" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -2110,6 +2182,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Turno_ServicioExtra">
+          <End Type="ClinicaModel.ServicioExtra" Role="ServicioExtra" Multiplicity="0..1" />
+          <End Type="ClinicaModel.Turno" Role="Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicioExtra">
+              <PropertyRef Name="ServicioExtraId" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="IdServicioExtra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="AspNetUserRoles">
           <End Type="ClinicaModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="ClinicaModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
@@ -2120,6 +2204,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ClinicaModelStoreContainer" CdmEntityContainer="ClinicaEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="ClinicaModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="ClinicaModel.AspNetRoles">
               <MappingFragment StoreEntitySet="AspNetRoles">
@@ -2256,6 +2350,9 @@
           <EntitySetMapping Name="InfoConsultorio">
             <EntityTypeMapping TypeName="ClinicaModel.InfoConsultorio">
               <MappingFragment StoreEntitySet="InfoConsultorio">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Vision" ColumnName="Vision" />
+                <ScalarProperty Name="Mision" ColumnName="Mision" />
                 <ScalarProperty Name="Web" ColumnName="Web" />
                 <ScalarProperty Name="DiasyHorariosAtencion" ColumnName="DiasyHorariosAtencion" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -2395,6 +2492,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ServicioExtra">
+            <EntityTypeMapping TypeName="ClinicaModel.ServicioExtra">
+              <MappingFragment StoreEntitySet="ServicioExtra">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ServicioExtraId" ColumnName="ServicioExtraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Tarjetas">
             <EntityTypeMapping TypeName="ClinicaModel.Tarjetas">
               <MappingFragment StoreEntitySet="Tarjetas">
@@ -2411,6 +2517,8 @@
           <EntitySetMapping Name="Turno">
             <EntityTypeMapping TypeName="ClinicaModel.Turno">
               <MappingFragment StoreEntitySet="Turno">
+                <ScalarProperty Name="DescripcionServicioExtra" ColumnName="DescripcionServicioExtra" />
+                <ScalarProperty Name="IdServicioExtra" ColumnName="IdServicioExtra" />
                 <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
                 <ScalarProperty Name="IdEspecialidadMedico" ColumnName="IdEspecialidadMedico" />
                 <ScalarProperty Name="PrecioTurno" ColumnName="PrecioTurno" />

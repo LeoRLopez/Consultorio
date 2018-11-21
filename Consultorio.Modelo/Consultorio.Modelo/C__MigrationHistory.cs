@@ -12,17 +12,11 @@ namespace Consultorio.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class InfoConsultorio
+    public partial class C__MigrationHistory
     {
-        public int id { get; set; }
-        public string NombreConsultorio { get; set; }
-        public string Dirección { get; set; }
-        public string Telefono { get; set; }
-        public string Email { get; set; }
-        public string DiasyHorariosAtencion { get; set; }
-        public string Web { get; set; }
-        public string Mision { get; set; }
-        public string Vision { get; set; }
-        public string Descripcion { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

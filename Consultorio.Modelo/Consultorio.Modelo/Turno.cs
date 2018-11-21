@@ -33,6 +33,8 @@ namespace Consultorio.Modelo
         public decimal PrecioTurno { get; set; }
         public int IdEspecialidadMedico { get; set; }
         public Nullable<int> IdFactura { get; set; }
+        public Nullable<int> IdServicioExtra { get; set; }
+        public string DescripcionServicioExtra { get; set; }
     
         public virtual Especialidad Especialidad { get; set; }
         public virtual Factura Factura { get; set; }
@@ -42,5 +44,6 @@ namespace Consultorio.Modelo
         public virtual Medico Medico { get; set; }
         public virtual Paciente Paciente { get; set; }
         public virtual SegurosMedico SegurosMedico { get; set; }
+        public virtual ServicioExtra ServicioExtra { get; set; }
     }
 }

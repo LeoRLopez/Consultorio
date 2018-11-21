@@ -25,6 +25,7 @@ namespace Consultorio.Modelo
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
@@ -49,6 +50,7 @@ namespace Consultorio.Modelo
         public virtual DbSet<SegurosMedico> SegurosMedico { get; set; }
         public virtual DbSet<SegurosMedicosMedico> SegurosMedicosMedico { get; set; }
         public virtual DbSet<SegurosMedicosPaciente> SegurosMedicosPaciente { get; set; }
+        public virtual DbSet<ServicioExtra> ServicioExtra { get; set; }
         public virtual DbSet<Tarjetas> Tarjetas { get; set; }
         public virtual DbSet<Turno> Turno { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }

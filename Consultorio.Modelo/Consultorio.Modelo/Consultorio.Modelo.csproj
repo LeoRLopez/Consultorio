@@ -86,6 +86,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClinicaModelo.edmx</DependentUpon>
     </Compile>
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Departamento.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
@@ -137,6 +140,9 @@
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="SegurosMedicosPaciente.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioExtra.cs">
       <DependentUpon>ClinicaModelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Tarjetas.cs">
