@@ -60,7 +60,6 @@ namespace ConsultorioWeb.Controllers
 
             ViewBag.IdCiudad = new SelectList(db.Ciudad, "CiudadId", "Nombre", paciente.IdCiudad);
             ViewBag.IdFormaPagoPorDefecto = new SelectList(db.FormaDePago, "IdFormaDePago", "Nombre", paciente.IdFormaPagoPorDefecto);
-            ViewBag.IdHistoriaClinica = new SelectList(db.HistoriaClinica, "IdHistoriaClinica", "AntecedentesMedicos", paciente.IdHistoriaClinica);
             ViewBag.IdPais = new SelectList(db.Pais, "PaisId", "Nombre", paciente.IdPais);
             ViewBag.IdProvincia = new SelectList(db.Provincia, "ProvinciaId", "Nombre", paciente.IdProvincia);
             return View(paciente);
@@ -80,7 +79,6 @@ namespace ConsultorioWeb.Controllers
             }
             ViewBag.IdCiudad = new SelectList(db.Ciudad, "CiudadId", "Nombre", paciente.IdCiudad);
             ViewBag.IdFormaPagoPorDefecto = new SelectList(db.FormaDePago, "IdFormaDePago", "Nombre", paciente.IdFormaPagoPorDefecto);
-            ViewBag.IdHistoriaClinica = new SelectList(db.HistoriaClinica, "IdHistoriaClinica", "AntecedentesMedicos", paciente.IdHistoriaClinica);
             ViewBag.IdPais = new SelectList(db.Pais, "PaisId", "Nombre", paciente.IdPais);
             ViewBag.IdProvincia = new SelectList(db.Provincia, "ProvinciaId", "Nombre", paciente.IdProvincia);
             return View(paciente);
@@ -101,7 +99,6 @@ namespace ConsultorioWeb.Controllers
             }
             ViewBag.IdCiudad = new SelectList(db.Ciudad, "CiudadId", "Nombre", paciente.IdCiudad);
             ViewBag.IdFormaPagoPorDefecto = new SelectList(db.FormaDePago, "IdFormaDePago", "Nombre", paciente.IdFormaPagoPorDefecto);
-            ViewBag.IdHistoriaClinica = new SelectList(db.HistoriaClinica, "IdHistoriaClinica", "AntecedentesMedicos", paciente.IdHistoriaClinica);
             ViewBag.IdPais = new SelectList(db.Pais, "PaisId", "Nombre", paciente.IdPais);
             ViewBag.IdProvincia = new SelectList(db.Provincia, "ProvinciaId", "Nombre", paciente.IdProvincia);
             return View(paciente);
