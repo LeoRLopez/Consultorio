@@ -46,9 +46,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Consultorio.Modelo">
-      <HintPath>..\..\Consultorio.Modelo\Consultorio.Modelo\bin\Debug\Consultorio.Modelo.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -201,15 +198,131 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BancosController.cs" />
+    <Compile Include="Controllers\CiudadesController.cs" />
+    <Compile Include="Controllers\DepartamentosController.cs" />
+    <Compile Include="Controllers\EspecialidadesController.cs" />
+    <Compile Include="Controllers\FacturasController.cs" />
+    <Compile Include="Controllers\FormasDePagoController.cs" />
+    <Compile Include="Controllers\HistoriasClinicasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoConsultorioController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PacientesController.cs" />
+    <Compile Include="Controllers\PaisesController.cs" />
+    <Compile Include="Controllers\PersonalesInternosController.cs" />
+    <Compile Include="Controllers\ProvinciasController.cs" />
+    <Compile Include="Controllers\SegurosMedicosController.cs" />
+    <Compile Include="Controllers\ServiciosExtrasController.cs" />
+    <Compile Include="Controllers\TarjetasController.cs" />
     <Compile Include="Controllers\TurnosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRoles.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaims.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogins.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bancos.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bancos_Tarjetas.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ciudad.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClinicaEntities.cs" />
+    <Compile Include="Models\ClinicaModelo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicaModelo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClinicaModelo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClinicaModelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicaModelo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Departamento.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmailModel.cs" />
+    <Compile Include="Models\Especialidad.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Factura.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormaDePago.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HistoriaClinica.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Horario.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InfoConsultorio.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Medico.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MedicoEspecialidad.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Paciente.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Paciente_Tarjetas.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pais.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonalInterno.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provincia.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SegurosMedico.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SegurosMedicosMedico.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SegurosMedicosPaciente.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServicioExtra.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tarjetas.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Turno.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>ClinicaModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -264,10 +377,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\ClinicaModelo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClinicaModelo.edmx</DependentUpon>
+      <LastGenOutput>ClinicaModelo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ClinicaModelo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClinicaModelo.edmx</DependentUpon>
+      <LastGenOutput>ClinicaModelo.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\ClinicaModelo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ClinicaModelo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ClinicaModelo.edmx.diagram">
+      <DependentUpon>ClinicaModelo.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ConsultorioWeb - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ConsultorioWeb - Web Deploy.pubxml" />
@@ -323,6 +453,81 @@
     <Content Include="Views\Turnos\Details.cshtml" />
     <Content Include="Views\Turnos\Edit.cshtml" />
     <Content Include="Views\Turnos\Index.cshtml" />
+    <Content Include="Views\Bancos\Create.cshtml" />
+    <Content Include="Views\Bancos\Delete.cshtml" />
+    <Content Include="Views\Bancos\Details.cshtml" />
+    <Content Include="Views\Bancos\Edit.cshtml" />
+    <Content Include="Views\Bancos\Index.cshtml" />
+    <Content Include="Views\Especialidades\Create.cshtml" />
+    <Content Include="Views\Especialidades\Delete.cshtml" />
+    <Content Include="Views\Especialidades\Details.cshtml" />
+    <Content Include="Views\Especialidades\Edit.cshtml" />
+    <Content Include="Views\Especialidades\Index.cshtml" />
+    <Content Include="Views\Facturas\Create.cshtml" />
+    <Content Include="Views\Facturas\Delete.cshtml" />
+    <Content Include="Views\Facturas\Details.cshtml" />
+    <Content Include="Views\Facturas\Edit.cshtml" />
+    <Content Include="Views\Facturas\Index.cshtml" />
+    <Content Include="Views\FormasDePago\Create.cshtml" />
+    <Content Include="Views\FormasDePago\Delete.cshtml" />
+    <Content Include="Views\FormasDePago\Details.cshtml" />
+    <Content Include="Views\FormasDePago\Edit.cshtml" />
+    <Content Include="Views\FormasDePago\Index.cshtml" />
+    <Content Include="Views\HistoriasClinicas\Create.cshtml" />
+    <Content Include="Views\HistoriasClinicas\Delete.cshtml" />
+    <Content Include="Views\HistoriasClinicas\Details.cshtml" />
+    <Content Include="Views\HistoriasClinicas\Edit.cshtml" />
+    <Content Include="Views\HistoriasClinicas\Index.cshtml" />
+    <Content Include="Views\InfoConsultorio\Create.cshtml" />
+    <Content Include="Views\InfoConsultorio\Delete.cshtml" />
+    <Content Include="Views\InfoConsultorio\Details.cshtml" />
+    <Content Include="Views\InfoConsultorio\Edit.cshtml" />
+    <Content Include="Views\InfoConsultorio\Index.cshtml" />
+    <Content Include="Views\Pacientes\Create.cshtml" />
+    <Content Include="Views\Pacientes\Delete.cshtml" />
+    <Content Include="Views\Pacientes\Details.cshtml" />
+    <Content Include="Views\Pacientes\Edit.cshtml" />
+    <Content Include="Views\Pacientes\Index.cshtml" />
+    <Content Include="Views\PersonalesInternos\Create.cshtml" />
+    <Content Include="Views\PersonalesInternos\Delete.cshtml" />
+    <Content Include="Views\PersonalesInternos\Details.cshtml" />
+    <Content Include="Views\PersonalesInternos\Edit.cshtml" />
+    <Content Include="Views\PersonalesInternos\Index.cshtml" />
+    <Content Include="Views\SegurosMedicos\Create.cshtml" />
+    <Content Include="Views\SegurosMedicos\Delete.cshtml" />
+    <Content Include="Views\SegurosMedicos\Details.cshtml" />
+    <Content Include="Views\SegurosMedicos\Edit.cshtml" />
+    <Content Include="Views\SegurosMedicos\Index.cshtml" />
+    <Content Include="Views\ServiciosExtras\Create.cshtml" />
+    <Content Include="Views\ServiciosExtras\Delete.cshtml" />
+    <Content Include="Views\ServiciosExtras\Details.cshtml" />
+    <Content Include="Views\ServiciosExtras\Edit.cshtml" />
+    <Content Include="Views\ServiciosExtras\Index.cshtml" />
+    <Content Include="Views\Tarjetas\Create.cshtml" />
+    <Content Include="Views\Tarjetas\Delete.cshtml" />
+    <Content Include="Views\Tarjetas\Details.cshtml" />
+    <Content Include="Views\Tarjetas\Edit.cshtml" />
+    <Content Include="Views\Tarjetas\Index.cshtml" />
+    <Content Include="Views\Paises\Create.cshtml" />
+    <Content Include="Views\Paises\Delete.cshtml" />
+    <Content Include="Views\Paises\Details.cshtml" />
+    <Content Include="Views\Paises\Edit.cshtml" />
+    <Content Include="Views\Paises\Index.cshtml" />
+    <Content Include="Views\Provincias\Create.cshtml" />
+    <Content Include="Views\Provincias\Delete.cshtml" />
+    <Content Include="Views\Provincias\Details.cshtml" />
+    <Content Include="Views\Provincias\Edit.cshtml" />
+    <Content Include="Views\Provincias\Index.cshtml" />
+    <Content Include="Views\Departamentos\Create.cshtml" />
+    <Content Include="Views\Departamentos\Delete.cshtml" />
+    <Content Include="Views\Departamentos\Details.cshtml" />
+    <Content Include="Views\Departamentos\Edit.cshtml" />
+    <Content Include="Views\Departamentos\Index.cshtml" />
+    <Content Include="Views\Ciudades\Create.cshtml" />
+    <Content Include="Views\Ciudades\Delete.cshtml" />
+    <Content Include="Views\Ciudades\Details.cshtml" />
+    <Content Include="Views\Ciudades\Edit.cshtml" />
+    <Content Include="Views\Ciudades\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,67 @@
+﻿@model ConsultorioWeb.Models.Factura
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Factura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTurno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTurno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaDePago.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaDePago.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarjetas.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarjetas.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdFactura }) |
+    @Html.ActionLink("Volver al Listado", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model ConsultorioWeb.Models.HistoriaClinica
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>HistoriaClinica</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAtencion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAtencion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Turno.Diagnostico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turno.Diagnostico)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdHistoriaClinica }) |
+    @Html.ActionLink("Volver al Listado", "Index")
+</p>

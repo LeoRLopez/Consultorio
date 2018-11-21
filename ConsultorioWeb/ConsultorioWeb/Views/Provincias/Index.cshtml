@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ConsultorioWeb.Models.Provincia>
+
+@{
+    ViewBag.Title = "Listado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ProvinciaId }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ProvinciaId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ProvinciaId })
+        </td>
+    </tr>
+}
+
+</table>

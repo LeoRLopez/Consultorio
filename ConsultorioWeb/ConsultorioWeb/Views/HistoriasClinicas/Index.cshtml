@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ConsultorioWeb.Models.HistoriaClinica>
+
+@{
+    ViewBag.Title = "Listado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaAtencion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paciente.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Turno.Diagnostico)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaAtencion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paciente.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Turno.Diagnostico)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdHistoriaClinica }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdHistoriaClinica }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdHistoriaClinica })
+        </td>
+    </tr>
+}
+
+</table>

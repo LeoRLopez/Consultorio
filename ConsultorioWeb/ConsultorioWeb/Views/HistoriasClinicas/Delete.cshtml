@@ -1,0 +1,57 @@
+﻿@model ConsultorioWeb.Models.HistoriaClinica
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Estas seguro de que deseas eliminar el registro?</h3>
+<div>
+    <h4>HistoriaClinica</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAtencion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAtencion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Turno.Diagnostico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turno.Diagnostico)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Volver al Listado", "Index")
+        </div>
+    }
+</div>

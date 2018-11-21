@@ -1,0 +1,35 @@
+﻿@model ConsultorioWeb.Models.SegurosMedico
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>SegurosMedico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BajaLogica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BajaLogica)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdSeguroMedico }) |
+    @Html.ActionLink("Volver al Listado", "Index")
+</p>

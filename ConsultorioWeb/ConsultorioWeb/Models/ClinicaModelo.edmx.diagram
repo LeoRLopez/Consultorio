@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ffde9d19ffe64096b612678d0535f709" Name="Diagram1">
+        <EntityTypeShape EntityType="ClinicaModel.AspNetRoles" Width="1.5" PointX="8.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.AspNetUserClaims" Width="1.5" PointX="13.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.AspNetUserLogins" Width="1.5" PointX="13.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.AspNetUsers" Width="1.5" PointX="11" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Bancos" Width="1.5" PointX="3.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Bancos_Tarjetas" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Ciudad" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Departamento" Width="1.5" PointX="10.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Especialidad" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Factura" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.FormaDePago" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.HistoriaClinica" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Horario" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.InfoConsultorio" Width="1.5" PointX="10.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Medico" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.MedicoEspecialidad" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Paciente" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Paciente_Tarjetas" Width="1.5" PointX="11.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Pais" Width="1.5" PointX="6" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.PersonalInterno" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Provincia" Width="1.5" PointX="6" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.SegurosMedico" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.SegurosMedicosMedico" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.SegurosMedicosPaciente" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.ServicioExtra" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Tarjetas" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Turno" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaModel.Usuario" Width="1.5" PointX="6" PointY="28.625" IsExpanded="true" />
+        <AssociationConnector Association="ClinicaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Bancos_Tarjetas_Bancos" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Bancos_Tarjetas_Tarjetas" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Departamentoes_Ciudads" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Paciente_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_PersonalInterno_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Departamentoes_Provincias" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_MedicoEspecialidad_Especialidad1" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Turno_Especialidad" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Factura_FormaDePago" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Factura_Tarjetas" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Turno_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Paciente_FormaDePago" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Turno_FormaDePago" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_HistoriaClinica_Paciente" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_HistoriaClinica_Turno" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Medico_Horario" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Medico_Horario1" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Medico_Horario2" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Medico_Horario3" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Medico_Horario4" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Medico_Horario5" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Medico_Horario6" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_MedicoEspecialidad_Medico1" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_PersonalInterno_Medico" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_SegurosMedicosMedico_Medico" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Turno_Medico" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Paciente_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Paciente_Provincia" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Paciente_Tarjetas_Paciente" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_SegurosMedicosClientes_Paciente" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Turno_Paciente" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Paciente_Tarjetas_Tarjetas" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_PersonalInterno_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Provincias_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_PersonalInterno_Provincia" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_PersonalInterno_Usuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_SegurosMedicosMedicos_SegurosMedicos" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_SegurosMedicosPaciente_SegurosMedico" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Turno_SegurosMedico" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.FK_Turno_ServicioExtra" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

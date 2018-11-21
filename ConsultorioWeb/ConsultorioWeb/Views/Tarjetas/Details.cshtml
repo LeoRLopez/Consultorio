@@ -1,0 +1,67 @@
+﻿@model ConsultorioWeb.Models.Tarjetas
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Tarjetas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroTarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroTarjeta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaVto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaVto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdBanco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdBanco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BajaLogica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BajaLogica)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdTarjeta }) |
+    @Html.ActionLink("Volver al Listado", "Index")
+</p>
