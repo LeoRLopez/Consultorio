@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ConsultorioWeb.Controllers
 {
-    [Authorize(Roles = "Admin,Usuario")]
+    [Authorize(Roles = "Admin")]
     public class FacturasController : Controller
     {
         private ClinicaEntities db = new ClinicaEntities();
