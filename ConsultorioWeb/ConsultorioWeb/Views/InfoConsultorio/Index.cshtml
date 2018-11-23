@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<ConsultorioWeb.Models.InfoConsultorio>
 
 @{
-    ViewBag.Title = "Listado";
+    ViewBag.Title = "Información del Consultorio";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Información del Consultorio</h2>
 
-<p>
-    @Html.ActionLink("Crear Nuevo", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -72,11 +69,8 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id })
         </td>
     </tr>
 }
-
 </table>
