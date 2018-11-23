@@ -8,13 +8,11 @@
 <h2>Detalles del Turno</h2>
 
 <div>
-    <h4>Turno</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
             Fecha y Hora
         </dt>
-
         <dd>
             @Model.FechaYHora.ToString("dd/MM/yyyy HH:mm")
         </dd>
@@ -22,7 +20,6 @@
         <dt>
             Paciente
         </dt>
-
         <dd>
             @Model.Paciente.Apellidos , @Model.Paciente.Nombres
         </dd>
@@ -30,7 +27,6 @@
         <dt>
             Médico
         </dt>
-
         <dd>
             @Model.Medico.PersonalInterno.First().Apellido , @Model.Medico.PersonalInterno.First().Nombre
         </dd>
@@ -38,7 +34,6 @@
         <dt>
             Matricula
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Medico.MatriculaMedico)
         </dd>
@@ -46,7 +41,6 @@
         <dt>
             Especialidad
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Especialidad.Nombre)
         </dd>
@@ -54,7 +48,6 @@
         <dt>
             Forma de Pago
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.FormaDePago.Nombre)
         </dd>
@@ -62,7 +55,6 @@
         <dt>
             Precio
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.PrecioTurno)
         </dd>
@@ -70,7 +62,6 @@
         <dt>
             Seguro Médico
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.SegurosMedico.Nombre)
         </dd>
@@ -78,7 +69,6 @@
         <dt>
             Diagnóstico
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Diagnostico)
         </dd>
@@ -86,15 +76,27 @@
         <dt>
             Descripción
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Descripcion)
         </dd>
 
         <dt>
+            Servicio Extra
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServicioExtra.Nombre)
+        </dd>
+
+        <dt>
+            Descripción del Servicio Extra
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionServicioExtra)
+        </dd>
+
+        <dt>
             Asistió?
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Asistio)
         </dd>
@@ -102,7 +104,6 @@
         <dt>
             Atendido?
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Atendido)
         </dd>

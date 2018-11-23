@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using ConsultorioWeb.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using ConsultorioWeb.Models;
 
 namespace ConsultorioWeb.Controllers
 {
+    [Authorize(Roles = "Admin,Usuario")]
     public class FormasDePagoController : Controller
     {
         private ClinicaEntities db = new ClinicaEntities();

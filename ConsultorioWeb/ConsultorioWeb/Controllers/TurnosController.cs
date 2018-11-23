@@ -57,19 +57,19 @@ namespace ConsultorioWeb.Controllers
 
             if (userRole == "Admin" || userRole == "Usuario")
             {
-                turnos = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).ToList();
+                turnos = db.Turno.Include(t => t.Especialidad).Include(t => t.Factura).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).Include(t => t.ServicioExtra).ToList();
             }
             else if (userRole == "Medico")
             {
                 var idMedico = db.PersonalInterno.FirstOrDefault(x => x.Email == userEmail).IdMedico;
                 turnos = db.Turno.Where(x => x.IdMedico == idMedico)
-                    .Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).ToList();
+                    .Include(t => t.Especialidad).Include(t => t.Factura).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).Include(t => t.ServicioExtra).ToList();
             }
             else if (userRole == "Paciente")
             {
                 var idPaciente = db.Paciente.FirstOrDefault(x => x.Email == userEmail).IdPaciente;
                 turnos = db.Turno.Where(x => x.IdPaciente == idPaciente)
-                    .Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).ToList();
+                    .Include(t => t.Especialidad).Include(t => t.Factura).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).Include(t => t.ServicioExtra).ToList();
             }
             return View(turnos.OrderByDescending(x => x.FechaYHora).ToList());
         }
@@ -103,6 +103,7 @@ namespace ConsultorioWeb.Controllers
             ViewBag.IdMedico = new SelectList(db.Medico.ToList().Select(x => new { x.IdMedico, ApellidoNombre = x.PersonalInterno.FirstOrDefault().Apellido + ", " + x.PersonalInterno.FirstOrDefault().Nombre }), "IdMedico", "ApellidoNombre");
             ViewBag.IdSeguroMedico = new SelectList(db.SegurosMedico, "IdSeguroMedico", "Nombre");
             ViewBag.HorarioTurno = new SelectList(this.__horariosTurno);
+            ViewBag.IdServicioExtra = new SelectList(db.ServicioExtra, "ServicioExtraId", "Nombre");
 
             if (userRole != "Paciente")
             {
@@ -122,7 +123,7 @@ namespace ConsultorioWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdTurno,IdMedico,IdPaciente,IdFormaDePago,FechaYHora,IdSeguroMedico,Diagnostico,Descripcion,Asistio,Atendido,PrecioTurno,IdEspecialidadMedico")] Turno turno, FormCollection formCollection)
+        public ActionResult Create([Bind(Include = "IdTurno,IdMedico,IdPaciente,IdFormaDePago,FechaYHora,IdSeguroMedico,Diagnostico,Descripcion,Asistio,Atendido,PrecioTurno,IdEspecialidadMedico,IdServicioExtra,DescripcionServicioExtra")] Turno turno, FormCollection formCollection)
         {
             DateTime fechaSeleccionada = turno.FechaYHora.Date;
             string horarioTurno = formCollection["HorarioTurno"];
@@ -160,13 +161,14 @@ namespace ConsultorioWeb.Controllers
             ViewBag.IdPaciente = new SelectList(db.Paciente.ToList().Select(x => new { x.IdPaciente, ApellidoNombre = x.Apellidos + ", " + x.Nombres }), "IdPaciente", "ApellidoNombre", turno.IdPaciente);
             ViewBag.IdSeguroMedico = new SelectList(db.SegurosMedico, "IdSeguroMedico", "Nombre", turno.IdSeguroMedico);
             ViewBag.HorarioTurno = new SelectList(this.__horariosTurno, horarioTurno);
+            ViewBag.IdServicioExtra = new SelectList(db.ServicioExtra, "ServicioExtraId", "Nombre", turno.IdServicioExtra);
 
             return View(turno);
         }
 
         private bool EnviarNotificacionAlPaciente(int idTurno)
         {
-            var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).First(x => x.IdTurno == idTurno);
+            var turnoDB = db.Turno.Include(t => t.Especialidad).Include(t => t.Factura).Include(t => t.FormaDePago).Include(t => t.Medico).Include(t => t.Paciente).Include(t => t.SegurosMedico).Include(t => t.ServicioExtra).First(x => x.IdTurno == idTurno);
             var pacienteEmail = turnoDB.Paciente.Email;
             var emailSubject = string.Format("Nuevo Turno para el {0} a las {1} hs.", turnoDB.FechaYHora.ToString("dd/MM/yyyy"), turnoDB.FechaYHora.ToString("HH:mm"));
             var emailBody = string.Format(_bodyTemplate,
@@ -233,6 +235,7 @@ namespace ConsultorioWeb.Controllers
             ViewBag.IdPaciente = new SelectList(db.Paciente.ToList().Select(x => new { x.IdPaciente, ApellidoNombre = x.Apellidos + ", " + x.Nombres }), "IdPaciente", "ApellidoNombre", turno.IdPaciente);
             ViewBag.IdSeguroMedico = new SelectList(db.SegurosMedico, "IdSeguroMedico", "Nombre", turno.IdSeguroMedico);
             ViewBag.HorarioTurno = new SelectList(this.__horariosTurno, turno.FechaYHora.ToString("HH:mm"));
+            ViewBag.IdServicioExtra = new SelectList(db.ServicioExtra, "ServicioExtraId", "Nombre", turno.IdServicioExtra);
 
             return View(turno);
         }
@@ -242,7 +245,7 @@ namespace ConsultorioWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdTurno,IdMedico,IdPaciente,IdFormaDePago,FechaYHora,IdSeguroMedico,Diagnostico,Descripcion,Asistio,Atendido,PrecioTurno,IdEspecialidadMedico")] Turno turno, FormCollection formCollection)
+        public ActionResult Edit([Bind(Include = "IdTurno,IdMedico,IdPaciente,IdFormaDePago,FechaYHora,IdSeguroMedico,Diagnostico,Descripcion,Asistio,Atendido,PrecioTurno,IdEspecialidadMedico,IdServicioExtra,DescripcionServicioExtra")] Turno turno, FormCollection formCollection)
         {
             DateTime fechaSeleccionada = turno.FechaYHora.Date;
             string horarioTurno = formCollection["HorarioTurno"];
@@ -278,6 +281,7 @@ namespace ConsultorioWeb.Controllers
             ViewBag.IdPaciente = new SelectList(db.Paciente.ToList().Select(x => new { x.IdPaciente, ApellidoNombre = x.Apellidos + ", " + x.Nombres }), "IdPaciente", "ApellidoNombre", turno.IdPaciente);
             ViewBag.IdSeguroMedico = new SelectList(db.SegurosMedico, "IdSeguroMedico", "Nombre", turno.IdSeguroMedico);
             ViewBag.HorarioTurno = new SelectList(this.__horariosTurno, turno.FechaYHora.ToString("HH:mm"));
+            ViewBag.IdServicioExtra = new SelectList(db.ServicioExtra, "ServicioExtraId", "Nombre", turno.IdServicioExtra);
             return View(turno);
         }
 
