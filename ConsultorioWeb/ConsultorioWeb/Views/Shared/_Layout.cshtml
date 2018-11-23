@@ -33,19 +33,20 @@
                         {
                             userRoles = System.Web.HttpContext.Current.Session["CurrentUserRoles"].ToString();
                         }
-
                         <li>@Html.ActionLink("Turnos", "Index", "Turnos", null, new { @Style = "color: black" })</li>
-
                         if (userRoles == "Admin" || userRoles == "Usuario")
                         {
                             <li> @Html.ActionLink("Pacientes", "Index", "Pacientes", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Personales Internos", "Index", "PersonalesInternos", null, new { @Style = "color: black" })</li>
                             <li> @Html.ActionLink("Especialidades Médico", "Index", "Especialidades", null, new { @Style = "color: black" })</li>
+                            <li> @Html.ActionLink("Seguros Medicos", "Index", "SegurosMedicos", null, new { @Style = "color: black" })</li>
                             <li> @Html.ActionLink("Formas de Pago", "Index", "FormasDePago", null, new { @Style = "color: black" })</li>
                             <li> @Html.ActionLink("Bancos", "Index", "Bancos", null, new { @Style = "color: black" })</li>
                             <li> @Html.ActionLink("Tarjetas", "Index", "Tarjetas", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Seguros Medicos", "Index", "SegurosMedicos", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Información del Consultorio", "Index", "InfoConsultorio", null, new { @Style = "color: black" })</li>
+                            if (userRoles == "Admin")
+                            {
+                                <li> @Html.ActionLink("Personales Internos", "Index", "PersonalesInternos", null, new { @Style = "color: black" })</li>
+                                <li> @Html.ActionLink("Información del Consultorio", "Index", "InfoConsultorio", null, new { @Style = "color: black" })</li>
+                            }
                         }
                     }
                 </ul>
@@ -53,7 +54,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content" style="margin-top:50px">
+    <div class="container body-content" style="margin-top:100px">
         @RenderBody()
         <br />
         <br />
