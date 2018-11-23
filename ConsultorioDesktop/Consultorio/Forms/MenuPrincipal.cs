@@ -139,7 +139,6 @@ namespace Consultorio
                     btnHome.Visible = false;
                     btnBancos.Visible = false;
                     btnEspecialidades.Visible = false;
-                    btnObrasSociales.Visible = false;
                     btnReportePacientes.Visible = false;
                     btnReporteTurnos.Visible = false;
                     btnTarjetasDeDebito.Visible = false;
