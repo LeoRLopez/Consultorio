@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Consultorios Médicos Sagrada Familia</title>
     <link rel="icon" href="@Url.Content("~/Content/favicon.ico")" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div style="background-color:cornflowerblue" class="navbar navbar-inverse navbar-fixed-top">
+    <div style="background-color:cornflowerblue" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <img src="~/Content/favicon.ico" width="60" height="60" alt="sagrada-familia" title="sagrada-familia">
@@ -36,23 +36,39 @@
                         <li>@Html.ActionLink("Turnos", "Index", "Turnos", null, new { @Style = "color: black" })</li>
                         if (userRoles == "Admin" || userRoles == "Usuario")
                         {
-                            <li> @Html.ActionLink("Pacientes", "Index", "Pacientes", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Especialidades Médico", "Index", "Especialidades", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Seguros Medicos", "Index", "SegurosMedicos", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Formas de Pago", "Index", "FormasDePago", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Bancos", "Index", "Bancos", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Tarjetas", "Index", "Tarjetas", null, new { @Style = "color: black" })</li>
-                            <li> @Html.ActionLink("Servicios Extras", "Index", "ServiciosExtras", null, new { @Style = "color: black" })</li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Secretario
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li> @Html.ActionLink("Pacientes", "Index", "Pacientes", null, new { @Style = "color: black" })</li>
+                                    <li> @Html.ActionLink("Especialidades Médico", "Index", "Especialidades", null, new { @Style = "color: black" })</li>
+                                    <li> @Html.ActionLink("Seguros Medicos", "Index", "SegurosMedicos", null, new { @Style = "color: black" })</li>
+                                    <li> @Html.ActionLink("Formas de Pago", "Index", "FormasDePago", null, new { @Style = "color: black" })</li>
+                                    <li> @Html.ActionLink("Bancos", "Index", "Bancos", null, new { @Style = "color: black" })</li>
+                                    <li> @Html.ActionLink("Tarjetas", "Index", "Tarjetas", null, new { @Style = "color: black" })</li>
+                                    <li> @Html.ActionLink("Servicios Extras", "Index", "ServiciosExtras", null, new { @Style = "color: black" })</li>
+                                </ul>
+                            </li>
                             if (userRoles == "Admin")
                             {
-                                <li> @Html.ActionLink("Personales Internos", "Index", "PersonalesInternos", null, new { @Style = "color: black" })</li>
-                                <li> @Html.ActionLink("Facturas", "Index", "Facturas", null, new { @Style = "color: black" })</li>
-                                <li> @Html.ActionLink("Historias Clinicas", "Index", "HistoriasClinicas", null, new { @Style = "color: black" })</li>
-                                <li> @Html.ActionLink("Información del Consultorio", "Index", "InfoConsultorio", null, new { @Style = "color: black" })</li>
-                                <li> @Html.ActionLink("Paises", "Index", "Paises", null, new { @Style = "color: black" })</li>
-                                <li> @Html.ActionLink("Provincias", "Index", "Provincias", null, new { @Style = "color: black" })</li>
-                                <li> @Html.ActionLink("Departamentos", "Index", "Departamentos", null, new { @Style = "color: black" })</li>
-                                <li> @Html.ActionLink("Ciudades", "Index", "Ciudades", null, new { @Style = "color: black" })</li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Administrador
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li> @Html.ActionLink("Personales Internos", "Index", "PersonalesInternos", null, new { @Style = "color: black" })</li>
+                                        <li> @Html.ActionLink("Facturas", "Index", "Facturas", null, new { @Style = "color: black" })</li>
+                                        <li> @Html.ActionLink("Historias Clinicas", "Index", "HistoriasClinicas", null, new { @Style = "color: black" })</li>
+                                        <li> @Html.ActionLink("Paises", "Index", "Paises", null, new { @Style = "color: black" })</li>
+                                        <li> @Html.ActionLink("Provincias", "Index", "Provincias", null, new { @Style = "color: black" })</li>
+                                        <li> @Html.ActionLink("Departamentos", "Index", "Departamentos", null, new { @Style = "color: black" })</li>
+                                        <li> @Html.ActionLink("Ciudades", "Index", "Ciudades", null, new { @Style = "color: black" })</li>
+                                        <li> @Html.ActionLink("Información del Consultorio", "Index", "InfoConsultorio", null, new { @Style = "color: black" })</li>
+                                    </ul>
+                                </li>
                             }
                         }
                     }
@@ -61,17 +77,15 @@
             </div>
         </div>
     </div>
-    <div class="container body-content" style="margin-top:100px">
+    <div class="container body-content" style="margin-top:50px">
         @RenderBody()
         <br />
         <br />
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Consultorios Médicos Sagrada Familia</p>
+            <p>&copy; @DateTime.Now.Year - Consultorios Médicos Sagrada Familia - Resistencia, Chaco, Argentina - Tel: +54 9 362 461-034</p>
         </footer>
     </div>
-
-    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

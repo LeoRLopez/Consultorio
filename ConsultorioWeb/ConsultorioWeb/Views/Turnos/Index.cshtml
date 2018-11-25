@@ -77,11 +77,11 @@
                 @Html.DisplayFor(modelItem => item.ServicioExtra.Nombre)
             </td>
             <td>
-                @Html.ActionLink("Detalles | ", "Details", new { id = item.IdTurno })
+                @Html.ActionLink("Detalles ", "Details", new { id = item.IdTurno })
 
                 @if (userRoles == "Admin" || userRoles == "Usuario")
                 {
-                    @Html.ActionLink("Editar | ", "Edit", new { id = item.IdTurno });
+                    @Html.ActionLink("Editar ", "Edit", new { id = item.IdTurno });
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.IdTurno });
                 }
             </td>

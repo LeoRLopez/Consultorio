@@ -36,6 +36,11 @@ namespace Consultorio
                     <dt>Precio</dt>
                     <dd><strong>{6}</strong></dd>
                     <dt>Seguro Médico</dt>
+                    <dd><strong>{7}</strong></dd>
+                    <dt>Servicio Extra</dt>
+                    <dd><strong>{8}</strong></dd>
+                    <dt>Descripción Servicio Extra</dt>
+                    <dd><strong>{9}</strong></dd>
                 </dl>
             </div><hr />";
 
@@ -135,7 +140,9 @@ namespace Consultorio
                 turnoDB.Medico.MatriculaMedico,
                 turnoDB.FormaDePago.Nombre,
                 turnoDB.PrecioTurno,
-                turnoDB.SegurosMedico == null ? "-" : turnoDB.SegurosMedico.Nombre);
+                turnoDB.SegurosMedico == null ? "-" : turnoDB.SegurosMedico.Nombre,
+                turnoDB.ServicioExtra == null ? "" : turnoDB.ServicioExtra.Nombre,
+                turnoDB.Descripcion ?? "");
 
             var pacienteEmail = turnoDB.Paciente.Email;
             var emailPacienteModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };

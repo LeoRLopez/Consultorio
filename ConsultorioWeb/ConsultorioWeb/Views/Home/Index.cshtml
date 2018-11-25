@@ -1,6 +1,24 @@
 ﻿@{
     ViewBag.Title = "Inicio";
 }
+<div class="slideshow-container">
+    @for (int i = 1; i <= 13; i++)
+    {
+    <div class="mySlides fade" align="center">
+        <div class="numbertext">@i / 13</div>
+        @{var nombreArchivo = @i.ToString() + ".jpeg";}
+        <img src="~/Content/ImagenesGaleria/@nombreArchivo" style="width:60%; height:60%"  />
+    </div>
+    }
+</div>
+<br>
+<div style="text-align:center">
+    @for (int i = 1; i <= 13; i++)
+    {
+    <span class="dot"></span>
+    }
+</div>
+
 <div class="row">
     <div class="col-md-4">
         <h2>Misión</h2>
@@ -15,3 +33,24 @@
         <p>@ViewBag.Descripcion</p>
     </div>
 </div>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+</script>
