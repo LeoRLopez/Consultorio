@@ -41,6 +41,10 @@ namespace ConsultorioWeb.Controllers
                     <dd><strong>{8}</strong></dd>
                     <dt>Diagnóstico</dt>
                     <dd><strong>{9}</strong></dd>
+                    <dt>Servicio Extra</dt>
+                    <dd><strong>{10}</strong></dd>
+                    <dt>Descripción Servicio Extra</dt>
+                    <dd><strong>{11}</strong></dd>
                 </dl>
             </div><hr />";
 
@@ -177,11 +181,13 @@ namespace ConsultorioWeb.Controllers
                 turnoDB.Medico.PersonalInterno.Single().Apellido + ", " + turnoDB.Medico.PersonalInterno.Single().Nombre,
                 turnoDB.Especialidad.Nombre,
                 turnoDB.Medico.MatriculaMedico,
-                turnoDB.FormaDePago.Nombre,
+                turnoDB.FormaDePago == null ? "" : turnoDB.FormaDePago.Nombre,
                 turnoDB.PrecioTurno,
-                turnoDB.SegurosMedico.Nombre,
+                turnoDB.SegurosMedico == null ? "" : turnoDB.SegurosMedico.Nombre,
                 turnoDB.Descripcion,
-                turnoDB.Diagnostico);
+                turnoDB.Diagnostico,
+                turnoDB.ServicioExtra == null ? "" : turnoDB.ServicioExtra.Nombre,
+                turnoDB.Descripcion ?? "");
             var emailModel = new EmailModel { ToEmail = pacienteEmail, EmailSubject = emailSubject, EMailBody = emailBody };
             return EnviarEmail(emailModel);
         }
