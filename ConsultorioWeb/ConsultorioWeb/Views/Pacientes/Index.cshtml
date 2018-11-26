@@ -13,19 +13,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombres)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Apellidos)
+            Apellido
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NumeroDocumento)
+            Nro Documento
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
+            Nacimiento
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Edad)
@@ -34,19 +34,10 @@
             @Html.DisplayNameFor(model => model.Sexo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PrimeraAtencion)
+            Teléfono
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TelCelular)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdSeguroMedico)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodigoPostal)
+            Dirección
         </th>
         <th>
             @Html.DisplayNameFor(model => model.GrupoSanguineo)
@@ -58,16 +49,7 @@
             @Html.DisplayNameFor(model => model.Transplantado)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ciudad.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FormaDePago.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pais.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Provincia.Nombre)
+            Forma de Pago
         </th>
         <th></th>
     </tr>
@@ -96,19 +78,10 @@
             @Html.DisplayFor(modelItem => item.Sexo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PrimeraAtencion)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.TelCelular)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IdSeguroMedico)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodigoPostal)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.GrupoSanguineo)
@@ -120,23 +93,13 @@
             @Html.DisplayFor(modelItem => item.Transplantado)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Ciudad.Nombre)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.FormaDePago.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Pais.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Provincia.Nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.IdPaciente }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.IdPaciente }) |
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdPaciente }) 
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdPaciente }) 
             @Html.ActionLink("Eliminar", "Delete", new { id=item.IdPaciente })
         </td>
     </tr>
 }
-
 </table>
