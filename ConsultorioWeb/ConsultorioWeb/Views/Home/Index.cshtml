@@ -4,35 +4,52 @@
 <div class="slideshow-container">
     @for (int i = 1; i <= 13; i++)
     {
-    <div class="mySlides fade" align="center">
-        <div class="numbertext">@i / 13</div>
-        @{var nombreArchivo = @i.ToString() + ".jpeg";}
-        <img src="~/Content/ImagenesGaleria/@nombreArchivo" style="width:60%; height:60%"  />
-    </div>
+        <div class="mySlides fade" align="center">
+            <div class="numbertext">@i / 13</div>
+            @{var nombreArchivo = @i.ToString() + ".jpeg";}
+            <img src="~/Content/ImagenesGaleria/@nombreArchivo" style="width:60%; height:60%" />
+        </div>
     }
 </div>
 <br>
 <div style="text-align:center">
     @for (int i = 1; i <= 13; i++)
     {
-    <span class="dot"></span>
+        <span class="dot"></span>
     }
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Misión</h2>
+    <h1>Nosotros</h1>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Misión</h3>
         <p>@ViewBag.Mision</p>
     </div>
     <div class="col-md-4">
-        <h2>Visión</h2>
+        <h3>Visión</h3>
         <p>@ViewBag.Vision</p>
     </div>
-    <div class="col-md-4">
-        <h2>Descripción</h2>
-        <p>@ViewBag.Descripcion</p>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <h1>Servicios Exclusivos</h1>
+        <img src="~/Content/ImagenesGaleria/Movilidad Reducida.jpg" style="width:60%; height:60%" />
+        <p>
+
+        </p>
+        <p>Nuestros consultorios brindan además del gran staff de profesionales, un servicio exclusivo de transporte puerta a puerta para pacientes con movilidad reducida, contando con modernas unidades y personal altamente capacitado para el transporte de pasajeros con movilidad reducida. Además de un servicio adicional para transporte de urgencia desde el domicilio del paciente y hacia Clinicas y Hospitales en en caso de emergencia.</p>
+        <h4>Servicio de Movilidad Reducida</h4>
+        <p>Costo: $200*</p>
+        <h4>Servicio Transporte de Urgencia</h4>
+        <p>Costo: $500*</p>
+        <p>*(Precio por viaje. Dentro del Gran Resistencia y Localidades hasta 20km a la redonda. Consultar otras localidades)</p>
     </div>
 </div>
+
+
 <script>
     var slideIndex = 0;
     showSlides();
@@ -51,6 +68,6 @@
         }
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
-        setTimeout(showSlides, 5000); // Change image every 5 seconds
+        setTimeout(showSlides, 8000); // Change image every 8 seconds
     }
 </script>

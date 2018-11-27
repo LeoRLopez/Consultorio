@@ -371,6 +371,7 @@
     <Content Include="Content\ImagenesGaleria\9.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\ImagenesGaleria\Movilidad Reducida.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -439,7 +440,10 @@
       <DependentUpon>ClinicaModelo.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ConsultorioWeb - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ConsultorioWeb - FTP1.pubxml" />
+    <None Include="Properties\PublishProfiles\ConsultorioWeb - FTP2.pubxml" />
     <None Include="Properties\PublishProfiles\ConsultorioWeb - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ConsultorioWeb - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
