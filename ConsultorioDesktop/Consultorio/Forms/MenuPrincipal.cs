@@ -227,7 +227,7 @@ namespace Consultorio
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
-            Help.ShowHelp(this, "file://D:\\Repositorio\\Consultorio\\ConsultorioDesktop\\Consultorio\\Manual de Usuario");
+            Help.ShowHelp(this, "file://D:\\Repositorio\\Consultorio\\ConsultorioDesktop\\Consultorio\\Manual de Usuario\\Manual_de_Usuario.chm");
         }
     }
 }
