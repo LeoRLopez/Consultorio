@@ -4,7 +4,7 @@
 <div class="slideshow-container" >
     @for (int i = 1; i <= 13; i++)
     {
-        <div class="mySlides fade" align="left">
+        <div class="mySlides fade" align="center">
             <div class="numbertext">@i / 13</div>
             @{var nombreArchivo = @i.ToString() + ".jpeg";}
             <img src="~/Content/ImagenesGaleria/@nombreArchivo" style="width:800px; height:400px" />
@@ -12,7 +12,7 @@
     }
 </div>
 <br>
-<div style="text-align:left">
+<div style="text-align:center">
     @for (int i = 1; i <= 13; i++)
     {
         <span class="dot"></span>
@@ -36,7 +36,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1>Servicios Exclusivos</h1>
-        <img src="~/Content/ImagenesGaleria/Movilidad Reducida.jpg" style="width:640px; height:340px" />
+        <img src="~/Content/ImagenesGaleria/Movilidad Reducida.jpg" style="width:auto; height:auto "/>
         <p>
 
         </p>
