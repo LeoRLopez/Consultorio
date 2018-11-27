@@ -408,7 +408,9 @@
     <EmbeddedResource Include="Forms\MenuPrincipalVentana.resx">
       <DependentUpon>MenuPrincipalVentana.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Manual\Manual_de_Usuario.chm" />
+    <Content Include="Manual\Manual_de_Usuario.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Manual\Manual_de_Usuario.chw" />
     <None Include="Manual\Manual_de_Usuario.docx" />
     <None Include="Manual\Manual_de_Usuario.pdf" />

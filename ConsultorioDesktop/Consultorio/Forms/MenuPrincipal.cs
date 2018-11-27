@@ -1,6 +1,8 @@
 ﻿using Consultorio.Forms;
 using Consultorio.Reportes;
 using System;
+using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -227,7 +229,17 @@ namespace Consultorio
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
-            Help.ShowHelp(this, "file://D:\\Repositorio\\Consultorio\\ConsultorioDesktop\\Consultorio\\Manual\\Manual_de_Usuario.chm");
+            Help.ShowHelp(this, AssemblyDirectory + "\\Manual\\Manual_de_Usuario.chm");
+        }
+        private static string AssemblyDirectory
+        {
+            get
+            {
+                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                return Path.GetDirectoryName(path);
+            }
         }
     }
 }
