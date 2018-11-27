@@ -408,6 +408,9 @@
     <EmbeddedResource Include="Forms\MenuPrincipalVentana.resx">
       <DependentUpon>MenuPrincipalVentana.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Manual de Usuario\Manual de Usuario.chm" />
+    <None Include="Manual de Usuario\Manual de Usuario.docx" />
+    <None Include="Manual de Usuario\Manual de Usuario.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Bancos.datasource" />
     <None Include="Properties\DataSources\Consultorio.Modelo.Especialidad.datasource" />
@@ -442,6 +445,59 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\chmprocessor.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\layout-default-latest.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\animated-overlay.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\css\redmond\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\document-print.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\embeddedstyles.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\go-home.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\go-next.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\go-previous.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\help-browser.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\index.html" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\chmprocessor.js" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\jquery-1.9.1.js" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\jquery.hotkeys.js" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\jquery.jstree.js" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\jquery.layout-latest.min.js" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\apple\bg.jpg" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\apple\d.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\apple\dot_for_ie.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\apple\style.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\apple\throbber.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\classic\d.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\classic\d.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\classic\dot_for_ie.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\classic\style.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\classic\throbber.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default-rtl\d.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default-rtl\d.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default-rtl\dots.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default-rtl\style.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default-rtl\throbber.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default\d.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default\d.png" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default\style.css" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\js\themes\default\throbber.gif" />
+    <Content Include="Manual de Usuario\Manual de Usuario-web\start.htm" />
     <Content Include="Sagrada.ico" />
   </ItemGroup>
   <ItemGroup>
