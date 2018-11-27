@@ -344,9 +344,6 @@
     <Content Include="Content\ImagenesGaleria\12.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\ImagenesGaleria\13.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\ImagenesGaleria\2.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
