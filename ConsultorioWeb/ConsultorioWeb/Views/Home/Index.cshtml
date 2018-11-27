@@ -2,10 +2,10 @@
     ViewBag.Title = "Inicio";
 }
 <div class="slideshow-container">
-    @for (int i = 1; i <= 13; i++)
+    @for (int i = 1; i <= 12; i++)
     {
         <div class="mySlides fade" align="center">
-            <div class="numbertext">@i / 13</div>
+            <div class="numbertext">@i / 12</div>
             @{var nombreArchivo = @i.ToString() + ".jpeg";}
             <img src="~/Content/ImagenesGaleria/@nombreArchivo" style="width:800px; height:400px" />
         </div>
@@ -13,7 +13,7 @@
 </div>
 <br>
 <div style="text-align:center">
-    @for (int i = 1; i <= 13; i++)
+    @for (int i = 1; i <= 12; i++)
     {
         <span class="dot"></span>
     }
