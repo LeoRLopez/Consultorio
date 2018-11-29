@@ -1,0 +1,74 @@
+﻿@model DepositoDeAlimentos.Models.Producto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RNE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RNE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RNPA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RNPA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdMarca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdMarca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreFantasIa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreFantasIa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaEmision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaEmision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaVencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaVencimiento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdProducto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

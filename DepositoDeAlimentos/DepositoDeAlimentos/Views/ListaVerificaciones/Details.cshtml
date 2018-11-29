@@ -1,0 +1,58 @@
+﻿@model DepositoDeAlimentos.Models.ListaVerificacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ListaVerificacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resultado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resultado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FichaInventario.CodigoEstadoLote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FichaInventario.CodigoEstadoLote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Verificacion.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Verificacion.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdListaVerificacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

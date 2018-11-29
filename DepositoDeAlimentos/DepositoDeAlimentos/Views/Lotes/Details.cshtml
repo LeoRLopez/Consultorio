@@ -1,0 +1,50 @@
+﻿@model DepositoDeAlimentos.Models.Lote
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaEntrada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaEntrada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRetiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRetiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadAlmacenada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadAlmacenada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Presentado.IdPresentado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Presentado.IdPresentado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdLote }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

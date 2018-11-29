@@ -1,0 +1,42 @@
+﻿@model DepositoDeAlimentos.Models.Incluye
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Incluye</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreTecnico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreTecnico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Verificacion.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Verificacion.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarcoRegulatorio.Duracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarcoRegulatorio.Duracion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdIncluye }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

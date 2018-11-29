@@ -1,0 +1,58 @@
+﻿@model DepositoDeAlimentos.Models.FichaInventario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FichaInventario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Año)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Año)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OberservacionesGenerales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OberservacionesGenerales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoLote.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoLote.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lote.IdLote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lote.IdLote)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFichaInventario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

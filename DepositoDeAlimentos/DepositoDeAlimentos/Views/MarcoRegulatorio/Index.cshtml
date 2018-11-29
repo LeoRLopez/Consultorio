@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DepositoDeAlimentos.Models.MarcoRegulatorio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Duracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TemperaturaMinima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TemperaturaMaxima)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TemperaturaMinima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TemperaturaMaxima)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Nro }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Nro }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Nro })
+        </td>
+    </tr>
+}
+
+</table>
