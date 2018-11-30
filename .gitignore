@@ -6,5 +6,8 @@ ConsultorioDesktop/.vs/
 ConsultorioWeb/ConsultorioWeb/obj/
 ConsultorioWeb/ConsultorioWeb/bin/
 ConsultorioWeb/.vs/
+DepositoDeAlimentos/DepositoDeAlimentos/obj/
+DepositoDeAlimentos/DepositoDeAlimentos/bin/
+DepositoDeAlimentos/.vs/
 *.suo
 *.user
