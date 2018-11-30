@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DepositoDeAlimentos.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RNE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RNPA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreFantasIa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaEmision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaVencimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca.NombreMarca)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RNE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RNPA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreFantasIa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaEmision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaVencimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca.NombreMarca)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdProducto }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdProducto }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdProducto })
+        </td>
+    </tr>
+}
+
+</table>

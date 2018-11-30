@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DepositoDeAlimentos.Models.TecnicoBromatologico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCompleto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DNI)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreCompleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DNI)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TecnicoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TecnicoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TecnicoId })
+        </td>
+    </tr>
+}
+
+</table>

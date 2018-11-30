@@ -10,18 +10,18 @@ using DepositoDeAlimentos.Models;
 
 namespace DepositoDeAlimentos.Controllers
 {
-    public class FichaInventariosController : Controller
+    public class FichaInventarioController : Controller
     {
         private DepositoEntities db = new DepositoEntities();
 
-        // GET: FichaInventarios
+        // GET: FichaInventario
         public ActionResult Index()
         {
-            var fichaInventario = db.FichaInventario.Include(f => f.EstadoLote).Include(f => f.Lote);
+            var fichaInventario = db.FichaInventario.Include(f => f.EstadoLote).Include(f => f.Lote).Include(f => f.TecnicoBromatologico);
             return View(fichaInventario.ToList());
         }
 
-        // GET: FichaInventarios/Details/5
+        // GET: FichaInventario/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,20 +36,21 @@ namespace DepositoDeAlimentos.Controllers
             return View(fichaInventario);
         }
 
-        // GET: FichaInventarios/Create
+        // GET: FichaInventario/Create
         public ActionResult Create()
         {
             ViewBag.CodigoEstadoLote = new SelectList(db.EstadoLote, "Codigo", "Descripcion");
             ViewBag.IdLote = new SelectList(db.Lote, "IdLote", "IdLote");
+            ViewBag.IdTecnicoBromatologico = new SelectList(db.TecnicoBromatologico, "TecnicoId", "NombreCompleto");
             return View();
         }
 
-        // POST: FichaInventarios/Create
+        // POST: FichaInventario/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdFichaInventario,IdLote,CodigoEstadoLote,Año,Semana,OberservacionesGenerales")] FichaInventario fichaInventario)
+        public ActionResult Create([Bind(Include = "IdFichaInventario,IdLote,CodigoEstadoLote,Año,Semana,OberservacionesGenerales,IdTecnicoBromatologico")] FichaInventario fichaInventario)
         {
             if (ModelState.IsValid)
             {
@@ -60,10 +61,11 @@ namespace DepositoDeAlimentos.Controllers
 
             ViewBag.CodigoEstadoLote = new SelectList(db.EstadoLote, "Codigo", "Descripcion", fichaInventario.CodigoEstadoLote);
             ViewBag.IdLote = new SelectList(db.Lote, "IdLote", "IdLote", fichaInventario.IdLote);
+            ViewBag.IdTecnicoBromatologico = new SelectList(db.TecnicoBromatologico, "TecnicoId", "NombreCompleto", fichaInventario.IdTecnicoBromatologico);
             return View(fichaInventario);
         }
 
-        // GET: FichaInventarios/Edit/5
+        // GET: FichaInventario/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,15 +79,16 @@ namespace DepositoDeAlimentos.Controllers
             }
             ViewBag.CodigoEstadoLote = new SelectList(db.EstadoLote, "Codigo", "Descripcion", fichaInventario.CodigoEstadoLote);
             ViewBag.IdLote = new SelectList(db.Lote, "IdLote", "IdLote", fichaInventario.IdLote);
+            ViewBag.IdTecnicoBromatologico = new SelectList(db.TecnicoBromatologico, "TecnicoId", "NombreCompleto", fichaInventario.IdTecnicoBromatologico);
             return View(fichaInventario);
         }
 
-        // POST: FichaInventarios/Edit/5
+        // POST: FichaInventario/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdFichaInventario,IdLote,CodigoEstadoLote,Año,Semana,OberservacionesGenerales")] FichaInventario fichaInventario)
+        public ActionResult Edit([Bind(Include = "IdFichaInventario,IdLote,CodigoEstadoLote,Año,Semana,OberservacionesGenerales,IdTecnicoBromatologico")] FichaInventario fichaInventario)
         {
             if (ModelState.IsValid)
             {
@@ -95,10 +98,11 @@ namespace DepositoDeAlimentos.Controllers
             }
             ViewBag.CodigoEstadoLote = new SelectList(db.EstadoLote, "Codigo", "Descripcion", fichaInventario.CodigoEstadoLote);
             ViewBag.IdLote = new SelectList(db.Lote, "IdLote", "IdLote", fichaInventario.IdLote);
+            ViewBag.IdTecnicoBromatologico = new SelectList(db.TecnicoBromatologico, "TecnicoId", "NombreCompleto", fichaInventario.IdTecnicoBromatologico);
             return View(fichaInventario);
         }
 
-        // GET: FichaInventarios/Delete/5
+        // GET: FichaInventario/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +117,7 @@ namespace DepositoDeAlimentos.Controllers
             return View(fichaInventario);
         }
 
-        // POST: FichaInventarios/Delete/5
+        // POST: FichaInventario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

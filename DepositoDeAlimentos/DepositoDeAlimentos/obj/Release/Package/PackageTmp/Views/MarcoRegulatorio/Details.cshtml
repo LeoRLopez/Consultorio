@@ -1,0 +1,42 @@
+﻿@model DepositoDeAlimentos.Models.MarcoRegulatorio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MarcoRegulatorio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Duracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TemperaturaMinima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TemperaturaMinima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TemperaturaMaxima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TemperaturaMaxima)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Nro }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

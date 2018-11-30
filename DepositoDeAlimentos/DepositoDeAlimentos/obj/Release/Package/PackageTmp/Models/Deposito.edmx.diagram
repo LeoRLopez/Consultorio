@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e15e8b1561b4692ad0482864f20ce88" Name="Diagram1">
+        <EntityTypeShape EntityType="DepositoModel.Categoria" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.ClasificaEn" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.Envase" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.EstadoLote" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.FichaInventario" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.Incluye" Width="1.5" PointX="9.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.ListaVerificacion" Width="1.5" PointX="9.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.Lote" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.MarcoRegulatorio" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.Presentado" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.Producto" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.ReguladoPor" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DepositoModel.Verificacion" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="DepositoModel.FK__Clasifica__IdCat__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__Clasifica__IdPro__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__Presentad__IdEnv__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__FichaInve__Codig__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__FichaInve__IdLot__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__ListaVeri__IdFic__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__Incluye__IdVerif__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__Incluye__NroMarc__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__ListaVeri__IdVer__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__Lote__IdPresenta__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__ReguladoP__NroMa__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__Presentad__IdPro__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="DepositoModel.FK__ReguladoP__IdPre__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

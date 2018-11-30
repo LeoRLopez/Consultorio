@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DepositoDeAlimentos.Models.ListaVerificacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resultado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FichaInventario.CodigoEstadoLote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Verificacion.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resultado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FichaInventario.CodigoEstadoLote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Verificacion.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdListaVerificacion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdListaVerificacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdListaVerificacion })
+        </td>
+    </tr>
+}
+
+</table>

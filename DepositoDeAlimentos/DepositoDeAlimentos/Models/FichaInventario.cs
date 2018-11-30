@@ -26,10 +26,12 @@ namespace DepositoDeAlimentos.Models
         public Nullable<int> Año { get; set; }
         public Nullable<System.DateTime> Semana { get; set; }
         public string OberservacionesGenerales { get; set; }
+        public int IdTecnicoBromatologico { get; set; }
     
         public virtual EstadoLote EstadoLote { get; set; }
         public virtual Lote Lote { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListaVerificacion> ListaVerificacion { get; set; }
+        public virtual TecnicoBromatologico TecnicoBromatologico { get; set; }
     }
 }

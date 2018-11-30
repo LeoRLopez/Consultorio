@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DepositoDeAlimentos.Models.FichaInventario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Año)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OberservacionesGenerales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoLote.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lote.IdLote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TecnicoBromatologico.NombreCompleto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Año)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semana)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OberservacionesGenerales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoLote.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lote.IdLote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TecnicoBromatologico.NombreCompleto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdFichaInventario }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdFichaInventario }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdFichaInventario })
+        </td>
+    </tr>
+}
+
+</table>

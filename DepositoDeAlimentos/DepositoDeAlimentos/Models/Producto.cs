@@ -32,6 +32,7 @@ namespace DepositoDeAlimentos.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClasificaEn> ClasificaEn { get; set; }
+        public virtual Marca Marca { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Presentado> Presentado { get; set; }
     }

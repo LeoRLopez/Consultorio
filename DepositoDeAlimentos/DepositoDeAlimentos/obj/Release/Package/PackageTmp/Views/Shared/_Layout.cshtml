@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Depósito de Alimentos</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Depósito de Alimentos", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                    <li>@Html.ActionLink("Envases", "Index", "Envases")</li>
+                    <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
+                    <li>@Html.ActionLink("Clasificaciones", "Index", "ClasificaEn")</li>
+                    <li>@Html.ActionLink("Inventario", "Index", "FichaInventarios")</li>
+                    <li>@Html.ActionLink("Lotes", "Index", "Lotes")</li>
+                    <li>@Html.ActionLink("Estados Lotes", "Index", "EstadoLotes")</li>
+                    <li>@Html.ActionLink("Marco Regulatorio", "Index", "MarcoRegulatorio")</li>
+                    <li>@Html.ActionLink("Lista Verificacion", "Index", "ListaVerificaciones")</li>
+                    <li>@Html.ActionLink("Tipos Verificacion", "Index", "Verificaciones")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="margin-top:100px">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Depósito de Alimentos</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -159,15 +159,17 @@
     <Compile Include="Controllers\ClasificaEnController.cs" />
     <Compile Include="Controllers\EnvasesController.cs" />
     <Compile Include="Controllers\EstadoLotesController.cs" />
-    <Compile Include="Controllers\FichaInventariosController.cs" />
+    <Compile Include="Controllers\FichaInventarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncluyeController.cs" />
     <Compile Include="Controllers\ListaVerificacionesController.cs" />
     <Compile Include="Controllers\LotesController.cs" />
+    <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\MarcoRegulatorioController.cs" />
     <Compile Include="Controllers\PresentadoController.cs" />
-    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\ReguladoPorController.cs" />
+    <Compile Include="Controllers\TecnicoBromatologicoController.cs" />
     <Compile Include="Controllers\VerificacionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,6 +195,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Deposito.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DepositoEntities.cs" />
     <Compile Include="Models\Envase.cs">
       <DependentUpon>Deposito.tt</DependentUpon>
     </Compile>
@@ -211,6 +214,9 @@
     <Compile Include="Models\Lote.cs">
       <DependentUpon>Deposito.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Marca.cs">
+      <DependentUpon>Deposito.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MarcoRegulatorio.cs">
       <DependentUpon>Deposito.tt</DependentUpon>
     </Compile>
@@ -221,6 +227,9 @@
       <DependentUpon>Deposito.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ReguladoPor.cs">
+      <DependentUpon>Deposito.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TecnicoBromatologico.cs">
       <DependentUpon>Deposito.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Verificacion.cs">
@@ -262,6 +271,8 @@
     <Content Include="Models\Deposito.edmx.diagram">
       <DependentUpon>Deposito.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\DepositoDeAlimentos - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\DepositoDeAlimentos - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -287,41 +298,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Productos\Create.cshtml" />
-    <Content Include="Views\Productos\Delete.cshtml" />
-    <Content Include="Views\Productos\Details.cshtml" />
-    <Content Include="Views\Productos\Edit.cshtml" />
-    <Content Include="Views\Productos\Index.cshtml" />
-    <Content Include="Views\Categorias\Create.cshtml" />
-    <Content Include="Views\Categorias\Delete.cshtml" />
-    <Content Include="Views\Categorias\Details.cshtml" />
-    <Content Include="Views\Categorias\Edit.cshtml" />
-    <Content Include="Views\Categorias\Index.cshtml" />
     <Content Include="Views\Lotes\Create.cshtml" />
     <Content Include="Views\Lotes\Delete.cshtml" />
     <Content Include="Views\Lotes\Details.cshtml" />
     <Content Include="Views\Lotes\Edit.cshtml" />
     <Content Include="Views\Lotes\Index.cshtml" />
-    <Content Include="Views\ClasificaEn\Create.cshtml" />
-    <Content Include="Views\ClasificaEn\Delete.cshtml" />
-    <Content Include="Views\ClasificaEn\Details.cshtml" />
-    <Content Include="Views\ClasificaEn\Edit.cshtml" />
-    <Content Include="Views\ClasificaEn\Index.cshtml" />
     <Content Include="Views\Envases\Create.cshtml" />
     <Content Include="Views\Envases\Delete.cshtml" />
     <Content Include="Views\Envases\Details.cshtml" />
     <Content Include="Views\Envases\Edit.cshtml" />
     <Content Include="Views\Envases\Index.cshtml" />
-    <Content Include="Views\EstadoLotes\Create.cshtml" />
-    <Content Include="Views\EstadoLotes\Delete.cshtml" />
-    <Content Include="Views\EstadoLotes\Details.cshtml" />
-    <Content Include="Views\EstadoLotes\Edit.cshtml" />
-    <Content Include="Views\EstadoLotes\Index.cshtml" />
-    <Content Include="Views\FichaInventarios\Create.cshtml" />
-    <Content Include="Views\FichaInventarios\Delete.cshtml" />
-    <Content Include="Views\FichaInventarios\Details.cshtml" />
-    <Content Include="Views\FichaInventarios\Edit.cshtml" />
-    <Content Include="Views\FichaInventarios\Index.cshtml" />
     <Content Include="Views\Incluye\Create.cshtml" />
     <Content Include="Views\Incluye\Delete.cshtml" />
     <Content Include="Views\Incluye\Details.cshtml" />
@@ -352,6 +338,41 @@
     <Content Include="Views\Verificaciones\Details.cshtml" />
     <Content Include="Views\Verificaciones\Edit.cshtml" />
     <Content Include="Views\Verificaciones\Index.cshtml" />
+    <Content Include="Views\Producto\Create.cshtml" />
+    <Content Include="Views\Producto\Delete.cshtml" />
+    <Content Include="Views\Producto\Details.cshtml" />
+    <Content Include="Views\Producto\Edit.cshtml" />
+    <Content Include="Views\Producto\Index.cshtml" />
+    <Content Include="Views\Marcas\Create.cshtml" />
+    <Content Include="Views\Marcas\Delete.cshtml" />
+    <Content Include="Views\Marcas\Details.cshtml" />
+    <Content Include="Views\Marcas\Edit.cshtml" />
+    <Content Include="Views\Marcas\Index.cshtml" />
+    <Content Include="Views\ClasificaEn\Create.cshtml" />
+    <Content Include="Views\ClasificaEn\Delete.cshtml" />
+    <Content Include="Views\ClasificaEn\Details.cshtml" />
+    <Content Include="Views\ClasificaEn\Edit.cshtml" />
+    <Content Include="Views\ClasificaEn\Index.cshtml" />
+    <Content Include="Views\Categorias\Create.cshtml" />
+    <Content Include="Views\Categorias\Delete.cshtml" />
+    <Content Include="Views\Categorias\Details.cshtml" />
+    <Content Include="Views\Categorias\Edit.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\TecnicoBromatologico\Create.cshtml" />
+    <Content Include="Views\TecnicoBromatologico\Delete.cshtml" />
+    <Content Include="Views\TecnicoBromatologico\Details.cshtml" />
+    <Content Include="Views\TecnicoBromatologico\Edit.cshtml" />
+    <Content Include="Views\TecnicoBromatologico\Index.cshtml" />
+    <Content Include="Views\EstadoLotes\Create.cshtml" />
+    <Content Include="Views\EstadoLotes\Delete.cshtml" />
+    <Content Include="Views\EstadoLotes\Details.cshtml" />
+    <Content Include="Views\EstadoLotes\Edit.cshtml" />
+    <Content Include="Views\EstadoLotes\Index.cshtml" />
+    <Content Include="Views\FichaInventario\Create.cshtml" />
+    <Content Include="Views\FichaInventario\Delete.cshtml" />
+    <Content Include="Views\FichaInventario\Details.cshtml" />
+    <Content Include="Views\FichaInventario\Edit.cshtml" />
+    <Content Include="Views\FichaInventario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

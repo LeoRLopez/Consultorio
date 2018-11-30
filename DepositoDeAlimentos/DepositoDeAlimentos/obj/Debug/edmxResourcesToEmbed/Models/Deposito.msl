@@ -4,130 +4,148 @@
     <EntitySetMapping Name="Categoria">
       <EntityTypeMapping TypeName="DepositoModel.Categoria">
         <MappingFragment StoreEntitySet="Categoria">
-          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
           <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ClasificaEn">
       <EntityTypeMapping TypeName="DepositoModel.ClasificaEn">
         <MappingFragment StoreEntitySet="ClasificaEn">
-          <ScalarProperty Name="IdClasificaEn" ColumnName="IdClasificaEn" />
-          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
           <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdClasificaEn" ColumnName="IdClasificaEn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Envase">
       <EntityTypeMapping TypeName="DepositoModel.Envase">
         <MappingFragment StoreEntitySet="Envase">
-          <ScalarProperty Name="IdEnvase" ColumnName="IdEnvase" />
-          <ScalarProperty Name="Peso" ColumnName="Peso" />
-          <ScalarProperty Name="Volumen" ColumnName="Volumen" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Volumen" ColumnName="Volumen" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="IdEnvase" ColumnName="IdEnvase" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EstadoLote">
       <EntityTypeMapping TypeName="DepositoModel.EstadoLote">
         <MappingFragment StoreEntitySet="EstadoLote">
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FichaInventario">
       <EntityTypeMapping TypeName="DepositoModel.FichaInventario">
         <MappingFragment StoreEntitySet="FichaInventario">
-          <ScalarProperty Name="IdFichaInventario" ColumnName="IdFichaInventario" />
-          <ScalarProperty Name="IdLote" ColumnName="IdLote" />
-          <ScalarProperty Name="CodigoEstadoLote" ColumnName="CodigoEstadoLote" />
-          <ScalarProperty Name="Año" ColumnName="Año" />
-          <ScalarProperty Name="Semana" ColumnName="Semana" />
+          <ScalarProperty Name="IdTecnicoBromatologico" ColumnName="IdTecnicoBromatologico" />
           <ScalarProperty Name="OberservacionesGenerales" ColumnName="OberservacionesGenerales" />
+          <ScalarProperty Name="Semana" ColumnName="Semana" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="CodigoEstadoLote" ColumnName="CodigoEstadoLote" />
+          <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+          <ScalarProperty Name="IdFichaInventario" ColumnName="IdFichaInventario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Incluye">
       <EntityTypeMapping TypeName="DepositoModel.Incluye">
         <MappingFragment StoreEntitySet="Incluye">
-          <ScalarProperty Name="IdIncluye" ColumnName="IdIncluye" />
-          <ScalarProperty Name="NroMarcoRegulatorio" ColumnName="NroMarcoRegulatorio" />
-          <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
           <ScalarProperty Name="NombreTecnico" ColumnName="NombreTecnico" />
+          <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
+          <ScalarProperty Name="NroMarcoRegulatorio" ColumnName="NroMarcoRegulatorio" />
+          <ScalarProperty Name="IdIncluye" ColumnName="IdIncluye" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListaVerificacion">
       <EntityTypeMapping TypeName="DepositoModel.ListaVerificacion">
         <MappingFragment StoreEntitySet="ListaVerificacion">
-          <ScalarProperty Name="IdListaVerificacion" ColumnName="IdListaVerificacion" />
-          <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
-          <ScalarProperty Name="IdFichaInventario" ColumnName="IdFichaInventario" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="Hora" ColumnName="Hora" />
           <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdFichaInventario" ColumnName="IdFichaInventario" />
+          <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
+          <ScalarProperty Name="IdListaVerificacion" ColumnName="IdListaVerificacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Lote">
       <EntityTypeMapping TypeName="DepositoModel.Lote">
         <MappingFragment StoreEntitySet="Lote">
-          <ScalarProperty Name="IdLote" ColumnName="IdLote" />
-          <ScalarProperty Name="FechaEntrada" ColumnName="FechaEntrada" />
-          <ScalarProperty Name="FechaRetiro" ColumnName="FechaRetiro" />
-          <ScalarProperty Name="CantidadAlmacenada" ColumnName="CantidadAlmacenada" />
           <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
+          <ScalarProperty Name="CantidadAlmacenada" ColumnName="CantidadAlmacenada" />
+          <ScalarProperty Name="FechaRetiro" ColumnName="FechaRetiro" />
+          <ScalarProperty Name="FechaEntrada" ColumnName="FechaEntrada" />
+          <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marca">
+      <EntityTypeMapping TypeName="DepositoModel.Marca">
+        <MappingFragment StoreEntitySet="Marca">
+          <ScalarProperty Name="NombreMarca" ColumnName="NombreMarca" />
+          <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MarcoRegulatorio">
       <EntityTypeMapping TypeName="DepositoModel.MarcoRegulatorio">
         <MappingFragment StoreEntitySet="MarcoRegulatorio">
-          <ScalarProperty Name="Nro" ColumnName="Nro" />
-          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
-          <ScalarProperty Name="TemperaturaMinima" ColumnName="TemperaturaMinima" />
           <ScalarProperty Name="TemperaturaMaxima" ColumnName="TemperaturaMaxima" />
+          <ScalarProperty Name="TemperaturaMinima" ColumnName="TemperaturaMinima" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="Nro" ColumnName="Nro" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Presentado">
       <EntityTypeMapping TypeName="DepositoModel.Presentado">
         <MappingFragment StoreEntitySet="Presentado">
-          <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
-          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
           <ScalarProperty Name="IdEnvase" ColumnName="IdEnvase" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Producto">
       <EntityTypeMapping TypeName="DepositoModel.Producto">
         <MappingFragment StoreEntitySet="Producto">
-          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-          <ScalarProperty Name="RNE" ColumnName="RNE" />
-          <ScalarProperty Name="RNPA" ColumnName="RNPA" />
-          <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
-          <ScalarProperty Name="NombreFantasIa" ColumnName="NombreFantasIa" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
           <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="NombreFantasIa" ColumnName="NombreFantasIa" />
+          <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+          <ScalarProperty Name="RNPA" ColumnName="RNPA" />
+          <ScalarProperty Name="RNE" ColumnName="RNE" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ReguladoPor">
       <EntityTypeMapping TypeName="DepositoModel.ReguladoPor">
         <MappingFragment StoreEntitySet="ReguladoPor">
-          <ScalarProperty Name="IdReguladoPor" ColumnName="IdReguladoPor" />
-          <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
           <ScalarProperty Name="NroMarcoRegulatorio" ColumnName="NroMarcoRegulatorio" />
+          <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
+          <ScalarProperty Name="IdReguladoPor" ColumnName="IdReguladoPor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TecnicoBromatologico">
+      <EntityTypeMapping TypeName="DepositoModel.TecnicoBromatologico">
+        <MappingFragment StoreEntitySet="TecnicoBromatologico">
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="TecnicoId" ColumnName="TecnicoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Verificacion">
       <EntityTypeMapping TypeName="DepositoModel.Verificacion">
         <MappingFragment StoreEntitySet="Verificacion">
-          <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

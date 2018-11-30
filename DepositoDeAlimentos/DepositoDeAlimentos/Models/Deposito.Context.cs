@@ -33,10 +33,12 @@ namespace DepositoDeAlimentos.Models
         public virtual DbSet<Incluye> Incluye { get; set; }
         public virtual DbSet<ListaVerificacion> ListaVerificacion { get; set; }
         public virtual DbSet<Lote> Lote { get; set; }
+        public virtual DbSet<Marca> Marca { get; set; }
         public virtual DbSet<MarcoRegulatorio> MarcoRegulatorio { get; set; }
         public virtual DbSet<Presentado> Presentado { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<ReguladoPor> ReguladoPor { get; set; }
+        public virtual DbSet<TecnicoBromatologico> TecnicoBromatologico { get; set; }
         public virtual DbSet<Verificacion> Verificacion { get; set; }
     }
 }

@@ -11,7 +11,8 @@ namespace DepositoDeAlimentos.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class EstadoLote
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,9 @@ namespace DepositoDeAlimentos.Models
         {
             this.FichaInventario = new HashSet<FichaInventario>();
         }
-    
+
+        [Required(ErrorMessage = "Requerido.")]
+        [StringLength(1, ErrorMessage = "Ingrese solo 1 caracter (D=distribuido,P=producto en stock,V=vencido,R=Producto no conforme y retirado).")]
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
     

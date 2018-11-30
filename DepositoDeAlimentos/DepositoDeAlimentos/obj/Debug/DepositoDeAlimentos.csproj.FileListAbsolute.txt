@@ -88,9 +88,9 @@ D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\bin\Microsoft.AI.Depe
 D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\bin\Microsoft.AI.WindowsServer.xml
 D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\bin\Microsoft.AI.Web.xml
 D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\obj\Debug\DepositoDeAlimentos.csprojAssemblyReference.cache
 D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\obj\Debug\DepositoDeAlimentos.csproj.CoreCompileInputs.cache
 D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\obj\Debug\DepositoDeAlimentos.csproj.CopyComplete
 D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\obj\Debug\DepositoDeAlimentos.dll
 D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\obj\Debug\DepositoDeAlimentos.pdb
 D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\bin\Content\Escenario.jpg
+D:\dev\consultorio\DepositoDeAlimentos\DepositoDeAlimentos\obj\Debug\DepositoDeAlimentos.csprojAssemblyReference.cache

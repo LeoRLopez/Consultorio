@@ -6,6 +6,9 @@
     <title>@ViewBag.Title - Depósito de Alimentos</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,16 +24,19 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                    <li>@Html.ActionLink("Productos", "Index", "Producto")</li>
+                    <li>@Html.ActionLink("Marcas Producto", "Index", "Marcas")</li>
                     <li>@Html.ActionLink("Envases", "Index", "Envases")</li>
                     <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
                     <li>@Html.ActionLink("Clasificaciones", "Index", "ClasificaEn")</li>
-                    <li>@Html.ActionLink("Inventario", "Index", "FichaInventarios")</li>
+                    <li>@Html.ActionLink("Ficha Inventario", "Index", "FichaInventario")</li>
                     <li>@Html.ActionLink("Lotes", "Index", "Lotes")</li>
+                    <li>@Html.ActionLink("Presentado", "Index", "Presentado")</li>
                     <li>@Html.ActionLink("Estados Lotes", "Index", "EstadoLotes")</li>
                     <li>@Html.ActionLink("Marco Regulatorio", "Index", "MarcoRegulatorio")</li>
                     <li>@Html.ActionLink("Lista Verificacion", "Index", "ListaVerificaciones")</li>
                     <li>@Html.ActionLink("Tipos Verificacion", "Index", "Verificaciones")</li>
+                    <li>@Html.ActionLink("Tecnicos Bromatologicos", "Index", "TecnicoBromatologico")</li>
                 </ul>
             </div>
         </div>
@@ -42,8 +48,6 @@
             <p>&copy; @DateTime.Now.Year - Depósito de Alimentos</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

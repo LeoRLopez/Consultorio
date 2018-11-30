@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DepositoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DepositoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="IdCategoria" />
@@ -46,6 +46,7 @@
           <Property Name="Año" Type="int" />
           <Property Name="Semana" Type="date" />
           <Property Name="OberservacionesGenerales" Type="varchar" MaxLength="150" />
+          <Property Name="IdTecnicoBromatologico" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Incluye">
           <Key>
@@ -76,6 +77,13 @@
           <Property Name="FechaRetiro" Type="date" />
           <Property Name="CantidadAlmacenada" Type="int" />
           <Property Name="IdPresentado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+          </Key>
+          <Property Name="IdMarca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreMarca" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="MarcoRegulatorio">
           <Key>
@@ -115,6 +123,14 @@
           <Property Name="IdPresentado" Type="int" Nullable="false" />
           <Property Name="NroMarcoRegulatorio" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
+        <EntityType Name="TecnicoBromatologico">
+          <Key>
+            <PropertyRef Name="TecnicoId" />
+          </Key>
+          <Property Name="TecnicoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCompleto" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DNI" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Verificacion">
           <Key>
             <PropertyRef Name="IdVerificacion" />
@@ -122,30 +138,6 @@
           <Property Name="IdVerificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="150" />
         </EntityType>
-        <Association Name="FK__Clasifica__IdCat__3B75D760">
-          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
-          <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categoria">
-              <PropertyRef Name="IdCategoria" />
-            </Principal>
-            <Dependent Role="ClasificaEn">
-              <PropertyRef Name="IdCategoria" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Clasifica__IdPro__3A81B327">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-          <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Producto">
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="ClasificaEn">
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__FichaInve__Codig__36B12243">
           <End Role="EstadoLote" Type="Self.EstadoLote" Multiplicity="1" />
           <End Role="FichaInventario" Type="Self.FichaInventario" Multiplicity="*" />
@@ -230,30 +222,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Presentad__IdEnv__2C3393D0">
-          <End Role="Envase" Type="Self.Envase" Multiplicity="1" />
-          <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Envase">
-              <PropertyRef Name="IdEnvase" />
-            </Principal>
-            <Dependent Role="Presentado">
-              <PropertyRef Name="IdEnvase" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Presentad__IdPro__2B3F6F97">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-          <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Producto">
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="Presentado">
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__ReguladoP__IdPre__3E52440B">
           <End Role="Presentado" Type="Self.Presentado" Multiplicity="1" />
           <End Role="ReguladoPor" Type="Self.ReguladoPor" Multiplicity="*" />
@@ -275,6 +243,78 @@
             </Principal>
             <Dependent Role="ReguladoPor">
               <PropertyRef Name="NroMarcoRegulatorio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClasificaEn_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="ClasificaEn">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClasificaEn_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="ClasificaEn">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FichaInventario_TecnicoBromatologico">
+          <End Role="TecnicoBromatologico" Type="Self.TecnicoBromatologico" Multiplicity="1" />
+          <End Role="FichaInventario" Type="Self.FichaInventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TecnicoBromatologico">
+              <PropertyRef Name="TecnicoId" />
+            </Principal>
+            <Dependent Role="FichaInventario">
+              <PropertyRef Name="IdTecnicoBromatologico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Presentado_Envase">
+          <End Role="Envase" Type="Self.Envase" Multiplicity="1" />
+          <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Envase">
+              <PropertyRef Name="IdEnvase" />
+            </Principal>
+            <Dependent Role="Presentado">
+              <PropertyRef Name="IdEnvase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Presentado_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Presentado">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="IdMarca" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -287,19 +327,13 @@
           <EntitySet Name="Incluye" EntityType="Self.Incluye" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ListaVerificacion" EntityType="Self.ListaVerificacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lote" EntityType="Self.Lote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MarcoRegulatorio" EntityType="Self.MarcoRegulatorio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Presentado" EntityType="Self.Presentado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReguladoPor" EntityType="Self.ReguladoPor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TecnicoBromatologico" EntityType="Self.TecnicoBromatologico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Verificacion" EntityType="Self.Verificacion" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Clasifica__IdCat__3B75D760" Association="Self.FK__Clasifica__IdCat__3B75D760">
-            <End Role="Categoria" EntitySet="Categoria" />
-            <End Role="ClasificaEn" EntitySet="ClasificaEn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Clasifica__IdPro__3A81B327" Association="Self.FK__Clasifica__IdPro__3A81B327">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="ClasificaEn" EntitySet="ClasificaEn" />
-          </AssociationSet>
           <AssociationSet Name="FK__FichaInve__Codig__36B12243" Association="Self.FK__FichaInve__Codig__36B12243">
             <End Role="EstadoLote" EntitySet="EstadoLote" />
             <End Role="FichaInventario" EntitySet="FichaInventario" />
@@ -328,14 +362,6 @@
             <End Role="Presentado" EntitySet="Presentado" />
             <End Role="Lote" EntitySet="Lote" />
           </AssociationSet>
-          <AssociationSet Name="FK__Presentad__IdEnv__2C3393D0" Association="Self.FK__Presentad__IdEnv__2C3393D0">
-            <End Role="Envase" EntitySet="Envase" />
-            <End Role="Presentado" EntitySet="Presentado" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Presentad__IdPro__2B3F6F97" Association="Self.FK__Presentad__IdPro__2B3F6F97">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="Presentado" EntitySet="Presentado" />
-          </AssociationSet>
           <AssociationSet Name="FK__ReguladoP__IdPre__3E52440B" Association="Self.FK__ReguladoP__IdPre__3E52440B">
             <End Role="Presentado" EntitySet="Presentado" />
             <End Role="ReguladoPor" EntitySet="ReguladoPor" />
@@ -344,19 +370,119 @@
             <End Role="MarcoRegulatorio" EntitySet="MarcoRegulatorio" />
             <End Role="ReguladoPor" EntitySet="ReguladoPor" />
           </AssociationSet>
+          <AssociationSet Name="FK_ClasificaEn_Categoria" Association="Self.FK_ClasificaEn_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="ClasificaEn" EntitySet="ClasificaEn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClasificaEn_Producto" Association="Self.FK_ClasificaEn_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ClasificaEn" EntitySet="ClasificaEn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FichaInventario_TecnicoBromatologico" Association="Self.FK_FichaInventario_TecnicoBromatologico">
+            <End Role="TecnicoBromatologico" EntitySet="TecnicoBromatologico" />
+            <End Role="FichaInventario" EntitySet="FichaInventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Presentado_Envase" Association="Self.FK_Presentado_Envase">
+            <End Role="Envase" EntitySet="Envase" />
+            <End Role="Presentado" EntitySet="Presentado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Presentado_Producto" Association="Self.FK_Presentado_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Presentado" EntitySet="Presentado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Marca" Association="Self.FK_Producto_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DepositoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DepositoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="DepositoModel.Categoria" />
+          <EntitySet Name="ClasificaEn" EntityType="DepositoModel.ClasificaEn" />
+          <EntitySet Name="Envase" EntityType="DepositoModel.Envase" />
+          <EntitySet Name="EstadoLote" EntityType="DepositoModel.EstadoLote" />
+          <EntitySet Name="FichaInventario" EntityType="DepositoModel.FichaInventario" />
+          <EntitySet Name="Incluye" EntityType="DepositoModel.Incluye" />
+          <EntitySet Name="ListaVerificacion" EntityType="DepositoModel.ListaVerificacion" />
+          <EntitySet Name="Lote" EntityType="DepositoModel.Lote" />
+          <EntitySet Name="Marca" EntityType="DepositoModel.Marca" />
+          <EntitySet Name="MarcoRegulatorio" EntityType="DepositoModel.MarcoRegulatorio" />
+          <EntitySet Name="Presentado" EntityType="DepositoModel.Presentado" />
+          <EntitySet Name="Producto" EntityType="DepositoModel.Producto" />
+          <EntitySet Name="ReguladoPor" EntityType="DepositoModel.ReguladoPor" />
+          <EntitySet Name="TecnicoBromatologico" EntityType="DepositoModel.TecnicoBromatologico" />
+          <EntitySet Name="Verificacion" EntityType="DepositoModel.Verificacion" />
+          <AssociationSet Name="FK_ClasificaEn_Categoria" Association="DepositoModel.FK_ClasificaEn_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="ClasificaEn" EntitySet="ClasificaEn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClasificaEn_Producto" Association="DepositoModel.FK_ClasificaEn_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ClasificaEn" EntitySet="ClasificaEn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Presentado_Envase" Association="DepositoModel.FK_Presentado_Envase">
+            <End Role="Envase" EntitySet="Envase" />
+            <End Role="Presentado" EntitySet="Presentado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FichaInve__Codig__36B12243" Association="DepositoModel.FK__FichaInve__Codig__36B12243">
+            <End Role="EstadoLote" EntitySet="EstadoLote" />
+            <End Role="FichaInventario" EntitySet="FichaInventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FichaInve__IdLot__35BCFE0A" Association="DepositoModel.FK__FichaInve__IdLot__35BCFE0A">
+            <End Role="Lote" EntitySet="Lote" />
+            <End Role="FichaInventario" EntitySet="FichaInventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaVeri__IdFic__46E78A0C" Association="DepositoModel.FK__ListaVeri__IdFic__46E78A0C">
+            <End Role="FichaInventario" EntitySet="FichaInventario" />
+            <End Role="ListaVerificacion" EntitySet="ListaVerificacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FichaInventario_TecnicoBromatologico" Association="DepositoModel.FK_FichaInventario_TecnicoBromatologico">
+            <End Role="TecnicoBromatologico" EntitySet="TecnicoBromatologico" />
+            <End Role="FichaInventario" EntitySet="FichaInventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Incluye__IdVerif__4316F928" Association="DepositoModel.FK__Incluye__IdVerif__4316F928">
+            <End Role="Verificacion" EntitySet="Verificacion" />
+            <End Role="Incluye" EntitySet="Incluye" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Incluye__NroMarc__4222D4EF" Association="DepositoModel.FK__Incluye__NroMarc__4222D4EF">
+            <End Role="MarcoRegulatorio" EntitySet="MarcoRegulatorio" />
+            <End Role="Incluye" EntitySet="Incluye" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaVeri__IdVer__45F365D3" Association="DepositoModel.FK__ListaVeri__IdVer__45F365D3">
+            <End Role="Verificacion" EntitySet="Verificacion" />
+            <End Role="ListaVerificacion" EntitySet="ListaVerificacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lote__IdPresenta__2F10007B" Association="DepositoModel.FK__Lote__IdPresenta__2F10007B">
+            <End Role="Presentado" EntitySet="Presentado" />
+            <End Role="Lote" EntitySet="Lote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Marca" Association="DepositoModel.FK_Producto_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReguladoP__NroMa__3F466844" Association="DepositoModel.FK__ReguladoP__NroMa__3F466844">
+            <End Role="MarcoRegulatorio" EntitySet="MarcoRegulatorio" />
+            <End Role="ReguladoPor" EntitySet="ReguladoPor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReguladoP__IdPre__3E52440B" Association="DepositoModel.FK__ReguladoP__IdPre__3E52440B">
+            <End Role="Presentado" EntitySet="Presentado" />
+            <End Role="ReguladoPor" EntitySet="ReguladoPor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Presentado_Producto" Association="DepositoModel.FK_Presentado_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Presentado" EntitySet="Presentado" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="IdCategoria" />
           </Key>
           <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreCategoria" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ClasificaEn" Relationship="Self.FK__Clasifica__IdCat__3B75D760" FromRole="Categoria" ToRole="ClasificaEn" />
+          <Property Name="NombreCategoria" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClasificaEn" Relationship="DepositoModel.FK_ClasificaEn_Categoria" FromRole="Categoria" ToRole="ClasificaEn" />
         </EntityType>
         <EntityType Name="ClasificaEn">
           <Key>
@@ -365,8 +491,8 @@
           <Property Name="IdClasificaEn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdProducto" Type="Int32" Nullable="false" />
           <Property Name="IdCategoria" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Categoria" Relationship="Self.FK__Clasifica__IdCat__3B75D760" FromRole="ClasificaEn" ToRole="Categoria" />
-          <NavigationProperty Name="Producto" Relationship="Self.FK__Clasifica__IdPro__3A81B327" FromRole="ClasificaEn" ToRole="Producto" />
+          <NavigationProperty Name="Categoria" Relationship="DepositoModel.FK_ClasificaEn_Categoria" FromRole="ClasificaEn" ToRole="Categoria" />
+          <NavigationProperty Name="Producto" Relationship="DepositoModel.FK_ClasificaEn_Producto" FromRole="ClasificaEn" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Envase">
           <Key>
@@ -376,15 +502,15 @@
           <Property Name="Peso" Type="Double" />
           <Property Name="Volumen" Type="Double" />
           <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Presentado" Relationship="Self.FK__Presentad__IdEnv__2C3393D0" FromRole="Envase" ToRole="Presentado" />
+          <NavigationProperty Name="Presentado" Relationship="DepositoModel.FK_Presentado_Envase" FromRole="Envase" ToRole="Presentado" />
         </EntityType>
         <EntityType Name="EstadoLote">
           <Key>
             <PropertyRef Name="Codigo" />
           </Key>
-          <Property Name="Codigo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="FichaInventario" Relationship="Self.FK__FichaInve__Codig__36B12243" FromRole="EstadoLote" ToRole="FichaInventario" />
+          <NavigationProperty Name="FichaInventario" Relationship="DepositoModel.FK__FichaInve__Codig__36B12243" FromRole="EstadoLote" ToRole="FichaInventario" />
         </EntityType>
         <EntityType Name="FichaInventario">
           <Key>
@@ -392,24 +518,26 @@
           </Key>
           <Property Name="IdFichaInventario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdLote" Type="Int32" Nullable="false" />
-          <Property Name="CodigoEstadoLote" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoEstadoLote" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Año" Type="Int32" />
           <Property Name="Semana" Type="DateTime" Precision="0" />
           <Property Name="OberservacionesGenerales" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EstadoLote" Relationship="Self.FK__FichaInve__Codig__36B12243" FromRole="FichaInventario" ToRole="EstadoLote" />
-          <NavigationProperty Name="Lote" Relationship="Self.FK__FichaInve__IdLot__35BCFE0A" FromRole="FichaInventario" ToRole="Lote" />
-          <NavigationProperty Name="ListaVerificacion" Relationship="Self.FK__ListaVeri__IdFic__46E78A0C" FromRole="FichaInventario" ToRole="ListaVerificacion" />
+          <Property Name="IdTecnicoBromatologico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EstadoLote" Relationship="DepositoModel.FK__FichaInve__Codig__36B12243" FromRole="FichaInventario" ToRole="EstadoLote" />
+          <NavigationProperty Name="Lote" Relationship="DepositoModel.FK__FichaInve__IdLot__35BCFE0A" FromRole="FichaInventario" ToRole="Lote" />
+          <NavigationProperty Name="ListaVerificacion" Relationship="DepositoModel.FK__ListaVeri__IdFic__46E78A0C" FromRole="FichaInventario" ToRole="ListaVerificacion" />
+          <NavigationProperty Name="TecnicoBromatologico" Relationship="DepositoModel.FK_FichaInventario_TecnicoBromatologico" FromRole="FichaInventario" ToRole="TecnicoBromatologico" />
         </EntityType>
         <EntityType Name="Incluye">
           <Key>
             <PropertyRef Name="IdIncluye" />
           </Key>
           <Property Name="IdIncluye" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NroMarcoRegulatorio" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NroMarcoRegulatorio" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="IdVerificacion" Type="Int32" Nullable="false" />
-          <Property Name="NombreTecnico" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Verificacion" Relationship="Self.FK__Incluye__IdVerif__4316F928" FromRole="Incluye" ToRole="Verificacion" />
-          <NavigationProperty Name="MarcoRegulatorio" Relationship="Self.FK__Incluye__NroMarc__4222D4EF" FromRole="Incluye" ToRole="MarcoRegulatorio" />
+          <Property Name="NombreTecnico" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Verificacion" Relationship="DepositoModel.FK__Incluye__IdVerif__4316F928" FromRole="Incluye" ToRole="Verificacion" />
+          <NavigationProperty Name="MarcoRegulatorio" Relationship="DepositoModel.FK__Incluye__NroMarc__4222D4EF" FromRole="Incluye" ToRole="MarcoRegulatorio" />
         </EntityType>
         <EntityType Name="ListaVerificacion">
           <Key>
@@ -421,8 +549,8 @@
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Hora" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Resultado" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="FichaInventario" Relationship="Self.FK__ListaVeri__IdFic__46E78A0C" FromRole="ListaVerificacion" ToRole="FichaInventario" />
-          <NavigationProperty Name="Verificacion" Relationship="Self.FK__ListaVeri__IdVer__45F365D3" FromRole="ListaVerificacion" ToRole="Verificacion" />
+          <NavigationProperty Name="FichaInventario" Relationship="DepositoModel.FK__ListaVeri__IdFic__46E78A0C" FromRole="ListaVerificacion" ToRole="FichaInventario" />
+          <NavigationProperty Name="Verificacion" Relationship="DepositoModel.FK__ListaVeri__IdVer__45F365D3" FromRole="ListaVerificacion" ToRole="Verificacion" />
         </EntityType>
         <EntityType Name="Lote">
           <Key>
@@ -433,19 +561,27 @@
           <Property Name="FechaRetiro" Type="DateTime" Precision="0" />
           <Property Name="CantidadAlmacenada" Type="Int32" />
           <Property Name="IdPresentado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="FichaInventario" Relationship="Self.FK__FichaInve__IdLot__35BCFE0A" FromRole="Lote" ToRole="FichaInventario" />
-          <NavigationProperty Name="Presentado" Relationship="Self.FK__Lote__IdPresenta__2F10007B" FromRole="Lote" ToRole="Presentado" />
+          <NavigationProperty Name="FichaInventario" Relationship="DepositoModel.FK__FichaInve__IdLot__35BCFE0A" FromRole="Lote" ToRole="FichaInventario" />
+          <NavigationProperty Name="Presentado" Relationship="DepositoModel.FK__Lote__IdPresenta__2F10007B" FromRole="Lote" ToRole="Presentado" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+          </Key>
+          <Property Name="IdMarca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreMarca" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Producto" Relationship="DepositoModel.FK_Producto_Marca" FromRole="Marca" ToRole="Producto" />
         </EntityType>
         <EntityType Name="MarcoRegulatorio">
           <Key>
             <PropertyRef Name="Nro" />
           </Key>
-          <Property Name="Nro" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nro" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Duracion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="TemperaturaMinima" Type="Double" />
           <Property Name="TemperaturaMaxima" Type="Double" />
-          <NavigationProperty Name="Incluye" Relationship="Self.FK__Incluye__NroMarc__4222D4EF" FromRole="MarcoRegulatorio" ToRole="Incluye" />
-          <NavigationProperty Name="ReguladoPor" Relationship="Self.FK__ReguladoP__NroMa__3F466844" FromRole="MarcoRegulatorio" ToRole="ReguladoPor" />
+          <NavigationProperty Name="Incluye" Relationship="DepositoModel.FK__Incluye__NroMarc__4222D4EF" FromRole="MarcoRegulatorio" ToRole="Incluye" />
+          <NavigationProperty Name="ReguladoPor" Relationship="DepositoModel.FK__ReguladoP__NroMa__3F466844" FromRole="MarcoRegulatorio" ToRole="ReguladoPor" />
         </EntityType>
         <EntityType Name="Presentado">
           <Key>
@@ -454,25 +590,26 @@
           <Property Name="IdPresentado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdProducto" Type="Int32" Nullable="false" />
           <Property Name="IdEnvase" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Envase" Relationship="Self.FK__Presentad__IdEnv__2C3393D0" FromRole="Presentado" ToRole="Envase" />
-          <NavigationProperty Name="Lote" Relationship="Self.FK__Lote__IdPresenta__2F10007B" FromRole="Presentado" ToRole="Lote" />
-          <NavigationProperty Name="Producto" Relationship="Self.FK__Presentad__IdPro__2B3F6F97" FromRole="Presentado" ToRole="Producto" />
-          <NavigationProperty Name="ReguladoPor" Relationship="Self.FK__ReguladoP__IdPre__3E52440B" FromRole="Presentado" ToRole="ReguladoPor" />
+          <NavigationProperty Name="Envase" Relationship="DepositoModel.FK_Presentado_Envase" FromRole="Presentado" ToRole="Envase" />
+          <NavigationProperty Name="Lote" Relationship="DepositoModel.FK__Lote__IdPresenta__2F10007B" FromRole="Presentado" ToRole="Lote" />
+          <NavigationProperty Name="ReguladoPor" Relationship="DepositoModel.FK__ReguladoP__IdPre__3E52440B" FromRole="Presentado" ToRole="ReguladoPor" />
+          <NavigationProperty Name="Producto" Relationship="DepositoModel.FK_Presentado_Producto" FromRole="Presentado" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
             <PropertyRef Name="IdProducto" />
           </Key>
           <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RNE" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="RNPA" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="RNE" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="RNPA" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="false" />
           <Property Name="IdMarca" Type="Int32" Nullable="false" />
-          <Property Name="NombreFantasIa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreFantasIa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="FechaEmision" Type="DateTime" Precision="0" />
           <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="ClasificaEn" Relationship="Self.FK__Clasifica__IdPro__3A81B327" FromRole="Producto" ToRole="ClasificaEn" />
-          <NavigationProperty Name="Presentado" Relationship="Self.FK__Presentad__IdPro__2B3F6F97" FromRole="Producto" ToRole="Presentado" />
+          <NavigationProperty Name="ClasificaEn" Relationship="DepositoModel.FK_ClasificaEn_Producto" FromRole="Producto" ToRole="ClasificaEn" />
+          <NavigationProperty Name="Marca" Relationship="DepositoModel.FK_Producto_Marca" FromRole="Producto" ToRole="Marca" />
+          <NavigationProperty Name="Presentado" Relationship="DepositoModel.FK_Presentado_Producto" FromRole="Producto" ToRole="Presentado" />
         </EntityType>
         <EntityType Name="ReguladoPor">
           <Key>
@@ -480,9 +617,18 @@
           </Key>
           <Property Name="IdReguladoPor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdPresentado" Type="Int32" Nullable="false" />
-          <Property Name="NroMarcoRegulatorio" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="MarcoRegulatorio" Relationship="Self.FK__ReguladoP__NroMa__3F466844" FromRole="ReguladoPor" ToRole="MarcoRegulatorio" />
-          <NavigationProperty Name="Presentado" Relationship="Self.FK__ReguladoP__IdPre__3E52440B" FromRole="ReguladoPor" ToRole="Presentado" />
+          <Property Name="NroMarcoRegulatorio" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MarcoRegulatorio" Relationship="DepositoModel.FK__ReguladoP__NroMa__3F466844" FromRole="ReguladoPor" ToRole="MarcoRegulatorio" />
+          <NavigationProperty Name="Presentado" Relationship="DepositoModel.FK__ReguladoP__IdPre__3E52440B" FromRole="ReguladoPor" ToRole="Presentado" />
+        </EntityType>
+        <EntityType Name="TecnicoBromatologico">
+          <Key>
+            <PropertyRef Name="TecnicoId" />
+          </Key>
+          <Property Name="TecnicoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DNI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FichaInventario" Relationship="DepositoModel.FK_FichaInventario_TecnicoBromatologico" FromRole="TecnicoBromatologico" ToRole="FichaInventario" />
         </EntityType>
         <EntityType Name="Verificacion">
           <Key>
@@ -490,12 +636,12 @@
           </Key>
           <Property Name="IdVerificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Incluye" Relationship="Self.FK__Incluye__IdVerif__4316F928" FromRole="Verificacion" ToRole="Incluye" />
-          <NavigationProperty Name="ListaVerificacion" Relationship="Self.FK__ListaVeri__IdVer__45F365D3" FromRole="Verificacion" ToRole="ListaVerificacion" />
+          <NavigationProperty Name="Incluye" Relationship="DepositoModel.FK__Incluye__IdVerif__4316F928" FromRole="Verificacion" ToRole="Incluye" />
+          <NavigationProperty Name="ListaVerificacion" Relationship="DepositoModel.FK__ListaVeri__IdVer__45F365D3" FromRole="Verificacion" ToRole="ListaVerificacion" />
         </EntityType>
-        <Association Name="FK__Clasifica__IdCat__3B75D760">
-          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
-          <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
+        <Association Name="FK_ClasificaEn_Categoria">
+          <End Type="DepositoModel.Categoria" Role="Categoria" Multiplicity="1" />
+          <End Type="DepositoModel.ClasificaEn" Role="ClasificaEn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categoria">
               <PropertyRef Name="IdCategoria" />
@@ -505,9 +651,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Clasifica__IdPro__3A81B327">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-          <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
+        <Association Name="FK_ClasificaEn_Producto">
+          <End Type="DepositoModel.Producto" Role="Producto" Multiplicity="1" />
+          <End Type="DepositoModel.ClasificaEn" Role="ClasificaEn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
               <PropertyRef Name="IdProducto" />
@@ -517,9 +663,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Presentad__IdEnv__2C3393D0">
-          <End Role="Envase" Type="Self.Envase" Multiplicity="1" />
-          <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
+        <Association Name="FK_Presentado_Envase">
+          <End Type="DepositoModel.Envase" Role="Envase" Multiplicity="1" />
+          <End Type="DepositoModel.Presentado" Role="Presentado" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Envase">
               <PropertyRef Name="IdEnvase" />
@@ -530,8 +676,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__FichaInve__Codig__36B12243">
-          <End Role="EstadoLote" Type="Self.EstadoLote" Multiplicity="1" />
-          <End Role="FichaInventario" Type="Self.FichaInventario" Multiplicity="*" />
+          <End Type="DepositoModel.EstadoLote" Role="EstadoLote" Multiplicity="1" />
+          <End Type="DepositoModel.FichaInventario" Role="FichaInventario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EstadoLote">
               <PropertyRef Name="Codigo" />
@@ -542,8 +688,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__FichaInve__IdLot__35BCFE0A">
-          <End Role="Lote" Type="Self.Lote" Multiplicity="1" />
-          <End Role="FichaInventario" Type="Self.FichaInventario" Multiplicity="*" />
+          <End Type="DepositoModel.Lote" Role="Lote" Multiplicity="1" />
+          <End Type="DepositoModel.FichaInventario" Role="FichaInventario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lote">
               <PropertyRef Name="IdLote" />
@@ -554,8 +700,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ListaVeri__IdFic__46E78A0C">
-          <End Role="FichaInventario" Type="Self.FichaInventario" Multiplicity="1" />
-          <End Role="ListaVerificacion" Type="Self.ListaVerificacion" Multiplicity="*" />
+          <End Type="DepositoModel.FichaInventario" Role="FichaInventario" Multiplicity="1" />
+          <End Type="DepositoModel.ListaVerificacion" Role="ListaVerificacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FichaInventario">
               <PropertyRef Name="IdFichaInventario" />
@@ -565,9 +711,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FichaInventario_TecnicoBromatologico">
+          <End Type="DepositoModel.TecnicoBromatologico" Role="TecnicoBromatologico" Multiplicity="1" />
+          <End Type="DepositoModel.FichaInventario" Role="FichaInventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TecnicoBromatologico">
+              <PropertyRef Name="TecnicoId" />
+            </Principal>
+            <Dependent Role="FichaInventario">
+              <PropertyRef Name="IdTecnicoBromatologico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Incluye__IdVerif__4316F928">
-          <End Role="Verificacion" Type="Self.Verificacion" Multiplicity="1" />
-          <End Role="Incluye" Type="Self.Incluye" Multiplicity="*" />
+          <End Type="DepositoModel.Verificacion" Role="Verificacion" Multiplicity="1" />
+          <End Type="DepositoModel.Incluye" Role="Incluye" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Verificacion">
               <PropertyRef Name="IdVerificacion" />
@@ -578,8 +736,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Incluye__NroMarc__4222D4EF">
-          <End Role="MarcoRegulatorio" Type="Self.MarcoRegulatorio" Multiplicity="1" />
-          <End Role="Incluye" Type="Self.Incluye" Multiplicity="*" />
+          <End Type="DepositoModel.MarcoRegulatorio" Role="MarcoRegulatorio" Multiplicity="1" />
+          <End Type="DepositoModel.Incluye" Role="Incluye" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MarcoRegulatorio">
               <PropertyRef Name="Nro" />
@@ -590,8 +748,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ListaVeri__IdVer__45F365D3">
-          <End Role="Verificacion" Type="Self.Verificacion" Multiplicity="1" />
-          <End Role="ListaVerificacion" Type="Self.ListaVerificacion" Multiplicity="*" />
+          <End Type="DepositoModel.Verificacion" Role="Verificacion" Multiplicity="1" />
+          <End Type="DepositoModel.ListaVerificacion" Role="ListaVerificacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Verificacion">
               <PropertyRef Name="IdVerificacion" />
@@ -602,8 +760,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Lote__IdPresenta__2F10007B">
-          <End Role="Presentado" Type="Self.Presentado" Multiplicity="1" />
-          <End Role="Lote" Type="Self.Lote" Multiplicity="*" />
+          <End Type="DepositoModel.Presentado" Role="Presentado" Multiplicity="1" />
+          <End Type="DepositoModel.Lote" Role="Lote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Presentado">
               <PropertyRef Name="IdPresentado" />
@@ -613,9 +771,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Producto_Marca">
+          <End Type="DepositoModel.Marca" Role="Marca" Multiplicity="1" />
+          <End Type="DepositoModel.Producto" Role="Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ReguladoP__NroMa__3F466844">
-          <End Role="MarcoRegulatorio" Type="Self.MarcoRegulatorio" Multiplicity="1" />
-          <End Role="ReguladoPor" Type="Self.ReguladoPor" Multiplicity="*" />
+          <End Type="DepositoModel.MarcoRegulatorio" Role="MarcoRegulatorio" Multiplicity="1" />
+          <End Type="DepositoModel.ReguladoPor" Role="ReguladoPor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MarcoRegulatorio">
               <PropertyRef Name="Nro" />
@@ -625,21 +795,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Presentad__IdPro__2B3F6F97">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-          <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Producto">
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="Presentado">
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__ReguladoP__IdPre__3E52440B">
-          <End Role="Presentado" Type="Self.Presentado" Multiplicity="1" />
-          <End Role="ReguladoPor" Type="Self.ReguladoPor" Multiplicity="*" />
+          <End Type="DepositoModel.Presentado" Role="Presentado" Multiplicity="1" />
+          <End Type="DepositoModel.ReguladoPor" Role="ReguladoPor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Presentado">
               <PropertyRef Name="IdPresentado" />
@@ -649,74 +807,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DepositoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
-          <EntitySet Name="ClasificaEn" EntityType="Self.ClasificaEn" />
-          <EntitySet Name="Envase" EntityType="Self.Envase" />
-          <EntitySet Name="EstadoLote" EntityType="Self.EstadoLote" />
-          <EntitySet Name="FichaInventario" EntityType="Self.FichaInventario" />
-          <EntitySet Name="Incluye" EntityType="Self.Incluye" />
-          <EntitySet Name="ListaVerificacion" EntityType="Self.ListaVerificacion" />
-          <EntitySet Name="Lote" EntityType="Self.Lote" />
-          <EntitySet Name="MarcoRegulatorio" EntityType="Self.MarcoRegulatorio" />
-          <EntitySet Name="Presentado" EntityType="Self.Presentado" />
-          <EntitySet Name="Producto" EntityType="Self.Producto" />
-          <EntitySet Name="ReguladoPor" EntityType="Self.ReguladoPor" />
-          <EntitySet Name="Verificacion" EntityType="Self.Verificacion" />
-          <AssociationSet Name="FK__Clasifica__IdCat__3B75D760" Association="Self.FK__Clasifica__IdCat__3B75D760">
-            <End Role="Categoria" EntitySet="Categoria" />
-            <End Role="ClasificaEn" EntitySet="ClasificaEn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Clasifica__IdPro__3A81B327" Association="Self.FK__Clasifica__IdPro__3A81B327">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="ClasificaEn" EntitySet="ClasificaEn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Presentad__IdEnv__2C3393D0" Association="Self.FK__Presentad__IdEnv__2C3393D0">
-            <End Role="Envase" EntitySet="Envase" />
-            <End Role="Presentado" EntitySet="Presentado" />
-          </AssociationSet>
-          <AssociationSet Name="FK__FichaInve__Codig__36B12243" Association="Self.FK__FichaInve__Codig__36B12243">
-            <End Role="EstadoLote" EntitySet="EstadoLote" />
-            <End Role="FichaInventario" EntitySet="FichaInventario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__FichaInve__IdLot__35BCFE0A" Association="Self.FK__FichaInve__IdLot__35BCFE0A">
-            <End Role="Lote" EntitySet="Lote" />
-            <End Role="FichaInventario" EntitySet="FichaInventario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ListaVeri__IdFic__46E78A0C" Association="Self.FK__ListaVeri__IdFic__46E78A0C">
-            <End Role="FichaInventario" EntitySet="FichaInventario" />
-            <End Role="ListaVerificacion" EntitySet="ListaVerificacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Incluye__IdVerif__4316F928" Association="Self.FK__Incluye__IdVerif__4316F928">
-            <End Role="Verificacion" EntitySet="Verificacion" />
-            <End Role="Incluye" EntitySet="Incluye" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Incluye__NroMarc__4222D4EF" Association="Self.FK__Incluye__NroMarc__4222D4EF">
-            <End Role="MarcoRegulatorio" EntitySet="MarcoRegulatorio" />
-            <End Role="Incluye" EntitySet="Incluye" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ListaVeri__IdVer__45F365D3" Association="Self.FK__ListaVeri__IdVer__45F365D3">
-            <End Role="Verificacion" EntitySet="Verificacion" />
-            <End Role="ListaVerificacion" EntitySet="ListaVerificacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Lote__IdPresenta__2F10007B" Association="Self.FK__Lote__IdPresenta__2F10007B">
-            <End Role="Presentado" EntitySet="Presentado" />
-            <End Role="Lote" EntitySet="Lote" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReguladoP__NroMa__3F466844" Association="Self.FK__ReguladoP__NroMa__3F466844">
-            <End Role="MarcoRegulatorio" EntitySet="MarcoRegulatorio" />
-            <End Role="ReguladoPor" EntitySet="ReguladoPor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Presentad__IdPro__2B3F6F97" Association="Self.FK__Presentad__IdPro__2B3F6F97">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="Presentado" EntitySet="Presentado" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ReguladoP__IdPre__3E52440B" Association="Self.FK__ReguladoP__IdPre__3E52440B">
-            <End Role="Presentado" EntitySet="Presentado" />
-            <End Role="ReguladoPor" EntitySet="ReguladoPor" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        <Association Name="FK_Presentado_Producto">
+          <End Type="DepositoModel.Producto" Role="Producto" Multiplicity="1" />
+          <End Type="DepositoModel.Presentado" Role="Presentado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Presentado">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -725,130 +828,148 @@
           <EntitySetMapping Name="Categoria">
             <EntityTypeMapping TypeName="DepositoModel.Categoria">
               <MappingFragment StoreEntitySet="Categoria">
-                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
                 <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClasificaEn">
             <EntityTypeMapping TypeName="DepositoModel.ClasificaEn">
               <MappingFragment StoreEntitySet="ClasificaEn">
-                <ScalarProperty Name="IdClasificaEn" ColumnName="IdClasificaEn" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdClasificaEn" ColumnName="IdClasificaEn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Envase">
             <EntityTypeMapping TypeName="DepositoModel.Envase">
               <MappingFragment StoreEntitySet="Envase">
-                <ScalarProperty Name="IdEnvase" ColumnName="IdEnvase" />
-                <ScalarProperty Name="Peso" ColumnName="Peso" />
-                <ScalarProperty Name="Volumen" ColumnName="Volumen" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Volumen" ColumnName="Volumen" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="IdEnvase" ColumnName="IdEnvase" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EstadoLote">
             <EntityTypeMapping TypeName="DepositoModel.EstadoLote">
               <MappingFragment StoreEntitySet="EstadoLote">
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FichaInventario">
             <EntityTypeMapping TypeName="DepositoModel.FichaInventario">
               <MappingFragment StoreEntitySet="FichaInventario">
-                <ScalarProperty Name="IdFichaInventario" ColumnName="IdFichaInventario" />
-                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
-                <ScalarProperty Name="CodigoEstadoLote" ColumnName="CodigoEstadoLote" />
-                <ScalarProperty Name="Año" ColumnName="Año" />
-                <ScalarProperty Name="Semana" ColumnName="Semana" />
+                <ScalarProperty Name="IdTecnicoBromatologico" ColumnName="IdTecnicoBromatologico" />
                 <ScalarProperty Name="OberservacionesGenerales" ColumnName="OberservacionesGenerales" />
+                <ScalarProperty Name="Semana" ColumnName="Semana" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="CodigoEstadoLote" ColumnName="CodigoEstadoLote" />
+                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+                <ScalarProperty Name="IdFichaInventario" ColumnName="IdFichaInventario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Incluye">
             <EntityTypeMapping TypeName="DepositoModel.Incluye">
               <MappingFragment StoreEntitySet="Incluye">
-                <ScalarProperty Name="IdIncluye" ColumnName="IdIncluye" />
-                <ScalarProperty Name="NroMarcoRegulatorio" ColumnName="NroMarcoRegulatorio" />
-                <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
                 <ScalarProperty Name="NombreTecnico" ColumnName="NombreTecnico" />
+                <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
+                <ScalarProperty Name="NroMarcoRegulatorio" ColumnName="NroMarcoRegulatorio" />
+                <ScalarProperty Name="IdIncluye" ColumnName="IdIncluye" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ListaVerificacion">
             <EntityTypeMapping TypeName="DepositoModel.ListaVerificacion">
               <MappingFragment StoreEntitySet="ListaVerificacion">
-                <ScalarProperty Name="IdListaVerificacion" ColumnName="IdListaVerificacion" />
-                <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
-                <ScalarProperty Name="IdFichaInventario" ColumnName="IdFichaInventario" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Hora" ColumnName="Hora" />
                 <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdFichaInventario" ColumnName="IdFichaInventario" />
+                <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
+                <ScalarProperty Name="IdListaVerificacion" ColumnName="IdListaVerificacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lote">
             <EntityTypeMapping TypeName="DepositoModel.Lote">
               <MappingFragment StoreEntitySet="Lote">
-                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
-                <ScalarProperty Name="FechaEntrada" ColumnName="FechaEntrada" />
-                <ScalarProperty Name="FechaRetiro" ColumnName="FechaRetiro" />
-                <ScalarProperty Name="CantidadAlmacenada" ColumnName="CantidadAlmacenada" />
                 <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
+                <ScalarProperty Name="CantidadAlmacenada" ColumnName="CantidadAlmacenada" />
+                <ScalarProperty Name="FechaRetiro" ColumnName="FechaRetiro" />
+                <ScalarProperty Name="FechaEntrada" ColumnName="FechaEntrada" />
+                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marca">
+            <EntityTypeMapping TypeName="DepositoModel.Marca">
+              <MappingFragment StoreEntitySet="Marca">
+                <ScalarProperty Name="NombreMarca" ColumnName="NombreMarca" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MarcoRegulatorio">
             <EntityTypeMapping TypeName="DepositoModel.MarcoRegulatorio">
               <MappingFragment StoreEntitySet="MarcoRegulatorio">
-                <ScalarProperty Name="Nro" ColumnName="Nro" />
-                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
-                <ScalarProperty Name="TemperaturaMinima" ColumnName="TemperaturaMinima" />
                 <ScalarProperty Name="TemperaturaMaxima" ColumnName="TemperaturaMaxima" />
+                <ScalarProperty Name="TemperaturaMinima" ColumnName="TemperaturaMinima" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Nro" ColumnName="Nro" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Presentado">
             <EntityTypeMapping TypeName="DepositoModel.Presentado">
               <MappingFragment StoreEntitySet="Presentado">
-                <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="IdEnvase" ColumnName="IdEnvase" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Producto">
             <EntityTypeMapping TypeName="DepositoModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="RNE" ColumnName="RNE" />
-                <ScalarProperty Name="RNPA" ColumnName="RNPA" />
-                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
-                <ScalarProperty Name="NombreFantasIa" ColumnName="NombreFantasIa" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
                 <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="NombreFantasIa" ColumnName="NombreFantasIa" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="RNPA" ColumnName="RNPA" />
+                <ScalarProperty Name="RNE" ColumnName="RNE" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReguladoPor">
             <EntityTypeMapping TypeName="DepositoModel.ReguladoPor">
               <MappingFragment StoreEntitySet="ReguladoPor">
-                <ScalarProperty Name="IdReguladoPor" ColumnName="IdReguladoPor" />
-                <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
                 <ScalarProperty Name="NroMarcoRegulatorio" ColumnName="NroMarcoRegulatorio" />
+                <ScalarProperty Name="IdPresentado" ColumnName="IdPresentado" />
+                <ScalarProperty Name="IdReguladoPor" ColumnName="IdReguladoPor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TecnicoBromatologico">
+            <EntityTypeMapping TypeName="DepositoModel.TecnicoBromatologico">
+              <MappingFragment StoreEntitySet="TecnicoBromatologico">
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="TecnicoId" ColumnName="TecnicoId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Verificacion">
             <EntityTypeMapping TypeName="DepositoModel.Verificacion">
               <MappingFragment StoreEntitySet="Verificacion">
-                <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdVerificacion" ColumnName="IdVerificacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

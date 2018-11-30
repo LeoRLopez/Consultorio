@@ -10,17 +10,18 @@ using DepositoDeAlimentos.Models;
 
 namespace DepositoDeAlimentos.Controllers
 {
-    public class ProductosController : Controller
+    public class ProductoController : Controller
     {
         private DepositoEntities db = new DepositoEntities();
 
-        // GET: Productos
+        // GET: Producto
         public ActionResult Index()
         {
-            return View(db.Producto.ToList());
+            var producto = db.Producto.Include(p => p.Marca);
+            return View(producto.ToList());
         }
 
-        // GET: Productos/Details/5
+        // GET: Producto/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +36,14 @@ namespace DepositoDeAlimentos.Controllers
             return View(producto);
         }
 
-        // GET: Productos/Create
+        // GET: Producto/Create
         public ActionResult Create()
         {
+            ViewBag.IdMarca = new SelectList(db.Marca, "IdMarca", "NombreMarca");
             return View();
         }
 
-        // POST: Productos/Create
+        // POST: Producto/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -55,10 +57,11 @@ namespace DepositoDeAlimentos.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.IdMarca = new SelectList(db.Marca, "IdMarca", "NombreMarca", producto.IdMarca);
             return View(producto);
         }
 
-        // GET: Productos/Edit/5
+        // GET: Producto/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -70,10 +73,11 @@ namespace DepositoDeAlimentos.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.IdMarca = new SelectList(db.Marca, "IdMarca", "NombreMarca", producto.IdMarca);
             return View(producto);
         }
 
-        // POST: Productos/Edit/5
+        // POST: Producto/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -86,10 +90,11 @@ namespace DepositoDeAlimentos.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.IdMarca = new SelectList(db.Marca, "IdMarca", "NombreMarca", producto.IdMarca);
             return View(producto);
         }
 
-        // GET: Productos/Delete/5
+        // GET: Producto/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +109,7 @@ namespace DepositoDeAlimentos.Controllers
             return View(producto);
         }
 
-        // POST: Productos/Delete/5
+        // POST: Producto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -1,0 +1,34 @@
+﻿@model DepositoDeAlimentos.Models.Presentado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Presentado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Envase.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Envase.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.RNE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.RNE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPresentado }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

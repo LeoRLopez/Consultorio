@@ -41,6 +41,7 @@
     <Property Name="Año" Type="int" />
     <Property Name="Semana" Type="date" />
     <Property Name="OberservacionesGenerales" Type="varchar" MaxLength="150" />
+    <Property Name="IdTecnicoBromatologico" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Incluye">
     <Key>
@@ -71,6 +72,13 @@
     <Property Name="FechaRetiro" Type="date" />
     <Property Name="CantidadAlmacenada" Type="int" />
     <Property Name="IdPresentado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="IdMarca" />
+    </Key>
+    <Property Name="IdMarca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreMarca" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="MarcoRegulatorio">
     <Key>
@@ -110,6 +118,14 @@
     <Property Name="IdPresentado" Type="int" Nullable="false" />
     <Property Name="NroMarcoRegulatorio" Type="varchar" MaxLength="1" Nullable="false" />
   </EntityType>
+  <EntityType Name="TecnicoBromatologico">
+    <Key>
+      <PropertyRef Name="TecnicoId" />
+    </Key>
+    <Property Name="TecnicoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreCompleto" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DNI" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Verificacion">
     <Key>
       <PropertyRef Name="IdVerificacion" />
@@ -117,30 +133,6 @@
     <Property Name="IdVerificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="150" />
   </EntityType>
-  <Association Name="FK__Clasifica__IdCat__3B75D760">
-    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
-    <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Categoria">
-        <PropertyRef Name="IdCategoria" />
-      </Principal>
-      <Dependent Role="ClasificaEn">
-        <PropertyRef Name="IdCategoria" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Clasifica__IdPro__3A81B327">
-    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-    <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="IdProducto" />
-      </Principal>
-      <Dependent Role="ClasificaEn">
-        <PropertyRef Name="IdProducto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__FichaInve__Codig__36B12243">
     <End Role="EstadoLote" Type="Self.EstadoLote" Multiplicity="1" />
     <End Role="FichaInventario" Type="Self.FichaInventario" Multiplicity="*" />
@@ -225,30 +217,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Presentad__IdEnv__2C3393D0">
-    <End Role="Envase" Type="Self.Envase" Multiplicity="1" />
-    <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Envase">
-        <PropertyRef Name="IdEnvase" />
-      </Principal>
-      <Dependent Role="Presentado">
-        <PropertyRef Name="IdEnvase" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Presentad__IdPro__2B3F6F97">
-    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-    <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Producto">
-        <PropertyRef Name="IdProducto" />
-      </Principal>
-      <Dependent Role="Presentado">
-        <PropertyRef Name="IdProducto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__ReguladoP__IdPre__3E52440B">
     <End Role="Presentado" Type="Self.Presentado" Multiplicity="1" />
     <End Role="ReguladoPor" Type="Self.ReguladoPor" Multiplicity="*" />
@@ -273,6 +241,78 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ClasificaEn_Categoria">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="ClasificaEn">
+        <PropertyRef Name="IdCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClasificaEn_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="ClasificaEn" Type="Self.ClasificaEn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="ClasificaEn">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FichaInventario_TecnicoBromatologico">
+    <End Role="TecnicoBromatologico" Type="Self.TecnicoBromatologico" Multiplicity="1" />
+    <End Role="FichaInventario" Type="Self.FichaInventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TecnicoBromatologico">
+        <PropertyRef Name="TecnicoId" />
+      </Principal>
+      <Dependent Role="FichaInventario">
+        <PropertyRef Name="IdTecnicoBromatologico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Presentado_Envase">
+    <End Role="Envase" Type="Self.Envase" Multiplicity="1" />
+    <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Envase">
+        <PropertyRef Name="IdEnvase" />
+      </Principal>
+      <Dependent Role="Presentado">
+        <PropertyRef Name="IdEnvase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Presentado_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Presentado" Type="Self.Presentado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Presentado">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Marca">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="IdMarca" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IdMarca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="DepositoModelStoreContainer">
     <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClasificaEn" EntityType="Self.ClasificaEn" Schema="dbo" store:Type="Tables" />
@@ -282,19 +322,13 @@
     <EntitySet Name="Incluye" EntityType="Self.Incluye" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ListaVerificacion" EntityType="Self.ListaVerificacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lote" EntityType="Self.Lote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MarcoRegulatorio" EntityType="Self.MarcoRegulatorio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Presentado" EntityType="Self.Presentado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ReguladoPor" EntityType="Self.ReguladoPor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TecnicoBromatologico" EntityType="Self.TecnicoBromatologico" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Verificacion" EntityType="Self.Verificacion" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Clasifica__IdCat__3B75D760" Association="Self.FK__Clasifica__IdCat__3B75D760">
-      <End Role="Categoria" EntitySet="Categoria" />
-      <End Role="ClasificaEn" EntitySet="ClasificaEn" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Clasifica__IdPro__3A81B327" Association="Self.FK__Clasifica__IdPro__3A81B327">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="ClasificaEn" EntitySet="ClasificaEn" />
-    </AssociationSet>
     <AssociationSet Name="FK__FichaInve__Codig__36B12243" Association="Self.FK__FichaInve__Codig__36B12243">
       <End Role="EstadoLote" EntitySet="EstadoLote" />
       <End Role="FichaInventario" EntitySet="FichaInventario" />
@@ -323,14 +357,6 @@
       <End Role="Presentado" EntitySet="Presentado" />
       <End Role="Lote" EntitySet="Lote" />
     </AssociationSet>
-    <AssociationSet Name="FK__Presentad__IdEnv__2C3393D0" Association="Self.FK__Presentad__IdEnv__2C3393D0">
-      <End Role="Envase" EntitySet="Envase" />
-      <End Role="Presentado" EntitySet="Presentado" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Presentad__IdPro__2B3F6F97" Association="Self.FK__Presentad__IdPro__2B3F6F97">
-      <End Role="Producto" EntitySet="Producto" />
-      <End Role="Presentado" EntitySet="Presentado" />
-    </AssociationSet>
     <AssociationSet Name="FK__ReguladoP__IdPre__3E52440B" Association="Self.FK__ReguladoP__IdPre__3E52440B">
       <End Role="Presentado" EntitySet="Presentado" />
       <End Role="ReguladoPor" EntitySet="ReguladoPor" />
@@ -338,6 +364,30 @@
     <AssociationSet Name="FK__ReguladoP__NroMa__3F466844" Association="Self.FK__ReguladoP__NroMa__3F466844">
       <End Role="MarcoRegulatorio" EntitySet="MarcoRegulatorio" />
       <End Role="ReguladoPor" EntitySet="ReguladoPor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClasificaEn_Categoria" Association="Self.FK_ClasificaEn_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="ClasificaEn" EntitySet="ClasificaEn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClasificaEn_Producto" Association="Self.FK_ClasificaEn_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="ClasificaEn" EntitySet="ClasificaEn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FichaInventario_TecnicoBromatologico" Association="Self.FK_FichaInventario_TecnicoBromatologico">
+      <End Role="TecnicoBromatologico" EntitySet="TecnicoBromatologico" />
+      <End Role="FichaInventario" EntitySet="FichaInventario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Presentado_Envase" Association="Self.FK_Presentado_Envase">
+      <End Role="Envase" EntitySet="Envase" />
+      <End Role="Presentado" EntitySet="Presentado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Presentado_Producto" Association="Self.FK_Presentado_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Presentado" EntitySet="Presentado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Marca" Association="Self.FK_Producto_Marca">
+      <End Role="Marca" EntitySet="Marca" />
+      <End Role="Producto" EntitySet="Producto" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

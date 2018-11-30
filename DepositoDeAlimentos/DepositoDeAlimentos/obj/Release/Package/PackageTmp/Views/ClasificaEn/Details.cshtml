@@ -1,0 +1,34 @@
+﻿@model DepositoDeAlimentos.Models.ClasificaEn
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClasificaEn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.NombreCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.NombreCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto.RNE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto.RNE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdClasificaEn }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

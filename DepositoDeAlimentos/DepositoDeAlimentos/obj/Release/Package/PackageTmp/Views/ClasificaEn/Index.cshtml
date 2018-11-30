@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DepositoDeAlimentos.Models.ClasificaEn>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.NombreCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.RNE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.NombreCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto.RNE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdClasificaEn }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdClasificaEn }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdClasificaEn })
+        </td>
+    </tr>
+}
+
+</table>

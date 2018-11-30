@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DepositoDeAlimentos.Models.Presentado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Envase.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.RNE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Envase.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto.RNE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdPresentado }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdPresentado }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdPresentado })
+        </td>
+    </tr>
+}
+
+</table>
